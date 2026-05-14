@@ -1,0 +1,6 @@
+{
+  "name": "privacy-computing",
+  "version": "1.0.0",
+  "description": "Privacy computing rules: homomorphic encryption and secure multi-party computation",
+  "skills": "./skills/"
+}

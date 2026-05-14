@@ -1,0 +1,33 @@
+{
+  "name": "awesome-rules-skills",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test scripts/__tests__/"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": "liaosw97",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liaosw97/awesome-rules-skills.git"
+  },
+  "homepage": "https://github.com/liaosw97/awesome-rules-skills#readme",
+  "bugs": {
+    "url": "https://github.com/liaosw97/awesome-rules-skills/issues"
+  },
+  "keywords": [
+    "claude-code",
+    "cursor-rules",
+    "coding-rules",
+    "ai-coding",
+    "plugin-marketplace",
+    "cursorrules",
+    "frontend",
+    "backend",
+    "devops"
+  ],
+  "description": "132+ curated coding rules for Claude Code — 66 plugins covering 32+ tech domains"
+}

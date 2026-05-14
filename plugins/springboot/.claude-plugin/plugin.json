@@ -1,0 +1,6 @@
+{
+  "name": "springboot",
+  "version": "1.0.0",
+  "description": "Spring Boot development rules: JPA, REST APIs and microservices",
+  "skills": "./skills/"
+}

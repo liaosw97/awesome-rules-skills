@@ -1,0 +1,46 @@
+---
+name: kubernetes-mkdocs-documentation-en
+description: Use when working with Kubernetes — development rules
+---
+
+## 核心原则
+- 技术准确性：所有 Kubernetes 和云原生概念描述必须准确无误
+- 读者导向：从用户角度组织内容，降低学习曲线
+- 实用优先：提供可执行的代码示例和配置片段
+- 版本明确：标注适用的 Kubernetes 版本和 API 组
+- 可维护性：模块化组织内容，便于更新和扩展
+
+## 技术栈
+- **文档引擎**：MkDocs、Material for MkDocs
+- **云原生技术**：Kubernetes、Docker、Helm、Istio
+- **版本控制**：Git、GitHub Pages、Netlify
+- **内容增强**：mermaid（图表）、mkdocs-mermaid2-plugin
+- **搜索功能**：mkdocs-material 内置搜索、Algolia
+
+## 最佳实践
+1. **文档结构**：
+   - 清晰的目录层级（建议不超过 3 层）
+   - 每个页面有明确的标题和概述
+   - 相关内容使用内部链接关联
+2. **内容编写**：
+   - 使用主动语态和简洁句式
+   - 代码示例附带详细注释
+   - 复杂概念配图说明
+3. **格式规范**：
+   - 使用 Markdown 标准语法
+   - 代码块指定语言高亮
+   - 表格用于对比和参数说明
+4. **版本管理**：
+   - 文档版本与软件版本同步
+   - 废弃内容标注警告信息
+   - 维护多版本文档站点
+
+## 关键约定
+1. **文件命名**：使用小写字母和连字符，如 `getting-started.md`
+2. **目录结构**：
+   - `docs/` - 文档内容
+   - `docs/assets/` - 图片和资源
+   - `mkdocs.yml` - 配置文件
+3. **元数据规范**：每个页面包含 title、description、tags
+4. **代码示例**：提供完整的 YAML 配置，标注 `apiVersion`
+5. **外部链接**：添加 target="_blank" 和 rel="noopener"

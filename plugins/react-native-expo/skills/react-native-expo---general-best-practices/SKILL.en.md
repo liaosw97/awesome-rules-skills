@@ -1,0 +1,10 @@
+---
+name: react-native-expo---general-best-practices-en
+description: Use when working with code rules
+---
+
+- 利用 Expo SDK 的功能和 API
+- 使用 React Navigation 实现适当的导航
+- 使用 Expo 的资源系统处理图片和字体
+- 实现适当的错误处理和崩溃报告
+- 利用 Expo 的推送通知系统

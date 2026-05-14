@@ -1,0 +1,200 @@
+---
+name: laravel-php-83
+description: Use when working with PHP — development rules
+---
+
+## 核心原则
+- 遵循 Laravel 约定和最佳实践
+- 使用 PHP 8.3+ 现代特性
+- 专注于提供卓越的开发者体验（DX）
+- 实现类型安全和完整的文档块
+- 保持代码简洁、可测试、可维护
+
+## 技术栈
+- **语言**：PHP 8.3+
+- **框架**：Laravel 10/11
+- **数据库**：MySQL / PostgreSQL
+- **缓存**：Redis
+- **队列**：Redis / Database
+- **测试**：PHPUnit / Pest
+
+## 最佳实践
+### PHP 8.3 特性
+
+```php
+<?php
+
+// 类型化类属性
+class User
+{
+    public string $name;
+    public int $age;
+    private ?string $email = null;
+}
+
+// 构造器属性提升
+class Service
+{
+    public function __construct(
+        private readonly UserRepository $users,
+        private readonly LoggerInterface $logger,
+    ) {}
+}
+
+// 命名参数
+$user = User::create(
+    name: 'John',
+    email: 'john@example.com',
+);
+
+// 枚举
+enum Status: string
+{
+    case Active = 'active';
+    case Inactive = 'inactive';
+    case Pending = 'pending';
+}
+
+// 只读属性
+class DTO
+{
+    public function __construct(
+        public readonly string $name,
+        public readonly int $count,
+    ) {}
+}
+
+// First-class 可调用语法
+$users = User::all();
+$active = array_filter($users, $this->isActive(...));
+```
+
+### Laravel 项目结构
+
+```
+app/
+├── Http/
+│   ├── Controllers/
+│   ├── Middleware/
+│   └── Requests/
+├── Models/
+├── Services/
+├── Repositories/
+├── DTOs/
+└── Enums/
+database/
+├── migrations/
+├── seeders/
+└── factories/
+routes/
+├── web.php
+└── api.php
+```
+
+### 命名约定
+
+| 类型 | 规范 | 示例 |
+|------|------|------|
+| 文件名 | kebab-case | `user-service.php` |
+| 类名 | PascalCase | `UserService` |
+| 方法名 | camelCase | `getUserById` |
+| 变量/属性 | snake_case | `$user_name` |
+| 常量 | SCREAMING_SNAKE_CASE | `MAX_ATTEMPTS` |
+
+## 关键约定
+1. **控制器规范**
+   ```php
+   <?php
+
+   namespace App\Http\Controllers;
+
+   use App\Http\Requests\StoreUserRequest;
+   use App\Http\Resources\UserResource;
+   use App\Models\User;
+
+   class UserController extends Controller
+   {
+       public function index()
+       {
+           return UserResource::collection(
+               User::query()->paginate()
+           );
+       }
+
+       public function store(StoreUserRequest $request): UserResource
+       {
+           $user = User::create($request->validated());
+           return new UserResource($user);
+       }
+   }
+   ```
+
+2. **请求验证**
+   ```php
+   <?php
+
+   class StoreUserRequest extends FormRequest
+   {
+       public function rules(): array
+       {
+           return [
+               'name' => ['required', 'string', 'max:255'],
+               'email' => ['required', 'email', 'unique:users'],
+               'password' => ['required', 'min:8', 'confirmed'],
+           ];
+       }
+   }
+   ```
+
+3. **API 资源**
+   ```php
+   <?php
+
+   class UserResource extends JsonResource
+   {
+       public function toArray(Request $request): array
+       {
+           return [
+               'id' => $this->id,
+               'name' => $this->name,
+               'email' => $this->email,
+               'created_at' => $this->created_at->toISOString(),
+           ];
+       }
+   }
+   ```
+
+4. **服务层模式**
+   ```php
+   <?php
+
+   class UserService
+   {
+       public function __construct(
+           private readonly UserRepository $repository,
+       ) {}
+
+       public function createUser(array $data): User
+       {
+           return DB::transaction(function () use ($data) {
+               $user = $this->repository->create($data);
+               // 其他业务逻辑...
+               return $user;
+           });
+       }
+   }
+   ```
+
+## 安全实践
+- 使用 Laravel 内置的 CSRF 保护
+- 验证所有用户输入
+- 使用参数化查询防止 SQL 注入
+- 使用 bcrypt/argon2 加密密码
+- 启用速率限制防止暴力破解
+
+## 性能优化
+- 使用 Eager Loading 避免 N+1 问题
+- 缓存频繁访问的数据
+- 使用队列处理耗时任务
+- 优化数据库查询和索引
+- 使用 Redis 缓存会话和队列

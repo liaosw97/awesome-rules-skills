@@ -1,0 +1,6 @@
+---
+name: github-code-quality-verify-information-rule
+description: 要求所有技术声明和主张必须有可靠来源或验证，禁止未经证实的猜测
+---
+
+

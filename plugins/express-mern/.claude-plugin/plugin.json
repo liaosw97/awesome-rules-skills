@@ -1,0 +1,6 @@
+{
+  "name": "express-mern",
+  "version": "1.0.0",
+  "description": "Express + MongoDB + React (MERN) full-stack development rules",
+  "skills": "./skills/"
+}

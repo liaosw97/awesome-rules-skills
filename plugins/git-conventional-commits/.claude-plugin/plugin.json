@@ -1,0 +1,6 @@
+{
+  "name": "git-conventional-commits",
+  "version": "1.0.0",
+  "description": "Git conventional commit rules: commit format and changelog",
+  "skills": "./skills/"
+}

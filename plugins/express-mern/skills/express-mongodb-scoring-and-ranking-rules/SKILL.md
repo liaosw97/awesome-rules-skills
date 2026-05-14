@@ -1,0 +1,11 @@
+---
+name: express-mongodb-scoring-and-ranking-rules
+description: 指定如何对选择进行评分、条目如何晋级或被淘汰，以及如何对条目进行排名。
+paths:
+  - "*/scoring-ranking/**/*.*"
+---
+
+- 游戏完成后对选择进行评分。
+- 获胜：条目进入下一周。
+- 失败：条目从池中被淘汰。
+- 每个条目在池排名中单独排名。

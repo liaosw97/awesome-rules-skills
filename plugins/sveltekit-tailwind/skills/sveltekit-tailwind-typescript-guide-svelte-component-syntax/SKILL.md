@@ -1,0 +1,11 @@
+---
+name: sveltekit-tailwind-typescript-guide-svelte-component-syntax
+description: Use when working with code rules
+---
+
+- 对 Svelte 组件使用 .svelte 扩展名
+  - 在 `<script>` 标签中使用 TypeScript 语法：
+    svelte
+    <script lang="ts">
+      // TypeScript 代码在这里
+    </script>

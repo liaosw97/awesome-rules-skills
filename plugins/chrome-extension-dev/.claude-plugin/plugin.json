@@ -1,0 +1,6 @@
+{
+  "name": "chrome-extension-dev",
+  "version": "1.0.0",
+  "description": "Chrome extension development rules: APIs, Manifest V3 and security",
+  "skills": "./skills/"
+}

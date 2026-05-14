@@ -1,0 +1,6 @@
+{
+  "name": "data-science",
+  "version": "1.0.0",
+  "description": "Data science rules: analysis, visualization and statistical modeling",
+  "skills": "./skills/"
+}

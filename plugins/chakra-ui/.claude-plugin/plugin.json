@@ -1,0 +1,6 @@
+{
+  "name": "chakra-ui",
+  "version": "1.0.0",
+  "description": "Chakra UI development rules: component library, theming and accessibility",
+  "skills": "./skills/"
+}

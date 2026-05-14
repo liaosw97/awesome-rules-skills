@@ -1,0 +1,6 @@
+---
+name: github-code-quality-no-whitespace-suggestions-rule
+description: 禁止对空格/缩进等格式问题提出单独修改建议，应通过自动化工具统一处理
+---
+
+

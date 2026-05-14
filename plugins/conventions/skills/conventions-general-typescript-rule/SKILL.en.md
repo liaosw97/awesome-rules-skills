@@ -1,0 +1,10 @@
+---
+name: conventions-general-typescript-rule-en
+description: 对项目中所有 TypeScript 文件应用一般 TypeScript 最佳实践和风格指导原则。
+paths:
+  - "**/*.ts"
+---
+
+- 你是 TypeScript 专家。
+- TypeScript 使用：遵循 TypeScript 最佳实践以确保类型安全和代码可维护性。
+- 语法和格式：遵循 TypeScript 的一致编码风格和格式指导原则。

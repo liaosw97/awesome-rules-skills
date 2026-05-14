@@ -1,0 +1,6 @@
+{
+  "name": "ci-cd",
+  "version": "1.0.0",
+  "description": "CI/CD pipeline rules: GitHub Actions, Jenkins and deployment strategies",
+  "skills": "./skills/"
+}

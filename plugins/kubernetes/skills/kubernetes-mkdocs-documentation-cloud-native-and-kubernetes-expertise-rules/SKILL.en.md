@@ -1,0 +1,13 @@
+---
+name: kubernetes-mkdocs-documentation-cloud-native-and-kubernetes-expertise-rules-en
+description: 云原生和Kubernetes专业知识文档规范，确保技术文档的准确性和实用性
+paths:
+  - "**/docs/kubernetes/*.md"
+---
+
+- **概念准确性**：精确描述Kubernetes核心概念(Pod/Service/Ingress等)
+- **版本控制**：明确标注适用的Kubernetes版本范围(如v1.20-v1.25)
+- **多云适配**：提供AWS/EKS、Azure/AKS、GCP/GKE等主流云服务的配置差异说明
+- **安全规范**：包含RBAC配置、网络策略、Pod安全标准等安全最佳实践
+- **排错指南**：提供常见错误代码排查方法和日志分析技巧
+- **性能优化**：包含资源配额、HPA配置、调度优化等性能调优建议

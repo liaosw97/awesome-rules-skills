@@ -1,0 +1,6 @@
+{
+  "name": "solidjs",
+  "version": "1.0.0",
+  "description": "SolidJS development rules: reactive primitives and fine-grained reactivity",
+  "skills": "./skills/"
+}

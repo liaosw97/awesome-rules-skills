@@ -1,0 +1,9 @@
+---
+name: nestjs-typescript-nestjs-shared-module-guidelines
+description: 为 NestJS 中的共享模块定义标准，强调跨模块可访问的工具和共享业务逻辑。
+paths:
+  - "src/shared/**/*.*"
+---
+
+- 工具
+- 共享业务逻辑

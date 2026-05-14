@@ -1,0 +1,11 @@
+---
+name: backend-scalability-protocol-buffer-definitions-rule
+description: 在项目中处理 Protocol Buffer 定义文件的规则。
+paths:
+  - "**/*.proto"
+---
+
+在处理 `.proto` 文件时：
+- 定义清晰简洁的消息和服务。
+- 使用正确的数据类型和命名约定。
+- 确保为 Go 代码生成正确设置 `go_package` 选项。

@@ -1,0 +1,151 @@
+---
+name: es-module-guide-en
+description: Use when working with Node.js — development rules
+---
+
+## 核心原则
+- 使用 ES Module 语法（import/export）
+- 遵循 DRY、模块化、性能优先原则
+- 使用现代 JavaScript 特性
+- 保持代码简洁、可维护
+- 在适当的地方建议重构和代码改进
+
+## 技术栈
+- **运行时**：Node.js 18+
+- **模块系统**：ES Modules (ESM)
+- **语言**：JavaScript / TypeScript
+- **包管理**：npm / pnpm / yarn
+- **测试**：Jest / Vitest
+
+## 最佳实践
+### ES Module 基础
+
+```javascript
+// 导入
+import { something } from './module.js';
+import defaultExport from './module.js';
+import * as namespace from './module.js';
+
+// 导出
+export const name = 'value';
+export function doSomething() {}
+export default class MyClass {}
+```
+
+### package.json 配置
+
+```json
+{
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  }
+}
+```
+
+### 文件命名约定
+
+```javascript
+// ES Module 文件必须使用 .js 或 .mjs 扩展名
+// 相对导入必须包含扩展名
+import { helper } from './utils/helper.js';
+```
+
+### 异步处理
+
+```javascript
+// 使用 async/await
+async function fetchData(url) {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('获取数据失败:', error);
+    throw error;
+  }
+}
+
+// 顶层 await (Node.js 14.8+)
+const config = await import('./config.js');
+```
+
+### 模块组织
+
+```javascript
+// index.js - 统一导出
+export { UserService } from './services/user.js';
+export { Product } from './models/product.js';
+export { validate } from './utils/validate.js';
+
+// 使用
+import { UserService, Product, validate } from 'my-package';
+```
+
+## 关键约定
+1. **代码风格**
+   - 使用 ES Module 语法
+   - 导入时包含文件扩展名（.js）
+   - 优先使用具名导出而非默认导出
+   - 使用现代 ES 特性（解构、展开、可选链等）
+
+2. **响应详细程度**
+   - V0：极简代码（默认）
+   - V1：简洁
+   - V2：简单
+   - V3：详细，通过提取函数实现 DRY
+
+3. **错误处理**
+   - 不为错误道歉：修复它们
+   - 如果无法完成代码，添加 TODO: 注释
+
+4. **注释规范**
+   - 在操作不明确的地方添加注释
+   - 代码以路径/文件名作为单行注释开始
+   - 注释应描述目的，而非效果
+
+## 项目结构
+```
+project/
+├── src/
+│   ├── index.js        # 入口文件
+│   ├── modules/        # 功能模块
+│   ├── utils/          # 工具函数
+│   └── config/         # 配置文件
+├── tests/
+├── package.json
+└── README.md
+```
+
+## CommonJS 兼容
+```javascript
+// 同时支持 ESM 和 CommonJS
+// package.json
+{
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  }
+}
+
+// 或使用 .cjs 扩展名混用
+import { cjsModule } from './legacy.cjs';
+```
+
+## 测试示例
+```javascript
+// Vitest 示例
+import { describe, it, expect } from 'vitest';
+import { add } from './math.js';
+
+describe('math', () => {
+  it('should add two numbers', () => {
+    expect(add(1, 2)).toBe(3);
+  });
+});
+```

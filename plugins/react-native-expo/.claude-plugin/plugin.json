@@ -1,0 +1,6 @@
+{
+  "name": "react-native-expo",
+  "version": "1.0.0",
+  "description": "React Native + Expo development rules: components, navigation and native APIs",
+  "skills": "./skills/"
+}

@@ -1,0 +1,50 @@
+---
+name: observability-en
+description: Use when working with coding — development rules
+---
+
+## 核心原则
+- 三位一体：Metrics、Logs、Tracing 缺一不可
+- 关联分析：建立跨信号关联关系，快速定位问题
+- SLO 驱动：以服务等级目标为导向配置监控
+- 成本可控：采用智能采样策略，平衡覆盖率和成本
+- 自助查询：提供易用的查询界面，降低使用门槛
+
+## 技术栈
+- **指标系统**：Prometheus、VictoriaMetrics、Thanos、Mimir
+- **日志系统**：Loki、Elasticsearch、FluentBit、Vector
+- **追踪系统**：OpenTelemetry、Jaeger、Tempo、Zipkin
+- **可视化平台**：Grafana、Kibana、Datadog、New Relic
+- **告警系统**：Alertmanager、PagerDuty、Opsgenie、Slack
+
+## 最佳实践
+1. **指标采集**：
+   - 遵循 RED 方法（Rate、Errors、Duration）
+   - 关键业务指标优先
+   - 避免高基数标签
+2. **日志管理**：
+   - 结构化日志格式（JSON）
+   - 保留原始上下文信息
+   - 合理设置日志级别
+3. **分布式追踪**：
+   - 关键链路 100% 追踪覆盖
+   - 使用上下文传播关联请求
+   - 配置合理的采样策略
+4. **告警设计**：
+   - 告警数量控制在合理范围（建议 < 5 条/服务）
+   - 提供清晰的诊断信息
+   - 关联相关的仪表板和 runbook
+
+## 关键约定
+1. **命名规范**：
+   - 指标：`{namespace}_{subsystem}_{name}_{unit}`
+   - 日志字段：使用 snake_case
+   - Trace ID：统一使用 16 进制格式
+2. **标签/字段规范**：
+   - 必需字段：`service`、`environment`、`version`
+   - Trace ID 字段：`trace_id`、`span_id`
+3. **采样策略**：
+   - 错误请求 100% 采样
+   - 慢请求提高采样率
+   - 正常请求降低采样率
+4. **仪表板模板**：提供标准模板，便于快速搭建

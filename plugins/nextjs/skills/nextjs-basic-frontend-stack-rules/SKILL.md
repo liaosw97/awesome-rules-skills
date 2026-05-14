@@ -1,0 +1,15 @@
+---
+name: nextjs-basic-frontend-stack-rules
+description: 指定前端技术栈，包括 React、TypeScript、Shadcn/UI、Tailwind CSS 和 Lucide React，适用于所有前端文件
+paths:
+  - "frontend/**/*.*"
+---
+
+- **核心框架**：Next.js (基于 React)
+- **语言**：TypeScript
+- **UI 组件库**：shadcn/ui（基于 Radix UI 原语构建，提供可定制的UI组件）
+- **样式框架**：Tailwind CSS（实用优先的CSS框架，用于快速构建自定义设计）
+- **图标库**：Lucide React（一套美观且高度可定制的开源图标库）
+- **状态管理**：React Context API 和 useReducer Hook（用于应用级状态管理）
+- **数据获取**：React Query 或 SWR（用于优化数据获取、缓存和同步）
+- **表单管理**：React Hook Form 和 Zod（用于表单状态管理和数据验证）

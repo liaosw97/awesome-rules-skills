@@ -1,0 +1,6 @@
+{
+  "name": "ios-uikit",
+  "version": "1.0.0",
+  "description": "iOS UIKit development rules: view controllers, Auto Layout and Swift",
+  "skills": "./skills/"
+}

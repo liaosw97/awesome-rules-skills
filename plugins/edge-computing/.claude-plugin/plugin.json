@@ -1,0 +1,6 @@
+{
+  "name": "edge-computing",
+  "version": "1.0.0",
+  "description": "Edge computing rules: deployment, latency optimization and offline patterns",
+  "skills": "./skills/"
+}

@@ -1,0 +1,10 @@
+---
+name: convex-development---general
+description: 应用于 Convex 开发的通用规则，强调模式设计、验证器使用和系统字段的正确处理。
+paths:
+  - "**/convex/**/*.*"
+---
+
+- 在使用 Convex 时，优先使用 `v` 验证器来正确定义模式。
+- 注意自动生成的系统字段 `_id` 和 `_creationTime`。
+- 有关可用类型，请参阅 https://docs.convex.dev/database/types。

@@ -1,0 +1,10 @@
+---
+name: chrome-extension-dev-js-typescript-ui-and-styling-rules-en
+description: 创建用户界面和应用一致样式的规则。
+paths:
+  - "**/popup.html, **/options.html, **/*.css"
+---
+
+- 为弹出页面和选项页面创建响应式设计
+- 使用 CSS Grid 或 Flexbox 布局
+- 所有扩展 UI 元素保持一致的样式

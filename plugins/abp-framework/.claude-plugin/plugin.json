@@ -1,0 +1,6 @@
+{
+  "name": "abp-framework",
+  "version": "1.0.0",
+  "description": "ABP Framework development rules: modules, multi-tenancy and DDD",
+  "skills": "./skills/"
+}

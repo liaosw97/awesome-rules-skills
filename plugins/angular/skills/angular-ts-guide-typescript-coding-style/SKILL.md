@@ -1,0 +1,12 @@
+---
+name: angular-ts-guide-typescript-coding-style
+description: 强制执行 TypeScript 文件的代码风格和最佳实践。
+paths:
+  - "**/*.ts"
+---
+
+- 代码应遵守 `.eslintrc.json`、`.prettierrc` 和 `.editorconfig` 文件中定义的规则。
+- 每行字符数不应超过 80 个。
+- 优先使用 `libs/smart-ngrx/src/common/for-next.function.ts` 中的 `forNext` 函数，而不是 `for(let i;i < length;i++)`、`forEach` 或 `for(x of y)`。
+- 函数和方法的参数不应超过 4 个。
+- 函数的执行行数不应超过 50 行。

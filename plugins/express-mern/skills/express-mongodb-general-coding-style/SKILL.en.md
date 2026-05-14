@@ -1,0 +1,9 @@
+---
+name: express-mongodb-general-coding-style-en
+description: 确保遵循 RESTful API 最佳实践的安全、高效代码，具有错误处理和输入验证。
+paths:
+  - "**/*.*"
+---
+
+- 确保遵循 RESTful API 最佳实践的安全、高效代码。
+- 实现适当的错误处理和输入验证。

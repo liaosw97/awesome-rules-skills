@@ -1,0 +1,151 @@
+---
+name: code-guidelines-comprehensive
+description: Use when working with coding — development rules
+---
+
+## 核心原则
+### 信息验证
+
+- 在呈现信息之前，务必核实信息
+- 不要在没有明确证据的情况下做出假设或推测
+- 始终提供指向真实文件的链接
+
+### 代码修改
+
+- 逐个文件进行更改
+- 不要删除不相关的代码或功能
+- 保留现有结构
+- 将所有编辑内容放在一个代码块中提供
+- 当没有实际需要修改时，不要建议更新或更改文件
+
+### 沟通规范
+
+- 不要使用道歉
+- 不要总结所做的更改
+- 除了明确要求的内容外，不要虚构其他更改
+- 不要请求确认上下文中已提供的信息
+
+## 技术栈
+- **代码格式化**：Prettier, Black, gofmt
+- **代码检查**：ESLint, Pylint, Flake8, SonarQube
+- **类型检查**：TypeScript, mypy, pyright
+- **版本控制**：Git, Git Hooks, Husky
+
+## 最佳实践
+### 1. 代码质量
+
+```typescript
+// 使用描述性变量名
+// 不佳
+const d = new Date();
+const x = users.filter(u => u.a);
+
+// 推荐
+const currentDate = new Date();
+const activeUsers = users.filter(user => user.isActive);
+```
+
+### 2. 命名常量
+
+```typescript
+// 不佳
+if (status === 1) { ... }
+
+// 推荐
+const STATUS_ACTIVE = 1;
+if (status === STATUS_ACTIVE) { ... }
+```
+
+### 3. 错误处理
+
+```typescript
+// 实现稳健的错误处理
+async function fetchData(id: string) {
+  try {
+    const response = await api.get(`/data/${id}`);
+    return { success: true, data: response.data };
+  } catch (error) {
+    logger.error('Failed to fetch data', { id, error });
+    return { success: false, error: error.message };
+  }
+}
+```
+
+### 4. 函数设计
+
+```typescript
+// 单一职责原则
+// 不佳
+function processUser(user) {
+  // 验证、保存、发邮件混合在一起
+}
+
+// 推荐：拆分职责
+function validateUser(user) { /* ... */ }
+function saveUser(user) { /* ... */ }
+function sendWelcomeEmail(user) { /* ... */ }
+```
+
+### 5. 代码组织
+
+```
+src/
+├── components/     # UI 组件
+├── hooks/          # 自定义 Hooks
+├── services/       # 业务服务
+├── utils/          # 工具函数
+├── types/          # 类型定义
+└── constants/      # 常量定义
+```
+
+## 关键约定
+### 命名规范
+
+| 类型 | 风格 | 示例 |
+|------|------|------|
+| 变量 | camelCase | `userName`, `isActive` |
+| 常量 | UPPER_SNAKE_CASE | `MAX_RETRY_COUNT` |
+| 函数 | camelCase | `getUserById`, `calculateTotal` |
+| 类 | PascalCase | `UserService`, `DataParser` |
+| 接口 | PascalCase | `IUser`, `IConfig` |
+| 文件名 | kebab-case | `user-service.ts` |
+
+### 代码质量清单
+
+1. 使用描述性、明确的变量名
+2. 遵守项目中现有的编码风格
+3. 考虑代码性能
+4. 始终考虑安全影响
+5. 包含适当的单元测试
+6. 实现稳健的错误处理和日志记录
+7. 鼓励模块化设计原则
+8. 确保版本兼容性
+9. 用命名常量替换硬编码的值
+10. 处理潜在的边界情况
+11. 包含断言以验证假设
+
+### 注释规范
+
+```typescript
+/**
+ * 计算用户订单总金额
+ * @param orders - 订单列表
+ * @param discount - 折扣比例（可选）
+ * @returns 订单总金额
+ */
+function calculateTotal(orders: Order[], discount?: number): number {
+  // 实现细节...
+}
+```
+
+## 测试
+- 单元测试覆盖核心逻辑
+- 集成测试验证模块交互
+- 端到端测试覆盖关键业务流程
+- 测试覆盖率目标：80% 以上
+
+## 文档
+- 为公共 API 编写文档
+- 使用 JSDoc、docstring 等标准格式
+- 保持文档与代码同步更新
+- 记录复杂的业务逻辑和设计决策

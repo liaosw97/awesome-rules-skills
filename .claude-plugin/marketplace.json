@@ -1,0 +1,946 @@
+{
+  "name": "awesome-rules-skills",
+  "owner": {
+    "name": "LessUp"
+  },
+  "metadata": {
+    "description": "132+ curated coding rules for Claude Code — 66 plugins covering frontend, backend, devops, AI, and 30+ domains"
+  },
+  "plugins": [
+    {
+      "name": "abp-framework",
+      "source": "./plugins/abp-framework",
+      "description": "ABP Framework development rules: modules, multi-tenancy and DDD",
+      "keywords": [
+        "abp-framework",
+        "backend",
+        "ABP"
+      ],
+      "category": "backend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "advanced-hardware",
+      "source": "./plugins/advanced-hardware",
+      "description": "Advanced hardware rules: FPGA, Verilog and hardware description",
+      "keywords": [
+        "advanced-hardware",
+        "cross-domain"
+      ],
+      "category": "cross-domain",
+      "version": "1.0.0"
+    },
+    {
+      "name": "ai-research",
+      "source": "./plugins/ai-research",
+      "description": "AI research rules: computer vision, federated learning and neural architectures",
+      "keywords": [
+        "ai-research",
+        "ai",
+        "AI"
+      ],
+      "category": "ai",
+      "version": "1.0.0"
+    },
+    {
+      "name": "android",
+      "source": "./plugins/android",
+      "description": "Android development rules: Jetpack Compose, MVVM and Kotlin coroutines",
+      "keywords": [
+        "android",
+        "mobile",
+        "Android"
+      ],
+      "category": "mobile",
+      "version": "1.0.0"
+    },
+    {
+      "name": "angular",
+      "source": "./plugins/angular",
+      "description": "Angular development rules: components, services, TypeScript and RxJS",
+      "keywords": [
+        "angular",
+        "angularjs",
+        "frontend",
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "frontend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "apollo-graphql",
+      "source": "./plugins/apollo-graphql",
+      "description": "Apollo GraphQL development rules: queries, mutations and caching",
+      "keywords": [
+        "apollo-graphql",
+        "frontend",
+        "React",
+        "Apollo",
+        "Client",
+        "DevTools",
+        "Provider",
+        "GraphQL",
+        "TypeScript"
+      ],
+      "category": "frontend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "automation-robotics",
+      "source": "./plugins/automation-robotics",
+      "description": "Automation & robotics rules: control systems, ROS and PLC programming",
+      "keywords": [
+        "automation-robotics",
+        "cross-domain"
+      ],
+      "category": "cross-domain",
+      "version": "1.0.0"
+    },
+    {
+      "name": "axios",
+      "source": "./plugins/axios",
+      "description": "Axios HTTP client rules: interceptors, error handling and best practices",
+      "keywords": [
+        "axios",
+        "frontend",
+        "TypeScript",
+        "Python"
+      ],
+      "category": "frontend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "backend-scalability",
+      "source": "./plugins/backend-scalability",
+      "description": "Backend scalability rules: caching, queues and distributed systems",
+      "keywords": [
+        "backend-scalability",
+        "backend",
+        "Go",
+        "RPC",
+        "Protocol"
+      ],
+      "category": "backend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "bio-tech",
+      "source": "./plugins/bio-tech",
+      "description": "Biotech & computational science rules: bioinformatics and molecular simulation",
+      "keywords": [
+        "bio-tech",
+        "cross-domain"
+      ],
+      "category": "cross-domain",
+      "version": "1.0.0"
+    },
+    {
+      "name": "chakra-ui",
+      "source": "./plugins/chakra-ui",
+      "description": "Chakra UI development rules: component library, theming and accessibility",
+      "keywords": [
+        "chakra-ui",
+        "frontend",
+        "React",
+        "Chakra",
+        "UI",
+        "HTML",
+        "TypeScript"
+      ],
+      "category": "frontend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "chaos-engineering",
+      "source": "./plugins/chaos-engineering",
+      "description": "Chaos engineering rules: fault injection, resilience testing and SRE",
+      "keywords": [
+        "chaos-engineering",
+        "devops"
+      ],
+      "category": "devops",
+      "version": "1.0.0"
+    },
+    {
+      "name": "chrome-extension-dev",
+      "source": "./plugins/chrome-extension-dev",
+      "description": "Chrome extension development rules: APIs, Manifest V3 and security",
+      "keywords": [
+        "chrome-extension-dev",
+        "frontend",
+        "TypeScript",
+        "Chrome",
+        "API",
+        "JavaScript"
+      ],
+      "category": "frontend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "ci-cd",
+      "source": "./plugins/ci-cd",
+      "description": "CI/CD pipeline rules: GitHub Actions, Jenkins and deployment strategies",
+      "keywords": [
+        "ci-cd",
+        "devops",
+        "CI"
+      ],
+      "category": "devops",
+      "version": "1.0.0"
+    },
+    {
+      "name": "code-guidelines",
+      "source": "./plugins/code-guidelines",
+      "description": "General code quality guidelines: clean code, SOLID and review practices",
+      "keywords": [
+        "code-guidelines",
+        "general"
+      ],
+      "category": "general",
+      "version": "1.0.0"
+    },
+    {
+      "name": "conventions",
+      "source": "./plugins/conventions",
+      "description": "Frontend coding conventions: naming, file structure and design patterns",
+      "keywords": [
+        "conventions",
+        "frontend",
+        "TypeScript",
+        "Expo",
+        "Next",
+        "App",
+        "Router",
+        "Node",
+        "Radix",
+        "UI",
+        "React",
+        "Shadcn",
+        "Tailwind",
+        "CSS",
+        "RPC",
+        "API"
+      ],
+      "category": "frontend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "cpp",
+      "source": "./plugins/cpp",
+      "description": "C/C++ development rules: memory management, templates and modern standards",
+      "keywords": [
+        "cpp",
+        "backend",
+        "C++"
+      ],
+      "category": "backend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "data-engineering",
+      "source": "./plugins/data-engineering",
+      "description": "Data engineering rules: ETL, data pipelines and warehouse design",
+      "keywords": [
+        "data-engineering",
+        "data"
+      ],
+      "category": "data",
+      "version": "1.0.0"
+    },
+    {
+      "name": "data-science",
+      "source": "./plugins/data-science",
+      "description": "Data science rules: analysis, visualization and statistical modeling",
+      "keywords": [
+        "data-science",
+        "data",
+        "Python"
+      ],
+      "category": "data",
+      "version": "1.0.0"
+    },
+    {
+      "name": "database",
+      "source": "./plugins/database",
+      "description": "Database rules: SQL optimization, indexing and multi-model storage",
+      "keywords": [
+        "database",
+        "data"
+      ],
+      "category": "data",
+      "version": "1.0.0"
+    },
+    {
+      "name": "dev-tools",
+      "source": "./plugins/dev-tools",
+      "description": "Developer tools rules: debugging, profiling and productivity utilities",
+      "keywords": [
+        "dev-tools",
+        "tools",
+        "TypeScript",
+        "Convex",
+        "Time",
+        "Git",
+        "AI"
+      ],
+      "category": "tools",
+      "version": "1.0.0"
+    },
+    {
+      "name": "dev-workflow",
+      "source": "./plugins/dev-workflow",
+      "description": "Development workflow rules: git conventions, PR templates and pair programming",
+      "keywords": [
+        "dev-workflow",
+        "general"
+      ],
+      "category": "general",
+      "version": "1.0.0"
+    },
+    {
+      "name": "devops-service-mesh",
+      "source": "./plugins/devops-service-mesh",
+      "description": "Service mesh rules: Istio, Envoy and traffic management",
+      "keywords": [
+        "devops-service-mesh",
+        "devops"
+      ],
+      "category": "devops",
+      "version": "1.0.0"
+    },
+    {
+      "name": "django",
+      "source": "./plugins/django",
+      "description": "Django development rules: models, views, templates and REST framework",
+      "keywords": [
+        "django",
+        "django-rest",
+        "backend",
+        "Python",
+        "Django",
+        "ORM",
+        "REST",
+        "Framework",
+        "JSON",
+        "HTML",
+        "URL",
+        "RESTful"
+      ],
+      "category": "backend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "docker",
+      "source": "./plugins/docker",
+      "description": "Docker containerization rules: Dockerfile best practices and multi-stage builds",
+      "keywords": [
+        "docker",
+        "dockerfile",
+        "containerization",
+        "devops",
+        "Docker",
+        "Python"
+      ],
+      "category": "devops",
+      "version": "1.0.0"
+    },
+    {
+      "name": "drupal",
+      "source": "./plugins/drupal",
+      "description": "Drupal development rules: modules, themes and CMS best practices",
+      "keywords": [
+        "drupal",
+        "cms",
+        "Drupal"
+      ],
+      "category": "cms",
+      "version": "1.0.0"
+    },
+    {
+      "name": "edge-computing",
+      "source": "./plugins/edge-computing",
+      "description": "Edge computing rules: deployment, latency optimization and offline patterns",
+      "keywords": [
+        "edge-computing",
+        "cross-domain",
+        "AI"
+      ],
+      "category": "cross-domain",
+      "version": "1.0.0"
+    },
+    {
+      "name": "elixir",
+      "source": "./plugins/elixir",
+      "description": "Elixir/Phoenix development rules: functional programming and concurrency",
+      "keywords": [
+        "elixir",
+        "backend",
+        "Elixir",
+        "Phoenix"
+      ],
+      "category": "backend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "es-module",
+      "source": "./plugins/es-module",
+      "description": "ES Module development rules: imports, exports and module patterns",
+      "keywords": [
+        "es-module",
+        "backend",
+        "Node"
+      ],
+      "category": "backend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "express-mern",
+      "source": "./plugins/express-mern",
+      "description": "Express + MongoDB + React (MERN) full-stack development rules",
+      "keywords": [
+        "express-mern",
+        "backend",
+        "Express",
+        "React",
+        "RESTful",
+        "API",
+        "Node",
+        "MongoDB",
+        "Mongoose"
+      ],
+      "category": "backend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "fastapi",
+      "source": "./plugins/fastapi",
+      "description": "FastAPI development rules: async endpoints, dependency injection and validation",
+      "keywords": [
+        "fastapi",
+        "fast-api",
+        "backend",
+        "Python",
+        "FastAPI",
+        "Pydantic",
+        "CORS",
+        "PEP"
+      ],
+      "category": "backend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "flask",
+      "source": "./plugins/flask",
+      "description": "Flask development rules: routing, blueprints and JSON APIs",
+      "keywords": [
+        "flask",
+        "backend",
+        "Flask"
+      ],
+      "category": "backend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "flutter",
+      "source": "./plugins/flutter",
+      "description": "Flutter development rules: widgets, state management and Dart best practices",
+      "keywords": [
+        "flutter",
+        "mobile",
+        "Flutter",
+        "BLoC",
+        "UI"
+      ],
+      "category": "mobile",
+      "version": "1.0.0"
+    },
+    {
+      "name": "git-conventional-commits",
+      "source": "./plugins/git-conventional-commits",
+      "description": "Git conventional commit rules: commit format and changelog",
+      "keywords": [
+        "git-conventional-commits",
+        "backend",
+        "Conventional",
+        "Git"
+      ],
+      "category": "backend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "github-code-quality",
+      "source": "./plugins/github-code-quality",
+      "description": "GitHub code quality rules: branch protection, reviews and automation",
+      "keywords": [
+        "github-code-quality",
+        "devops",
+        "Git"
+      ],
+      "category": "devops",
+      "version": "1.0.0"
+    },
+    {
+      "name": "go",
+      "source": "./plugins/go",
+      "description": "Go development rules: concurrency patterns, error handling and project structure",
+      "keywords": [
+        "go",
+        "backend",
+        "Go",
+        "API"
+      ],
+      "category": "backend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "infrastructure",
+      "source": "./plugins/infrastructure",
+      "description": "Infrastructure rules: cloud services, networking and system administration",
+      "keywords": [
+        "infrastructure",
+        "cross-domain"
+      ],
+      "category": "cross-domain",
+      "version": "1.0.0"
+    },
+    {
+      "name": "interactive-media",
+      "source": "./plugins/interactive-media",
+      "description": "Interactive media rules: AR/VR, game development and 3D graphics",
+      "keywords": [
+        "interactive-media",
+        "cross-domain",
+        "Ruby",
+        "DragonRuby"
+      ],
+      "category": "cross-domain",
+      "version": "1.0.0"
+    },
+    {
+      "name": "ios-uikit",
+      "source": "./plugins/ios-uikit",
+      "description": "iOS UIKit development rules: view controllers, Auto Layout and Swift",
+      "keywords": [
+        "ios-uikit",
+        "mobile",
+        "UIKit"
+      ],
+      "category": "mobile",
+      "version": "1.0.0"
+    },
+    {
+      "name": "iot",
+      "source": "./plugins/iot",
+      "description": "IoT development rules: device protocols, edge computing and data pipelines",
+      "keywords": [
+        "iot",
+        "internet-of-things",
+        "cross-domain"
+      ],
+      "category": "cross-domain",
+      "version": "1.0.0"
+    },
+    {
+      "name": "java",
+      "source": "./plugins/java",
+      "description": "Java development rules: design patterns, streams and modern Java features",
+      "keywords": [
+        "java",
+        "backend",
+        "Java",
+        "Spring",
+        "JPA"
+      ],
+      "category": "backend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "kubernetes",
+      "source": "./plugins/kubernetes",
+      "description": "Kubernetes rules: deployments, services, configmaps and Helm charts",
+      "keywords": [
+        "kubernetes",
+        "k8s",
+        "devops",
+        "Kubernetes"
+      ],
+      "category": "devops",
+      "version": "1.0.0"
+    },
+    {
+      "name": "laravel",
+      "source": "./plugins/laravel",
+      "description": "Laravel development rules: Eloquent, middleware and artisan commands",
+      "keywords": [
+        "laravel",
+        "backend",
+        "Laravel",
+        "README",
+        "PHP"
+      ],
+      "category": "backend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "micro-frontend",
+      "source": "./plugins/micro-frontend",
+      "description": "Micro-frontend architecture rules: module federation and composition",
+      "keywords": [
+        "micro-frontend",
+        "frontend"
+      ],
+      "category": "frontend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "mlops",
+      "source": "./plugins/mlops",
+      "description": "MLOps rules: model training, deployment, monitoring and ML pipelines",
+      "keywords": [
+        "mlops",
+        "ai",
+        "AI"
+      ],
+      "category": "ai",
+      "version": "1.0.0"
+    },
+    {
+      "name": "mobx",
+      "source": "./plugins/mobx",
+      "description": "MobX state management rules: observables, actions and reactions",
+      "keywords": [
+        "mobx",
+        "frontend",
+        "React",
+        "MobX",
+        "DevTools",
+        "Observer",
+        "HOC",
+        "Lite",
+        "TypeScript"
+      ],
+      "category": "frontend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "nestjs",
+      "source": "./plugins/nestjs",
+      "description": "NestJS development rules: modules, decorators and dependency injection",
+      "keywords": [
+        "nestjs",
+        "backend",
+        "TypeScript",
+        "NestJS",
+        "DTO",
+        "API",
+        "Jest"
+      ],
+      "category": "backend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "nextjs",
+      "source": "./plugins/nextjs",
+      "description": "Next.js development rules: App Router, SSR, SEO and full-stack React",
+      "keywords": [
+        "nextjs",
+        "next.js",
+        "frontend",
+        "React",
+        "Next",
+        "SEO",
+        "TypeScript",
+        "Tailwind",
+        "CSS",
+        "API",
+        "Routes",
+        "DRY",
+        "Shadcn",
+        "UI",
+        "Lucide",
+        "LLM",
+        "Python",
+        "Solidity",
+        "Node",
+        "JavaScript",
+        "Web",
+        "Vitals",
+        "JSX",
+        "ProjectDocs",
+        "Build",
+        "Notes",
+        "Taskfile",
+        "App",
+        "Router",
+        "RSC",
+        "SSR",
+        "Zustand",
+        "AI",
+        "Daisy",
+        "Pages"
+      ],
+      "category": "frontend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "observability",
+      "source": "./plugins/observability",
+      "description": "Observability rules: logging, metrics, tracing and Prometheus/Grafana",
+      "keywords": [
+        "observability",
+        "devops"
+      ],
+      "category": "devops",
+      "version": "1.0.0"
+    },
+    {
+      "name": "platform",
+      "source": "./plugins/platform",
+      "description": "Platform engineering rules: internal developer platforms and self-service tooling",
+      "keywords": [
+        "platform"
+      ],
+      "category": "platform",
+      "version": "1.0.0"
+    },
+    {
+      "name": "privacy-computing",
+      "source": "./plugins/privacy-computing",
+      "description": "Privacy computing rules: homomorphic encryption and secure multi-party computation",
+      "keywords": [
+        "privacy-computing",
+        "security"
+      ],
+      "category": "security",
+      "version": "1.0.0"
+    },
+    {
+      "name": "quantum-computing",
+      "source": "./plugins/quantum-computing",
+      "description": "Quantum computing rules: Qiskit, quantum algorithms and NISQ devices",
+      "keywords": [
+        "quantum-computing",
+        "cross-domain"
+      ],
+      "category": "cross-domain",
+      "version": "1.0.0"
+    },
+    {
+      "name": "react",
+      "source": "./plugins/react",
+      "description": "React development rules: components, hooks, TypeScript integration and styling",
+      "keywords": [
+        "react",
+        "reactjs",
+        "react-hooks",
+        "frontend",
+        "React",
+        "SPA",
+        "AI",
+        "TypeScript",
+        "PHP",
+        "Symfony",
+        "Docker",
+        "Styled",
+        "Components",
+        "CSS",
+        "JS"
+      ],
+      "category": "frontend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "react-native-expo",
+      "source": "./plugins/react-native-expo",
+      "description": "React Native + Expo development rules: components, navigation and native APIs",
+      "keywords": [
+        "react-native-expo",
+        "mobile",
+        "React"
+      ],
+      "category": "mobile",
+      "version": "1.0.0"
+    },
+    {
+      "name": "serverless",
+      "source": "./plugins/serverless",
+      "description": "Serverless development rules: AWS Lambda, functions and event-driven architecture",
+      "keywords": [
+        "serverless",
+        "devops"
+      ],
+      "category": "devops",
+      "version": "1.0.0"
+    },
+    {
+      "name": "solidity",
+      "source": "./plugins/solidity",
+      "description": "Solidity development rules: smart contracts, security audits and Foundry",
+      "keywords": [
+        "solidity",
+        "smart-contracts",
+        "blockchain",
+        "Solidity"
+      ],
+      "category": "blockchain",
+      "version": "1.0.0"
+    },
+    {
+      "name": "solidjs",
+      "source": "./plugins/solidjs",
+      "description": "SolidJS development rules: reactive primitives and fine-grained reactivity",
+      "keywords": [
+        "solidjs",
+        "frontend",
+        "SolidJS",
+        "JSX"
+      ],
+      "category": "frontend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "springboot",
+      "source": "./plugins/springboot",
+      "description": "Spring Boot development rules: JPA, REST APIs and microservices",
+      "keywords": [
+        "springboot",
+        "spring-boot",
+        "backend",
+        "Kotlin",
+        "Java",
+        "ApiResponse",
+        "DTO",
+        "ID",
+        "SOLID",
+        "DRY",
+        "KISS",
+        "YAGNI",
+        "OWASP",
+        "GlobalExceptionHandler",
+        "Repository",
+        "JpaRepository",
+        "JPQL",
+        "EntityGraph",
+        "N+",
+        "RestController",
+        "API",
+        "HTTP"
+      ],
+      "category": "backend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "sveltekit-tailwind",
+      "source": "./plugins/sveltekit-tailwind",
+      "description": "SvelteKit + Tailwind CSS development rules",
+      "keywords": [
+        "sveltekit-tailwind",
+        "frontend"
+      ],
+      "category": "frontend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "swiftui",
+      "source": "./plugins/swiftui",
+      "description": "SwiftUI development rules: views, state and declarative UI",
+      "keywords": [
+        "swiftui",
+        "mobile",
+        "Swift"
+      ],
+      "category": "mobile",
+      "version": "1.0.0"
+    },
+    {
+      "name": "terraform",
+      "source": "./plugins/terraform",
+      "description": "Terraform IaC rules: modules, state management and cloud provisioning",
+      "keywords": [
+        "terraform",
+        "iac",
+        "devops"
+      ],
+      "category": "devops",
+      "version": "1.0.0"
+    },
+    {
+      "name": "testing",
+      "source": "./plugins/testing",
+      "description": "Testing rules: unit tests, integration tests, TDD and BDD strategies",
+      "keywords": [
+        "testing",
+        "general",
+        "Gherkin"
+      ],
+      "category": "general",
+      "version": "1.0.0"
+    },
+    {
+      "name": "vite-tailwind",
+      "source": "./plugins/vite-tailwind",
+      "description": "Vite + Tailwind CSS development rules: build tooling and utility-first CSS",
+      "keywords": [
+        "vite-tailwind",
+        "frontend",
+        "Vue",
+        "TypeScript",
+        "Web",
+        "Vitals",
+        "Vite",
+        "API",
+        "UI",
+        "VueUse"
+      ],
+      "category": "frontend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "vue",
+      "source": "./plugins/vue",
+      "description": "Vue.js development rules: Composition API, Nuxt and Vuex/Pinia",
+      "keywords": [
+        "vue",
+        "vuejs",
+        "vue3",
+        "frontend",
+        "Vue",
+        "Composition",
+        "API",
+        "TypeScript",
+        "CSS",
+        "TailwindCSS",
+        "HTML",
+        "Tailwind",
+        "Nuxt"
+      ],
+      "category": "frontend",
+      "version": "1.0.0"
+    },
+    {
+      "name": "web3",
+      "source": "./plugins/web3",
+      "description": "Web3 development rules: DeFi, advanced protocols and blockchain integration",
+      "keywords": [
+        "web3",
+        "web3.js",
+        "blockchain",
+        "Web"
+      ],
+      "category": "blockchain",
+      "version": "1.0.0"
+    },
+    {
+      "name": "zero-trust-security",
+      "source": "./plugins/zero-trust-security",
+      "description": "Zero-trust security rules: authentication, authorization and threat modeling",
+      "keywords": [
+        "zero-trust-security",
+        "security"
+      ],
+      "category": "security",
+      "version": "1.0.0"
+    }
+  ]
+}

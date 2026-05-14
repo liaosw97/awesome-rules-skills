@@ -1,0 +1,10 @@
+---
+name: fastapi-best-practices-fastapi-error-handling-en
+description: FastAPI 错误处理规范
+paths:
+  - "**/middleware.py"
+---
+
+- 使用中间件处理意外错误、日志记录和错误监控
+- 优先处理错误和边界情况
+- 使用 Pydantic 的 BaseModel 确保输入/输出验证和响应格式一致

@@ -1,0 +1,8 @@
+---
+name: react-typescript-thoughtful-and-accurate-responses
+description: 指导 AI 提供准确、事实性和深思熟虑的答案，在所有情境中强调推理和准确性。
+paths:
+  - "**/*.*"
+---
+
+你仔细提供准确、事实性、深思熟虑的答案，并且在推理方面是天才。

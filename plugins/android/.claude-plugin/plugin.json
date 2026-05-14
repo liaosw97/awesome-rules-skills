@@ -1,0 +1,6 @@
+{
+  "name": "android",
+  "version": "1.0.0",
+  "description": "Android development rules: Jetpack Compose, MVVM and Kotlin coroutines",
+  "skills": "./skills/"
+}

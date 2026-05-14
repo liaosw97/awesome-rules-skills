@@ -1,0 +1,10 @@
+---
+name: chrome-extension-dev-js-typescript-browser-api-usage-rules-en
+description: 有效使用 Chrome 浏览器 API 的规则，包括错误处理和任务调度。
+paths:
+  - "**/*.{js,ts}"
+---
+
+- 有效利用 chrome.* API（如 chrome.tabs、chrome.storage、chrome.runtime）
+- 对所有 API 调用实现适当的错误处理
+- 使用 chrome.alarms 替代 setInterval 进行任务调度

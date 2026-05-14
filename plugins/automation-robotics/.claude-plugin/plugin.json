@@ -1,0 +1,6 @@
+{
+  "name": "automation-robotics",
+  "version": "1.0.0",
+  "description": "Automation & robotics rules: control systems, ROS and PLC programming",
+  "skills": "./skills/"
+}

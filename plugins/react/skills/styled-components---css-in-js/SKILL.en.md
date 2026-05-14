@@ -1,0 +1,8 @@
+---
+name: styled-components---css-in-js-en
+description: 确保所有样式设计都使用 Styled Components 的 CSS-in-JS。
+paths:
+  - "src/**/*.js"
+---
+
+- 对所有样式需求使用 CSS-in-JS。

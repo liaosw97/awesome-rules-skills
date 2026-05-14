@@ -1,0 +1,148 @@
+---
+name: nestjs-typescript
+description: Use when working with TypeScript — development rules
+---
+
+## 核心原则
+- 遵循 SOLID 原则和模块化设计
+- 使用依赖注入管理服务依赖
+- 为每个主要域/路由创建独立模块
+- 使用 DTO 和 class-validator 验证输入
+- 实现清晰的关注点分离
+
+## 技术栈
+- **框架**：NestJS
+- **语言**：TypeScript
+- **ORM**：MikroORM / TypeORM
+- **验证**：class-validator
+- **测试**：Jest
+
+## 最佳实践
+### 模块化设计
+
+```typescript
+// 推荐的项目结构
+src/
+├── core/           # 核心模块
+│   ├── filters/    # 全局异常过滤器
+│   ├── middleware/ # 全局中间件
+│   ├── guards/     # 权限守卫
+│   └── interceptors/ # 拦截器
+├── modules/        # 业务模块
+│   └── feature/
+│       ├── controllers/
+│       ├── models/
+│       │   ├── dto/
+│       │   └── entities/
+│       └── services/
+├── shared/         # 共享模块
+│   ├── utils/
+│   └── services/
+└── main.ts
+```
+
+### 控制器示例
+
+```typescript
+@Controller('users')
+export class UserController {
+  constructor(private readonly userService: UserService) {}
+
+  @Get(':id')
+  async getUser(@Param('id') id: string): Promise<User> {
+    return this.userService.getUserById(id);
+  }
+
+  @Post()
+  async createUser(@Body() dto: CreateUserDto): Promise<User> {
+    return this.userService.create(dto);
+  }
+}
+```
+
+### 服务示例
+
+```typescript
+@Injectable()
+export class UserService {
+  constructor(
+    @InjectRepository(User)
+    private readonly userRepository: Repository<User>,
+  ) {}
+
+  async getUserById(id: string): Promise<User> {
+    const user = await this.userRepository.findOne({ where: { id } });
+    if (!user) {
+      throw new NotFoundException('用户不存在');
+    }
+    return user;
+  }
+}
+```
+
+### DTO 验证
+
+```typescript
+import { IsString, IsEmail, MinLength } from 'class-validator';
+
+export class CreateUserDto {
+  @IsString()
+  @MinLength(2)
+  name: string;
+
+  @IsEmail()
+  email: string;
+
+  @IsString()
+  @MinLength(8)
+  password: string;
+}
+```
+
+## 关键约定
+1. **命名规范**
+   - 类名：PascalCase
+   - 变量、函数、方法：camelCase
+   - 文件和目录：kebab-case
+   - 环境变量：UPPERCASE
+   - 布尔变量使用动词：isLoading, hasError, canDelete
+
+2. **TypeScript 规范**
+   - 始终声明类型（参数和返回值）
+   - 避免使用 any
+   - 为公共类和方法使用 JSDoc
+   - 每个文件一个导出
+   - 避免魔法数字，定义常量
+
+3. **模块组织**
+   - 每个主要域一个模块
+   - 一个控制器对应其路由
+   - 使用 DTO 验证输入
+   - 为输出声明简单类型
+   - 每个实体一个服务
+
+## 测试规范
+```typescript
+describe('UserService', () => {
+  let service: UserService;
+
+  beforeEach(async () => {
+    const module = await Test.createTestingModule({
+      providers: [UserService, UserRepository],
+    }).compile();
+
+    service = module.get(UserService);
+  });
+
+  it('should return user by id', async () => {
+    const user = await service.getUserById('1');
+    expect(user).toBeDefined();
+  });
+});
+```
+
+## 性能优化
+- 使用缓存拦截器
+- 实现数据库连接池
+- 使用批量操作减少数据库往返
+- 压缩响应数据

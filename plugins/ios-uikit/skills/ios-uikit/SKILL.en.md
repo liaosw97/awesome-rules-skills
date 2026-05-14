@@ -1,0 +1,112 @@
+---
+name: ios-uikit-en
+description: Use when working with UIKit — development rules
+---
+
+## 核心原则
+- **面向对象设计**：遵循 Cocoa/CocoaTouch 设计模式
+- **代码可维护性**：清晰的架构分层和职责分离
+- **平台一致性**：遵循 Apple Human Interface Guidelines
+- **性能优化**：关注 UI 流畅度和内存管理
+- **安全意识**：正确处理内存管理和线程安全
+
+## 技术栈
+- **语言**：Swift 5.9+
+- **UI 框架**：UIKit, Foundation
+- **自动布局**：SnapKit, Auto Layout
+- **响应式编程**：Combine, RxSwift
+- **架构**：MVVM, MVC, VIPER
+- **网络**：URLSession, Alamofire, Moya
+- **本地存储**：Core Data, Realm, SQLite
+
+## 最佳实践
+1. **编程式 UI**
+   - 避免使用 Storyboard 和 XIB
+   - 使用 SnapKit 简化自动布局代码
+   - 视图初始化和约束分离
+   - 支持 Dynamic Type 和尺寸适配
+
+2. **代码组织**
+   ```swift
+   class UserProfileViewController: UIViewController {
+       // MARK: - Properties
+       private let viewModel: UserProfileViewModel
+
+       // MARK: - Lifecycle
+       override func viewDidLoad() {
+           super.viewDidLoad()
+           setupUI()
+           bindViewModel()
+       }
+
+       // MARK: - Private Methods
+       private func setupUI() { }
+       private func bindViewModel() { }
+   }
+   ```
+
+3. **MVVM 架构**
+   - ViewController 负责视图生命周期和 UI 绑定
+   - ViewModel 负责业务逻辑和状态管理
+   - Model 负责数据结构定义
+   - 使用 @Published 或 ObservableObject 实现绑定
+
+4. **内存管理**
+   - 正确使用 weak/unowned 避免循环引用
+   - 合理使用 lazy 延迟初始化
+   - 及时释放不用的资源和观察者
+   - 使用 instruments 分析内存问题
+
+5. **性能优化**
+   - 复用 Cell 和视图组件
+   - 异步加载图片和资源
+   - 避免主线程阻塞
+   - 使用 CADisplayLink 保证动画流畅
+
+## 关键约定
+1. **命名约定**
+   - 类名：PascalCase (如 `UserProfileViewController`)
+   - 函数/方法：camelCase (如 `configureViews`)
+   - 变量/常量：camelCase (如 `titleLabel`)
+   - 枚举：PascalCase (如 `ViewState`)
+
+2. **项目结构**
+   ```
+   MyApp/
+   ├── App/
+   │   ├── AppDelegate.swift
+   │   ├── SceneDelegate.swift
+   │   └── Info.plist
+   ├── Models/
+   ├── ViewModels/
+   ├── Views/
+   │   └── Components/
+   ├── ViewControllers/
+   │   ├── Home/
+   │   └── Profile/
+   ├── Services/
+   │   ├── Network/
+   │   └── Persistence/
+   ├── Utilities/
+   │   └── Extensions/
+   └── Resources/
+       └── Assets.xcassets
+   ```
+
+3. **UI 组件工厂**
+   ```swift
+   struct UIComponentFactory {
+       static func makePrimaryButton(title: String) -> UIButton {
+           let button = UIButton(type: .system)
+           button.setTitle(title, for: .normal)
+           button.titleLabel?.font = .preferredFont(forTextStyle: .headline)
+           return button
+       }
+   }
+   ```
+
+4. **测试要求**
+   - 使用 XCTest 进行单元测试
+   - 测试 ViewModel 业务逻辑
+   - 使用快照测试验证 UI
+   - UI 测试使用 XCUITest

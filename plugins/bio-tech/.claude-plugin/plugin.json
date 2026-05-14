@@ -1,0 +1,6 @@
+{
+  "name": "bio-tech",
+  "version": "1.0.0",
+  "description": "Biotech & computational science rules: bioinformatics and molecular simulation",
+  "skills": "./skills/"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "dev-tools",
+  "version": "1.0.0",
+  "description": "Developer tools rules: debugging, profiling and productivity utilities",
+  "skills": "./skills/"
+}

@@ -1,0 +1,8 @@
+---
+name: sveltekit-tailwind-typescript-guide-performance-optimization-en
+description: Use when working with code rules
+---
+
+- 在可能的情况下懒加载组件和模块
+  - 使用 Svelte's transition API 实现平滑的 UI 动画
+  - 为 API 请求实现适当的缓存策略

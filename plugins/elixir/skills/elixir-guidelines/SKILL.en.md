@@ -1,0 +1,156 @@
+---
+name: elixir-guidelines-en
+description: Use when working with Elixir — development rules
+---
+
+## 核心原则
+- 编写代码前仔细考虑所有因素和需求
+- 使用函数式编程范式
+- 利用管道操作符组合函数
+- 使用模式匹配处理不同情况
+- 遵循 Elixir 编码规范
+
+## 技术栈
+- **语言**：Elixir
+- **框架**：Phoenix
+- **数据库**：PostgreSQL + Ecto
+- **实时**：Phoenix LiveView / Channels
+- **容器**：Docker
+- **前端**：Tailwind CSS
+- **测试**：ExUnit
+- **安全**：Sobelow
+- **代码质量**：Credo
+
+## 最佳实践
+### 项目结构
+
+```
+lib/
+├── my_app/              # 业务逻辑
+│   ├── accounts/        # 上下文模块
+│   │   ├── user.ex      # Schema
+│   │   └── accounts.ex  # 上下文 API
+│   └── application.ex
+├── my_app_web/          # Web 层
+│   ├── controllers/
+│   ├── live/
+│   ├── components/
+│   └── router.ex
+└── my_app_web.ex
+```
+
+### Ecto Schema
+
+```elixir
+defmodule MyApp.Accounts.User do
+  use Ecto.Schema
+  import Ecto.Changeset
+
+  schema "users" do
+    field :name, :string
+    field :email, :string
+    field :role, Ecto.Enum, values: [:admin, :user]
+
+    timestamps()
+  end
+
+  def changeset(user, attrs) do
+    user
+    |> cast(attrs, [:name, :email, :role])
+    |> validate_required([:name, :email])
+    |> validate_format(:email, ~r/@/)
+    |> unique_constraint(:email)
+  end
+end
+```
+
+### 上下文模块
+
+```elixir
+defmodule MyApp.Accounts do
+  import Ecto.Query, warn: false
+  alias MyApp.Repo
+  alias MyApp.Accounts.User
+
+  def list_users do
+    Repo.all(User)
+  end
+
+  def get_user!(id), do: Repo.get!(User, id)
+
+  def create_user(attrs \\ %{}) do
+    %User{}
+    |> User.changeset(attrs)
+    |> Repo.insert()
+  end
+end
+```
+
+### LiveView
+
+```elixir
+defmodule MyAppWeb.UserLive do
+  use MyAppWeb, :live_view
+
+  def mount(_params, _session, socket) do
+    {:ok, assign(socket, users: Accounts.list_users())}
+  end
+
+  def handle_event("delete_user", %{"id" => id}, socket) do
+    user = Accounts.get_user!(id)
+    {:ok, _} = Accounts.delete_user(user)
+    {:noreply, assign(socket, users: Accounts.list_users())}
+  end
+end
+```
+
+## 关键约定
+1. **提交消息规范**
+   ```
+   <类型>[可选范围]: <描述>
+
+   类型：fix, feat, build, chore, ci, docs, perf, refactor, style, test
+   描述：用现在时态简要总结更改
+   ```
+
+2. **管道操作符**
+   ```elixir
+   user
+   |> User.changeset(attrs)
+   |> Repo.insert()
+   ```
+
+3. **模式匹配**
+   ```elixir
+   def handle_event({:ok, user}, state) do
+     # 处理成功
+   end
+
+   def handle_event({:error, changeset}, state) do
+     # 处理错误
+   end
+   ```
+
+4. **代码质量工具**
+   - Sobelow：安全扫描
+   - Credo：代码质量检查
+   - ExCoveralls：测试覆盖率
+
+## 安全实践
+- 使用 Sobelow 进行安全审计
+- 验证所有用户输入
+- 使用 CSRF 保护
+- 防止 SQL 注入（使用 Ecto）
+
+## 测试规范
+```elixir
+defmodule MyApp.AccountsTest do
+  use MyApp.DataCase
+
+  test "create_user/1 with valid data creates a user" do
+    attrs = %{name: "John", email: "john@example.com"}
+    assert {:ok, user} = Accounts.create_user(attrs)
+    assert user.name == "John"
+  end
+end
+```

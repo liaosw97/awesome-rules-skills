@@ -1,0 +1,6 @@
+{
+  "name": "dev-workflow",
+  "version": "1.0.0",
+  "description": "Development workflow rules: git conventions, PR templates and pair programming",
+  "skills": "./skills/"
+}

@@ -1,0 +1,10 @@
+---
+name: axios-general-python-rules
+description: 为 service-1 目录中的 Python 开发定义一般规则，专注于依赖管理、Python 版本和代码结构。
+paths:
+  - "/service-1/**/*.*"
+---
+
+- 安装依赖项时始终使用 UV
+- 始终使用 python 3.12
+- 始终使用类而不是函数

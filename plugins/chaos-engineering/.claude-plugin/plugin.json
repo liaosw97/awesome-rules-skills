@@ -1,0 +1,6 @@
+{
+  "name": "chaos-engineering",
+  "version": "1.0.0",
+  "description": "Chaos engineering rules: fault injection, resilience testing and SRE",
+  "skills": "./skills/"
+}

@@ -1,0 +1,9 @@
+---
+name: angular-typescript-angular-template-hints-en
+description: 针对 Angular 模板的特定规则，以确保代码质量标准。
+paths:
+  - "**/*.component.html"
+---
+
+- 代码应遵守 `.htmlhintrc` 和 `.editorconfig` 文件中定义的规则。
+- 力求简洁，减少无关的赘述。

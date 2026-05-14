@@ -1,0 +1,6 @@
+{
+  "name": "backend-scalability",
+  "version": "1.0.0",
+  "description": "Backend scalability rules: caching, queues and distributed systems",
+  "skills": "./skills/"
+}

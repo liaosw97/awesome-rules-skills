@@ -1,0 +1,120 @@
+---
+name: fastapi-api-example-en
+description: Use when working with Python — development rules
+---
+
+## 核心原则
+- 编写简洁、技术性的代码，提供准确的 Python 示例
+- 使用函数式、声明式编程；尽可能避免使用类
+- 倾向于使用迭代和模块化，而不是代码重复
+- 使用带有助动词的描述性变量名（如 is_active, has_permission）
+- 使用"接收一个对象，返回一个对象"（RORO）模式
+
+## 技术栈
+- **框架**：FastAPI
+- **语言**：Python 3.10+
+- **验证**：Pydantic v2
+- **数据库**：PostgreSQL / asyncpg
+- **ORM**：SQLAlchemy 2.0
+
+## 最佳实践
+### 项目结构
+
+```
+project/
+├── app/
+│   ├── __init__.py
+│   ├── main.py           # FastAPI 应用
+│   ├── routers/          # 路由模块
+│   ├── models/           # SQLAlchemy 模型
+│   ├── schemas/          # Pydantic 模型
+│   ├── services/         # 业务逻辑
+│   └── dependencies.py   # 依赖注入
+├── tests/
+└── requirements.txt
+```
+
+### 路由定义
+
+```python
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.ext.asyncio import AsyncSession
+
+router = APIRouter(prefix="/users", tags=["users"])
+
+@router.get("/{user_id}")
+async def get_user(
+    user_id: int,
+    db: AsyncSession = Depends(get_db)
+):
+    user = await db.get(User, user_id)
+    if not user:
+        raise HTTPException(status_code=404, detail="用户不存在")
+    return user
+```
+
+### Pydantic 模型
+
+```python
+from pydantic import BaseModel, EmailStr, ConfigDict
+
+class UserBase(BaseModel):
+    name: str
+    email: EmailStr
+
+class UserCreate(UserBase):
+    password: str
+
+class UserResponse(UserBase):
+    id: int
+
+    model_config = ConfigDict(from_attributes=True)
+```
+
+### 依赖注入
+
+```python
+from fastapi import Depends
+from sqlalchemy.ext.asyncio import AsyncSession
+
+async def get_db():
+    async with async_session() as session:
+        yield session
+
+async def get_current_user(
+    token: str = Depends(oauth2_scheme),
+    db: AsyncSession = Depends(get_db)
+):
+    user = await verify_token(token, db)
+    if not user:
+        raise HTTPException(status_code=401, detail="未授权")
+    return user
+```
+
+## 关键约定
+1. **错误处理**
+   - 在函数开头处理错误和边缘情况
+   - 对错误条件使用提早返回
+   - 将"快乐路径"放在函数末尾
+   - 使用卫语句（guard clauses）处理前置条件
+
+2. **类型提示**
+   - 对所有函数签名使用类型提示
+   - 使用 Pydantic 模型进行数据验证
+   - 目录和文件名使用小写字母和下划线
+
+3. **异步处理**
+   - 对纯函数使用 `def`
+   - 对异步操作使用 `async def`
+   - 最小化阻塞式 I/O 操作
+
+## 性能优化
+- 对所有数据库和外部 API 操作使用异步
+- 使用 Redis 缓存频繁访问的数据
+- 使用 Pydantic 优化序列化
+- 对大型数据集使用延迟加载
+
+## API 文档
+- 利用 FastAPI 自动生成的 OpenAPI 文档
+- 为端点添加清晰的描述和示例
+- 定义清晰的响应模型

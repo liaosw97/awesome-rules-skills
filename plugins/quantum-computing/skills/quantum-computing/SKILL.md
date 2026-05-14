@@ -1,0 +1,81 @@
+---
+name: quantum-computing
+description: Use when working with coding — development rules
+---
+
+## 核心原则
+- **量子优势导向**：识别适合量子计算的问题领域
+- **混合架构优先**：构建经典-量子混合解决方案
+- **噪声容错**：设计适应 NISQ 时代的算法
+- **资源效率**：优化量子比特和量子门使用
+- **渐进验证**：从模拟到真机逐步验证
+
+## 技术栈
+- **量子SDK**：Qiskit (IBM), Cirq (Google), Q# (Microsoft), PennyLane
+- **量子算法**：VQE, QAOA, Grover, Shor, Quantum Machine Learning
+- **量子模拟器**：Aer, Qiskit Simulator, Cirq Simulator
+- **量子硬件**：IBM Quantum, Google Sycamore, IonQ, Rigetti
+- **经典接口**：Python, NumPy, JAX
+
+## 最佳实践
+1. **量子电路设计**
+   - 使用标准量子门库构建电路
+   - 优化电路深度减少退相干影响
+   - 应用电路转译优化（Transpilation）
+   - 设计模块化可复用量子子程序
+
+2. **混合编程模式**
+   - 使用变分量子算法（VQA）框架
+   - 经典优化器驱动量子电路参数
+   - 实现量子误差缓解技术
+   - 设计量子-经典数据接口
+
+3. **模拟测试流程**
+   - 先在噪声模拟器验证正确性
+   - 使用状态向量模拟器调试
+   - 逐步增加噪声模型测试鲁棒性
+   - 最后在真机上验证
+
+4. **错误缓解策略**
+   - 零噪声外推（ZNE）
+   - 概率误差消除（PEC）
+   - 对称性验证
+   - 读取误差缓解
+
+5. **资源估算**
+   - 准确计算所需量子比特数
+   - 评估电路深度和门数量
+   - 分析两比特门比例
+   - 预估运行时间和成本
+
+## 关键约定
+1. **量子比特命名**
+   - 数据量子比特：`q[0], q[1], ...`
+   - 辅助量子比特：`aux[0], aux[1], ...`
+   - 经典寄存器：`c[0], c[1], ...`
+
+2. **电路文件格式**
+   - OpenQASM 2.0/3.0 作为交换格式
+   - Qiskit 使用 `.py` 或 `.qpy`
+   - Cirq 使用 `.json` 序列化
+
+3. **代码结构**
+   ```python
+   from qiskit import QuantumCircuit, Aer, execute
+
+   def create_circuit(params):
+       """构建参数化量子电路"""
+       qc = QuantumCircuit(n_qubits)
+       # 电路构建逻辑
+       return qc
+
+   def run_simulation(circuit, shots=1024):
+       """运行模拟"""
+       backend = Aer.get_backend('qasm_simulator')
+       return execute(circuit, backend, shots=shots).result()
+   ```
+
+4. **文档规范**
+   - 每个算法标注所需资源
+   - 记录噪声模型假设
+   - 说明适用问题规模限制

@@ -1,0 +1,6 @@
+{
+  "name": "interactive-media",
+  "version": "1.0.0",
+  "description": "Interactive media rules: AR/VR, game development and 3D graphics",
+  "skills": "./skills/"
+}

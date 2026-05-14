@@ -1,0 +1,6 @@
+{
+  "name": "advanced-hardware",
+  "version": "1.0.0",
+  "description": "Advanced hardware rules: FPGA, Verilog and hardware description",
+  "skills": "./skills/"
+}

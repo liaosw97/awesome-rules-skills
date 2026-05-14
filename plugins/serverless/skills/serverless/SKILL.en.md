@@ -1,0 +1,43 @@
+---
+name: serverless-en
+description: Use when working with coding — development rules
+---
+
+## 核心原则
+- 单一职责：每个函数只做一件事，保持简洁
+- 无状态设计：函数调用间不依赖本地状态
+- 事件驱动：通过事件触发函数执行，实现松耦合
+- 快速执行：优化冷启动时间，控制函数执行时长
+- 最小权限：函数只拥有完成任务所需的最小权限
+
+## 技术栈
+- **FaaS 平台**：AWS Lambda、Azure Functions、Google Cloud Functions、阿里云函数计算
+- **事件源**：API Gateway、EventBridge、SQS/SNS、Kinesis、IoT Core
+- **状态管理**：DynamoDB、Redis、S3、Firestore
+- **编排工具**：AWS Step Functions、Azure Durable Functions、Serverless Framework
+- **容器化函数**：Knative、OpenFaaS、Fission、AWS Lambda Container Images
+
+## 最佳实践
+1. **函数设计**：
+   - 控制函数大小和依赖数量
+   - 使用连接池管理外部资源连接
+   - 避免在初始化代码中执行耗时操作
+2. **冷启动优化**：
+   - 使用 Provisioned Concurrency 预热
+   - 选择轻量级运行时（Node.js、Python）
+   - 减少依赖包体积
+3. **错误处理**：
+   - 实现幂等性，支持重试
+   - 使用 Dead Letter Queue 捕获失败事件
+   - 配置合理的重试策略
+4. **成本控制**：
+   - 合理设置内存和超时配置
+   - 监控函数执行次数和时长
+   - 使用预留容量降低成本
+
+## 关键约定
+1. **命名规范**：函数名称格式 `{服务}-{操作}-{环境}`
+2. **内存配置**：根据实际需求配置，建议从小开始逐步调优
+3. **超时设置**：设置合理的超时时间，避免长时间运行
+4. **日志规范**：结构化日志输出，包含 requestId、timestamp、duration
+5. **版本管理**：使用 Alias 和 Version 管理函数版本，支持灰度发布

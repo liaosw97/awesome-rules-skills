@@ -1,0 +1,6 @@
+{
+  "name": "es-module",
+  "version": "1.0.0",
+  "description": "ES Module development rules: imports, exports and module patterns",
+  "skills": "./skills/"
+}

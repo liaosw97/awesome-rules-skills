@@ -1,0 +1,6 @@
+{
+  "name": "cpp",
+  "version": "1.0.0",
+  "description": "C/C++ development rules: memory management, templates and modern standards",
+  "skills": "./skills/"
+}

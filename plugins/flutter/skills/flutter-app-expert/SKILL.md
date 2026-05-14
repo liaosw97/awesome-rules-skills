@@ -1,0 +1,96 @@
+---
+name: flutter-app-expert
+description: Use when working with Flutter — development rules
+---
+
+## 核心原则
+- **跨平台一致性**：一套代码，多平台原生体验
+- **声明式 UI**：拥抱 Flutter 声明式编程范式
+- **状态管理清晰**：使用 BLoC/Cubit 实现可预测状态
+- **类型安全**：充分利用 Dart 强类型和空安全
+- **性能优化**：关注帧率、内存和启动时间
+
+## 技术栈
+- **框架**：Flutter 3.x, Dart 3.x
+- **设计系统**：Material 3, Cupertino
+- **状态管理**：BLoC, Riverpod, Provider
+- **路由**：GoRouter, AutoRoute
+- **依赖注入**：GetIt, Injectable
+- **网络请求**：Dio, Retrofit
+- **本地存储**：Hive, Drift, SharedPreferences
+
+## 最佳实践
+1. **架构设计**
+   - 采用 Clean Architecture 分层
+   - 数据层、领域层、表现层分离
+   - 单向数据流模式
+   - 依赖倒置原则
+
+2. **状态管理**
+   - BLoC 模式实现业务逻辑
+   - 使用 Equatable 优化状态比较
+   - 正确处理 BlocBuilder/BlocListener
+   - 避免全局状态污染
+
+3. **组件设计**
+   - 保持 Widget 小而专注
+   - 尽可能使用 const 构造函数
+   - 实现正确的组件组合
+   - 提取可复用组件到共享目录
+
+4. **错误处理**
+   - 使用 Either 类型处理错误
+   - 实现全局错误捕获
+   - 用户友好的错误提示
+   - 错误日志和监控
+
+5. **国际化**
+   - 使用 ARB 文件管理翻译
+   -flutter_localizations 集成
+   - 支持 RTL 布局
+   - 动态语言切换
+
+## 关键约定
+1. **项目结构**
+   ```
+   lib/
+   ├── core/                   # 核心层
+   │   ├── constants/         # 常量定义
+   │   ├── theme/             # 主题配置
+   │   ├── utils/             # 工具函数
+   │   └── widgets/           # 基础组件
+   ├── features/              # 功能模块
+   │   └── feature_name/
+   │       ├── data/          # 数据层
+   │       │   ├── datasources/
+   │       │   ├── models/
+   │       │   └── repositories/
+   │       ├── domain/        # 领域层
+   │       │   ├── entities/
+   │       │   ├── repositories/
+   │       │   └── usecases/
+   │       └── presentation/  # 表现层
+   │           ├── bloc/
+   │           ├── pages/
+   │           └── widgets/
+   ├── l10n/                  # 国际化
+   └── main.dart              # 入口
+   ```
+
+2. **命名约定**
+   - 文件：snake_case (如 `user_profile_page.dart`)
+   - 类：PascalCase (如 `UserProfilePage`)
+   - 变量/方法：camelCase (如 `getUserProfile`)
+   - 常量：camelCase 或 lowerCase
+
+3. **编码规范**
+   - 使用 effective_dart linter 规则
+   - 正确使用空安全语法
+   - 避免嵌套过深，提取方法
+   - 使用 cascade 操作符优化代码
+
+4. **测试要求**
+   - 单元测试：业务逻辑和 UseCase
+   - Widget 测试：UI 组件
+   - 集成测试：完整用户流程
+   - 测试覆盖率 > 80%

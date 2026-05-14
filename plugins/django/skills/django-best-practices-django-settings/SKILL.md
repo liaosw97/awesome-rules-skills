@@ -1,0 +1,12 @@
+---
+name: django-best-practices-django-settings
+description: Django 设置文件的配置，包含依赖项列表和约定。
+paths:
+  - "**/settings.py"
+---
+
+- Django
+- Django REST Framework (用于 API 开发)
+- Celery (用于后台任务)
+- Redis (用于缓存和任务队列)
+- PostgreSQL 或 MySQL (生产环境首选数据库)

@@ -1,0 +1,10 @@
+---
+name: dragonruby-syntax-and-formatting-en
+description: 规定 DragonRuby 项目中 Ruby 代码的语法和格式指南，遵循 Ruby 风格指南。
+paths:
+  - "**/*.rb"
+---
+
+- 遵循 Ruby 风格指南 (https://rubystyle.guide/)
+- 使用 Ruby 的表达性语法（例如 unless, ||=, &.）
+- 在不需要插值的情况下优先使用单引号表示字符串。

@@ -1,0 +1,6 @@
+{
+  "name": "conventions",
+  "version": "1.0.0",
+  "description": "Frontend coding conventions: naming, file structure and design patterns",
+  "skills": "./skills/"
+}

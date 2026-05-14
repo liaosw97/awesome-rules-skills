@@ -1,0 +1,8 @@
+---
+name: django-best-practices-django-urls-en
+description: Django URL 配置指南，专注于清晰和 RESTful 的 URL 模式。
+paths:
+  - "**/urls.py"
+---
+
+- 使用 Django 的 URL 调度器（urls.py）定义清晰且符合 RESTful 风格的 URL 模式。

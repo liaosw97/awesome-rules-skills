@@ -1,0 +1,8 @@
+---
+name: express-mongodb-submission-process-outline
+description: 总结选择提交过程，并在编码前用伪代码概述 API 端点和业务逻辑。
+paths:
+  - "*/pick-submission/**/*.*"
+---
+
+- 总结选择提交过程，并在编码前用伪代码概述 API 端点和业务逻辑。

@@ -1,0 +1,47 @@
+---
+name: prometheus-grafana-monitoring-en
+description: Use when working with coding — development rules
+---
+
+## 核心原则
+- 指标优先：先定义指标，再实现采集和告警
+- RED 方法：Request Rate、Error Rate、Duration（适用于服务）
+- USE 方法：Utilization、Saturation、Errors（适用于资源）
+- 告警精准：每个告警都应该有意义、可操作
+- 可视化清晰：仪表板服务于特定目的，避免信息过载
+
+## 技术栈
+- **指标采集**：Prometheus、VictoriaMetrics、Thanos、Cortex
+- **可视化**：Grafana、Grafana Loki、Grafana Tempo
+- **告警管理**：Alertmanager、PagerDuty、Opsgenie
+- **指标标准化**：OpenTelemetry、OpenMetrics
+- **服务发现**：Kubernetes SD、Consul SD、EC2 SD
+
+## 最佳实践
+1. **指标定义**：
+   - 使用统一的命名规范（namespace_subsystem_name_unit）
+   - 标签用于区分维度，而非创建新指标
+   - 避免高基数标签（如 user_id、request_id）
+2. **告警设计**：
+   - 告警分级（Warning/Critical/None）
+   - 包含 runbook_url 指向处理文档
+   - 使用 for 子句避免瞬时抖动
+3. **仪表板组织**：
+   - 按服务/团队组织仪表板
+   - 提供时间范围和刷新频率选择
+   - 使用变量实现模板化
+4. **存储优化**：
+   - 配置合理的保留策略
+   - 使用 downsampling 减少长期存储成本
+   - 分离热数据和冷数据
+
+## 关键约定
+1. **命名规范**：
+   - 计数器：`_total` 后缀
+   - 直方图：`_bucket`、`_sum`、`_count` 后缀
+   - 摘要：`_sum`、`_count` 后缀
+2. **标签规范**：
+   - 必需标签：`job`、`instance`、`namespace`
+   - 避免动态标签值
+3. **告警规则**：所有规则存储在独立的 YAML 文件中
+4. **仪表板版本控制**：使用 Grafana as Code 或导出 JSON 管理

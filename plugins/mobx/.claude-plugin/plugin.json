@@ -1,0 +1,6 @@
+{
+  "name": "mobx",
+  "version": "1.0.0",
+  "description": "MobX state management rules: observables, actions and reactions",
+  "skills": "./skills/"
+}

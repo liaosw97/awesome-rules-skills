@@ -1,0 +1,9 @@
+---
+name: django-best-practices-security
+description: 在 Django 项目的所有文件中应用安全最佳实践。
+paths:
+  - "**/*.*"
+---
+
+- 应用 Django 的安全最佳实践（例如，CSRF 保护、SQL 注入保护、XSS 预防）。
+- 在开发的每个阶段都优先考虑安全和性能优化。

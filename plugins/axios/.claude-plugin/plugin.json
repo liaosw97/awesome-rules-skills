@@ -1,0 +1,6 @@
+{
+  "name": "axios",
+  "version": "1.0.0",
+  "description": "Axios HTTP client rules: interceptors, error handling and best practices",
+  "skills": "./skills/"
+}

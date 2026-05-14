@@ -1,0 +1,6 @@
+{
+  "name": "vue",
+  "version": "1.0.0",
+  "description": "Vue.js development rules: Composition API, Nuxt and Vuex/Pinia",
+  "skills": "./skills/"
+}

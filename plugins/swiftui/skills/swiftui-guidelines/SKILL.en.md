@@ -1,0 +1,102 @@
+---
+name: swiftui-guidelines-en
+description: Use when working with Swift — development rules
+---
+
+## 核心原则
+- **声明式思维**：拥抱 SwiftUI 声明式编程范式
+- **数据驱动**：State 驱动 UI 更新，单向数据流
+- **平台一致性**：遵循 Apple Human Interface Guidelines
+- **类型安全**：充分利用 Swift 强类型系统
+- **性能优化**：关注视图更新效率和内存管理
+
+## 技术栈
+- **语言**：Swift 5.9+
+- **UI 框架**：SwiftUI 5+, SwiftData
+- **异步编程**：async/await, Combine
+- **架构**：MVVM, TCA (The Composable Architecture)
+- **网络**：URLSession, Alamofire
+- **本地存储**：SwiftData, Core Data, UserDefaults
+- **导航**：NavigationStack, NavigationSplitView
+
+## 最佳实践
+1. **状态管理**
+   - @State：视图私有可变状态
+   - @Binding：父子视图状态共享
+   - @StateObject：视图拥有的 ObservableObject
+   - @ObservedObject：外部传入的 ObservableObject
+   - @EnvironmentObject：全局共享状态
+
+2. **视图设计**
+   - 保持 View 结构体小巧专注
+   - 提取可复用组件到独立文件
+   - 使用 ViewBuilder 组合视图
+   - 正确使用 private 访问控制
+
+3. **布局技术**
+   - VStack/HStack/ZStack 基础布局
+   - LazyVGrid/LazyHGrid 网格布局
+   - GeometryReader 动态布局
+   - .frame() 控制尺寸
+   - .padding() 和 Spacer 控制间距
+
+4. **动画效果**
+   - .animation() 修饰符添加动画
+   - withAnimation {} 显式动画
+   - .transition() 视图切换动画
+   - matchedGeometryEffect 共享元素动画
+
+5. **数据流设计**
+   - MVVM 模式分离视图和业务逻辑
+   - ViewModel 使用 @Published 暴露状态
+   - async/await 处理异步操作
+   - Combine 处理响应式数据流
+
+## 关键约定
+1. **项目结构**
+   ```
+   MyApp/
+   ├── App/                    # 应用入口
+   │   ├── MyAppApp.swift
+   │   └── ContentView.swift
+   ├── Views/                  # 视图层
+   │   ├── Home/
+   │   │   ├── HomeView.swift
+   │   │   └── HomeViewModel.swift
+   │   └── Shared/            # 共享组件
+   ├── Models/                 # 数据模型
+   ├── Services/              # 服务层
+   │   ├── Network/
+   │   └── Persistence/
+   ├── ViewModels/            # 视图模型
+   ├── Utilities/             # 工具类
+   │   ├── Extensions/
+   │   └── Constants/
+   └── Resources/             # 资源文件
+       ├── Assets.xcassets
+       └── Localization/
+   ```
+
+2. **命名约定**
+   - 视图：PascalCase + View 后缀 (如 `UserProfileView`)
+   - ViewModel：PascalCase + ViewModel 后缀
+   - 模型：PascalCase (如 `User`)
+   - 服务：PascalCase + Service 后缀
+
+3. **预览约定**
+   ```swift
+   #Preview {
+       UserProfileView(user: .sample)
+   }
+
+   #Preview("Dark Mode") {
+       UserProfileView(user: .sample)
+           .preferredColorScheme(.dark)
+   }
+   ```
+
+4. **测试要求**
+   - ViewModel 单元测试
+   - View 快照测试
+   - async/await 测试使用 XCTestExpectation
+   - UI 测试使用 XCUITest

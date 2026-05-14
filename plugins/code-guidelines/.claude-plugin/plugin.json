@@ -1,0 +1,6 @@
+{
+  "name": "code-guidelines",
+  "version": "1.0.0",
+  "description": "General code quality guidelines: clean code, SOLID and review practices",
+  "skills": "./skills/"
+}

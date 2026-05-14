@@ -1,0 +1,9 @@
+---
+name: vite-tailwind-vite-build-optimization-rule-en
+description: 概述 Vite 构建过程的优化策略，包括分块、代码分割和图像优化技术。
+paths:
+  - "vite.config.ts"
+---
+
+- 在 Vite 构建过程中实现优化的分块策略，如代码分割，以生成更小的包大小。
+- 优化图像：使用 WebP 格式，包含大小数据，实现懒加载。

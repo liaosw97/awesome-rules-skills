@@ -1,0 +1,6 @@
+{
+  "name": "nestjs",
+  "version": "1.0.0",
+  "description": "NestJS development rules: modules, decorators and dependency injection",
+  "skills": "./skills/"
+}

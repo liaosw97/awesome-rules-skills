@@ -1,0 +1,6 @@
+{
+  "name": "github-code-quality",
+  "version": "1.0.0",
+  "description": "GitHub code quality rules: branch protection, reviews and automation",
+  "skills": "./skills/"
+}

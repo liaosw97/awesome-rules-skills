@@ -1,0 +1,10 @@
+---
+name: express-mongodb-results-and-standings-rules-en
+description: 定义如何向用户显示结果和排名，包括选择可见性和池排名。
+paths:
+  - "*/results-standings/**/*.*"
+---
+
+- 用户分别查看每个条目的选择/分数。
+- 池排名显示所有条目（每个用户可能有多个）。
+- 池成员可以在评分后查看所有选择。

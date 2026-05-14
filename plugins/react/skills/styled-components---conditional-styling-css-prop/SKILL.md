@@ -1,0 +1,8 @@
+---
+name: styled-components---conditional-styling-css-prop
+description: 建议在适当时使用 css prop 在 Styled Components 中进行条件样式设计。
+paths:
+  - "src/components/styled/**/*.js"
+---
+
+- 在适当时使用 css prop 进行条件样式设计。

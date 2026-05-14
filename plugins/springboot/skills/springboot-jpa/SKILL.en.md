@@ -1,0 +1,182 @@
+---
+name: springboot-jpa-en
+description: Use when working with Java — development rules
+---
+
+## 核心原则
+- 遵循 SOLID、DRY、KISS、YAGNI 原则
+- 遵循 OWASP 安全最佳实践
+- 将任务分解为最小单元，逐步解决
+- 使用分层架构实现清晰的职责分离
+- 统一异常处理和响应格式
+
+## 技术栈
+- **框架**：Spring Boot 3
+- **语言**：Java 17
+- **ORM**：Spring Data JPA
+- **数据库**：PostgreSQL
+- **构建工具**：Maven
+- **工具**：Lombok
+
+## 最佳实践
+### 分层架构
+
+```
+src/main/java/
+├── controller/     # REST 控制器
+├── service/        # 服务接口
+│   └── impl/       # 服务实现
+├── repository/     # 数据访问层
+├── model/          # 实体类
+├── dto/            # 数据传输对象
+├── config/         # 配置类
+└── exception/      # 异常处理
+```
+
+### 实体规范
+
+```java
+@Entity
+@Table(name = "users")
+@Data
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotEmpty
+    @Size(max = 100)
+    @Column(nullable = false)
+    private String name;
+
+    @Email
+    @Column(unique = true)
+    private String email;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Department department;
+}
+```
+
+### Repository 规范
+
+```java
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+
+    @EntityGraph(attributePaths = {"department"})
+    Optional<User> findWithDepartmentById(Long id);
+
+    @Query("SELECT new com.example.dto.UserDTO(u.id, u.name, u.email) FROM User u")
+    List<UserDTO> findAllUserDTOs();
+}
+```
+
+### Service 规范
+
+```java
+public interface UserService {
+    UserDTO getUserById(Long id);
+    UserDTO createUser(UserCreateDTO dto);
+}
+
+@Service
+@Transactional
+public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Override
+    public UserDTO getUserById(Long id) {
+        User user = userRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        return UserDTO.from(user);
+    }
+}
+```
+
+### Controller 规范
+
+```java
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ApiResponse<UserDTO>> getUser(@PathVariable Long id) {
+        UserDTO user = userService.getUserById(id);
+        return ResponseEntity.ok(ApiResponse.success(user));
+    }
+}
+```
+
+## 关键约定
+1. **实体约定**
+   - 必须使用 @Entity 注解
+   - 必须使用 @Data (Lombok)
+   - 必须使用 @Id 和 @GeneratedValue
+   - 关系使用 FetchType.LAZY
+
+2. **Repository 约定**
+   - 必须使用 @Repository 注解
+   - 必须是接口类型
+   - 必须继承 JpaRepository
+   - @Query 必须使用 JPQL
+   - 使用 @EntityGraph 避免 N+1
+
+3. **Service 约定**
+   - Service 必须是接口
+   - ServiceImpl 使用 @Service 注解
+   - 依赖使用 @Autowired 注入
+   - 返回对象应为 DTO
+
+4. **DTO 约定**
+   - 必须是 record 类型
+   - 指定紧凑构造函数验证输入
+
+5. **Controller 约定**
+   - 使用 @RestController 注解
+   - 使用 @RequestMapping 指定路由
+   - 返回 ApiResponse 类型的 ResponseEntity
+   - 使用 try-catch 处理异常
+
+### ApiResponse 类
+
+```java
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ApiResponse<T> {
+    private String result;    // SUCCESS 或 ERROR
+    private String message;
+    private T data;
+
+    public static <T> ApiResponse<T> success(T data) {
+        return new ApiResponse<>("success", "成功", data);
+    }
+}
+```
+
+### GlobalExceptionHandler
+
+```java
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ApiResponse<?>> handleIllegalArgumentException(IllegalArgumentException ex) {
+        return ResponseEntity.badRequest()
+            .body(new ApiResponse<>("error", ex.getMessage(), null));
+    }
+}
+```
+
+## 性能优化
+- 使用 @EntityGraph 避免 N+1 问题
+- 使用 DTO 投影减少数据传输
+- 使用连接池优化数据库连接
+- 实现适当的数据库索引

@@ -1,0 +1,10 @@
+---
+name: nextjs-typescript-syntax-and-formatting-rule-en
+description: TypeScript、Node.js 和 Next.js 项目中语法和格式的规则。
+paths:
+  - "**/*.{ts,tsx,js,jsx}"
+---
+
+- 对纯函数使用 "function" 关键字。
+- 避免在条件语句中使用不必要的花括号；对简单语句使用简洁语法。
+- 使用声明式 JSX。

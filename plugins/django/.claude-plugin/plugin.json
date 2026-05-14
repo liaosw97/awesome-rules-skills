@@ -1,0 +1,6 @@
+{
+  "name": "django",
+  "version": "1.0.0",
+  "description": "Django development rules: models, views, templates and REST framework",
+  "skills": "./skills/"
+}

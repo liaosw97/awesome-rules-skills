@@ -1,0 +1,6 @@
+{
+  "name": "elixir",
+  "version": "1.0.0",
+  "description": "Elixir/Phoenix development rules: functional programming and concurrency",
+  "skills": "./skills/"
+}

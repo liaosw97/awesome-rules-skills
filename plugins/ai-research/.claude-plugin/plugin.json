@@ -1,0 +1,6 @@
+{
+  "name": "ai-research",
+  "version": "1.0.0",
+  "description": "AI research rules: computer vision, federated learning and neural architectures",
+  "skills": "./skills/"
+}

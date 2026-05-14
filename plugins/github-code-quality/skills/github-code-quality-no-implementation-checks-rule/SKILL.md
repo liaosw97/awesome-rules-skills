@@ -1,0 +1,6 @@
+---
+name: github-code-quality-no-implementation-checks-rule
+description: 禁止在代码中直接检查具体实现细节，应通过抽象接口进行交互
+---
+
+

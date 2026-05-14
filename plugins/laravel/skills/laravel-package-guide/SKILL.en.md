@@ -1,0 +1,162 @@
+---
+name: laravel-package-guide-en
+description: Use when working with Laravel — development rules
+---
+
+## 核心原则
+- 遵循 Laravel 约定和最佳实践
+- 使用 PHP 8.3+ 现代特性
+- 专注于提供卓越的开发者体验（DX）
+- 实现类型安全和完整的文档块
+- 保持代码简洁、可测试、可维护
+
+## 技术栈
+- **语言**：PHP 8.3+
+- **框架**：Laravel 10/11
+- **包工具**：spatie/laravel-package-tools
+- **代码风格**：Laravel Pint
+- **测试**：PHPUnit / Pest
+
+## 最佳实践
+### 命名约定
+
+| 类型 | 规范 | 示例 |
+|------|------|------|
+| 文件名 | kebab-case | `my-class-file.php` |
+| 类名 | PascalCase | `MyClass` |
+| 方法名 | camelCase | `myMethod` |
+| 变量/属性 | snake_case | `my_variable` |
+| 常量 | SCREAMING_SNAKE_CASE | `MY_CONSTANT` |
+
+### 包结构
+
+```
+my-package/
+├── src/
+│   ├── MyPackage.php        # 服务提供者
+│   ├── MyPackageServiceProvider.php
+│   ├── Commands/            # Artisan 命令
+│   ├── Facades/             # 门面
+│   └── Support/             # 辅助类
+├── config/
+│   └── my-package.php       # 配置文件
+├── database/
+│   └── migrations/          # 数据库迁移
+├── resources/
+│   └── views/               # 视图文件
+├── tests/                   # 测试文件
+├── composer.json
+└── README.md
+```
+
+### 服务提供者示例
+
+```php
+<?php
+
+namespace MyPackage;
+
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
+
+class MyPackageServiceProvider extends PackageServiceProvider
+{
+    public function configurePackage(Package $package): void
+    {
+        $package
+            ->name('my-package')
+            ->hasConfigFile()
+            ->hasViews()
+            ->hasMigration('create_my_package_tables')
+            ->hasCommand(MyCommand::class);
+    }
+}
+```
+
+### Facade 示例
+
+```php
+<?php
+
+namespace MyPackage\Facades;
+
+use Illuminate\Support\Facades\Facade;
+
+/**
+ * @see \MyPackage\MyPackage
+ */
+class MyPackage extends Facade
+{
+    protected static function getFacadeAccessor(): string
+    {
+        return 'my-package';
+    }
+}
+```
+
+## 关键约定
+1. **使用辅助函数而非门面**
+   ```php
+   // 推荐
+   cache()->get('key');
+   config('app.name');
+
+   // 避免
+   Cache::get('key');
+   Config::get('app.name');
+   ```
+
+2. **类型安全**
+   ```php
+   public function process(string $input, int $times): array
+   {
+       return array_map(
+           fn(string $item): string => str_repeat($item, $times),
+           explode(',', $input)
+       );
+   }
+   ```
+
+3. **文档块**
+   ```php
+   /**
+    * 处理用户数据并返回结果
+    *
+    * @param  array<string, mixed>  $data
+    * @return array{success: bool, message: string}
+    */
+   public function processUserData(array $data): array
+   {
+       // ...
+   }
+   ```
+
+4. **配置管理**
+   ```php
+   // config/my-package.php
+   return [
+       'enabled' => env('MY_PACKAGE_ENABLED', true),
+       'timeout' => env('MY_PACKAGE_TIMEOUT', 30),
+   ];
+   ```
+
+## 测试策略
+1. **单元测试**
+   - 测试单个类和方法
+   - 模拟外部依赖
+   - 测试边界条件
+
+2. **功能测试**
+   - 测试服务提供者注册
+   - 测试配置发布
+   - 测试 Artisan 命令
+
+3. **集成测试**
+   - 测试与 Laravel 框架的集成
+   - 测试数据库迁移
+
+## 文档规范
+- README.md：安装、配置、基本用法
+- CHANGELOG.md：版本历史和变更记录
+- 代码示例：清晰、可运行的示例
+- API 参考：详细的参数和返回值说明

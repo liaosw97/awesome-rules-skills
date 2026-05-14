@@ -1,0 +1,6 @@
+{
+  "name": "go",
+  "version": "1.0.0",
+  "description": "Go development rules: concurrency patterns, error handling and project structure",
+  "skills": "./skills/"
+}

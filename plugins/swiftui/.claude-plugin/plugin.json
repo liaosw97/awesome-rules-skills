@@ -1,0 +1,6 @@
+{
+  "name": "swiftui",
+  "version": "1.0.0",
+  "description": "SwiftUI development rules: views, state and declarative UI",
+  "skills": "./skills/"
+}

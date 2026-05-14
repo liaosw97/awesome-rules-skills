@@ -1,0 +1,6 @@
+{
+  "name": "laravel",
+  "version": "1.0.0",
+  "description": "Laravel development rules: Eloquent, middleware and artisan commands",
+  "skills": "./skills/"
+}

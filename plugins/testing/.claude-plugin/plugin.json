@@ -1,0 +1,6 @@
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "description": "Testing rules: unit tests, integration tests, TDD and BDD strategies",
+  "skills": "./skills/"
+}

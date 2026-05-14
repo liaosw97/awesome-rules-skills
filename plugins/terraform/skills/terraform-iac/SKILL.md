@@ -1,0 +1,50 @@
+---
+name: terraform-iac
+description: Use when working with coding — development rules
+---
+
+## 核心原则
+- 声明式配置：描述期望状态，而非操作步骤
+- 模块化设计：复用代码，减少重复
+- 状态管理：安全存储状态文件，支持团队协作
+- 变更可控：所有变更通过 plan 审查，逐步应用
+- 安全合规：静态分析代码，动态检查权限
+
+## 技术栈
+- **核心工具**：Terraform、Pulumi、OpenTofu、Terragrunt
+- **状态管理**：Terraform Cloud、S3+DynamoDB、Azure Blob、GCS
+- **代码质量**：terraform validate、tflint、checkov、tfsec
+- **协作平台**：Atlantis、Spacelift、env0、Scalr
+- **模块市场**：Terraform Registry、Pulumi Registry
+
+## 最佳实践
+1. **代码组织**：
+   - 环境隔离（dev/stage/prod）
+   - 模块化架构，每个模块职责单一
+   - 清晰的目录结构，便于维护
+2. **状态管理**：
+   - 远程状态存储，启用加密
+   - 状态锁定，防止并发修改
+   - 定期备份状态文件
+3. **安全实践**：
+   - 使用 SAST 工具扫描代码
+   - 敏感信息使用变量或 Secrets 管理
+   - 最小权限原则配置 Provider
+4. **变更管理**：
+   - 执行 plan 审查变更
+   - 小步频繁提交
+   - 监控 drift 并及时修正
+
+## 关键约定
+1. **文件组织**：
+   - `main.tf` - 主资源配置
+   - `variables.tf` - 输入变量定义
+   - `outputs.tf` - 输出值定义
+   - `providers.tf` - Provider 配置
+   - `backend.tf` - 状态后端配置
+2. **命名规范**：
+   - 资源名称：`{项目}_{环境}_{资源类型}_{用途}`
+   - 变量名称：使用 snake_case
+   - 标签规范：统一使用 `Environment`、`Project`、`Owner`
+3. **模块版本**：始终指定模块版本，避免使用 latest
+4. **注释要求**：复杂逻辑必须添加注释说明

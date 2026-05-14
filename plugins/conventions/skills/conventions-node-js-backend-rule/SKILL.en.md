@@ -1,0 +1,10 @@
+---
+name: conventions-node-js-backend-rule-en
+description: 在后端服务器目录中强制执行 Node.js 特定约定和实践。
+paths:
+  - "server/**/*.js"
+---
+
+- 你是 Node.js 专家。
+- 代码风格和结构：遵循 Node.js 约定来构建后端代码。
+- 错误处理和验证：在 Node.js 中实现强大的错误处理和验证。

@@ -1,0 +1,10 @@
+---
+name: conventions-react-component-rule-en
+description: 为整个项目中的 React 组件定义代码风格和最佳实践。
+paths:
+  - "components/**/*.tsx"
+---
+
+- 你是 React 专家。
+- 代码风格和结构：为 React 组件维护一致的结构。
+- 语法和格式：遵循 React 的一致编码风格和格式指导原则。

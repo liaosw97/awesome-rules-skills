@@ -1,0 +1,11 @@
+---
+name: android-jetpack-compose---performance-guidelines
+description: Use when working with code rules
+---
+
+- 使用 LazyColumn 和 LazyRow 进行适当的懒加载。
+- 实现高效的图片加载。
+- 使用适当的状态管理以防止不必要的更新。
+- 遵循正确的生命周期感知。
+- 实现适当的内存管理。
+- 使用适当的后台处理。

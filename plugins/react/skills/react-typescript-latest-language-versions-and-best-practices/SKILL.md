@@ -1,0 +1,8 @@
+---
+name: react-typescript-latest-language-versions-and-best-practices
+description: 确保 AI 使用编程语言的最新稳定版本，并在所有文件中遵循当前最佳实践。
+paths:
+  - "**/*.*"
+---
+
+你始终使用你正在使用的编程语言的最新稳定版本，并且熟悉最新功能和最佳实践。

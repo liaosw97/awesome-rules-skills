@@ -1,0 +1,86 @@
+---
+name: react-native-expo
+description: Use when working with React — development rules
+---
+
+## 核心原则
+- **跨平台优先**：最大化代码复用，最小化平台特定代码
+- **性能意识**：关注启动时间、渲染性能和内存占用
+- **类型安全**：使用 TypeScript 确保代码质量和开发效率
+- **用户体验**：遵循平台设计规范，提供原生级体验
+- **可维护性**：清晰的架构和代码组织，便于团队协作
+
+## 技术栈
+- **框架**：React Native 0.70+, Expo SDK 50+
+- **语言**：TypeScript 5.0+
+- **导航**：Expo Router (File-based), React Navigation 6.x
+- **状态管理**：Zustand, Jotai, React Query
+- **样式**：NativeWind (TailwindCSS), StyleSheet, Tamagui
+- **UI 组件**：React Native Paper, Gluestack UI, Shadcn/RN
+
+## 最佳实践
+1. **函数式组件优先**
+   - 使用 Hooks 管理状态和副作用
+   - 避免类组件，拥抱函数式编程
+   - 正确使用 useCallback, useMemo 优化性能
+
+2. **Expo SDK 功能利用**
+   - 使用 Expo 模块处理设备能力
+   - 利用 EAS Build 进行云端构建
+   - 使用 Expo Updates 实现 OTA 更新
+   - 配置 app.json 管理应用元数据
+
+3. **导航设计**
+   - Expo Router 实现文件系统路由
+   - 正确配置 Deep Linking
+   - 实现合理的导航堆栈管理
+   - 处理 Android 返回键行为
+
+4. **资源管理**
+   - 使用 Expo Asset 预加载资源
+   - 图片使用 @2x, @3x 适配分辨率
+   - 字体使用 expo-font 加载
+   - SVG 使用 react-native-svg-transformer
+
+5. **离线支持**
+   - 使用 @react-native-async-storage 存储数据
+   - React Query 实现离线数据管理
+   - 优雅处理网络状态变化
+   - 实现数据同步机制
+
+## 关键约定
+1. **项目结构**
+   ```
+   project/
+   ├── app/                    # Expo Router 路由
+   │   ├── (tabs)/            # Tab 导航
+   │   ├── (auth)/            # Auth 导航
+   │   └── _layout.tsx        # 根布局
+   ├── components/            # 可复用组件
+   │   ├── ui/               # 基础 UI 组件
+   │   └── features/         # 功能组件
+   ├── hooks/                 # 自定义 Hooks
+   ├── services/              # API 和服务
+   ├── stores/                # 状态管理
+   ├── utils/                 # 工具函数
+   ├── types/                 # TypeScript 类型
+   └── assets/                # 静态资源
+   ```
+
+2. **命名约定**
+   - 组件：PascalCase (如 `UserProfile.tsx`)
+   - Hooks：camelCase + use 前缀 (如 `useAuth.ts`)
+   - 工具函数：camelCase (如 `formatDate.ts`)
+   - 类型：PascalCase + Type 后缀 (如 `UserType.ts`)
+
+3. **样式规范**
+   - 优先使用 NativeWind/TailwindCSS
+   - 避免内联样式对象
+   - 使用 StyleSheet.create 优化静态样式
+   - 遵循平台设计规范 (Material/iOS)
+
+4. **测试要求**
+   - Jest + React Native Testing Library
+   - 组件快照测试
+   - Hook 单元测试
+   - E2E 测试使用 Detox

@@ -1,0 +1,10 @@
+---
+name: chrome-extension-dev-js-typescript-manifest-and-permissions-rules
+description: 配置扩展清单(manifest)和安全处理权限的规则。
+paths:
+  - "**/manifest.json"
+---
+
+- 使用最新 manifest 版本（v3），除非特别需要 v2
+- 遵循最小权限原则
+- 尽可能实现可选权限

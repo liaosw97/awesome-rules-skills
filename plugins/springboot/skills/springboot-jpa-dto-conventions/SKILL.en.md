@@ -1,0 +1,9 @@
+---
+name: springboot-jpa-dto-conventions-en
+description: 为数据传输对象 (DTO) 设定标准，通常是 record 类型，包括在紧凑的规范构造函数中进行参数验证。
+paths:
+  - "**/src/main/java/com/example/dtos/*.java"
+---
+
+- 必须是 record 类型，除非在提示中另有说明。
+- 必须指定一个紧凑的规范构造函数来验证输入参数数据（根据情况，非空、非空白等）。

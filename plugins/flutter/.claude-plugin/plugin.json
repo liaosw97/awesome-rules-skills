@@ -1,0 +1,6 @@
+{
+  "name": "flutter",
+  "version": "1.0.0",
+  "description": "Flutter development rules: widgets, state management and Dart best practices",
+  "skills": "./skills/"
+}

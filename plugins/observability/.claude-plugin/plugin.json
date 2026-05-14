@@ -1,0 +1,6 @@
+{
+  "name": "observability",
+  "version": "1.0.0",
+  "description": "Observability rules: logging, metrics, tracing and Prometheus/Grafana",
+  "skills": "./skills/"
+}

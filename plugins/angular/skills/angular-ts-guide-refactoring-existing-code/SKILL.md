@@ -1,0 +1,9 @@
+---
+name: angular-ts-guide-refactoring-existing-code
+description: 重构代码的说明，侧重于可读性、性能和可维护性。
+paths:
+  - "**/*"
+---
+
+- 在重构现有代码时，请关注性能、可读性和可维护性。
+- 重构现有代码时，请保持 JSDoc 注释不变。

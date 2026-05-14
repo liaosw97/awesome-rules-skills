@@ -1,0 +1,10 @@
+---
+name: fastapi-best-practices-fastapi-database-interaction
+description: FastAPI 数据库交互规范
+paths:
+  - "**/db/**/*.py"
+---
+
+- 推荐使用异步数据库库如 asyncpg 或 aiomysql
+- 如需 ORM 功能建议使用 SQLAlchemy 2.0
+- 最小化阻塞I/O操作，所有数据库调用都应使用异步方式

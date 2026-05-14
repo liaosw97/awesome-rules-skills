@@ -1,0 +1,6 @@
+{
+  "name": "serverless",
+  "version": "1.0.0",
+  "description": "Serverless development rules: AWS Lambda, functions and event-driven architecture",
+  "skills": "./skills/"
+}

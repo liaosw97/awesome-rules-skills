@@ -1,0 +1,6 @@
+---
+name: github-code-quality-no-current-implementation-rule
+description: 禁止基于当前实现细节做出假设或优化，应关注接口契约和设计规范
+---
+
+

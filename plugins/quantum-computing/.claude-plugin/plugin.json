@@ -1,0 +1,6 @@
+{
+  "name": "quantum-computing",
+  "version": "1.0.0",
+  "description": "Quantum computing rules: Qiskit, quantum algorithms and NISQ devices",
+  "skills": "./skills/"
+}

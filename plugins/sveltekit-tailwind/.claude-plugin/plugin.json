@@ -1,0 +1,6 @@
+{
+  "name": "sveltekit-tailwind",
+  "version": "1.0.0",
+  "description": "SvelteKit + Tailwind CSS development rules",
+  "skills": "./skills/"
+}

@@ -1,0 +1,149 @@
+---
+name: fullstack-mern-guide-en
+description: Use when working with R — development rules
+---
+
+## 核心原则
+- 遵循 RESTful API 设计最佳实践
+- 严格按用户需求实现功能
+- 使用伪代码进行战略规划
+- 确保代码安全、高效、可维护
+- 实现适当的错误处理和输入验证
+
+## 技术栈
+- **后端**：Node.js + Express.js
+- **数据库**：MongoDB + Mongoose ODM
+- **前端**：React.js
+- **认证**：JWT（JSON Web Tokens）
+- **版本控制**：Git
+- **部署**：Docker
+
+## 最佳实践
+### 项目结构
+
+```
+project/
+├── client/               # React 前端
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── hooks/
+│   │   └── utils/
+│   └── package.json
+├── server/               # Express 后端
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── middleware/
+│   │   └── utils/
+│   └── package.json
+├── docker-compose.yml
+└── README.md
+```
+
+### API 设计
+
+```javascript
+// RESTful 路由设计
+// GET    /api/pools          - 获取所有池子
+// GET    /api/pools/:id      - 获取单个池子
+// POST   /api/pools          - 创建池子
+// PUT    /api/pools/:id      - 更新池子
+// DELETE /api/pools/:id      - 删除池子
+
+// Express 路由示例
+router.get('/pools', async (req, res) => {
+  const pools = await Pool.find().populate('entries');
+  res.json({ success: true, data: pools });
+});
+```
+
+### Mongoose 模型
+
+```javascript
+const poolSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  status: {
+    type: String,
+    enum: ['active', 'closed', 'completed'],
+    default: 'active'
+  },
+  entries: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Entry' }],
+  maxEntriesPerUser: { type: Number, default: 3 }
+}, { timestamps: true });
+
+module.exports = mongoose.model('Pool', poolSchema);
+```
+
+### JWT 认证
+
+```javascript
+const jwt = require('jsonwebtoken');
+
+// 生成 Token
+const generateToken = (user) => {
+  return jwt.sign(
+    { id: user._id, role: user.role },
+    process.env.JWT_SECRET,
+    { expiresIn: '7d' }
+  );
+};
+
+// 认证中间件
+const authMiddleware = async (req, res, next) => {
+  const token = req.header('Authorization')?.replace('Bearer ', '');
+  if (!token) {
+    return res.status(401).json({ error: '请先登录' });
+  }
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = await User.findById(decoded.id);
+    next();
+  } catch (error) {
+    res.status(401).json({ error: 'Token 无效' });
+  }
+};
+```
+
+## 关键约定
+1. **参赛管理**
+   - 每个用户每个池子最多 3 个参赛作品
+   - 参赛作品编号为 1, 2, 3
+   - 每个参赛作品的选秀单独跟踪
+
+2. **选秀管理**
+   - 用户为每个参赛作品分别进行选秀
+   - 选秀可在截止日期前更新（比赛开始或周日下午 1 点）
+
+3. **计分和排名**
+   - 比赛结束后对选秀进行计分
+   - 赢：参赛作品进入下一周
+   - 输：参赛作品从池子中淘汰
+   - 每个参赛作品单独排名
+
+4. **状态流转**
+   ```
+   请求: 待定 -> 已批准 -> 已创建参赛作品
+   ```
+
+5. **支付状态**
+   - 在请求模型中实现支付状态跟踪
+   - 仅在管理员批准和支付完成后创建参赛作品
+
+## 错误处理
+```javascript
+// 统一错误处理中间件
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(err.status || 500).json({
+    success: false,
+    error: err.message || '服务器错误'
+  });
+});
+```
+
+## 测试规范
+- 为关键业务逻辑编写单元测试
+- 为 API 端点编写集成测试
+- 测试边界条件和错误场景

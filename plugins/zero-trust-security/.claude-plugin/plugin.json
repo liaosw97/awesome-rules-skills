@@ -1,0 +1,6 @@
+{
+  "name": "zero-trust-security",
+  "version": "1.0.0",
+  "description": "Zero-trust security rules: authentication, authorization and threat modeling",
+  "skills": "./skills/"
+}

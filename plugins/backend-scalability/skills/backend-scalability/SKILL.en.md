@@ -1,0 +1,168 @@
+---
+name: backend-scalability-en
+description: Use when working with Go — development rules
+---
+
+## 核心原则
+- 设计可水平扩展的系统架构
+- 使用并发和异步处理提高吞吐量
+- 实现无状态服务便于扩展
+- 关注内存分配和 GC 优化
+- 使用缓存减少数据库压力
+
+## 技术栈
+- **语言**：Go
+- **API**：REST / gRPC / GraphQL
+- **数据库**：PostgreSQL / MySQL / MongoDB
+- **缓存**：Redis / Memcached
+- **消息队列**：Kafka / RabbitMQ / NATS
+- **容器化**：Docker / Kubernetes
+
+## 最佳实践
+### 可扩展架构设计
+
+```
+                    ┌─────────────┐
+                    │   LB/Nginx  │
+                    └──────┬──────┘
+                           │
+        ┌──────────────────┼──────────────────┐
+        │                  │                  │
+   ┌────▼────┐        ┌────▼────┐        ┌────▼────┐
+   │ Service │        │ Service │        │ Service │
+   │   #1    │        │   #2    │        │   #3    │
+   └────┬────┘        └────┬────┘        └────┬────┘
+        │                  │                  │
+        └──────────────────┼──────────────────┘
+                           │
+              ┌────────────┼────────────┐
+              │            │            │
+         ┌────▼─────┐ ┌────▼─────┐ ┌────▼─────┐
+         │  Redis   │ │  MySQL   │ │  Kafka   │
+         │ (Cache)  │ │   (DB)   │ │ (Queue)  │
+         └──────────┘ └──────────┘ └──────────┘
+```
+
+### 并发模式
+
+```go
+// Worker Pool 模式
+func workerPool[T any, R any](
+    ctx context.Context,
+    jobs <-chan T,
+    worker func(T) R,
+    numWorkers int,
+) <-chan R {
+    results := make(chan R)
+    var wg sync.WaitGroup
+
+    for i := 0; i < numWorkers; i++ {
+        wg.Add(1)
+        go func() {
+            defer wg.Done()
+            for job := range jobs {
+                select {
+                case <-ctx.Done():
+                    return
+                default:
+                    results <- worker(job)
+                }
+            }
+        }()
+    }
+
+    go func() {
+        wg.Wait()
+        close(results)
+    }()
+
+    return results
+}
+```
+
+### 连接池管理
+
+```go
+// 数据库连接池
+db, err := sql.Open("postgres", dsn)
+if err != nil {
+    log.Fatal(err)
+}
+
+db.SetMaxOpenConns(100)     // 最大打开连接数
+db.SetMaxIdleConns(10)      // 最大空闲连接数
+db.SetConnMaxLifetime(time.Hour)
+db.SetConnMaxIdleTime(time.Minute * 10)
+```
+
+### 缓存策略
+
+```go
+// 缓存优先模式
+func (s *Service) GetUser(ctx context.Context, id string) (*User, error) {
+    cacheKey := fmt.Sprintf("user:%s", id)
+
+    // 尝试从缓存获取
+    cached, err := s.redis.Get(ctx, cacheKey).Bytes()
+    if err == nil {
+        var user User
+        json.Unmarshal(cached, &user)
+        return &user, nil
+    }
+
+    // 从数据库获取
+    user, err := s.repo.GetUser(ctx, id)
+    if err != nil {
+        return nil, err
+    }
+
+    // 写入缓存
+    data, _ := json.Marshal(user)
+    s.redis.Set(ctx, cacheKey, data, time.Hour)
+
+    return user, nil
+}
+```
+
+## 关键约定
+1. **无状态设计**
+   - 服务实例不保存会话状态
+   - 使用 Redis 存储共享状态
+   - 使用 JWT 处理认证
+
+2. **数据库优化**
+   - 读写分离
+   - 分库分表
+   - 使用连接池
+
+3. **消息队列**
+   - 异步处理耗时任务
+   - 削峰填谷
+   - 服务解耦
+
+4. **监控指标**
+   - 使用 Prometheus 收集指标
+   - 监控 QPS、延迟、错误率
+   - 设置自动扩缩容策略
+
+## 性能优化
+| 优化项 | 策略 |
+|--------|------|
+| 内存 | 减少分配，使用 sync.Pool |
+| GC | 避免逃逸分析，预分配 |
+| 网络 | 使用连接池，压缩传输 |
+| 存储 | 索引优化，分区表 |
+
+## 可观测性
+```go
+// Prometheus 指标
+var (
+    httpDuration = prometheus.NewHistogramVec(
+        prometheus.HistogramOpts{
+            Name: "http_request_duration_seconds",
+            Help: "HTTP request duration",
+        },
+        []string{"method", "path"},
+    )
+)
+```

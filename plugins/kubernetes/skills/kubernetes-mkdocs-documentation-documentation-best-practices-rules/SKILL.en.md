@@ -1,0 +1,23 @@
+---
+name: kubernetes-mkdocs-documentation-documentation-best-practices-rules-en
+description: Kubernetes文档编写规范，确保技术文档的可读性和可维护性
+paths:
+  - "**/docs/*.md"
+---
+
+- **文档结构**：
+  - 使用H2标题组织主要章节
+  - 每个Markdown文件不超过2000字(约5分钟阅读量)
+  - 长文档必须包含目录(TOC)
+- **内容规范**：
+  - 每章节开头提供简要概述
+  - 技术概念首次出现时需明确定义
+  - 配置示例必须包含完整Yaml和注释
+- **格式要求**：
+  - 使用Mermaid/PlantUML生成架构图
+  - 重要警告使用> [!WARNING]语法突出
+  - 代码块标注语言类型和适用环境
+- **版本管理**：
+  - 文档头部包含最后更新时间
+  - 重大变更记录在CHANGELOG中
+  - 废弃内容标注替代方案

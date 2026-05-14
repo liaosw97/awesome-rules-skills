@@ -1,0 +1,6 @@
+{
+  "name": "kubernetes",
+  "version": "1.0.0",
+  "description": "Kubernetes rules: deployments, services, configmaps and Helm charts",
+  "skills": "./skills/"
+}

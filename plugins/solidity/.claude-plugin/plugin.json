@@ -1,0 +1,6 @@
+{
+  "name": "solidity",
+  "version": "1.0.0",
+  "description": "Solidity development rules: smart contracts, security audits and Foundry",
+  "skills": "./skills/"
+}

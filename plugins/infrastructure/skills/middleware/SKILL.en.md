@@ -1,0 +1,73 @@
+---
+name: middleware-en
+description: Use when working with coding — development rules
+---
+
+## 核心原则
+- **高可用优先**：设计无单点故障的架构，支持自动故障转移
+- **性能可预期**：保证 P99 延迟在可接受范围内
+- **可观测性完备**：全链路监控、追踪和告警
+- **安全合规**：认证、授权、审计和加密全覆盖
+
+## 技术栈
+- **消息队列**: Kafka, RabbitMQ, NATS, Redis Stream
+- **分布式缓存**: Redis Cluster, Memcached, Aerospike
+- **API 网关**: Kong, Envoy, APISIX, Nginx
+- **服务代理**: HAProxy, Traefik, Istio
+- **服务发现**: Consul, Etcd, ZooKeeper
+- **配置中心**: Apollo, Nacos, Spring Cloud Config
+
+## 最佳实践
+1. **性能优化**
+   - 建立标准化性能基准测试
+   - 优化序列化/反序列化（Protobuf > JSON）
+   - 使用连接池复用资源
+   - 实现热点数据缓存和预取
+
+2. **可靠性设计**
+   - 多副本部署（通常 3 节点）
+   - 实现自动故障检测和转移
+   - 设计优雅关闭和重启流程
+   - 配置合理的超时和重试策略
+
+3. **可观测性**
+   - 暴露 Prometheus 指标端点
+   - 集成分布式追踪（OpenTelemetry）
+   - 实现结构化日志输出
+   - 配置关键指标告警规则
+
+4. **安全合规**
+   - 实现 mTLS 加密通信
+   - 配置 RBAC 权限控制
+   - 审计日志记录所有操作
+   - 敏感配置加密存储
+
+5. **生态集成**
+   - 使用标准协议和接口
+   - 支持 Kubernetes 原生部署
+   - 提供多语言 SDK
+   - 集成主流监控平台
+
+## 关键约定
+1. **命名规范**
+   - Topic/Queue: `<domain>.<entity>.<event>` (如 `order.payment.completed`)
+   - 缓存 Key: `<app>:<entity>:<id>` (如 `user:profile:123`)
+   - API 路径: `/api/v1/<resource>`
+
+2. **资源配额**
+   - 消息队列单分区 ≤ 10MB/s
+   - 缓存单 Key 大小 ≤ 10KB
+   - API 网关连接数 = 并发用户 × 1.5
+   - 重试次数 ≤ 3，间隔指数退避
+
+3. **超时配置**
+   - 连接超时：5s
+   - 读写超时：根据业务调整（通常 30s）
+   - 缓存 TTL：根据数据更新频率设定
+   - 健康检查间隔：10s
+
+4. **监控指标**
+   - 吞吐量：QPS/TPS
+   - 延迟：P50/P95/P99
+   - 错误率：4xx/5xx 占比
+   - 资源：CPU/内存/连接数

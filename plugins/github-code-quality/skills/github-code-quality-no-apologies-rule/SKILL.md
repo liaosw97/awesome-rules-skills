@@ -1,0 +1,6 @@
+---
+name: github-code-quality-no-apologies-rule
+description: 禁止在代码注释或文档中使用道歉性语言(如'抱歉'、'对不起'等)，保持专业和技术导向
+---
+
+

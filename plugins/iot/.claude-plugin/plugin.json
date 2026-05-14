@@ -1,0 +1,6 @@
+{
+  "name": "iot",
+  "version": "1.0.0",
+  "description": "IoT development rules: device protocols, edge computing and data pipelines",
+  "skills": "./skills/"
+}

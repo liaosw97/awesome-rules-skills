@@ -1,0 +1,110 @@
+---
+name: code-guidelines-en
+description: Use when working with coding — development rules
+---
+
+## 核心原则
+- 验证所有信息，不要假设或猜测
+- 逐个文件进行更改，保持清晰的工作流程
+- 保留现有代码，除非明确要求修改
+- 避免不必要的确认或更新
+
+## 技术栈
+- **代码格式化**：Prettier, Black, gofmt, clang-format
+- **代码检查**：ESLint, Pylint, Flake8, SonarQube
+- **类型检查**：TypeScript, mypy, pyright
+- **编辑器配置**：EditorConfig, .vscode/settings.json
+
+## 最佳实践
+### 1. 命名约定
+
+```typescript
+// 使用显式、描述性的变量名
+// 不佳
+const d = new Date();
+const x = users.filter(u => u.a);
+
+// 推荐
+const currentDate = new Date();
+const activeUsers = users.filter(user => user.isActive);
+```
+
+### 2. 代码质量
+
+```typescript
+// 避免使用"魔法数字"
+// 不佳
+if (status === 1) { ... }
+
+// 推荐
+const STATUS_ACTIVE = 1;
+if (status === STATUS_ACTIVE) { ... }
+```
+
+### 3. 错误处理
+
+```typescript
+// 实现健壮的错误处理机制
+async function fetchData(id: string) {
+  try {
+    const response = await api.get(`/data/${id}`);
+    return { success: true, data: response.data };
+  } catch (error) {
+    logger.error('Failed to fetch data', { id, error });
+    return { success: false, error: error.message };
+  }
+}
+```
+
+### 4. 函数设计
+
+```typescript
+// 单一职责原则
+// 不佳
+function processUser(user) {
+  // 验证、保存、发邮件混合在一起
+}
+
+// 推荐：拆分职责
+function validateUser(user) { /* ... */ }
+function saveUser(user) { /* ... */ }
+function sendWelcomeEmail(user) { /* ... */ }
+```
+
+## 关键约定
+### 命名规范
+
+- 使用显式、描述性的变量名
+- 避免使用缩写或单字母变量名（循环变量除外）
+- 使用一致的命名风格（camelCase、snake_case、PascalCase）
+
+### 代码质量
+
+- 避免使用"魔法数字"，使用命名常量
+- 确保模块化设计，提高代码可重用性
+- 使用断言来早期捕获错误
+- 避免不必要的空白更改
+
+### 错误处理
+
+- 实现健壮的错误处理机制
+- 建立良好的日志记录实践
+- 考虑边缘情况并提供适当的处理
+
+### 性能与安全
+
+- 优先考虑性能优化
+- 采用安全第一的方法
+- 确保版本兼容性
+
+## 测试
+- 确保充分的测试覆盖率
+- 为新代码编写单元测试
+- 不显示或讨论当前实现（除非明确要求）
+- 测试覆盖率目标：80% 以上
+
+## 文档
+- 注释应解释代码中不明显的内容
+- 描述目的而非效果
+- 避免道歉性注释
+- 为公共 API 编写文档

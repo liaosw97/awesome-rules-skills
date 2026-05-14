@@ -1,0 +1,6 @@
+{
+  "name": "devops-service-mesh",
+  "version": "1.0.0",
+  "description": "Service mesh rules: Istio, Envoy and traffic management",
+  "skills": "./skills/"
+}

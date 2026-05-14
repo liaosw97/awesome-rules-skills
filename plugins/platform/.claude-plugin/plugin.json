@@ -1,0 +1,6 @@
+{
+  "name": "platform",
+  "version": "1.0.0",
+  "description": "Platform engineering rules: internal developer platforms and self-service tooling",
+  "skills": "./skills/"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "infrastructure",
+  "version": "1.0.0",
+  "description": "Infrastructure rules: cloud services, networking and system administration",
+  "skills": "./skills/"
+}

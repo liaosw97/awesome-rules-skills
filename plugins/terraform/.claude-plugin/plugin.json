@@ -1,0 +1,6 @@
+{
+  "name": "terraform",
+  "version": "1.0.0",
+  "description": "Terraform IaC rules: modules, state management and cloud provisioning",
+  "skills": "./skills/"
+}

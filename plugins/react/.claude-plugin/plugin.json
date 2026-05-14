@@ -1,0 +1,6 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "React development rules: components, hooks, TypeScript integration and styling",
+  "skills": "./skills/"
+}

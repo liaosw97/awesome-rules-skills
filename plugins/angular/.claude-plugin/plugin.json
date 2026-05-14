@@ -1,0 +1,6 @@
+{
+  "name": "angular",
+  "version": "1.0.0",
+  "description": "Angular development rules: components, services, TypeScript and RxJS",
+  "skills": "./skills/"
+}

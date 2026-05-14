@@ -1,0 +1,9 @@
+---
+name: angular-ts-guide-angular-template-hints
+description: 确保代码质量标准的 Angular 模板特定规则。
+paths:
+  - "**/*.component.html"
+---
+
+- 代码应遵守 `.htmlhintrc` 和 `.editorconfig` 文件中定义的规则。
+- 言简意赅，尽量减少无关的文字。

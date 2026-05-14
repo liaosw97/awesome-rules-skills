@@ -1,0 +1,6 @@
+{
+  "name": "flask",
+  "version": "1.0.0",
+  "description": "Flask development rules: routing, blueprints and JSON APIs",
+  "skills": "./skills/"
+}

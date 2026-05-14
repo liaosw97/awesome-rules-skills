@@ -1,0 +1,158 @@
+---
+name: phoenix-docker-setup-en
+description: Use when working with Phoenix — development rules
+---
+
+## 核心原则
+- 使用函数式编程范式
+- 遵循 Elixir 编码规范
+- 实现清晰的关注点分离
+- 使用模式匹配处理不同情况
+- 利用管道操作符组合函数
+
+## 技术栈
+- **语言**：Elixir
+- **框架**：Phoenix
+- **数据库**：PostgreSQL + Ecto
+- **容器**：Docker / Docker Compose
+- **实时**：Phoenix Channels / LiveView
+- **监控**：Phoenix LiveDashboard
+- **安全**：Sobelow（安全扫描）
+
+## 最佳实践
+### Docker 配置
+
+```dockerfile
+# 使用多阶段构建
+FROM hexpm/elixir:1.15-erlang-26-alpine AS build
+
+WORKDIR /app
+RUN mix local.hex --force && mix local.rebar --force
+
+COPY mix.exs mix.lock ./
+RUN mix deps.get --only prod
+
+COPY lib lib
+RUN mix release
+
+FROM alpine:3.18
+RUN apk add --no-cache openssl ncurses-libs
+WORKDIR /app
+COPY --from=build /app/_build/prod/rel/myapp ./
+CMD ["bin/myapp", "start"]
+```
+
+### Docker Compose
+
+```yaml
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      - DATABASE_URL=postgres://user:pass@db:5432/myapp
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+
+volumes:
+  postgres_data:
+```
+
+### Phoenix 项目结构
+
+```
+lib/
+├── my_app/              # 业务逻辑
+│   ├── accounts/        # 上下文模块
+│   │   ├── user.ex      # Schema
+│   │   └── accounts.ex  # 上下文 API
+│   └── application.ex
+├── my_app_web/          # Web 层
+│   ├── controllers/
+│   ├── live/
+│   ├── components/
+│   └── router.ex
+└── my_app_web.ex
+```
+
+### LiveView 示例
+
+```elixir
+defmodule MyAppWeb.UserLive do
+  use MyAppWeb, :live_view
+
+  def mount(_params, _session, socket) do
+    {:ok, assign(socket, users: Accounts.list_users())}
+  end
+
+  def handle_event("delete_user", %{"id" => id}, socket) do
+    user = Accounts.get_user!(id)
+    {:ok, _} = Accounts.delete_user(user)
+    {:noreply, assign(socket, users: Accounts.list_users())}
+  end
+end
+```
+
+## 关键约定
+1. **提交消息规范**
+
+```
+<类型>[可选范围]: <描述>
+
+类型：fix, feat, build, chore, ci, docs, perf, refactor, style, test
+描述：用现在时态简要总结更改
+```
+
+2. **Ecto Schema 规范**
+
+```elixir
+defmodule MyApp.Accounts.User do
+  use Ecto.Schema
+  import Ecto.Changeset
+
+  schema "users" do
+    field :name, :string
+    field :email, :string
+    field :role, Ecto.Enum, values: [:admin, :user]
+
+    timestamps()
+  end
+
+  def changeset(user, attrs) do
+    user
+    |> cast(attrs, [:name, :email, :role])
+    |> validate_required([:name, :email])
+    |> validate_format(:email, ~r/@/)
+    |> unique_constraint(:email)
+  end
+end
+```
+
+3. **安全检查**
+   - 使用 Sobelow 进行安全扫描
+   - 使用 Credo 进行代码质量检查
+   - 使用 ExCoveralls 监控测试覆盖率
+
+4. **配置管理**
+   - 使用环境变量管理配置
+   - 使用 Release Please 管理版本发布
+   - 区分 dev/staging/prod 环境
+
+## 部署清单
+- [ ] 配置 SECRET_KEY_BASE 环境变量
+- [ ] 设置数据库连接字符串
+- [ ] 配置 SSL/TLS 证书
+- [ ] 启用健康检查端点
+- [ ] 配置日志收集
+- [ ] 设置监控告警

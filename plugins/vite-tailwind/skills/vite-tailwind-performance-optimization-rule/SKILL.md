@@ -1,0 +1,10 @@
+---
+name: vite-tailwind-performance-optimization-rule
+description: 性能优化的一般规则，包括懒加载、图像优化和 Web Vitals。
+paths:
+  - "src/**/*.*"
+---
+
+- 对非关键组件实现懒加载。
+- 优化图像：使用 WebP 格式，包含大小数据，实现懒加载。
+- 使用 Lighthouse 或 WebPageTest 等工具优化 Web Vitals（LCP、CLS、FID）。

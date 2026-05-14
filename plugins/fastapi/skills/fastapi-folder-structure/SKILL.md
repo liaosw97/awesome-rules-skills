@@ -1,0 +1,17 @@
+---
+name: fastapi-folder-structure
+description: 定义 FastAPI 项目的推荐文件夹结构，以在 'app' 目录中维护组织和关注点分离。
+paths:
+  - "app/**/*.*"
+---
+
+- 遵循此文件夹结构：
+
+app/
+  main.py
+  models/
+  schemas/
+  routers/
+  dependencies/
+  services/
+  tests/

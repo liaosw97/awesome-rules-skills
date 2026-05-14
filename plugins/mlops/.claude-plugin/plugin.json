@@ -1,0 +1,6 @@
+{
+  "name": "mlops",
+  "version": "1.0.0",
+  "description": "MLOps rules: model training, deployment, monitoring and ML pipelines",
+  "skills": "./skills/"
+}
