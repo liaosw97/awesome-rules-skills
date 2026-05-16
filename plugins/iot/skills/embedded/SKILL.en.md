@@ -1,54 +1,81 @@
 ---
 name: embedded-en
-description: Embedded C/C++ rules for MCU, STM32, HAL, interrupts, DMA, memory constraints, and hardware-focused testing
-translation-status: translated
+description: Use when working with coding — development rules
 ---
-# Embedded MCU, STM32, and HAL Rules
 
-## Project Structure
+## 核心原则
+- **资源约束优先**：始终关注内存、存储和功耗限制
+- **实时性保证**：确保关键任务在规定时限内完成
+- **可靠性设计**：实现故障检测、隔离和恢复机制
+- **安全性考量**：防止缓冲区溢出、空指针等常见漏洞
+- **可移植性**：尽量减少硬件依赖，便于平台迁移
 
-- Keep board support, drivers, middleware, application logic, and tests separate.
-- Isolate generated CubeMX or vendor code from hand-written application code.
-- Put hardware abstraction behind narrow interfaces so logic can be tested without hardware.
-- Document clock tree, pin mappings, peripheral ownership, and interrupt priorities.
+## 技术栈
+- **RTOS**：FreeRTOS, Zephyr, ThreadX, embOS
+- **嵌入式 Linux**：Yocto, Buildroot, OpenWRT
+- **微控制器**：ARM Cortex-M/A/R, RISC-V, ESP32
+- **调试工具**：J-Link, OpenOCD, GDB, SWD/JTAG
+- **外设接口**：SPI, I2C, UART, CAN, USB, Ethernet
+- **低功耗技术**：Deep Sleep, Tickless Idle, DMA
 
-## STM32 HAL and Peripherals
+## 最佳实践
+1. **内存管理**
+   - 静态分配优先，避免运行时碎片
+   - 使用内存池管理固定大小块
+   - 实现栈溢出检测和水印监控
+   - 注意对齐要求 (ARM 通常 4/8 字节)
 
-- Initialize peripherals in one place and avoid hidden reconfiguration.
-- Check return values from HAL calls and handle timeout/error cases.
-- Keep blocking HAL calls out of time-critical paths.
-- Use DMA for high-throughput UART, SPI, I2C, ADC, or timer capture paths when appropriate.
-- Document buffer ownership and lifetime for DMA operations.
-- Use `volatile` only for memory shared with ISRs or hardware registers.
+2. **实时性设计**
+   - 使用优先级抢占式调度
+   - 最小化中断服务程序 (ISR) 执行时间
+   - 合理使用互斥锁、信号量、事件组
+   - 避免优先级反转问题
 
-## Interrupts and Concurrency
+3. **可靠性保障**
+   - 实现看门狗定时器 (WDT)
+   - 使用 CRC/校验和验证数据完整性
+   - 设计故障恢复和状态机管理
+   - 实现异常处理和错误日志
 
-- Keep ISRs short and deterministic.
-- Defer heavy work from interrupts to the main loop, RTOS task, or event queue.
-- Protect shared data with critical sections, atomics, queues, or RTOS primitives.
-- Avoid dynamic allocation in interrupts.
-- Make interrupt priority decisions explicit.
+4. **功耗优化**
+   - 合理配置睡眠模式和唤醒源
+   - 使用 DMA 减少 CPU 唤醒
+   - 优化外设时钟和电源域
+   - 实现动态电压频率调节 (DVFS)
 
-## Memory and Timing
+5. **调试规范**
+   - 统一日志输出格式和级别
+   - 使用 SWO 实现高速调试输出
+   - 保留调试接口用于现场诊断
+   - 实现远程固件更新 (OTA)
 
-- Avoid heap allocation in firmware unless the project explicitly allows it.
-- Check stack usage for ISRs and RTOS tasks.
-- Keep lookup tables `const` so they can live in flash.
-- Use fixed-width integer types for hardware-facing code.
-- Add timeouts for hardware waits.
-- Treat watchdog configuration as part of application design, not a late add-on.
+## 关键约定
+1. **代码风格**
+   - 使用驼峰命名或下划线分隔
+   - 宏定义使用大写字母和下划线
+   - 寄存器操作使用内联函数或宏
 
-## Testing and Debugging
+2. **项目结构**
+   ```
+   project/
+   ├── src/           # 源代码
+   │   ├── drivers/   # 驱动层
+   │   ├── hal/       # 硬件抽象层
+   │   ├── app/       # 应用层
+   │   └── main.c
+   ├── include/       # 头文件
+   ├── config/        # 配置文件
+   ├── tools/         # 构建工具
+   └── docs/          # 文档
+   ```
 
-- Unit test pure logic on host builds.
-- Use hardware-in-the-loop tests for peripheral behavior.
-- Add assertions for impossible hardware states in debug builds.
-- Use SWD/JTAG, logic analyzers, and serial logs with rate limits.
-- Keep fault handlers useful: capture reset reason, fault registers, and build version when possible.
+3. **版本控制**
+   - 使用语义化版本号
+   - 记录固件变更日志
+   - 保留历史版本用于回滚
 
-## Common Mistakes
-
-- Do not modify generated files unless the workflow preserves changes.
-- Do not busy-wait forever on hardware flags.
-- Do not share buffers between DMA and CPU without synchronization.
-- Do not assume peripheral reset state after low-power modes.
+4. **测试要求**
+   - 单元测试覆盖关键模块
+   - 硬件在环测试 (HIL)
+   - 长期稳定性测试
+   - EMC/环境测试验证

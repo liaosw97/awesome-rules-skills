@@ -1,7 +1,5 @@
 ---
-name: styled-components-best-practices
-translation-status: pending
----general-en
+name: styled-components-best-practices---general-en
 description: 在 React 组件中应用 Styled Components 的最佳实践。
 paths:
   - "src/components/styled/**/*.js"

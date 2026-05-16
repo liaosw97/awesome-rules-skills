@@ -3,7 +3,6 @@ name: fastapi-pydantic-models-en
 description: 在 FastAPI 项目的 models 目录中定义 Pydantic 模型的指导原则，以确保数据验证和序列化。
 paths:
   - "app/models/*.py"
-translation-status: pending
 ---
 
 - 使用 Pydantic 模型进行请求和响应模式

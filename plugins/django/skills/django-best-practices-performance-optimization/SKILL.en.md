@@ -3,7 +3,6 @@ name: django-best-practices-performance-optimization-en
 description: 在项目的所有文件中专注于性能优化技术。
 paths:
   - "**/*.*"
-translation-status: pending
 ---
 
 - 使用 Django ORM 的 `select_related` 和 `prefetch_related` 优化关联对象的查询性能。

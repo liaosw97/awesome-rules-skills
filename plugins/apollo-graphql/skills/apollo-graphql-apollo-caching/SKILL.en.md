@@ -3,7 +3,6 @@ name: apollo-graphql-apollo-caching-en
 description: 利用 Apollo Client 的缓存功能来提高性能
 paths:
   - "src/**/*.js"
-translation-status: pending
 ---
 
 - **利用 Apollo Client 的缓存功能**：

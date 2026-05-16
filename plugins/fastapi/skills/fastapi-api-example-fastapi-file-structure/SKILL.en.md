@@ -3,7 +3,6 @@ name: fastapi-api-example-fastapi-file-structure-en
 description: FastAPI 文件结构
 paths:
   - "[]"
-translation-status: pending
 ---
 
 # FastAPI 文件结构

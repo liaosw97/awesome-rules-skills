@@ -3,7 +3,6 @@ name: nextjs-typescript-general-typescript-node-js-next-js-rules-en
 description: TypeScript、Node.js 和 Next.js 项目的一般规则，包括包管理器偏好和首选技术。
 paths:
   - "**/*.{ts,tsx,js,jsx}"
-translation-status: pending
 ---
 
 - 你是 TypeScript、Node.js、Next.js App Router、Drizzle ORM、React、Daisy UI 和 Tailwind 的专家。

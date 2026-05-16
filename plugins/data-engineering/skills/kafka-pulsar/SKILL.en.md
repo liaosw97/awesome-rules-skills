@@ -1,76 +1,65 @@
 ---
 name: kafka-pulsar-en
-description: Cursor rules for Scala Kafka.
-translation-status: translated
+description: Use when working with coding — development rules
 ---
-# general-scala-clean-code.mdc
 
-- Declare vals/vars as close as possible to first use.
-- Name length should be proportional to scope: 1-2 chars allowed only inside small lambdas.
-- Avoid nested for-comprehensions deeper than two levels; factor out steps into helpers.
-- Split a single source file by responsibility.
-- Use *tail-rec* optimisation (`@tailrec`) where appropriate.
-- Prefer *immutable* collections and avoid mutation during iteration.
-- When interop with Java forces mutability, wrap it in a pure facade with the use of .asScala, to retain functional API.
-- When something is nullable, wrap it into an Option, to retain functional API.
-- Keep cyclomatic complexity below 10 for any method; IDE inspections should warn.
+## 核心原则
+- **消息设计优先**：规范消息键和有效载荷格式，确保数据一致性和可追溯性
+- **精确一次语义**：实现端到端的精确一次处理语义，避免数据丢失或重复
+- **弹性与容错**：设计可水平扩展的架构，具备自动故障恢复能力
+- **性能与成本平衡**：在吞吐量和资源消耗之间找到最优平衡点
 
-# general-scala-development-practices.mdc
+## 技术栈
+- Apache Kafka - 分布式消息队列
+- Apache Pulsar - 云原生消息平台
+- Flink Streaming - 流处理引擎
+- Spark Streaming - 微批处理框架
+- Kafka Connect - 数据集成连接器
+- Schema Registry - 消息模式管理
 
-# ========== GENERAL PRINCIPLES ==========
-- You are an experienced Senior Scala Developer.
-- You always adhere to SOLID, DRY, KISS and YAGNI principles.
-- Prefer *pure* functions; minimise side-effects. Where effects are required, make them explicit (e.g. using scala.util.Try, Either, or cats-effect IO/Task if adopted).
-- Use *val* over *var*; collections must be immutable unless mutability is proven cheaper & safe.
-- Replace *null* with Option, Either or a domain-specific ADT.
-- Use pattern matching exhaustively and handle the *default* case only when truly open-ended.
-- Prefer for-comprehensions, map/flatMap/fold, and higher-order functions over imperative loops.
-- Prefer *case classes* and *sealed traits* for algebraic data types.
-- Extract common logic into private or package-private helpers; avoid long methods (> 30 LOC).
-- Prefer extension methods or type classes over inheritance when adding behaviour.
-- Keep public APIs small, surface only what the module owns.
-- Break every task into the smallest composable pure functions before wiring them together.
+## 最佳实践
+1. **消息设计**
+   - 使用 Schema Registry 管理消息模式演进
+   - 设计有意义的 Partition Key 实现数据局部性
+   - 消息体保持紧凑，避免大对象传输
 
-# ========== NAMING & SYNTAX ==========
-- Class / object / trait names are UpperCamelCase nouns (e.g. *NotificationStreamApp*).
-- Methods & vals are lowerCamelCase verbs or nouns (e.g. *process*, *serde*, *productKey*).
-- Constants use `SCREAMING_SNAKE_CASE`.
-- Similar to Java’s static final members, if the member is final, immutable and it belongs to a package object or an object, it may be considered a constant.
-- Symbolic names (`|>`) are allowed *only* when they align with widespread FP idioms.
-- Match expressions use `match`/`case` over nested if/else chains; for simple two-branch logic prefer `if … then … else …` expressions.
+2. **消费者组管理**
+   - 合理配置分区数（通常为消费者数的2-3倍）
+   - 实现消费者重平衡监听和优雅处理
+   - 设置合理的 `max.poll.records` 控制批次大小
 
-# ========== ERROR HANDLING & LOGGING ==========
-- Catch the most specific Exception first; convert checked Java exceptions to an ADT or `Try`.
-- No empty `catch` blocks; log at *debug* or *error* level with a meaningful message.
-- Leverage `scala.util.Using` (or cats-effect `Resource`) for auto-closing resources.
-- Avoid “defensive” logging or `println`; use SLF4J (Logback) with the *scala-logging* wrapper.
+3. **状态管理**
+   - 使用 RocksDB 作为本地状态后端（大状态场景）
+   - 配置增量 Checkpoint 减少停顿时间
+   - 实现 TTL 自动清理过期状态
 
-# ========== TESTING ==========
-- Use ScalaTest in a **Given-When-Then** layout with the use of AnyFlatSpec.
-- Focus on critical paths and business invariants; do not over-test boilerplate.
-- Property-based tests (ScalaCheck) for pure functions with non-trivial invariants.
-- Set up integration tests as a subproject named “integration” and treat integration tests as standard tests
+4. **监控告警**
+   - 跟踪 Consumer Lag 和 Processing Time
+   - 监控 Checkpoint 成功率和耗时
+   - 设置背压（Backpressure）告警阈值
 
-# ========== PERFORMANCE & SAFETY ==========
-- Avoid blocking calls inside Kafka stream processing; if unavoidable, off-load to a dedicated thread-pool.
-- Convert Java collections to Scala equivalents once at the boundary; never bounce back and forth.
-- Use underscore-separated digits for large numeric literals (e.g. `val timeoutMs = 30_000`).
+5. **资源隔离**
+   - 分离生产者、消费者和处理集群资源
+   - 使用多租户命名空间隔离业务
+   - 配置 Rate Limiter 防止级联故障
 
-# ========== MODERN SCALA 3 FEATURES ==========
-- Use *Enums* for finite alternatives instead of Java-style enums.
-- Embrace *opaque types* to avoid accidental misuse of primitive wrappers.
-- Use *context parameters* (`using`) for type-class evidence instead of classic implicit lists when convenient.
-- Prefer `given`/`using` syntax over `implicit` where supported.
+## 关键约定
+1. **命名规范**
+   - Topic: `<domain>.<entity>.<event-type>` (如 `order.payment.created`)
+   - Consumer Group: `<app-name>-<purpose>-cg`
+   - 流任务: `<source>-to-<sink>-<transform>`
 
-# ========== CLEAN BUILD ==========
-- The sbt build uses **scalafmt** for formatting; treat any scalafmt violation as a build error.
+2. **消息格式**
+   - Key: 业务主键或分区键
+   - Header: 包含 `event_time`, `source`, `trace_id`
+   - Value: Avro/Protobuf 编码的业务数据
 
-# kafka-development-practices.mdc
+3. **错误处理**
+   - 死信队列（DLQ）存储处理失败的消息
+   - 重试策略：指数退避，最大重试3次
+   - 记录失败原因到消息 Header
 
-- All topic names config values (Typesafe Config or pure-config).
-- Use Format or Codec from the JSON or AVRO or another library that is being used in the project.
-- Streams logic must be tested with `TopologyTestDriver` (unit-test) plus an integration test against local Kafka.
-
-# linting-formatting.mdc
-
-- **scalafmt:** Enforce Google-inspired scalafmt configuration with `maxColumn = 100`.
+4. **资源配额**
+   - 单个分区吞吐量 ≤ 10MB/s
+   - 消费者实例内存 = 状态大小 × 3
+   - Checkpoint 间隔 = 端到端延迟目标 / 10

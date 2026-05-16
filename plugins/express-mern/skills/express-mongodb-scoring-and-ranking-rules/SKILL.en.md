@@ -3,7 +3,6 @@ name: express-mongodb-scoring-and-ranking-rules-en
 description: 指定如何对选择进行评分、条目如何晋级或被淘汰，以及如何对条目进行排名。
 paths:
   - "*/scoring-ranking/**/*.*"
-translation-status: pending
 ---
 
 - 游戏完成后对选择进行评分。

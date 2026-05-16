@@ -1,7 +1,6 @@
 ---
 name: ai-inference-en
 description: Use when working with AI — development rules
-translation-status: pending
 ---
 
 ## 核心原则

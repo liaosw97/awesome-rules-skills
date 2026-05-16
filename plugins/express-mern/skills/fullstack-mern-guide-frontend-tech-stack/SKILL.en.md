@@ -3,7 +3,6 @@ name: fullstack-mern-guide-frontend-tech-stack-en
 description: 前端技术栈
 paths:
   - "[]"
-translation-status: pending
 ---
 
 # 前端技术栈

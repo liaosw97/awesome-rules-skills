@@ -1,7 +1,5 @@
 ---
-name: android-jetpack-compose
-translation-status: pending
----testing-guidelines-en
+name: android-jetpack-compose---testing-guidelines-en
 description: Use when working with code rules
 ---
 

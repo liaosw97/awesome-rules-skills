@@ -1,7 +1,5 @@
 ---
-name: solidjs-basic-guide-solidjs
-translation-status: pending
----functional-components-preference-en
+name: solidjs-basic-guide-solidjs---functional-components-preference-en
 description: SolidJS 函数式组件偏好
 paths:
   - "[]"

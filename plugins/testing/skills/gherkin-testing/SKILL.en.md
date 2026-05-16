@@ -1,205 +1,143 @@
 ---
 name: gherkin-testing-en
-description: Cursor rules for Playwright development with integration testing.
-translation-status: translated
+description: Use when working with Gherkin — development rules
 ---
-# Persona
 
-You are an expert QA engineer with deep knowledge of Playwright and TypeScript, tasked with creating integration tests for web applications.
+## 核心原则
+- 以用户视角描述行为
+- 使用业务语言，而非技术语言
+- 场景应该独立、可重复执行
+- 每个场景只测试一个行为
 
-# Auto-detect TypeScript Usage
+## 技术栈
+- **测试框架**：Cucumber, Behave, SpecFlow, Jest-Cucumber
+- **语言**：Gherkin（.feature 文件）
+- **集成工具**：Selenium, Playwright, Cypress
 
-Check for TypeScript in the project through tsconfig.json or package.json dependencies.
-Adjust syntax based on this detection.
+## 最佳实践
+### 1. Feature 文件结构
 
-# Integration Testing Focus
+```gherkin
+Feature: 用户登录功能
+  作为一名注册用户
+  我想要登录系统
+  以便访问我的个人账户
 
-Create tests that verify interactions between UI and API components
-Focus on critical user flows and state transitions across multiple components
-Mock API responses using page.route to control test scenarios
-Validate state updates and error handling across the integration points
+  Background:
+    Given 系统处于正常状态
+    And 登录页面已加载
 
-# Best Practices
+  Scenario: 使用有效凭据成功登录
+    Given 用户 "张三" 已注册
+    When 用户输入用户名 "zhangsan"
+    And 用户输入密码 "password123"
+    And 用户点击登录按钮
+    Then 用户应该看到欢迎页面
+    And 用户状态应该为 "已登录"
 
-**1** **Critical Flows**: Prioritize testing end-to-end user journeys and key workflows
-**2** **Semantic Selectors**: Use data-testid or aria attributes for reliable element selection
-**3** **API Mocking**: Use page.route to mock API responses and validate requests
-**4** **State Validation**: Verify UI state updates correctly based on API responses
-**5** **Error Handling**: Test both success paths and error scenarios
-**6** **Test Organization**: Group related tests in test.describe blocks
-**7** **No Visual Testing**: Avoid testing visual styles or pixel-perfect layouts
-**8** **Limited Tests**: Create 3-5 focused tests per feature for maintainability
-
-# Example Integration Test
-
-```js
-import { test, expect } from '@playwright/test';
-
-test.describe('Registration Form Integration', () => {
-  test.beforeEach(async ({ page }) => {
-    // Mock the API response
-    await page.route('**/api/register', async route => {
-      const request = route.request();
-      const body = await request.postDataJSON();
-      
-      if (body.email && body.email.includes('@')) {
-        await route.fulfill({
-          status: 200,
-          body: JSON.stringify({ message: 'Registration successful' })
-        });
-      } else {
-        await route.fulfill({
-          status: 400,
-          body: JSON.stringify({ error: 'Invalid email format' })
-        });
-      }
-    });
-    
-    // Navigate to the registration page
-    await page.goto('/register');
-  });
-
-  test('should submit form and display success message', async ({ page }) => {
-    // Arrange: Fill out form with valid data
-    await page.fill('[data-testid="name-input"]', 'John Doe');
-    await page.fill('[data-testid="email-input"]', 'john@example.com');
-    await page.fill('[data-testid="password-input"]', 'Password123');
-    
-    // Act: Submit the form
-    await page.click('[data-testid="register-button"]');
-    
-    // Assert: Verify success message is displayed
-    await expect(page.locator('[data-testid="success-message"]')).toBeVisible();
-    await expect(page.locator('[data-testid="success-message"]')).toContainText('Registration successful');
-    
-    // Assert: Verify redirect to dashboard
-    await expect(page).toHaveURL(/.*\/dashboard/);
-  });
-
-  test('should show error message for invalid email', async ({ page }) => {
-    // Arrange: Fill out form with invalid email
-    await page.fill('[data-testid="name-input"]', 'John Doe');
-    await page.fill('[data-testid="email-input"]', 'invalid-email');
-    await page.fill('[data-testid="password-input"]', 'Password123');
-    
-    // Act: Submit the form
-    await page.click('[data-testid="register-button"]');
-    
-    // Assert: Verify error message is displayed
-    await expect(page.locator('[data-testid="error-message"]')).toBeVisible();
-    await expect(page.locator('[data-testid="error-message"]')).toContainText('Invalid email format');
-    
-    // Assert: Verify we stay on the registration page
-    await expect(page).toHaveURL(/.*\/register/);
-  });
-
-  test('should validate input fields before submission', async ({ page }) => {
-    // Act: Submit the form without filling any fields
-    await page.click('[data-testid="register-button"]');
-    
-    // Assert: Form validation errors should be displayed
-    await expect(page.locator('[data-testid="name-error"]')).toBeVisible();
-    await expect(page.locator('[data-testid="email-error"]')).toBeVisible();
-    await expect(page.locator('[data-testid="password-error"]')).toBeVisible();
-    
-    // Assert: No network request should be made
-    // This can be verified by checking that we're still on the registration page
-    await expect(page).toHaveURL(/.*\/register/);
-  });
-});
+  Scenario: 使用无效密码登录失败
+    Given 用户 "张三" 已注册
+    When 用户输入用户名 "zhangsan"
+    And 用户输入密码 "wrongpassword"
+    And 用户点击登录按钮
+    Then 用户应该看到错误提示 "密码错误"
+    And 用户状态应该为 "未登录"
 ```
 
-# TypeScript Example
+### 2. 步骤定义规范
 
-```ts
-import { test, expect } from '@playwright/test';
+```python
+from behave import given, when, then
 
-// Define types for the API responses
-interface ProductType {
-  id: number;
-  name: string;
-  price: number;
-  inStock: boolean;
-}
+@given('用户 "{username}" 已注册')
+def step_user_registered(context, username):
+    context.user = create_test_user(username)
 
-interface CartSuccessResponse {
-  message: string;
-  cartCount: number;
-}
+@when('用户输入用户名 "{username}"')
+def step_enter_username(context, username):
+    context.page.enter_username(username)
 
-interface CartErrorResponse {
-  error: string;
-}
+@when('用户点击登录按钮')
+def step_click_login(context):
+    context.page.click_login()
 
-test.describe('Shopping Cart Integration', () => {
-  test.beforeEach(async ({ page }) => {
-    // Mock the products API
-    await page.route('**/api/products', route => {
-      route.fulfill({
-        status: 200,
-        body: JSON.stringify([
-          { id: 1, name: 'Product A', price: 19.99, inStock: true },
-          { id: 2, name: 'Product B', price: 29.99, inStock: true },
-          { id: 3, name: 'Product C', price: 39.99, inStock: false }
-        ] as ProductType[])
-      });
-    });
-    
-    // Mock the cart API
-    await page.route('**/api/cart/add', async route => {
-      const request = route.request();
-      const body = await request.postDataJSON();
-      
-      if (body.productId === 3) {
-        await route.fulfill({
-          status: 400,
-          body: JSON.stringify({ 
-            error: 'Product out of stock' 
-          } as CartErrorResponse)
-        });
-      } else {
-        await route.fulfill({
-          status: 200,
-          body: JSON.stringify({ 
-            message: 'Product added to cart',
-            cartCount: 1
-          } as CartSuccessResponse)
-        });
-      }
-    });
-    
-    // Navigate to the products page
-    await page.goto('/products');
-  });
+@then('用户应该看到欢迎页面')
+def step_see_welcome(context):
+    assert context.page.is_welcome_displayed()
+```
 
-  test('should add in-stock product to cart', async ({ page }) => {
-    // Verify products are displayed
-    await expect(page.locator('[data-testid="product-item"]')).toHaveCount(3);
-    
-    // Add first product to cart
-    await page.locator('[data-testid="product-item"]').first()
-      .locator('[data-testid="add-to-cart"]')
-      .click();
-    
-    // Verify cart count is updated
-    await expect(page.locator('[data-testid="cart-count"]')).toContainText('1');
-    
-    // Verify success message
-    await expect(page.locator('[data-testid="cart-notification"]')).toBeVisible();
-    await expect(page.locator('[data-testid="cart-notification"]')).toContainText('Product added to cart');
-  });
+### 3. 数据表使用
 
-  test('should not add out-of-stock product to cart', async ({ page }) => {
-    // Try to add out-of-stock product (Product C)
-    await page.locator('[data-testid="product-item"]').nth(2)
-      .locator('[data-testid="add-to-cart"]')
-      .click();
-    
-    // Verify error message
-    await expect(page.locator('[data-testid="error-notification"]')).toBeVisible();
-    await expect(page.locator('[data-testid="error-notification"]')).toContainText('Product out of stock');
-    
-    // Verify cart count is not updated
-    await expect(page.locator('[data-testid="cart-count"]')).toContainText('0');
-  });
-});
+```gherkin
+Scenario: 批量添加商品
+  Given 用户在商品管理页面
+  When 用户添加以下商品:
+    | 名称     | 价格 | 库存 |
+    | 商品A    | 100  | 50   |
+    | 商品B    | 200  | 30   |
+    | 商品C    | 150  | 20   |
+  Then 商品列表应该包含 3 个商品
+```
+
+### 4. 场景大纲（Scenario Outline）
+
+```gherkin
+Scenario Outline: 登录验证测试
+  Given 用户 "<username>" 已注册
+  When 用户输入用户名 "<username>"
+  And 用户输入密码 "<password>"
+  And 用户点击登录按钮
+  Then 登录结果应该是 "<result>"
+
+  Examples:
+    | username  | password     | result    |
+    | valid     | valid123     | 成功      |
+    | valid     | invalid      | 失败      |
+    | invalid   | any          | 失败      |
+    | empty     | any          | 失败      |
+```
+
+## 关键约定
+### Gherkin 关键字
+
+| 关键字 | 用途 |
+|--------|------|
+| Feature | 描述功能模块 |
+| Scenario | 描述具体场景 |
+| Given | 设置初始条件 |
+| When | 描述用户行为 |
+| Then | 描述预期结果 |
+| And/But | 连接多个步骤 |
+| Background | 场景公共前置条件 |
+| Scenario Outline | 参数化场景 |
+
+### 命名约定
+
+- Feature 名称：简洁明了，描述功能
+- Scenario 名称：描述具体测试场景
+- 步骤描述：使用主动语态，避免技术细节
+- 变量名：使用有意义的名称
+
+### 文件组织
+
+```
+features/
+├── login/
+│   ├── login.feature
+│   └── login_steps.py
+├── shopping/
+│   ├── cart.feature
+│   └── cart_steps.py
+└── environment.py
+```
+
+## 测试
+- 每个场景独立运行
+- 使用 Background 减少重复
+- 合理使用 Tags 分类测试
+- 保持测试运行速度快
+
+## 文档
+- Feature 文件本身就是文档
+- 为复杂步骤添加注释
+- 维护测试数据字典

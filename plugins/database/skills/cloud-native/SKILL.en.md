@@ -1,43 +1,72 @@
 ---
 name: cloud-native-en
-description: Cursor rules for React Native Expo development.
-translation-status: translated
+description: Use when working with coding — development rules
 ---
-// React Native Expo .cursorrules
 
-// React Native Expo best practices
+## 核心原则
+- **水平扩展优先**：设计支持无缝水平扩展的架构
+- **强一致保证**：分布式事务遵循 ACID 语义
+- **高可用设计**：多副本部署，自动故障转移
+- **云原生适配**：充分利用云弹性特性和托管服务
 
-const reactNativeExpoBestPractices = [
-  "Use functional components with hooks",
-  "Utilize Expo SDK features and APIs",
-  "Implement proper navigation using Expo Router",
-  "Use Expo's asset system for images and fonts",
-  "Implement proper error handling and crash reporting",
-  "Utilize Expo's push notification system",
-];
+## 技术栈
+- TiDB - MySQL 兼容的分布式数据库
+- CockroachDB - PostgreSQL 兼容的分布式数据库
+- YugabyteDB - 云原生分布式数据库
+- Vitess - MySQL 分片中间件
+- 分布式事务 - 2PC、Percolator 模型
+- Raft/Paxos - 分布式共识协议
 
-// Folder structure
+## 最佳实践
+1. **架构设计**
+   - 根据数据特点选择分片策略（Range/Hash）
+   - 配置合理的副本数（通常 3 副本）
+   - 设计热点打散方案（如时间戳加盐）
+   - 分离计算节点和存储节点
 
-const folderStructure = `
-assets/
-src/
-  components/
-  screens/
-  navigation/
-  hooks/
-  utils/
-App.js
-app.json
-`;
+2. **弹性扩展**
+   - 实现无缝水平扩展（在线加减节点）
+   - 配置自动扩缩容策略
+   - 使用读写分离优化读性能
+   - 设计 Follower Read 减轻 Leader 压力
 
-// Additional instructions
+3. **多租户隔离**
+   - Schema 级隔离：每租户独立 Schema
+   - 行级隔离：租户 ID 列 + 策略
+   - 资源隔离：配置 Resource Group
+   - 网络隔离：VPC/安全组配置
 
-const additionalInstructions = `
-1. Use TypeScript for type safety
-2. Implement proper styling using StyleSheet
-3. Utilize Expo's vector icons
-4. Use Expo's secure store for sensitive data
-5. Implement proper offline support
-6. Follow React Native best practices for performance
-7. Use Expo's OTA updates for quick deployments
-`;
+4. **混合部署**
+   - TiDB: TiDB + TiKV + PD 架构
+   - 优化云边协同的数据同步策略
+   - 设计边缘写入、云端分析的流水线
+   - 使用 CDC 实现数据分发
+
+5. **容灾恢复**
+   - 跨 Region 部署实现异地容灾
+   - 配置 PITR (Point-in-Time Recovery)
+   - 定期验证备份恢复流程
+   - 设计故障切换演练方案
+
+## 关键约定
+1. **命名规范**
+   - 数据库: `<domain>_<env>` (如 `order_prod`)
+   - 表名: `<entity>` 或 `<domain>_<entity>`
+   - 索引: `idx_<column>_<purpose>`
+
+2. **分片设计**
+   - 分片键选择高基数列
+   - 避免单调递增分片键（防热点）
+   - 预分片数量 = 节点数 × 2-4
+   - 支持动态分片分裂/合并
+
+3. **事务模式**
+   - 小事务优先，避免大事务跨分片
+   - 使用乐观锁或悲观锁根据场景选择
+   - 设置合理的锁超时时间
+   - 实现幂等重试机制
+
+4. **资源配额**
+   - 单事务大小 ≤ 100MB
+   - 单查询超时 = 30s（可调整）
+   - 连接池大小 = CPU 核心数 × 2 + 1

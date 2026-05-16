@@ -3,7 +3,6 @@ name: nextjs-react-ts-error-handling-and-validation-en
 description: 在所有代码中优先考虑错误处理和边缘情况。定义如何管理错误、处理前置条件和实现日志记录。
 paths:
   - "**/*.{ts,js,jsx,tsx}"
-translation-status: pending
 ---
 
 - 优先考虑错误处理和边缘情况：

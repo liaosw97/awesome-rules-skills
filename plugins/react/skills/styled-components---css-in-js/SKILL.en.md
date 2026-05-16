@@ -1,7 +1,5 @@
 ---
-name: styled-components
-translation-status: pending
----css-in-js-en
+name: styled-components---css-in-js-en
 description: 确保所有样式设计都使用 Styled Components 的 CSS-in-JS。
 paths:
   - "src/**/*.js"

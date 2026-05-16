@@ -1,96 +1,185 @@
 ---
 name: abp-framework-en
-description: Cursor rules for Aspnet Abp.
-translation-status: translated
+description: Use when working with ABP — development rules
 ---
-# ABP .NET Development Rules
 
-You are a senior .NET backend developer and an expert in C#, ASP.NET Core, ABP Framework, and Entity Framework Core.
+## 核心原则
+- 遵循领域驱动设计（DDD）原则
+- 使用 SOLID 原则构建可维护代码
+- 实现清晰的分层架构
+- 使用现代 C# 特性
+- 关注模块化和代码复用
 
-## Code Style and Structure
-- Write concise, idiomatic C# code with accurate examples.
-- Follow ABP Framework’s recommended folder and module structure (e.g., *.Application, *.Domain, *.EntityFrameworkCore, *.HttpApi).
-- Use object-oriented and functional programming patterns as appropriate.
-- Prefer LINQ and lambda expressions for collection operations.
-- Use descriptive variable and method names (e.g., `IsUserSignedIn`, `CalculateTotal`).
-- Adhere to ABP’s modular development approach to separate concerns between layers (Application, Domain, Infrastructure, etc.).
+## 技术栈
+- **运行时**：.NET 8.0+
+- **框架**：ABP Framework
+- **ORM**：Entity Framework Core
+- **Web**：ASP.NET Core
+- **前端**：Blazor / Angular / React
+- **微服务**：Dapr（可选）
 
-## Naming Conventions
-- Use PascalCase for class names, method names, and public members.
-- Use camelCase for local variables and private fields.
-- Use UPPERCASE for constants.
-- Prefix interface names with "I" (e.g., `IUserService`).
+## 最佳实践
+### 命名约定
 
-## C# and .NET Usage
-- Use C# 10+ features when appropriate (e.g., record types, pattern matching, null-coalescing assignment).
-- Leverage built-in ASP.NET Core features and middleware, as well as ABP’s modules and features (e.g., Permission Management, Setting Management).
-- Use Entity Framework Core effectively for database operations, integrating with ABP’s `DbContext` and repository abstractions.
+| 类型 | 规范 | 示例 |
+|------|------|------|
+| 项目名 | PascalCase | `MyProject` |
+| 类名 | PascalCase | `UserManager` |
+| 接口名 | I + PascalCase | `IUserAppService` |
+| 方法名 | PascalCase | `GetUserAsync` |
+| 变量名 | camelCase | `userRepository` |
+| 常量 | PascalCase / UPPER_SNAKE_CASE | `MaxRetryCount` |
 
-## Syntax and Formatting
-- Follow the C# Coding Conventions (https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions).
-- Use C#’s expressive syntax (e.g., null-conditional operators, string interpolation).
-- Use `var` for implicit typing when the type is obvious.
-- Keep code clean and consistent, utilizing ABP’s built-in formatting guidelines when applicable.
+### 项目结构
 
-## Error Handling and Validation
-- Use exceptions for exceptional cases, not for control flow.
-- Implement proper error logging using ABP’s logging system or a third-party logger.
-- Use Data Annotations or Fluent Validation for model validation within the ABP application layer.
-- Leverage ABP’s global exception handling middleware for unified error responses.
-- Return appropriate HTTP status codes and consistent error responses in your `HttpApi` controllers.
+```
+src/
+├── MyProject.Domain/           # 领域层
+│   ├── Entities/               # 实体和聚合根
+│   ├── Repositories/           # 仓储接口
+│   ├── ValueObjects/           # 值对象
+│   └── DomainServices/         # 领域服务
+├── MyProject.Domain.Shared/    # 共享领域
+│   └── Enums/                  # 枚举定义
+├── MyProject.Application/      # 应用层
+│   ├── Services/               # 应用服务
+│   ├── DTOs/                   # 数据传输对象
+│   └── AutoMapper/             # 对象映射配置
+├── MyProject.Application.Contracts/
+│   ├── Services/               # 服务接口
+│   └── DTOs/                   # DTO 定义
+├── MyProject.EntityFrameworkCore/
+│   ├── EntityConfigurations/   # EF Core 配置
+│   └── Migrations/             # 数据库迁移
+├── MyProject.HttpApi/          # HTTP API
+│   └── Controllers/            # API 控制器
+└── MyProject.Web/              # Web 层
+    ├── Pages/                  # Razor Pages
+    └── Components/             # 视图组件
+```
 
-## API Design
-- Follow RESTful API design principles in your `HttpApi` layer.
-- Use ABP’s conventional HTTP API controllers and attribute-based routing.
-- Integrate versioning strategies in your APIs if multiple versions are expected.
-- Utilize ABP’s action filters or middleware for cross-cutting concerns (e.g., auditing).
+### 领域层示例
 
-## Performance Optimization
-- Use asynchronous programming with `async/await` for I/O-bound operations.
-- Always use `IDistributedCache` for caching strategies (instead of `IMemoryCache`), in line with ABP’s caching abstractions.
-- Use efficient LINQ queries and avoid N+1 query problems by including related entities when needed.
-- Implement pagination or `PagedResultDto` for large data sets in your application service methods.
+```csharp
+// 聚合根
+public class User : AggregateRoot<Guid>
+{
+    public string UserName { get; private set; }
+    public string Email { get; private set; }
 
-## Key Conventions
-- Use ABP’s Dependency Injection (DI) system for loose coupling and testability.
-- Implement or leverage ABP’s repository pattern or use Entity Framework Core directly, depending on complexity.
-- Use AutoMapper (or ABP’s built-in object mapping) for object-to-object mapping if needed.
-- Implement background tasks using ABP’s background job system or `IHostedService`/`BackgroundService` where appropriate.
-- Follow ABP’s recommended approach for domain events and entities (e.g., using `AuditedAggregateRoot`, `FullAuditedEntity`).
-- Keep business rules in the **Domain layer**. Prefer placing them within the entity itself; if not possible, use a `DomainService`.
-- Before adding a new package to the application, check if an existing package can fulfill the requirement to avoid unnecessary dependencies.
-- Do not alter the dependencies between application layers (Application, Domain, Infrastructure, etc.).
+    private User() { } // ORM 需要
 
-**Domain Best Practices**  
-- [Domain Services Best Practices](https://abp.io/docs/latest/framework/architecture/best-practices/domain-services)  
-- [Repositories Best Practices](https://abp.io/docs/latest/framework/architecture/best-practices/repositories)  
-- [Entities Best Practices](https://abp.io/docs/latest/framework/architecture/best-practices/entities)
+    public User(Guid id, string userName, string email) : base(id)
+    {
+        UserName = userName;
+        Email = email;
+    }
 
-**Application Layer Best Practices**  
-- [Application Services Best Practices](https://abp.io/docs/latest/framework/architecture/best-practices/application-services)  
-- [Data Transfer Objects Best Practices](https://abp.io/docs/latest/framework/architecture/best-practices/data-transfer-objects)
+    public void UpdateEmail(string email)
+    {
+        Email = email;
+        AddLocalEvent(new UserEmailChangedEvent(Id, email));
+    }
+}
 
-**Data Access Best Practices**  
-- [Entity Framework Core Integration](https://abp.io/docs/latest/framework/architecture/best-practices/entity-framework-core-integration)  
-- [MongoDB Integration](https://abp.io/docs/latest/framework/architecture/best-practices/mongodb-integration)
+// 值对象
+public class EmailAddress : ValueObject
+{
+    public string Address { get; private set; }
 
-Additionally, refer to the [EventHub repository](https://github.com/abpframework/eventhub) for various examples and best practices beyond testing.
+    private EmailAddress() { }
 
-## Testing
-- Use the ABP startup templates that include Shouldly, NSubstitute, and xUnit for testing.
-- Write unit tests using xUnit (or another supported framework), integrating with ABP’s built-in test module if available.
-- Use NSubstitute (or a similar library) for mocking dependencies.
-- Implement integration tests for your modules (e.g., `Application.Tests`, `Domain.Tests`), leveraging ABP’s test base classes.
+    public EmailAddress(string address)
+    {
+        Address = address; // 验证逻辑
+    }
 
-## Security
-- Use built-in openiddict for authentication and authorization.
-- Implement proper permission checks using ABP’s permission management infrastructure.
-- Use HTTPS and enforce SSL.
-- Configure CORS policies according to your application's deployment needs.
+    protected override IEnumerable<object> GetAtomicValues()
+    {
+        yield return Address;
+    }
+}
+```
 
-## API Documentation
-- Use Swagger/OpenAPI for API documentation, leveraging ABP’s built-in support (Swashbuckle.AspNetCore or NSwag).
-- Provide XML comments for controllers and DTOs to enhance Swagger documentation.
-- Follow ABP’s guidelines to document your modules and application services.
+### 应用层示例
 
-Adhere to official Microsoft documentation, ASP.NET Core guides, and ABP’s documentation (https://docs.abp.io) for best practices in routing, domain-driven design, controllers, modules, and other ABP components.
+```csharp
+// DTO (使用 record 类型)
+public record CreateUpdateUserDto(
+    string UserName,
+    string Email,
+    string? PhoneNumber
+);
+
+// 应用服务
+[Authorize(MyProjectPermissions.Users.Create)]
+public class UserAppService(
+    IUserRepository userRepository,
+    UserManager<User> userManager) : ApplicationService, IUserAppService
+{
+    public async Task<UserDto> CreateAsync(CreateUpdateUserDto input)
+    {
+        var user = new User(GuidGenerator.Create(), input.UserName, input.Email);
+        await userRepository.InsertAsync(user);
+        return ObjectMapper.Map<User, UserDto>(user);
+    }
+
+    public async Task<UserDto> GetAsync(Guid id)
+    {
+        var user = await userRepository.FindAsync(id)
+            ?? throw new EntityNotFoundException(typeof(User), id);
+        return ObjectMapper.Map<User, UserDto>(user);
+    }
+}
+```
+
+### 实体配置
+
+```csharp
+public class UserConfiguration : IEntityTypeConfiguration<User>
+{
+    public void Configure(EntityTypeBuilder<User> builder)
+    {
+        builder.ToTable("Users");
+        builder.HasKey(x => x.Id);
+        builder.Property(x => x.UserName).IsRequired().HasMaxLength(256);
+        builder.Property(x => x.Email).IsRequired().HasMaxLength(256);
+        builder.HasIndex(x => x.Email).IsUnique();
+    }
+}
+```
+
+## 关键约定
+1. **领域层**
+   - 实体继承 `Entity` 或 `AggregateRoot`
+   - 使用值对象封装复杂类型
+   - 定义领域服务和仓储接口
+   - 使用领域事件解耦业务逻辑
+
+2. **应用层**
+   - 应用服务实现 `IApplicationService`
+   - 使用 DTO 进行数据传输
+   - 使用 AutoMapper 进行对象映射
+   - 实现权限授权
+
+3. **基础设施层**
+   - 实现 `IRepository<TEntity>` 接口
+   - 使用 EF Core 配置映射
+   - 实现数据库迁移
+
+4. **表现层**
+   - 使用 Auto API Controllers
+   - 实现动态 C# API 客户端
+   - 使用 ABP 的 Bundling 系统
+
+## 测试规范
+- 使用 xUnit 进行单元测试
+- 使用 ABP 测试基础设施
+- 模拟依赖项进行隔离测试
+- 测试应用服务和领域逻辑
+
+## 模块化
+- 定义模块依赖关系
+- 使用 Volo.Abp.Modularity
+- 实现模块初始化逻辑
+- 支持模块热插拔

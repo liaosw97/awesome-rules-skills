@@ -1,7 +1,5 @@
 ---
-name: chakra-ui
-translation-status: pending
----semantic-html-rendering-en
+name: chakra-ui---semantic-html-rendering-en
 description: 在使用 Chakra UI 组件时使用 'as' prop 进行语义化 HTML 渲染
 paths:
   - "src/components/**/*.*"

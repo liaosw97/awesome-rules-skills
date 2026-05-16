@@ -1,7 +1,5 @@
 ---
-name: react-components-react-component-creation
-translation-status: pending
----spa-app-en
+name: react-components-react-component-creation---spa-app-en
 description: 为在 SPA 中创建 React 组件提供指导原则，强调仔细规划、现有组件检查和提示生成。
 paths:
   - "apps/spa/src/components/**/*.tsx"

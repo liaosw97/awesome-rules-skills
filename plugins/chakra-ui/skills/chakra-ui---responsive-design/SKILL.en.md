@@ -1,7 +1,5 @@
 ---
-name: chakra-ui
-translation-status: pending
----responsive-design-en
+name: chakra-ui---responsive-design-en
 description: 利用 Chakra UI 的布局组件在 React 应用程序中创建响应式设计
 paths:
   - "src/**/*.*"

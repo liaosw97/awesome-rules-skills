@@ -3,7 +3,6 @@ name: nextjs-14-seo-error-handling-rules-en
 description: 使用 error.tsx 文件在 Next.js 14 中实现错误处理的规则。
 paths:
   - "**/app/error.tsx"
-translation-status: pending
 ---
 
 - 对于错误处理（在 error.tsx 中）：

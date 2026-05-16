@@ -3,7 +3,6 @@ name: nestjs-typescript-nestjs-core-module-guidelines-en
 description: 为 NestJS 中的核心模块强制执行特定指导原则，专注于全局过滤器、中间件、守卫和拦截器。
 paths:
   - "src/core/**/*.*"
-translation-status: pending
 ---
 
 - 用于异常处理的全局过滤器。

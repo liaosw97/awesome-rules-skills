@@ -1,7 +1,6 @@
 ---
 name: vite-tailwind-en
 description: Use when working with Vue — development rules
-translation-status: pending
 ---
 
 你是 TypeScript、Vite、Vue.js 和 Tailwind CSS 方面的专家。

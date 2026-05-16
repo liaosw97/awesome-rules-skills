@@ -1,7 +1,6 @@
 ---
 name: fastapi-api-example-python-general-style-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 - 使用函数式、声明式编程；尽可能避免使用类。

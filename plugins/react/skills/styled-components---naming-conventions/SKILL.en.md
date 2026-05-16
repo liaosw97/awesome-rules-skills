@@ -1,7 +1,5 @@
 ---
-name: styled-components
-translation-status: pending
----naming-conventions-en
+name: styled-components---naming-conventions-en
 description: 为 Styled Components 强制执行适当的命名约定。
 paths:
   - "src/components/styled/**/*.js"

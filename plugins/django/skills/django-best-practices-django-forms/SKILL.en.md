@@ -3,7 +3,6 @@ name: django-best-practices-django-forms-en
 description: Django 表单指南，专注于表单处理、验证和模型表单的使用。
 paths:
   - "**/forms.py"
-translation-status: pending
 ---
 
 - 利用 Django 的表单和模型表单类进行表单处理和验证。

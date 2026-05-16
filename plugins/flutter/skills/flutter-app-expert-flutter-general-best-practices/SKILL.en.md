@@ -3,7 +3,6 @@ name: flutter-app-expert-flutter-general-best-practices-en
 description: 在整个项目中应用通用的 Flutter 最佳实践，重点关注架构、设计和代码质量。
 paths:
   - "lib/**/*.*"
-translation-status: pending
 ---
 
 - 在保持代码整洁原则的同时适应现有项目架构。

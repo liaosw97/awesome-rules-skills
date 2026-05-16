@@ -3,7 +3,6 @@ name: chakra-ui-best-practices-en
 description: 强制执行 Chakra UI 最佳实践以保持一致性并利用框架的功能
 paths:
   - "src/**/*.*"
-translation-status: pending
 ---
 
 - **在应用程序根部使用 `ChakraProvider`**：

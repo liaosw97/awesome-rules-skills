@@ -1,7 +1,6 @@
 ---
 name: es-module-guide-en
 description: Use when working with Node.js — development rules
-translation-status: pending
 ---
 
 ## 核心原则

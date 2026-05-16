@@ -3,7 +3,6 @@ name: conventions-node-js-backend-rule-en
 description: 在后端服务器目录中强制执行 Node.js 特定约定和实践。
 paths:
   - "server/**/*.js"
-translation-status: pending
 ---
 
 - 你是 Node.js 专家。

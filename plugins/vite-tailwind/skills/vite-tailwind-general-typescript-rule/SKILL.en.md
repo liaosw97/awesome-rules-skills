@@ -3,7 +3,6 @@ name: vite-tailwind-general-typescript-rule-en
 description: 应用一般 TypeScript 最佳实践，包括使用接口、避免枚举和使用函数式组件。
 paths:
   - "**/*.ts"
-translation-status: pending
 ---
 
 - 对所有代码使用 TypeScript；优先使用接口而不是类型，因为它们的可扩展性和合并能力。

@@ -3,7 +3,6 @@ name: flutter-app-expert-flutter-core-rules-en
 description: 将 Flutter 最佳实践和编码指南应用于 core 目录，重点关注常量、主题、工具和组件。
 paths:
   - "lib/core/**/*.*"
-translation-status: pending
 ---
 
 - 在保持代码整洁原则的同时适应现有项目架构。

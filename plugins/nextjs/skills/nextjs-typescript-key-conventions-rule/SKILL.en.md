@@ -3,7 +3,6 @@ name: nextjs-typescript-key-conventions-rule-en
 description: Next.js 项目的关键约定，如使用 'nuqs'、Web Vitals 优化和限制客户端组件。
 paths:
   - "**/*.{ts,tsx,js,jsx}"
-translation-status: pending
 ---
 
 - 使用 'nuqs' 进行 URL 搜索参数状态管理。

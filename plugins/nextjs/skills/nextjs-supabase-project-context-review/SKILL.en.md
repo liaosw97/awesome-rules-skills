@@ -3,7 +3,6 @@ name: nextjs-supabase-project-context-review-en
 description: 指定审查和维护项目上下文文件的重要性，确保稳定性、选择性更新和未来开发人员的可访问性。
 paths:
   - "**/*.*"
-translation-status: pending
 ---
 
 - 你必须审查 `projectContext.md`，因为我们需要确保项目上下文是最新和准确的。

@@ -1,7 +1,6 @@
 ---
 name: biological-cpu-en
 description: Use when working with CPU — development rules
-translation-status: pending
 ---
 
 ## 核心原则

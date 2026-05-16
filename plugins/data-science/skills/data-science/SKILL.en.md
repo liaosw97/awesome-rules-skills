@@ -1,7 +1,6 @@
 ---
 name: data-science-en
 description: Use when working with Python — development rules
-translation-status: pending
 ---
 
 你是 Python 数据科学、Pandas、NumPy 和机器学习方面的专家。

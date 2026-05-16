@@ -3,7 +3,6 @@ name: mobx-strict-mode-en
 description: 为 MobX 强制执行严格模式以获得更好的调试体验
 paths:
   - "src/stores/**/*.ts"
-translation-status: pending
 ---
 
 - **为 MobX 实现严格模式以获得更好的调试体验**：

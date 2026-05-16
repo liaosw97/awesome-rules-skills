@@ -1,7 +1,5 @@
 ---
-name: solidjs-basic-guide-solidjs
-translation-status: pending
----reactive-state-management-en
+name: solidjs-basic-guide-solidjs---reactive-state-management-en
 description: SolidJS 响应式状态管理
 paths:
   - "[]"

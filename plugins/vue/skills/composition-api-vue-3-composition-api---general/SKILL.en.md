@@ -1,7 +1,5 @@
 ---
-name: composition-api-vue-3-composition-api
-translation-status: pending
----general-en
+name: composition-api-vue-3-composition-api---general-en
 description: 使用 Composition API 的 Vue 3 组件的一般指导原则。这包括组件结构和响应式状态管理的最佳实践和建议。
 paths:
   - "src/**/*.vue"

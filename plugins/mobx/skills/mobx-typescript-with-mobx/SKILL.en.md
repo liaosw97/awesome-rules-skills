@@ -3,7 +3,6 @@ name: mobx-typescript-with-mobx-en
 description: 如何在 MobX 中使用 TypeScript 的说明
 paths:
   - "src/**/*.ts"
-translation-status: pending
 ---
 
 - **对 MobX 使用 TypeScript 确保类型安全**：

@@ -1,7 +1,6 @@
 ---
 name: fastapi-api-example-error-handling-priorities-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 - 在函数开头处理错误和边缘情况。

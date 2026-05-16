@@ -1,7 +1,6 @@
 ---
 name: sveltekit-tailwind-typescript-guide-project-file-structure-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 - 将相关组件分组到 src/lib/components/ 下的子目录中

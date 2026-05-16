@@ -3,7 +3,6 @@ name: springboot-jpa-repository-class-conventions-en
 description: 规定了仓库（Repository）类的结构和功能，强调使用 JpaRepository、JPQL 查询和 EntityGraph 来防止 N+1 问题。
 paths:
   - "**/src/main/java/com/example/repositories/*.java"
-translation-status: pending
 ---
 
 - 必须使用 @Repository 注解仓库类。

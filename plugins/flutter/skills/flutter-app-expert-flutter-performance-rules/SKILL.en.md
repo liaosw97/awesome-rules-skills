@@ -3,7 +3,6 @@ name: flutter-app-expert-flutter-performance-rules-en
 description: 提供 Flutter 开发的性能相关指南，包括图片缓存、列表视图优化和内存管理。
 paths:
   - "lib/**/*.*"
-translation-status: pending
 ---
 
 - 使用正确的图片缓存。

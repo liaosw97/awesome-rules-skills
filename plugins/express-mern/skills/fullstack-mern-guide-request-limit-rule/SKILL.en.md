@@ -3,7 +3,6 @@ name: fullstack-mern-guide-request-limit-rule-en
 description: 请求限制规则
 paths:
   - "[]"
-translation-status: pending
 ---
 
 # 请求限制规则

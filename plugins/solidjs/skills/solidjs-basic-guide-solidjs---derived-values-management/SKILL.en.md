@@ -1,7 +1,5 @@
 ---
-name: solidjs-basic-guide-solidjs
-translation-status: pending
----derived-values-management-en
+name: solidjs-basic-guide-solidjs---derived-values-management-en
 description: SolidJS 派生值管理
 paths:
   - "[]"

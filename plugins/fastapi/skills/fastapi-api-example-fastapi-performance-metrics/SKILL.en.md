@@ -3,7 +3,6 @@ name: fastapi-api-example-fastapi-performance-metrics-en
 description: FastAPI 性能指标
 paths:
   - "[]"
-translation-status: pending
 ---
 
 # FastAPI 性能指标

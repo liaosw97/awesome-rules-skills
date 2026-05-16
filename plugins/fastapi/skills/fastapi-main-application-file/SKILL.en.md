@@ -3,7 +3,6 @@ name: fastapi-main-application-file-en
 description: 为 FastAPI 项目中的主应用程序文件指定指导原则，专注于应用程序初始化和配置。
 paths:
   - "app/main.py"
-translation-status: pending
 ---
 
 - 确保使用 FastAPI() 进行适当的应用程序初始化

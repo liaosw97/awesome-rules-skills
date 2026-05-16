@@ -1,7 +1,5 @@
 ---
-name: sveltekit-tailwind-typescript-guide-project-standards
-translation-status: pending
----version-numbers-en
+name: sveltekit-tailwind-typescript-guide-project-standards---version-numbers-en
 description: Use when working with code rules
 ---
 

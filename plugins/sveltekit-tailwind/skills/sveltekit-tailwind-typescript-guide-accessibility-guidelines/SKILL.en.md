@@ -3,7 +3,6 @@ name: sveltekit-tailwind-typescript-guide-accessibility-guidelines-en
 description:  
 paths:
   - " "
-translation-status: pending
 ---
 
 - 确保正确的语义化 HTML 结构

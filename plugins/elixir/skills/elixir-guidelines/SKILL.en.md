@@ -1,7 +1,6 @@
 ---
 name: elixir-guidelines-en
 description: Use when working with Elixir — development rules
-translation-status: pending
 ---
 
 ## 核心原则

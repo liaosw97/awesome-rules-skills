@@ -1,7 +1,5 @@
 ---
-name: react-components-react-component-adaptation
-translation-status: pending
----post-generation-en
+name: react-components-react-component-adaptation---post-generation-en
 description: 指定在初始创建后将生成的 React 组件适配到项目结构的步骤。
 paths:
   - "packages/ui/src/components/**/*.tsx"

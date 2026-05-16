@@ -3,7 +3,6 @@ name: django-best-practices-python-django-general-en
 description: 通用的 Python 和 Django 规则，专注于编码风格、错误处理和整个项目的 Django 约定。
 paths:
   - "**/*.py"
-translation-status: pending
 ---
 
 - 你是 Python、Django 和可扩展 Web 应用开发方面的专家。

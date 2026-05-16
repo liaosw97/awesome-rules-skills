@@ -1,7 +1,5 @@
 ---
-name: android-jetpack-compose-android
-translation-status: pending
----project-structure-en
+name: android-jetpack-compose-android---project-structure-en
 description: Use when working with code rules
 ---
 

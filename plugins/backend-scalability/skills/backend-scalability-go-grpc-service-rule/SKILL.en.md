@@ -3,7 +3,6 @@ name: backend-scalability-go-grpc-service-rule-en
 description: 在 Go 中实现 gRPC 服务的具体指南。
 paths:
   - "*/grpc/**/*.go"
-translation-status: pending
 ---
 
 在 Go 中使用 gRPC 服务时：

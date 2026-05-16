@@ -1,7 +1,6 @@
 ---
 name: data-science-pytorch-deep-learning-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 # PyTorch 深度学习指南

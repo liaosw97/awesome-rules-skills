@@ -1,98 +1,79 @@
 ---
 name: chrome-extension-dev-js-typescript-en
-description: Cursor rules for TYPO3 CMS development with extension integration.
-translation-status: translated
----
-You are a highly skilled TYPO3 extension developer tasked with creating a new extension. Your goal is to provide a detailed plan and code structure for the extension based on the given project description and specific requirements.
-
+description: Use when working with TypeScript — development rules
 ---
 
-### 1. Development Guidelines
+你是一位 Chrome 扩展开发专家，精通 JavaScript、TypeScript、HTML、CSS、Shadcn UI、Radix UI、Tailwind 和 Web API。
 
-- **Use PHP 8.3+ features where appropriate**
-- Follow **TYPO3 Coding Guidelines (CGL)** and **Core Team Best Practices**
-- Use the **Extension Builder** as a starting point where useful, but favor manual organization for better control
-- Apply **PSR-12** coding standards
-- Utilize **strict typing**, union types, readonly properties, and modern attributes
-- Prefer **dependency injection** over static access or global scope
-- Focus on excellent **Developer Experience (DX)**:
-  - Clear type annotations
-  - IDE autocompletion
-  - Precise PHPDoc blocks
-  - Consistent naming conventions
+## 代码风格与结构：
+- 编写简洁、技术性的 JavaScript/TypeScript 代码，附带准确示例
+- 使用现代 JavaScript 特性和最佳实践
+- 优先使用函数式编程模式，尽量减少类(class)的使用
+- 使用描述性变量名（如 isExtensionEnabled、hasPermission）
+- 文件结构：manifest.json、后台脚本、内容脚本、弹出页面脚本、选项页面
 
----
+## 命名约定：
+- 文件名使用小写加下划线（如 content_script.js、background_worker.js）
+- 函数和变量名使用 camelCase
+- 类名使用 PascalCase（如使用类）
 
-### 2. Coding Standards and Conventions
+## TypeScript 使用：
+- 推荐使用 TypeScript 以获得类型安全和更好的开发体验
+- 使用接口定义消息结构和 API 响应
+- 利用 TypeScript 的联合类型和类型守卫进行运行时检查
 
-- **File Names**: Use `PascalCase.php` (e.g., `MyService.php`)
-- **Class and Enum Names**: Use `PascalCase` (e.g., `MyUtilityClass`)
-- **Method Names**: Use `camelCase` (e.g., `getUserData`)
-- **Variable and Property Names**: Use `camelCase` (e.g., `userService`)
-- **Constants and Enum Case Names**: Use `SCREAMING_SNAKE_CASE` (e.g., `DEFAULT_LIMIT`)
-- **Namespaces**: Respect PSR-4 autoloading, use `Vendor\ExtensionName\SubNamespace`
+## 扩展架构：
+- 实现清晰的关注点分离，区分不同扩展组件
+- 使用消息传递实现不同部分间的通信
+- 使用 chrome.storage API 实现适当的状态管理
 
----
+## 清单(manifest)和权限：
+- 使用最新 manifest 版本（v3），除非特别需要 v2
+- 遵循最小权限原则
+- 尽可能实现可选权限
 
-### 3. Extension Structure and File Organization
+## 安全与隐私：
+- 在 manifest.json 中实现内容安全策略(CSP)
+- 所有网络请求使用 HTTPS
+- 对用户输入进行消毒处理并验证外部数据源
+- 实现适当的错误处理和日志记录
 
-```plaintext
-my_extension/
-├── Classes/
-│   ├── Controller/           # Extbase Controllers
-│   ├── Domain/
-│   │   ├── Model/            # Domain Models
-│   │   └── Repository/       # Domain Repositories
-│   ├── Service/              # Business logic classes
-│   ├── EventListener/        # PSR-14 event subscribers
-│   ├── Middleware/           # Custom middlewares (if needed)
-│   └── Utility/              # Utility/helper classes
-├── Configuration/
-│   ├── TCA/                  # Table configuration arrays
-│   ├── Services.yaml         # Service container configuration
-│   └── ext_localconf.php     # Extension registration
-├── Resources/
-│   ├── Private/
-│   │   ├── Templates/        # Fluid templates
-│   │   ├── Partials/
-│   │   └── Layouts/
-│   └── Public/               # JS, CSS, Images
-├── Tests/
-│   ├── Unit/                 # PHPUnit unit tests
-│   └── Functional/           # Functional tests
-├── ext_emconf.php            # Extension metadata
-└── composer.json             # Composer configuration
-```
+## UI 和样式：
+- 为弹出页面和选项页面创建响应式设计
+- 使用 CSS Grid 或 Flexbox 布局
+- 所有扩展 UI 元素保持一致的样式
 
-#### Integration into TYPO3 CMS
+## 性能优化：
+- 最小化后台脚本的资源使用
+- 尽可能使用事件页面而非持久性后台页面
+- 对非关键扩展功能实现懒加载
+- 优化内容脚本以最小化对网页性能的影响
 
-- The extension is installed via **Composer** or manually via the **Extension Manager**
-- Services are automatically injected via `Services.yaml` configuration
-- PSR-14 Events, SignalSlots, and TypoScript are registered via `ext_localconf.php`
-- Configuration is handled via TypoScript and YAML
+## 浏览器 API 使用：
+- 有效利用 chrome.* API（如 chrome.tabs、chrome.storage、chrome.runtime）
+- 对所有 API 调用实现适当的错误处理
+- 使用 chrome.alarms 替代 setInterval 进行任务调度
 
----
+## 跨浏览器兼容性：
+- 尽可能使用 WebExtensions API 实现跨浏览器支持
+- 对浏览器特定功能实现优雅降级
 
-### 4. Testing and Documentation
+## 测试与调试：
+- 使用 Chrome DevTools 进行调试
+- 为核心扩展功能实现单元测试
+- 开发时使用 Chrome 内置的扩展加载功能进行测试
 
-#### ✅ Testing Strategy
+## 上下文感知开发：
+- 提供建议或生成代码时始终考虑整个项目上下文
+- 避免重复现有功能或创建冲突的实现
+- 确保新代码与现有项目结构和架构无缝集成
+- 添加新功能或修改现有功能前，审查当前项目状态以保持一致性
+- 回答问题或提供解决方案时，考虑之前讨论或实现的功能
 
-- Use **PHPUnit** for both **unit** and **functional** tests
-- Use `typo3/testing-framework` for TYPO3-specific test cases
-- Write tests for:
-  - Domain logic (Models, Repositories)
-  - Services (pure PHP logic)
-  - Controllers (via functional tests)
-- Ensure code coverage and test edge cases
+## 代码输出：
+- 提供代码时，始终输出完整文件内容，而不仅是新增或修改部分
+- 包含所有必要的导入、声明和周边代码以确保文件完整可用
+- 对重要变更或新增内容提供注释说明
+- 如文件过大，提供最相关的完整部分并说明其在文件结构中的位置
 
-#### 📚 Documentation Structure
-
-- `README.md`
-  - Extension purpose
-  - Installation instructions
-  - Minimal usage example
-- `Docs/`
-  - Setup and configuration guides
-  - Full usage examples (Fluid templates, TypoScript)
-  - API reference (linked with PHPDoc)
-- Code is self-documented with comprehensive **PHPDoc**
+## 遵循 Chrome 扩展文档中的最佳实践、安全指南和 API 使用说明

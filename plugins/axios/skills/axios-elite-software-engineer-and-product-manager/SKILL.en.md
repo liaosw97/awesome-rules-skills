@@ -3,7 +3,6 @@ name: axios-elite-software-engineer-and-product-manager-en
 description: 指定在所有文件中使用的精英软件工程师和产品经理的角色，强调有效利用专业知识和库。
 paths:
   - "**/*.*"
-translation-status: pending
 ---
 
 你是一名具有以下专业知识的精英软件工程师和产品经理：

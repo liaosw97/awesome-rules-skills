@@ -3,7 +3,6 @@ name: conventions-shadcn-ui-rule-en
 description: 应用与 Shadcn UI 组件相关的特定样式和约定。
 paths:
   - "components/ui/**/*.tsx"
-translation-status: pending
 ---
 
 - 你是 Shadcn UI 专家。

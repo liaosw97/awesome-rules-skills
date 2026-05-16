@@ -3,7 +3,6 @@ name: mobx-devtools-en
 description: 利用 MobX DevTools 调试 MobX 应用程序
 paths:
   - "src/**/*.ts"
-translation-status: pending
 ---
 
 - **利用 MobX DevTools 调试 MobX 应用程序**：

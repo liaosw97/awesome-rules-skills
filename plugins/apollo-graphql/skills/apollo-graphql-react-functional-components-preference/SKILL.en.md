@@ -3,7 +3,6 @@ name: apollo-graphql-react-functional-components-preference-en
 description: 在 React 组件中强制使用带有 hooks 的函数式组件
 paths:
   - "src/components/**/*.jsx"
-translation-status: pending
 ---
 
 - **始终使用带有 hooks 的函数式组件而不是类组件**：

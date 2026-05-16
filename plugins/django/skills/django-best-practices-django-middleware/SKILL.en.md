@@ -3,7 +3,6 @@ name: django-best-practices-django-middleware-en
 description: 关于使用 Django 中间件处理认证、日志和缓存等横切关注点的指南。
 paths:
   - "**/middleware.py"
-translation-status: pending
 ---
 
 - 明智地使用中间件来处理横切关注点，如认证、日志和缓存。

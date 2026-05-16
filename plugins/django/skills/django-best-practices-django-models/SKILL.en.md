@@ -3,7 +3,6 @@ name: django-best-practices-django-models-en
 description: Django 模型规则，强调 ORM 使用、数据库交互和数据验证。
 paths:
   - "**/models.py"
-translation-status: pending
 ---
 
 - 利用 Django 的 ORM 进行数据库交互；除非为了性能，否则避免使用原始 SQL 查询。

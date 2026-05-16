@@ -3,7 +3,6 @@ name: chrome-extension-dev-js-typescript-ui-and-styling-rules-en
 description: 创建用户界面和应用一致样式的规则。
 paths:
   - "**/popup.html, **/options.html, **/*.css"
-translation-status: pending
 ---
 
 - 为弹出页面和选项页面创建响应式设计

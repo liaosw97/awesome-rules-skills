@@ -3,7 +3,6 @@ name: nextjs-typescript-code-style-and-structure-rules-en
 description: TypeScript、Node.js 和 Next.js 项目中代码风格和结构的规则。
 paths:
   - "**/*.{ts,tsx,js,jsx}"
-translation-status: pending
 ---
 
 - 编写简洁、技术性的 TypeScript 代码，提供准确的示例。

@@ -3,7 +3,6 @@ name: conventions-general-project-rule-en
 description: 适用于所有文件类型的一般项目规则。应该是最通用的
 paths:
   - "**/*"
-translation-status: pending
 ---
 
 - 命名约定：遵循清晰一致的命名约定。

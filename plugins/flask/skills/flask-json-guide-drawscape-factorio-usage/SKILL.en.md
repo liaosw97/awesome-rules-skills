@@ -1,7 +1,6 @@
 ---
 name: flask-json-guide-drawscape-factorio-usage-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 - 使用 `drawscape_factorio` 模块中的 `createFactorio` 和 `importFUE5` 函数。

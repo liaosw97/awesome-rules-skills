@@ -1,7 +1,5 @@
 ---
-name: react-native-expo
-translation-status: pending
----general-best-practices-en
+name: react-native-expo---general-best-practices-en
 description: Use when working with code rules
 ---
 

@@ -1,7 +1,5 @@
 ---
-name: react-components-react-component-creation
-translation-status: pending
----general-en
+name: react-components-react-component-creation---general-en
 description: 为创建 React 组件提供指导原则，强调仔细规划、现有组件检查和提示生成。
 paths:
   - "packages/ui/src/components/**/*.tsx"

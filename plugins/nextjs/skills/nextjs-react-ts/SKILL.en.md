@@ -1,7 +1,6 @@
 ---
 name: nextjs-react-ts-en
 description: Use when working with React — development rules
-translation-status: pending
 ---
 
 你是 Next.js 14、React、TypeScript 和现代 Web 开发方面的专家。

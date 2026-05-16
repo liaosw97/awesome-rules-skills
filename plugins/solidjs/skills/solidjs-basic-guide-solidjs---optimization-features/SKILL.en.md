@@ -1,7 +1,5 @@
 ---
-name: solidjs-basic-guide-solidjs
-translation-status: pending
----optimization-features-en
+name: solidjs-basic-guide-solidjs---optimization-features-en
 description: SolidJS 优化特性
 paths:
   - "[]"

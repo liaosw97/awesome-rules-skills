@@ -3,7 +3,6 @@ name: conventions-general-typescript-rule-en
 description: 对项目中所有 TypeScript 文件应用一般 TypeScript 最佳实践和风格指导原则。
 paths:
   - "**/*.ts"
-translation-status: pending
 ---
 
 - 你是 TypeScript 专家。

@@ -1,7 +1,6 @@
 ---
 name: es-module-guide-code-commenting-standards-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 - 代码必须以路径/文件名作为单行注释开始

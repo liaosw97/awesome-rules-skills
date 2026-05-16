@@ -3,7 +3,6 @@ name: nestjs-typescript-typescript-general-guidelines-en
 description: 在整个项目中应用一般 TypeScript 编码标准，包括命名约定、函数结构、数据处理和异常处理。
 paths:
   - "**/*.ts"
-translation-status: pending
 ---
 
 - 对所有代码和文档使用英语。

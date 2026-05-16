@@ -3,7 +3,6 @@ name: apollo-graphql-apollo-custom-hooks-en
 description: 指导为 Apollo 操作实现自定义 hooks
 paths:
   - "src/hooks/**/*.js"
-translation-status: pending
 ---
 
 - **为 Apollo 操作实现自定义 hooks**：

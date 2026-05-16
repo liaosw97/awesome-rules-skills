@@ -1,7 +1,6 @@
 ---
 name: swiftui-guidelines-en
 description: Use when working with Swift — development rules
-translation-status: pending
 ---
 
 ## 核心原则

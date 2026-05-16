@@ -1,7 +1,6 @@
 ---
 name: phoenix-docker-setup-commit-message-generation-rule-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 - 始终建议使用一个带有可选小写范围的约定式提交信息。遵循以下结构：

@@ -1,100 +1,74 @@
 ---
 name: spatiotemporal-en
-description: Cursor rules for Temporal Python.
-translation-status: translated
+description: Use when working with coding — development rules
 ---
-### **Temporal Python SDK `.cursorrules`**
-```markdown
-# Temporal Python SDK - .cursorrules
 
-## Role and Expertise
-You are an expert Python developer with extensive experience in Temporal.io for workflow orchestration. Your code is clean, efficient, and adheres to best practices in workflow and activity implementation.
+## 核心原则
+- **时空索引优先**：设计高效的混合时空索引结构
+- **查询优化**：利用索引下推和分区裁剪优化查询
+- **实时处理能力**：支持高吞吐轨迹数据写入和实时分析
+- **精度与性能平衡**：根据场景选择合适的空间精度和存储格式
 
-## Coding Standards
+## 技术栈
+- PostGIS - PostgreSQL 空间扩展
+- TimescaleDB - 时序数据库扩展
+- GeoServer - 地理数据服务发布
+- Mapbox/Deck.gl - 前端可视化
+- 轨迹分析 - 路径匹配、停留点检测
+- 地理围栏 - AOI 监控和触发
 
-### General Principles
-- Write concise, readable Python code.
-- Follow PEP 8 and PEP 257 for style and documentation.
-- Use Python type hints in all functions and methods.
-- Document all workflows and activities using descriptive docstrings.
+## 最佳实践
+1. **数据模型设计**
+   - 点数据：存储经纬度 + 时间戳 + 属性
+   - 轨迹数据：时序存储，支持压缩
+   - 区域数据：使用 Polygon/MultiPolygon
+   - 设计合理的空间参考系统（SRID）
 
-### Temporal.io Best Practices
-- Use `@workflow.defn` and `@activity.defn` decorators on all workflows and activities.
-- Name workflows with a `_workflow` suffix (e.g., `process_order_workflow`).
-- Name activities with an `_activity` suffix (e.g., `send_email_activity`).
+2. **索引优化**
+   - GiST 索引：支持空间查询（包含、相交）
+   - BRIN 索引：时序数据高效索引
+   - 混合索引：空间 + 时间复合索引
+   - 分区：按时间分区空间数据
 
-### Naming Conventions
-- **Variables and Functions**: snake_case
-- **Classes**: PascalCase
-- **Files**: snake_case
-- **Workflows and Activities**:
-  - Workflows: snake_case ending with `_workflow`.
-  - Activities: snake_case ending with `_activity`.
+3. **查询语言扩展**
+   - 使用 ST_* 函数处理空间操作
+   - 距离计算：ST_Distance/ST_DWithin
+   - 空间关系：ST_Contains/ST_Intersects
+   - 坐标转换：ST_Transform
 
-### Error Handling
-- Always wrap activities with proper try-except blocks.
-- Log errors with context using Python's `logging` module.
-- Use Temporal's built-in error handling for retries and timeouts.
+4. **可视化集成**
+   - 使用标准格式：GeoJSON、WKT、WKB
+   - 矢量切片：提升前端渲染性能
+   - 热力图聚合：减少数据传输量
+   - 静态底图 + 动态叠加层
 
-## Project Structure
-Organize the project with clear separation of concerns:
-- **workflows/**: Define all Temporal workflows here.
-- **activities/**: Implement all activity definitions.
-- **tests/**: Place unit tests and integration tests in this directory.
-- **utils/**: Include reusable utilities and helpers.
+5. **流处理能力**
+   - 实时轨迹写入：使用 TimescaleDB 超级表
+   - 滑动窗口聚合：计算移动统计指标
+   - 地理围栏匹配：空间连接查询
+   - 异常检测：轨迹偏离/停留分析
 
-## Dependencies
-- Ensure `temporalio` is listed in dependencies.
-- Avoid usage of `celery` or any conflicting task queue systems.
+## 关键约定
+1. **命名规范**
+   - 表名: `<entity>_geo` 或 `<entity>_track`
+   - 空间列: `geom` (几何) 或 `location` (点)
+   - 时间列: `ts` 或 `time`
+   - 索引: `idx_<table>_<column>_gist`
 
-## Documentation Standards
-- Use Python docstrings for all workflows and activities:
-  ```python
-  @workflow.defn
-  class ProcessOrderWorkflow:
-      """Workflow for processing an order."""
-  ```
+2. **坐标系统**
+   - 存储坐标：WGS84 (EPSG:4326)
+   - 计算坐标：Web Mercator (EPSG:3857)
+   - 本地坐标：使用本地投影（如 UTM）
+   - 统一标注 SRID
 
-## Testing Standards
-- Write tests for all workflows and activities using `pytest`.
-- Mock Temporal APIs where needed for isolated testing.
-- Maintain at least 80% code coverage.
+3. **数据格式**
+   - 传输：GeoJSON（Web）/ WKB（内部）
+   - 精度：经纬度保留 6 位小数（约 1 米）
+   - 压缩：轨迹使用 Douglas-Peucker 简化
+   - 时区：统一使用 UTC 存储
 
-## CI/CD Integration
-- Use GitHub Actions to automate testing and deployment.
-- Include the following checks:
-  - Linting with `flake8`.
-  - Type checking with `mypy`.
-  - Unit testing with `pytest`.
-
-## Code Examples
-
-### Workflow Example
-```python
-from temporalio import workflow
-
-@workflow.defn
-class ProcessOrderWorkflow:
-    """Workflow to process customer orders."""
-
-    @workflow.run
-    async def run(self, order_id: str):
-        await workflow.execute_activity(
-            "send_email_activity", order_id, start_to_close_timeout=timedelta(seconds=30)
-        )
-```
-
-### Activity Example
-```python
-from temporalio import activity
-
-@activity.defn
-async def send_email_activity(order_id: str):
-    """Send a confirmation email for an order."""
-    try:
-        # Simulate sending email
-        pass
-    except Exception as e:
-        activity.logger.error(f"Failed to send email for order {order_id}: {str(e)}")
-        raise
-```
+4. **性能参数**
+   - 空间索引页大小：8KB
+   - 时序分区间隔：1 天或 1 小时
+   - 查询结果限制：默认 1000 条
+   - 地理围栏缓存：热数据常驻内存

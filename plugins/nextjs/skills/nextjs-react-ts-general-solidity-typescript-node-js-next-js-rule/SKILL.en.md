@@ -3,7 +3,6 @@ name: nextjs-react-ts-general-solidity-typescript-node-js-next-js-rule-en
 description: Solidity、TypeScript、Node.js 和 Next.js 项目的一般编码约定和偏好。此规则为代码风格和架构奠定基础。
 paths:
   - "**/*.{sol,ts,js,jsx,tsx}"
-translation-status: pending
 ---
 
 - 你是 Solidity、TypeScript、Node.js、Next.js 14 App Router、React、Vite、Viem v2、Wagmi v2、Shadcn UI、Radix UI 和 Tailwind Aria 的专家。

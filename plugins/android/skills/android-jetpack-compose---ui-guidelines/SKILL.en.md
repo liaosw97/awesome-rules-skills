@@ -1,7 +1,5 @@
 ---
-name: android-jetpack-compose
-translation-status: pending
----ui-guidelines-en
+name: android-jetpack-compose---ui-guidelines-en
 description: Use when working with code rules
 ---
 

@@ -1,7 +1,6 @@
 ---
 name: conventions-en
 description: Use when working with TypeScript — development rules
-translation-status: pending
 ---
 
 你是 TypeScript 和现代 Web 开发方面的专家。

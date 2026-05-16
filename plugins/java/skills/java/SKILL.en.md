@@ -1,193 +1,174 @@
 ---
 name: java-en
-description: Cursor rules for Java General Purpose.
-translation-status: translated
+description: Use when working with Java — development rules
 ---
-# Project Configuration
-file_location: root_directory
-file_name: .cursorrules
 
-# AI Developer Profile
-ai_persona:
-  role: Senior Java Developer
-  principles:
-    - SOLID
-    - DRY
-    - KISS
-    - YAGNI
-    - OWASP
-    - DOP
-    - FP
-    - DDD
+## 核心原则
+- 遵循 SOLID、DRY、KISS 和 YAGNI 原则
+- 使用分层架构实现关注点分离
+- 使用 DTO 在层间传递数据
+- 统一异常处理和响应格式
+- 遵循 OWASP 安全最佳实践
 
-# Technical Stack
-tech_stack:
-  framework: none
-  build_tool: Maven
-  java_version: 24
-  dependencies:
-    - Eclipse Collections
-    - Commons Lang3
-    - Guava
-    - VAVR
-    - Junit5
-    - JQwik
-    - JMH
-  language: English
-  code_comments: English
+## 技术栈
+- **框架**：Spring Boot 3
+- **语言**：Java 17+
+- **ORM**：Spring Data JPA
+- **数据库**：PostgreSQL / MySQL
+- **构建工具**：Maven / Gradle
+- **工具**：Lombok
 
-# Development Guidelines
-effective_java_notes:
-  chapter_2:
-    title: "Creating and Destroying Objects"
-    items:
-      - "Consider static factory methods instead of constructors"
-      - "Consider a builder when faced with many constructor parameters"
-      - "Enforce the singleton property with a private constructor or an enum type"
-      - "Enforce noninstantiability with a private constructor"
-      - "Prefer dependency injection to hardwiring resources"
-      - "Avoid creating unnecessary objects"
-      - "Eliminate obsolete object references"
-      - "Avoid finalizers and cleaners"
-      - "Prefer try-with-resources to try-finally"
+## 最佳实践
+### 分层架构
 
-  chapter_3:
-    title: "Methods Common to All Objects"
-    items:
-      - "Obey the general contract when overriding equals"
-      - "Always override hashCode when you override equals"
-      - "Always override toString"
-      - "Override clone judiciously"
-      - "Consider implementing Comparable"
+```
+src/main/java/
+├── controller/     # REST 控制器
+├── service/        # 服务接口
+│   └── impl/       # 服务实现
+├── repository/     # 数据访问层
+├── model/          # 实体类
+├── dto/            # 数据传输对象
+├── config/         # 配置类
+└── exception/      # 异常处理
+```
 
-  chapter_4:
-    title: "Classes and Interfaces"
-    items:
-      - "Minimize the accessibility of classes and members"
-      - "In public classes, use accessor methods, not public fields"
-      - "Minimize mutability"
-      - "Favor composition over inheritance"
-      - "Design and document for inheritance or else prohibit it"
-      - "Prefer interfaces to abstract classes"
-      - "Design interfaces for posterity"
-      - "Use interfaces only to define types"
-      - "Prefer class hierarchies to tagged classes"
-      - "Favor static member classes over nonstatic"
-      - "Limit source files to a single top-level class"
+### 实体类
 
-  chapter_5:
-    title: "Generics"
-    items:
-      - "Don't use raw types"
-      - "Eliminate unchecked warnings"
-      - "Prefer lists to arrays"
-      - "Favor generic types"
-      - "Favor generic methods"
-      - "Use bounded wildcards to increase API flexibility"
-      - "Combine generics and varargs judiciously"
-      - "Consider typesafe heterogeneous containers"
+```java
+@Entity
+@Table(name = "users")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-  chapter_6:
-    title: "Enums and Annotations"
-    items:
-      - "Use enums instead of int constants"
-      - "Use instance fields instead of ordinals"
-      - "Use EnumSet instead of bit fields"
-      - "Use EnumMap instead of ordinal indexing"
-      - "Emulate extensible enums with interfaces"
-      - "Prefer annotations to naming patterns"
-      - "Consistently use the Override annotation"
-      - "Use marker interfaces to define types"
+    @NotEmpty
+    @Size(max = 100)
+    @Column(nullable = false)
+    private String name;
 
-  chapter_7:
-    title: "Lambdas and Streams"
-    items:
-      - "Prefer lambdas to anonymous classes"
-      - "Prefer method references to lambdas"
-      - "Favor the use of standard functional interfaces"
-      - "Use streams judiciously"
-      - "Prefer side-effect-free functions in streams"
-      - "Prefer Collection to Stream as a return type"
-      - "Use caution when making streams parallel"
+    @Email
+    @Column(unique = true)
+    private String email;
 
-  chapter_8:
-    title: "Methods"
-    items:
-      - "Check parameters for validity"
-      - "Make defensive copies when needed"
-      - "Design method signatures carefully"
-      - "Use overloading judiciously"
-      - "Use varargs judiciously"
-      - "Return empty collections or arrays, not nulls"
-      - "Return optionals judiciously"
-      - "Write doc comments for all exposed API elements"
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Department department;
+}
+```
 
-  chapter_9:
-    title: "General Programming"
-    items:
-      - "Minimize the scope of local variables"
-      - "Prefer for-each loops to traditional for loops"
-      - "Know and use the libraries"
-      - "Avoid float and double if exact answers are required"
-      - "Prefer primitive types to boxed primitives"
-      - "Avoid strings where other types are more appropriate"
-      - "Beware the performance of string concatenation"
-      - "Refer to objects by their interfaces"
-      - "Prefer interfaces to reflection"
-      - "Use native methods judiciously"
-      - "Optimize judiciously"
-      - "Adhere to generally accepted naming conventions"
+### Repository
 
-  chapter_10:
-    title: "Exceptions"
-    items:
-      - "Use exceptions only for exceptional conditions"
-      - "Use checked exceptions for recoverable conditions and runtime exceptions for programming errors"
-      - "Avoid unnecessary use of checked exceptions"
-      - "Favor the use of standard exceptions"
-      - "Throw exceptions appropriate to the abstraction"
-      - "Document all exceptions thrown by each method"
-      - "Include failure-capture information in detail messages"
-      - "Strive for failure atomicity"
-      - "Don't ignore exceptions"
+```java
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
 
-  chapter_11:
-    title: "Concurrency"
-    items:
-      - "Synchronize access to shared mutable data"
-      - "Avoid excessive synchronization"
-      - "Prefer executors, tasks, and streams to threads"
-      - "Prefer concurrency utilities to wait and notify"
-      - "Document thread safety"
-      - "Use lazy initialization judiciously"
-      - "Don't depend on the thread scheduler"
+    @EntityGraph(attributePaths = {"department"})
+    Optional<User> findWithDepartmentById(Long id);
 
-  chapter_12:
-    title: "Serialization"
-    items:
-      - "Prefer alternatives to Java serialization"
-      - "Implement Serializable with great caution"
-      - "Consider using a custom serialized form"
-      - "Write readObject methods defensively"
-      - "For instance control, prefer enum types to readResolve"
-      - "Consider serialization proxies instead of serialized instances"
+    @Query("SELECT new com.example.dto.UserDTO(u.id, u.name, u.email) FROM User u")
+    List<UserDTO> findAllUserDTOs();
+}
+```
 
-# Best Practices
-concurrency_guidelines:
-  - "Try to not maintain state in the class"
+### Service
 
-functional_programming_guidelines:
-  - "Try to use immutable objects"
-  - "Try to not mutate the state of the objects"
+```java
+public interface UserService {
+    UserDTO getUserById(Long id);
+    UserDTO createUser(UserCreateDTO dto);
+}
 
-data_oriented_programming_pillars:
-  - "Separate code from data"
-  - "Represent data with generic data structures"
-  - "Data should be immutable"
-  - "Use pure functions to manipulate data"
-  - "Keep data flat and denormalized"
-  - "Keep data generic until it needs to be specific"
-  - "Data integrity is maintained through validation functions"
-  - "Data access should be flexible and generic"
-  - "Data transformation should be explicit and traceable"
-  - "Data flow should be unidirectional"
+@Service
+@Transactional
+public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Override
+    public UserDTO getUserById(Long id) {
+        User user = userRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+        return UserDTO.from(user);
+    }
+}
+```
+
+### Controller
+
+```java
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ApiResponse<UserDTO>> getUser(@PathVariable Long id) {
+        UserDTO user = userService.getUserById(id);
+        return ResponseEntity.ok(ApiResponse.success(user));
+    }
+}
+```
+
+## 关键约定
+1. **实体规范**
+   - 使用 @Entity 注解实体类
+   - 使用 @Data (Lombok) 减少样板代码
+   - 使用 FetchType.LAZY 处理关联
+   - 正确注解属性进行验证
+
+2. **Repository 规范**
+   - Repository 必须是接口类型
+   - 继承 JpaRepository
+   - 使用 JPQL 编写查询
+   - 使用 @EntityGraph 避免 N+1 问题
+
+3. **Service 规范**
+   - Service 必须是接口类型
+   - 实现类使用 @Service 注解
+   - 使用 @Transactional 管理事务
+   - 返回 DTO 而非实体
+
+4. **Controller 规范**
+   - 使用 @RestController 注解
+   - 返回 ApiResponse 类型的 ResponseEntity
+   - 在 try-catch 块中处理异常
+
+### 统一响应格式
+
+```java
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class ApiResponse<T> {
+    private boolean result;
+    private String message;
+    private T data;
+
+    public static <T> ApiResponse<T> success(T data) {
+        return new ApiResponse<>(true, "成功", data);
+    }
+
+    public static <T> ApiResponse<T> error(String message) {
+        return new ApiResponse<>(false, message, null);
+    }
+}
+```
+
+## 性能优化
+- 使用 @EntityGraph 避免 N+1 查询
+- 使用连接池管理数据库连接
+- 实现缓存策略
+- 使用异步处理耗时任务
+
+## 安全实践
+- 输入验证和清理
+- 使用 Spring Security 进行认证授权
+- 防止 SQL 注入和 XSS 攻击
+- 敏感数据加密存储

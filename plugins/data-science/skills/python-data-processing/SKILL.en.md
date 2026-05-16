@@ -1,7 +1,6 @@
 ---
 name: python-data-processing-en
 description: Use when working with Python — development rules
-translation-status: pending
 ---
 
 ## 核心原则

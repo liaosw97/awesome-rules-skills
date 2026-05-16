@@ -3,7 +3,6 @@ name: nestjs-typescript-nestjs-module-structure-guidelines-en
 description: 规定 NestJS 模块内的结构和组件，包括控制器、模型、DTO 和服务，确保 API 封装。
 paths:
   - "src/modules/**/*.*"
-translation-status: pending
 ---
 
 - 每个主要域/路由一个模块。

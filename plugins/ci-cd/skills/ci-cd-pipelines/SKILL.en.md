@@ -1,7 +1,6 @@
 ---
 name: ci-cd-pipelines-en
 description: Use when working with CI — development rules
-translation-status: pending
 ---
 
 ## 核心原则

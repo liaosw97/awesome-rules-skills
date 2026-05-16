@@ -3,7 +3,6 @@ name: nextjs-react-ts-react-next-js-components-en
 description: React/Next.js 组件特定规则。包括使用函数式组件、JSX、样式设计和其他 React/Next.js 约定。
 paths:
   - "components/**/*.{ts,js,jsx,tsx}"
-translation-status: pending
 ---
 
 - 使用函数式组件和 TypeScript 接口。

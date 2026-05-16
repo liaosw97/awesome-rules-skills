@@ -3,7 +3,6 @@ name: flutter-app-expert-flutter-presentation-rules-en
 description: 专注于 Flutter 功能表现层的UI相关规则，包括 BLoC、页面和组件。
 paths:
   - "lib/features/**/presentation/**/*.*"
-translation-status: pending
 ---
 
 - 在保持代码整洁原则的同时适应现有项目架构。

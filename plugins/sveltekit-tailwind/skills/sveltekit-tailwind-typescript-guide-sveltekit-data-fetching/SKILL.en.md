@@ -1,7 +1,6 @@
 ---
 name: sveltekit-tailwind-typescript-guide-sveltekit-data-fetching-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 - 使用 SvelteKit 的 load 函数进行服务器端数据获取

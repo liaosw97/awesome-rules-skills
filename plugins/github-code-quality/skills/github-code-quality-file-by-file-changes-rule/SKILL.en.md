@@ -1,7 +1,6 @@
 ---
 name: github-code-quality-file-by-file-changes-rule-en
 description: 要求代码变更按文件逐个进行，禁止跨文件批量修改，确保变更范围清晰可控
-translation-status: pending
 ---
 
 

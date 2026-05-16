@@ -3,7 +3,6 @@ name: axios-general-python-rules-en
 description: 为 service-1 目录中的 Python 开发定义一般规则，专注于依赖管理、Python 版本和代码结构。
 paths:
   - "/service-1/**/*.*"
-translation-status: pending
 ---
 
 - 安装依赖项时始终使用 UV

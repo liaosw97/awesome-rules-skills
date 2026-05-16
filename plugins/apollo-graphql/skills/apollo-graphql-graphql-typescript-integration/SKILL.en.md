@@ -3,7 +3,6 @@ name: apollo-graphql-graphql-typescript-integration-en
 description: 强制使用 TypeScript 确保 GraphQL 操作的类型安全
 paths:
   - "src/graphql/**/*.ts"
-translation-status: pending
 ---
 
 - **对 GraphQL 操作使用 TypeScript 确保类型安全**：

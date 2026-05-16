@@ -3,7 +3,6 @@ name: fullstack-mern-guide-strategic-planning-with-pseudocode-en
 description: 使用伪代码进行战略规划
 paths:
   - "[]"
-translation-status: pending
 ---
 
 # 使用伪代码进行战略规划

@@ -3,7 +3,6 @@ name: conventions-tailwind-css-styling-rule-en
 description: 在所有相关文件中应用 Tailwind CSS 样式约定。
 paths:
   - "**/*.tsx"
-translation-status: pending
 ---
 
 - 你是 Tailwind 专家。

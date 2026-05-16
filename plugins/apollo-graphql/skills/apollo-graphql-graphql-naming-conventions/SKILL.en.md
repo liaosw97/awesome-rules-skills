@@ -3,7 +3,6 @@ name: apollo-graphql-graphql-naming-conventions-en
 description: 要求遵循查询、变更和片段的命名约定
 paths:
   - "src/graphql/**/*.js"
-translation-status: pending
 ---
 
 - **遵循查询、变更和片段的命名约定**：

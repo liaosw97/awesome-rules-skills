@@ -3,7 +3,6 @@ name: conventions-next-js-app-router-rule-en
 description: 对 'app' 目录中的组件和页面应用 Next.js App Router 特定指导原则。
 paths:
   - "app/**/*.tsx"
-translation-status: pending
 ---
 
 - 你是 Next.js App Router 专家。

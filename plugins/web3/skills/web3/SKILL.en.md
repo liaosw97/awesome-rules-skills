@@ -1,215 +1,105 @@
 ---
 name: web3-en
-description: Cursor rules for web app development with optimization integration.
-translation-status: translated
+description: Use when working with Web3 — development rules
 ---
-You are an expert in Svelte 5, SvelteKit, TypeScript, and modern web development.
 
-Key Principles
+## 核心原则
+- **用户主权**：用户完全掌控自己的数据和身份
+- **去中心化优先**：避免单点故障和中心化依赖
+- **互操作性**：支持跨协议和跨链交互
+- **隐私保护**：最小化数据暴露，默认隐私保护
+- **开源透明**：代码和协议应公开可审计
 
-- Write concise, technical code with accurate Svelte 5 and SvelteKit examples.
-- Leverage SvelteKit's server-side rendering (SSR) and static site generation (SSG) capabilities.
-- Prioritize performance optimization and minimal JavaScript for optimal user experience.
-- Use descriptive variable names and follow Svelte and SvelteKit conventions.
-- Organize files using SvelteKit's file-based routing system.
+## 技术栈
+- **去中心化存储**：IPFS、Filecoin、Arweave、Storj
+- **身份系统**：ENS、DID、Spruce、Ceramic
+- **索引查询**：The Graph、Ponder、Sentio
+- **前端框架**：wagmi、viem、ethers.js、RainbowKit
+- **开发工具**：Hardhat、Foundry、Tenderly、Alchemy
 
-Code Style and Structure
+## 最佳实践
+1. **数据存储策略**
+   - 链上存储：关键状态、资产所有权
+   - IPFS 存储：用户内容、元数据
+   - 链下数据库：索引、缓存、临时数据
+   - 使用 content addressing 保证数据完整性
 
-- Write concise, technical TypeScript or JavaScript code with accurate examples.
-- Use functional and declarative programming patterns; avoid unnecessary classes except for state machines.
-- Prefer iteration and modularization over code duplication.
-- Structure files: component logic, markup, styles, helpers, types.
-- Follow Svelte's official documentation for setup and configuration: https://svelte.dev/docs
+2. **身份验证流程**
+   - 使用 SIWE (Sign-In with Ethereum)
+   - 实现会话管理机制
+   - 支持多钱包连接
+   - 设计优雅的断开重连流程
 
-Naming Conventions
+3. **合约交互优化**
+   - 使用 multicall 批量请求
+   - 实现乐观更新 UI
+   - 处理交易失败和重试
+   - 显示清晰的交易状态
 
-- Use lowercase with hyphens for component files (e.g., `components/auth-form.svelte`).
-- Use PascalCase for component names in imports and usage.
-- Use camelCase for variables, functions, and props.
+4. **通证经济设计**
+   - 定义清晰的代币用途
+   - 设计合理的激励机制
+   - 预留治理和升级空间
+   - 考虑代币流通和锁定
 
-TypeScript Usage
+5. **隐私保护实现**
+   - 使用零知识证明保护敏感数据
+   - 实现选择性信息披露
+   - 避免链上存储个人身份信息
+   - 使用混币协议保护交易隐私
 
-- Use TypeScript for all code; prefer interfaces over types.
-- Avoid enums; use const objects instead.
-- Use functional components with TypeScript interfaces for props.
-- Enable strict mode in TypeScript for better type safety.
+## 关键约定
+1. **项目结构**
+   ```
+   web3-app/
+   ├── contracts/          # 智能合约
+   ├── frontend/           # 前端应用
+   │   ├── src/
+   │   │   ├── components/
+   │   │   ├── hooks/      # wagmi hooks
+   │   │   ├── wagmi/      # wagmi 配置
+   │   │   └── contracts/  # 合约 ABI
+   │   └── package.json
+   ├── subgraph/           # The Graph 子图
+   └── scripts/            # 部署脚本
+   ```
 
-Svelte Runes
+2. **钱包连接模式**
+   ```typescript
+   // 使用 wagmi 配置
+   import { createConfig, http } from 'wagmi'
+   import { mainnet, polygon } from 'wagmi/chains'
 
-- `$state`: Declare reactive state
-  ```typescript
-  let count = $state(0);
-  ```
-- `$derived`: Compute derived values
-  ```typescript
-  let doubled = $derived(count * 2);
-  ```
-- `$effect`: Manage side effects and lifecycle
-  ```typescript
-  $effect(() => {
-    console.log(`Count is now ${count}`);
-  });
-  ```
-- `$props`: Declare component props
-  ```typescript
-  let { optionalProp = 42, requiredProp } = $props();
-  ```
-- `$bindable`: Create two-way bindable props
-  ```typescript
-  let { bindableProp = $bindable() } = $props();
-  ```
-- `$inspect`: Debug reactive state (development only)
-  ```typescript
-  $inspect(count);
-  ```
+   export const config = createConfig({
+     chains: [mainnet, polygon],
+     transports: {
+       [mainnet.id]: http(),
+       [polygon.id]: http(),
+     },
+   })
+   ```
 
-UI and Styling
+3. **合约交互约定**
+   ```typescript
+   // 使用 viem 进行合约交互
+   import { useContractRead, useContractWrite } from 'wagmi'
 
-- Use Tailwind CSS for utility-first styling approach.
-- Leverage Shadcn components for pre-built, customizable UI elements.
-- Import Shadcn components from `$lib/components/ui`.
-- Organize Tailwind classes using the `cn()` utility from `$lib/utils`.
-- Use Svelte's built-in transition and animation features.
+   const { data: balance } = useContractRead({
+     address: TOKEN_ADDRESS,
+     abi: tokenAbi,
+     functionName: 'balanceOf',
+     args: [address],
+   })
+   ```
 
-Shadcn Color Conventions
+4. **IPFS 上传规范**
+   - 使用 CIDv1 作为内容标识
+   - 上传前进行数据验证
+   - 实现 pin 服务冗余
+   - 处理上传失败重试
 
-- Use `background` and `foreground` convention for colors.
-- Define CSS variables without color space function:
-  ```css
-  --primary: 222.2 47.4% 11.2%;
-  --primary-foreground: 210 40% 98%;
-  ```
-- Usage example:
-  ```svelte
-
-SvelteKit Project Structure
-
-- Use the recommended SvelteKit project structure:
-  ```
-  - src/
-    - lib/
-    - routes/
-    - app.html
-    - static/
-    - svelte.config.js
-    - vite.config.js
-  ```
-
-Component Development
-
-- Create .svelte files for Svelte components.
-- Use .svelte.ts files for component logic and state machines.
-- Implement proper component composition and reusability.
-- Use Svelte's props for data passing.
-- Leverage Svelte's reactive declarations for local state management.
-
-State Management
-
-- Use classes for complex state management (state machines):
-  ```typescript
-  // counter.svelte.ts
-  class Counter {
-    count = $state(0);
-    incrementor = $state(1);
-    increment() {
-      this.count += this.incrementor;
-    }
-    resetCount() {
-      this.count = 0;
-    }
-    resetIncrementor() {
-      this.incrementor = 1;
-    }
-  }
-  export const counter = new Counter();
-  ```
-- Use in components:
-  ```svelte
-  <br />
-  import { counter } from './counter.svelte.ts';
-  <br />
-  <button on:click={() => counter.increment()}>
-    Count: {counter.count}
-  ```
-
-Routing and Pages
-
-- Utilize SvelteKit's file-based routing system in the src/routes/ directory.
-- Implement dynamic routes using [slug] syntax.
-- Use load functions for server-side data fetching and pre-rendering.
-- Implement proper error handling with +error.svelte pages.
-
-Server-Side Rendering (SSR) and Static Site Generation (SSG)
-
-- Leverage SvelteKit's SSR capabilities for dynamic content.
-- Implement SSG for static pages using prerender option.
-- Use the adapter-auto for automatic deployment configuration.
-
-Performance Optimization
-
-- Leverage Svelte's compile-time optimizations.
-- Use `{#key}` blocks to force re-rendering of components when needed.
-- Implement code splitting using dynamic imports for large applications.
-- Profile and monitor performance using browser developer tools.
-- Use `$effect.tracking()` to optimize effect dependencies.
-- Minimize use of client-side JavaScript; leverage SvelteKit's SSR and SSG.
-- Implement proper lazy loading for images and other assets.
-
-Data Fetching and API Routes
-
-- Use load functions for server-side data fetching.
-- Implement proper error handling for data fetching operations.
-- Create API routes in the src/routes/api/ directory.
-- Implement proper request handling and response formatting in API routes.
-- Use SvelteKit's hooks for global API middleware.
-
-SEO and Meta Tags
-
-- Use Svelte:head component for adding meta information.
-- Implement canonical URLs for proper SEO.
-- Create reusable SEO components for consistent meta tag management.
-
-Forms and Actions
-
-- Utilize SvelteKit's form actions for server-side form handling.
-- Implement proper client-side form validation using Svelte's reactive declarations.
-- Use progressive enhancement for JavaScript-optional form submissions.
-
-Internationalization (i18n) with Paraglide.js
-
-- Use Paraglide.js for internationalization: https://inlang.com/m/gerre34r/library-inlang-paraglideJs
-- Install Paraglide.js: `npm install @inlang/paraglide-js`
-- Set up language files in the `languages` directory.
-- Use the `t` function to translate strings:
-  ```svelte
-  <br />
-  import { t } from '@inlang/paraglide-js';
-  <br />
-  - Support multiple languages and RTL layouts.
-  - Ensure text scaling and font adjustments for accessibility.
-
-Accessibility
-
-- Ensure proper semantic HTML structure in Svelte components.
-- Implement ARIA attributes where necessary.
-- Ensure keyboard navigation support for interactive elements.
-- Use Svelte's bind:this for managing focus programmatically.
-
-Key Conventions
-
-1. Embrace Svelte's simplicity and avoid over-engineering solutions.
-2. Use SvelteKit for full-stack applications with SSR and API routes.
-3. Prioritize Web Vitals (LCP, FID, CLS) for performance optimization.
-4. Use environment variables for configuration management.
-5. Follow Svelte's best practices for component composition and state management.
-6. Ensure cross-browser compatibility by testing on multiple platforms.
-7. Keep your Svelte and SvelteKit versions up to date.
-
-Documentation
-
-- Svelte 5 Runes: https://svelte-5-preview.vercel.app/docs/runes
-- Svelte Documentation: https://svelte.dev/docs
-- SvelteKit Documentation: https://kit.svelte.dev/docs
-- Paraglide.js Documentation: https://inlang.com/m/gerre34r/library-inlang-paraglideJs/usage
-
-Refer to Svelte, SvelteKit, and Paraglide.js documentation for detailed information on components, internationalization, and best practices.
+5. **错误处理约定**
+   - 区分用户拒绝和交易失败
+   - 提供友好的错误提示
+   - 记录详细的错误日志
+   - 实现优雅的降级方案

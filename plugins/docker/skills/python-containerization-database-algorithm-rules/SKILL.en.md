@@ -3,7 +3,6 @@ name: python-containerization-database-algorithm-rules-en
 description: 数据库算法规则
 paths:
   - "[]"
-translation-status: pending
 ---
 
 # 数据库算法规则

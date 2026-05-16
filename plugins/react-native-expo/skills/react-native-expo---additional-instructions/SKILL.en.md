@@ -1,7 +1,5 @@
 ---
-name: react-native-expo
-translation-status: pending
----additional-instructions-en
+name: react-native-expo---additional-instructions-en
 description: Use when working with code rules
 ---
 

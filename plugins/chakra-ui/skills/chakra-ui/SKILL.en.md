@@ -1,46 +1,77 @@
 ---
 name: chakra-ui-en
-description: Cursor rules for React development with Chakra UI integration.
-translation-status: translated
+description: Use when working with React — development rules
 ---
-// React + Chakra UI .cursorrules
 
-// Prefer functional components with hooks
+你是 React、TypeScript 和 Chakra UI 方面的专家。
 
-const preferFunctionalComponents = true;
+## 技术栈
+- **核心框架**：React
+- **语言**：TypeScript
+- **UI 组件库**：Chakra UI
+- **样式**：Chakra UI 样式系统
+- **状态管理**：React Context 或 Redux
 
-// Chakra UI best practices
+## 核心原则
 
-const chakraUIBestPractices = [
-  "Use ChakraProvider at the root of your app",
-  "Utilize Chakra UI components for consistent design",
-  "Implement custom theme for brand-specific styling",
-  "Use responsive styles with the Chakra UI breakpoint system",
-  "Leverage Chakra UI hooks for enhanced functionality",
-];
+## 组件组合
+- 利用 `as` prop 实现灵活的组件渲染
+- 扩展现有 Chakra UI 组件的 props，而不是重新创建
+- 使用 `Box`、`Flex`、`Stack` 等布局组件进行组合
+- 保持组件的单一职责和可复用性
+- 使用 `forwardRef` 确保与 Chakra UI 组件的兼容性
 
-// Folder structure
+## 可访问性
+- 优先使用 Chakra UI 提供的语义化组件
+- 利用内置的 WAI-ARIA 属性支持
+- 确保所有交互式组件支持键盘导航
+- 正确管理焦点（模态框、抽屉、菜单等）
+- 确保颜色对比度满足 WCAG 2.1 AA 标准
+- 使用可访问性测试工具进行测试
 
-const folderStructure = `
-src/
-  components/
-  pages/
-  theme/
-    index.js
-    foundations/
-    components/
-  hooks/
-  utils/
-`;
+## 暗模式
+- 使用 Chakra UI 的颜色模式功能
+- 为亮色和暗色主题定义适当的颜色值
+- 使用 `useColorMode` 和 `useColorModeValue` 钩子
 
-// Additional instructions
+## 响应式设计
+- 使用 Chakra UI 的响应式样式
+- 利用断点数组语法实现响应式布局
+- 确保在所有设备尺寸上的良好体验
 
-const additionalInstructions = `
-1. Use TypeScript for type safety with Chakra UI components
-2. Implement proper component composition using Chakra UI
-3. Utilize Chakra UI's built-in accessibility features
-4. Use the 'as' prop for semantic HTML rendering
-5. Implement dark mode using Chakra UI's color mode
-6. Use Chakra UI's layout components for responsive design
-7. Follow Chakra UI best practices for performance optimization
-`;
+## 编码规范
+
+## 文件结构
+```typescript
+// 导入
+import { Component1, Component2 } from '@chakra-ui/react';
+
+// 类型定义
+interface MyComponentProps {
+  title: string;
+  description?: string;
+}
+
+// 组件定义
+export function MyComponent({ title, description }: MyComponentProps) {
+  // 组件实现
+}
+```
+
+## 性能优化
+- 避免不必要的 re-render
+- 使用 `memo` 和 `useMemo` 进行优化
+- 对大型列表使用虚拟滚动
+- 懒加载非关键组件
+
+## 主题定制
+- 扩展 Chakra UI 主题以匹配品牌
+- 创建可复用的组件变体
+- 保持设计系统的一致性
+
+## 最佳实践
+1. 不要过度封装 - 直接使用 Chakra UI 原子组件通常更有效
+2. 保持样式 props 的透传
+3. 使用语义化的组件名称
+4. 编写可测试的组件
+5. 确保组件文档完善

@@ -1,147 +1,148 @@
 ---
 name: foundry-en
-description: Cursor rules for Solidity development with Foundry integration.
-translation-status: translated
+description: Use when working with Solidity — development rules
 ---
-You are an expert in Solidity and smart contract security.
 
-General Rules
+## 技术栈
+- Solidity ^0.8.x
+- Foundry（forge、cast、anvil）
+- OpenZeppelin 合约库
+- Ethers.rs
 
-- Cut the fluff. Code or detailed explanations only.
-- Keep it casual and brief.
-- Accuracy and depth matter.
-- Answer first, explain later if needed.
-- Logic trumps authority. Don't care about sources.
-- Embrace new tech and unconventional ideas.
-- Wild speculation's fine, just flag it.
-- Save the ethics talk.
-- Only mention safety for non-obvious, critical issues.
-- Push content limits if needed, explain after.
-- Sources at the end, not mid-text.
-- Skip the AI self-references and knowledge date stuff.
-- Stick to my code style.
-- Use multiple responses for complex answers.
-- For code tweaks, show minimal context - a few lines around changes max.
-- Don't be lazy, write all the code to implement features I ask for.
-- Warn users if they add a private key directly into a non-environment file and replace with an env reference.
+## 核心原则
+### 命名约定
 
-Solidity Best Practices
+- 合约名：PascalCase（例如 `TokenVault`）
+- 函数名：camelCase（例如 `transferFrom`）
+- 变量名：camelCase（例如 `userBalance`）
+- 常量：UPPER_SNAKE_CASE（例如 `MAX_SUPPLY`）
+- 事件：PascalCase（例如 `Transfer`）
+- 错误：PascalCase（例如 `InsufficientBalance`）
 
-- Use explicit function visibility modifiers and appropriate natspec comments.
-- Utilize function modifiers for common checks, enhancing readability and reducing redundancy.
-- Follow consistent naming: CamelCase for contracts, PascalCase for interfaces (prefixed with "I").
-- Implement the Interface Segregation Principle for flexible and maintainable contracts.
-- Design upgradeable contracts using proven patterns like the proxy pattern when necessary.
-- Implement comprehensive events for all significant state changes.
-- Follow the Checks-Effects-Interactions pattern to prevent reentrancy and other vulnerabilities.
-- Use static analysis tools like Slither and Mythril in the development workflow.
-- Implement timelocks and multisig controls for sensitive operations in production.
-- Conduct thorough gas optimization, considering both deployment and runtime costs.
-- Use OpenZeppelin's AccessControl for fine-grained permissions.
-- Use Solidity 0.8.0+ for built-in overflow/underflow protection.
-- Implement circuit breakers (pause functionality) using OpenZeppelin's Pausable when appropriate.
-- Use pull over push payment patterns to mitigate reentrancy and denial of service attacks.
-- Implement rate limiting for sensitive functions to prevent abuse.
-- Use OpenZeppelin's SafeERC20 for interacting with ERC20 tokens.
-- Implement proper randomness using Chainlink VRF or similar oracle solutions.
-- Use assembly for gas-intensive operations, but document extensively and use with caution.
-  - If Solady has an implementation built already, use that instead of writing assembly from scratch.
-- Implement effective state machine patterns for complex contract logic.
-- Use OpenZeppelin's ReentrancyGuard as an additional layer of protection against reentrancy.
-- Implement proper access control for initializers in upgradeable contracts.
-- Use OpenZeppelin's ERC20Snapshot for token balances requiring historical lookups.
-- Implement timelocks for sensitive operations using OpenZeppelin's TimelockController.
-- Use OpenZeppelin's ERC20Permit for gasless approvals in token contracts.
-- Implement proper slippage protection for DEX-like functionalities.
-- Use OpenZeppelin's ERC20Votes for governance token implementations.
-- Implement effective storage patterns to optimize gas costs (e.g., packing variables).
-- Use libraries for complex operations to reduce contract size and improve reusability.
-- Implement proper access control for self-destruct functionality, if used.
-  - Use freezable patterns instead of depricated `selfdestruct`.
-- Use OpenZeppelin's Address library for safe interactions with external contracts.
-- Use custom errors instead of revert strings for gas efficiency and better error handling.
-- Implement NatSpec comments for all public and external functions.
-- Use immutable variables for values set once at construction time.
-- Implement proper inheritance patterns, favoring composition over deep inheritance chains.
-- Use events for off-chain logging and indexing of important state changes.
-- Implement fallback and receive functions with caution, clearly documenting their purpose.
-- Use view and pure function modifiers appropriately to signal state access patterns.
-- Implement proper decimal handling for financial calculations, using fixed-point arithmetic libraries when necessary.
-- Use assembly sparingly and only when necessary for optimizations, with thorough documentation.
-- Implement effective error propagation patterns in internal functions.
+### 代码风格
 
-Testing and Quality Assurance
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
 
-- Implement a comprehensive testing strategy including unit, integration, and end-to-end tests.
-- Use a `setup` function in test files to set default state and initialize variables.
-- Use Foundry's fuzzing capabilities to uncover edge cases with property-based testing.
-- Take advantage of Foundry's test cheatcodes for advanced testing scenarios.
-- Write invariant tests for critical contract properties using Foundry's invariant testing features.
-- Use Foundry's Fuzz testing to automatically generate test cases and find edge case bugs.
-- Implement stateful fuzzing tests for complex state transitions.
-- Implement gas usage tests to ensure operations remain efficient.
-- Use Foundry's fork testing capabilities to test against live environments.
-- Implement differential testing by comparing implementations.
-- Conduct regular security audits and bug bounties for production-grade contracts.
-- Use test coverage tools and aim for high test coverage, especially for critical paths.
-- Write appropriate test fixtures using Foundry's standard libraries.
-- Use Foundry's vm.startPrank/vm.stopPrank for testing access control mechanisms.
-- Implement proper setup and teardown in test files.
-- If deterministic testing is being done, ensure that the `foundry.toml` file has `block_number` and `block_timestamp` values.
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-Performance Optimization
+/// @title 代币合约示例
+/// @author Your Name
+/// @notice 实现 ERC20 代币标准
+contract MyToken is ERC20, Ownable {
+    uint256 public constant MAX_SUPPLY = 1_000_000 * 10**18;
 
-- Optimize contracts for gas efficiency, considering storage layout and function optimization.
-- Implement efficient indexing and querying strategies for off-chain data.
+    error ExceedsMaxSupply();
 
-Development Workflow
+    event Minted(address indexed to, uint256 amount);
 
-- Utilize Foundry's forge for compilation, testing, and deployment.
-- Use Foundry's cast for command-line interaction with contracts.
-- Implement comprehensive Foundry scripts for deployment and verification.
-- Use Foundry's script capabilities for complex deployment sequences.
-- Implement a robust CI/CD pipeline for smart contract deployments.
-- Use static type checking and linting tools in pre-commit hooks.
-- Utilize `forge fmt` if prompted about consistent code formatting.
+    constructor() ERC20("MyToken", "MTK") Ownable(msg.sender) {}
 
-Documentation
-
-- Document code thoroughly, focusing on why rather than what.
-- Maintain up-to-date API documentation for smart contracts.
-- Create and maintain comprehensive project documentation, including architecture diagrams and decision logs.
-- Document test scenarios and their purpose clearly.
-- Document any assumptions made in the contract design.
-
-Dependencies
-
-- Use OpenZeppelin (openzeppelin/openzeppelin-contracts) as the main source of dependencies.
-- Use Solady (vectorized/solady) when gas optimization is crucial.
-- Ensure that any libraries used are installed with forge, and remappings are set.
-- Place remappings in `foundry.toml` instead of a `remappings.txt` file.
-
-Configuring Environment
-
-One or more of the following profiles can be added to `foundry.toml` as needed for the project.
-
-- When via_ir is required:
-
-```
-# via_ir pipeline is very slow - use a separate profile to pre-compile and then use vm.getCode to deploy
-[profile.via_ir]
-via_ir = true
-# do not compile tests when compiling via-ir
-test = 'src'
-out = 'via_ir-out'
+    /// @notice 铸造新代币
+    /// @param to 接收地址
+    /// @param amount 铸造数量
+    function mint(address to, uint256 amount) external onlyOwner {
+        if (totalSupply() + amount > MAX_SUPPLY) {
+            revert ExceedsMaxSupply();
+        }
+        _mint(to, amount);
+        emit Minted(to, amount);
+    }
+}
 ```
 
-- When deterministic deployment is required:
+### Foundry 最佳实践
+
+1. **测试**
+   - 使用 forge test 运行测试
+   - 使用 fuzz testing（模糊测试）
+   - 使用 invariant testing（不变量测试）
+   - 使用 foundry.toml 配置测试参数
+
+```solidity
+// 测试文件示例
+contract MyTokenTest is Test {
+    MyToken token;
+    address owner = address(0x1);
+    address user = address(0x2);
+
+    function setUp() public {
+        vm.prank(owner);
+        token = new MyToken();
+    }
+
+    function testFuzz_Mint(uint256 amount) public {
+        vm.assume(amount <= MyToken(token).MAX_SUPPLY());
+        vm.prank(owner);
+        token.mint(user, amount);
+        assertEq(token.balanceOf(user), amount);
+    }
+}
+```
+
+2. **Gas 优化**
+   - 使用 forge snapshot 记录 gas
+   - 使用 forge gas-report 查看报告
+   - 使用 unchecked 算术运算（安全时）
+   - 批量操作减少 SLOAD/SSTORE
+
+3. **部署**
+   - 使用 forge script 编写部署脚本
+   - 使用 cast 进行链上交互
+   - 使用 anvil 进行本地测试
+
+### 安全实践
+
+1. **检查-效果-交互模式**
+   ```solidity
+   function withdraw(uint256 amount) external {
+       require(balances[msg.sender] >= amount, "Insufficient balance");
+       balances[msg.sender] -= amount;  // 效果
+       (bool success,) = msg.sender.call{value: amount}("");
+       require(success, "Transfer failed");  // 交互
+   }
+   ```
+
+2. **使用 ReentrancyGuard**
+   ```solidity
+   import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+
+   contract Secure is ReentrancyGuard {
+       function withdraw() external nonReentrant {
+           // 安全的提取逻辑
+       }
+   }
+   ```
+
+3. **使用自定义错误**
+   - 比 require 字符串更节省 gas
+   - 提供更好的错误信息
+
+### 项目结构
 
 ```
-[profile.deterministic]
-# ensure that block number + timestamp are realistic when running tests
-block_number = 17722462
-block_timestamp = 1689711647
-# don't pollute bytecode with metadata
-bytecode_hash = 'none'
-cbor_metadata = false
+foundry-project/
+├── foundry.toml
+├── src/
+│   └── MyToken.sol
+├── test/
+│   └── MyToken.t.sol
+├── script/
+│   └── Deploy.s.sol
+└── lib/
+    └── forge-std/
 ```
+
+## 测试
+- 单元测试覆盖所有公共函数
+- 集成测试覆盖合约交互
+- 模糊测试边界条件
+- 不变量测试核心约束
+
+## 文档
+- 使用 NatSpec 注释
+- 记录所有公开函数
+- 说明参数和返回值
+- 提供使用示例

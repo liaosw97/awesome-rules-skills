@@ -1,7 +1,6 @@
 ---
 name: fullstack-mern-guide-tech-stack-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 - 使用 MongoDB 与 Mongoose ODM作为数据库。

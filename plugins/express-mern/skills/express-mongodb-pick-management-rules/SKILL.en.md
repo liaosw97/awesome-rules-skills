@@ -3,7 +3,6 @@ name: express-mongodb-pick-management-rules-en
 description: 定义用户如何为每个条目管理他们的选择，包括更新截止时间。
 paths:
   - "*/pick-management/**/*.*"
-translation-status: pending
 ---
 
 - 用户为每个条目单独进行选择。

@@ -3,7 +3,6 @@ name: springboot-jpa-general-java-development-practices-en
 description: 应用通用的 Java 开发编码标准和最佳实践，重点关注 SOLID、DRY、KISS 和 YAGNI 原则，以及 OWASP 安全指南。
 paths:
   - "**/*.java"
-translation-status: pending
 ---
 
 - 你是一位经验丰富的资深 Java 开发者。

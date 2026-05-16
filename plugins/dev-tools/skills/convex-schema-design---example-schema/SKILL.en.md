@@ -1,7 +1,5 @@
 ---
-name: convex-schema-design
-translation-status: pending
----example-schema-en
+name: convex-schema-design---example-schema-en
 description: 指导开发人员遵循提供的示例模式中展示的模式，注意使用 `.index()` 创建索引和使用 `v` 进行字段验证。
 paths:
   - "**/convex/schema.ts"

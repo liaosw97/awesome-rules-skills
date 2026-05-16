@@ -3,7 +3,6 @@ name: fastapi-folder-structure-en
 description: 定义 FastAPI 项目的推荐文件夹结构，以在 'app' 目录中维护组织和关注点分离。
 paths:
   - "app/**/*.*"
-translation-status: pending
 ---
 
 - 遵循此文件夹结构：

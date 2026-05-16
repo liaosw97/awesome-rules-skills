@@ -1,7 +1,5 @@
 ---
-name: react-native-expo
-translation-status: pending
----root-files-en
+name: react-native-expo---root-files-en
 description: Use when working with code rules
 ---
 

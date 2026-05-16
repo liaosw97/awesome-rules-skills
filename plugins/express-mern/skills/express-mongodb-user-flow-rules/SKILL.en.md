@@ -3,7 +3,6 @@ name: express-mongodb-user-flow-rules-en
 description: 定义用户浏览池、提交请求、完成付款和管理员批准的用户流程。
 paths:
   - "*/user-flow/**/*.*"
-translation-status: pending
 ---
 
 - 用户浏览可用的池。

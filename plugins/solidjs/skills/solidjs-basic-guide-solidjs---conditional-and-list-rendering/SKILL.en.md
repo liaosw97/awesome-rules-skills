@@ -1,7 +1,5 @@
 ---
-name: solidjs-basic-guide-solidjs
-translation-status: pending
----conditional-and-list-rendering-en
+name: solidjs-basic-guide-solidjs---conditional-and-list-rendering-en
 description: SolidJS 条件渲染和列表渲染
 paths:
   - "[]"

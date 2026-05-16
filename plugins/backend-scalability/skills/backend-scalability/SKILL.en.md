@@ -1,7 +1,6 @@
 ---
 name: backend-scalability-en
 description: Use when working with Go — development rules
-translation-status: pending
 ---
 
 ## 核心原则

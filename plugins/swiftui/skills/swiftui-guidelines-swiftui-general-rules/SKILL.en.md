@@ -1,7 +1,6 @@
 ---
 name: swiftui-guidelines-swiftui-general-rules-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 - 始终编写可维护和整洁的代码。

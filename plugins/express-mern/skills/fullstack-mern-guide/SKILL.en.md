@@ -1,7 +1,6 @@
 ---
 name: fullstack-mern-guide-en
 description: Use when working with R — development rules
-translation-status: pending
 ---
 
 ## 核心原则

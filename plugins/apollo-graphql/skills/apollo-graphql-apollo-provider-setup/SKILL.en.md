@@ -3,7 +3,6 @@ name: apollo-graphql-apollo-provider-setup-en
 description: 要求在应用程序根部使用 Apollo Provider
 paths:
   - "src/App.jsx"
-translation-status: pending
 ---
 
 - **在应用程序根部使用 Apollo Provider**：

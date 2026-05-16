@@ -3,7 +3,6 @@ name: nextjs-14-seo-next-js-14-general-rules-en
 description: Next.js 14 开发的一般规则，包括使用 app 目录、服务器组件和现代 TypeScript 语法。
 paths:
   - "**/app/**/*.*"
-translation-status: pending
 ---
 
 - 使用 App Router：所有组件都应在 `app` 目录中创建，遵循 Next.js 14 约定。

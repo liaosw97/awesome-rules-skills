@@ -1,7 +1,6 @@
 ---
 name: sveltekit-tailwind-typescript-guide-svelte-state-management-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 - 使用 Svelte stores 进行全局状态管理：

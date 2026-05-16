@@ -1,7 +1,6 @@
 ---
 name: angular-typescript-guide-typescript-coding-style-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 - 每行代码不应超过 80 个字符。

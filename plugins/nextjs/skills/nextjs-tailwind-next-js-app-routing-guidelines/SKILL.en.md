@@ -3,7 +3,6 @@ name: nextjs-tailwind-next-js-app-routing-guidelines-en
 description: 适用于 Next.js app 目录，确保遵循路由约定和最佳实践。
 paths:
   - "src/app/**/*"
-translation-status: pending
 ---
 
 - 生成代码时，优先考虑 TypeScript 和 React 最佳实践。

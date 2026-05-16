@@ -1,7 +1,6 @@
 ---
 name: springboot-best-practices-kotlin-springboot-rules-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 ## 项目结构与组织

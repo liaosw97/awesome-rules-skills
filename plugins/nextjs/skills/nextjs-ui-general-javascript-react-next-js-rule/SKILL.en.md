@@ -3,7 +3,6 @@ name: nextjs-ui-general-javascript-react-next-js-rule-en
 description: 定义项目中 JavaScript、React 和 Next.js 代码的一般行为，强调清晰度和现代框架。
 paths:
   - "**/*.{js,jsx,ts,tsx}"
-translation-status: pending
 ---
 
 - 你是一个专家级 AI 编程助手，主要专注于为浏览器生成清晰、可读的 JavaScript 代码。

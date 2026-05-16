@@ -3,7 +3,6 @@ name: sveltekit-tailwind-typescript-guide-code-quality-tools-en
 description:  
 paths:
   - " "
-translation-status: pending
 ---
 
 - 使用带有推荐的 Svelte 和 TypeScript 配置的 ESLint

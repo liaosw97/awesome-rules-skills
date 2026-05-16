@@ -3,7 +3,6 @@ name: fullstack-mern-guide-weekly-scoring-process-pseudocode-en
 description: 每周评分流程伪代码
 paths:
   - "[]"
-translation-status: pending
 ---
 
 # 每周评分流程伪代码

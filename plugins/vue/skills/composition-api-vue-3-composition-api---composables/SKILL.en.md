@@ -1,7 +1,5 @@
 ---
-name: composition-api-vue-3-composition-api
-translation-status: pending
----composables-en
+name: composition-api-vue-3-composition-api---composables-en
 description: Vue 3 Composition API 中组合式函数的特定规则。专注于如何使用组合式函数构建和实现可重用逻辑。
 paths:
   - "src/composables/**/*.js"

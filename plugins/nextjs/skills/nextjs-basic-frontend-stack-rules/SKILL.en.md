@@ -3,7 +3,6 @@ name: nextjs-basic-frontend-stack-rules-en
 description: 指定前端技术栈，包括 React、TypeScript、Shadcn/UI、Tailwind CSS 和 Lucide React，适用于所有前端文件
 paths:
   - "frontend/**/*.*"
-translation-status: pending
 ---
 
 - **核心框架**：Next.js (基于 React)

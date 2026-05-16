@@ -1,7 +1,6 @@
 ---
 name: drupal-drupal-11-en
 description: Use when working with Drupal — development rules
-translation-status: pending
 ---
 
 ## 技术栈

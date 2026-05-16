@@ -3,7 +3,6 @@ name: mobx-folder-structure-en
 description: 为 React 和 MobX 项目强制执行特定的目录结构
 paths:
   - "src/**"
-translation-status: pending
 ---
 
 - **维护以下文件夹结构**：

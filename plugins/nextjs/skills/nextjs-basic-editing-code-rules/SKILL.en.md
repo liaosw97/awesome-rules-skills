@@ -3,7 +3,6 @@ name: nextjs-basic-editing-code-rules-en
 description: 优先返回完全编辑的文件并定义代码详细程度级别，适用于所有文件
 paths:
   - "*"
-translation-status: pending
 ---
 
 - **返回完全编辑的文件**：每次代码修改后，应返回完整且经过编辑的文件内容，确保代码的完整性和可读性。

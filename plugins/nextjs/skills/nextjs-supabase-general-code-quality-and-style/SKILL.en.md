@@ -3,7 +3,6 @@ name: nextjs-supabase-general-code-quality-and-style-en
 description: 在整个项目中强制执行一般代码质量和风格指导原则，包括 TypeScript 最佳实践、函数式编程原则和代码审查流程。
 paths:
   - "**/*.*"
-translation-status: pending
 ---
 
 - 编写简洁、可维护和强类型的代码，准确实现 TypeScript。

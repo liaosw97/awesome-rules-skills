@@ -1,7 +1,6 @@
 ---
 name: fastapi-api-example-fastapi-performance-optimization-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 - 使用 Redis 或内存存储等工具为静态和频繁访问的数据实现缓存。

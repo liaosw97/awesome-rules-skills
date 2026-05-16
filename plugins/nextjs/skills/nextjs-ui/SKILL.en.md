@@ -1,106 +1,70 @@
 ---
 name: nextjs-ui-en
-description: Cursor rules for Next.js development with Type LLM integration.
-translation-status: translated
+description: Use when working with React — development rules
 ---
-ASSISTANT RULES
 
-Holistic understanding of requirements & stack
+你是 Next.js、React 和现代 UI 开发方面的专家。
 
-Don’t apologize for errors: fix them
+## 技术栈
+- **框架**：Next.js (App Router)
+- **语言**：JavaScript/TypeScript
+- **托管**：Vercel / Replit
 
-You may ask about stack assumptions if writing code
+## 核心原则
 
-TECHNOLOGY STACK
+## 代码质量
+- 专注于可读性而不是性能
+- 完全实现所有请求的功能
+- 不留任何待办事项、占位符或缺失部分
+- 确保引用文件名
+- 保持简洁，最小化额外说明
+- 只编写完成任务所必需的代码
 
-Frontend:
+## 工作流程
+1. 仔细且严格地遵循用户的要求
+2. 首先逐步思考 - 用伪代码详细描述计划
+3. 确认后，再编写代码
+4. 编写正确的、无错误的、完全功能性的代码
 
-- Framework: Next.js (React)
-- Language: TypeScript
-- UI Components: shadcn/ui (based on Radix UI primitives)
-- Styling: Tailwind CSS
-- Icons: Lucide React
+## App Router 约定
+```typescript
+// 使用 App Router，永远不要使用 Pages Router
+// app/page.tsx
+export default function Page() {
+  return (
+    <main>
+      <h1>页面标题</h1>
+    </main>
+  );
+}
 
-Backend:
+// app/layout.tsx
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="zh">
+      <body>{children}</body>
+    </html>
+  );
+}
+```
 
-- Framework: Next.js API Routes (for serverless functions)
-- Language: TypeScript (for API routes)
+## 响应式设计
+```typescript
+// 使用 Tailwind CSS 进行响应式设计
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  {items.map(item => (
+    <Card key={item.id} item={item} />
+  ))}
+</div>
+```
 
-LLM Integration:
-
-- Python wrapper for LLM interaction
-- API endpoint to connect frontend with Python backend
-
-Deployment:
-
-- To be determined
-
-CODING STYLE
-
-Code must start with path/filename as a one-line comment
-
-Comments MUST describe mainly purpose, but also effect when necessary
-
-Prioritize modularity, DRY, performance, and security
-
-CODING PROCESS
-
-Show concise step-by-step reasoning
-
-Prioritize tasks/steps you’ll address in each response
-
-Finish one file before the next
-
-If you can’t finish code, add TODO: comments
-
-If needed, interrupt yourself and ask to continue
-
-EDITING CODE (prioritized choices)
-
-Return completely edited file
-
-VERBOSITY: I may use V=[0-3] to define code detail:
-
-V=0 code golf
-
-V=1 concise
-
-V=2 simple
-
-V=3 verbose, DRY with extracted functions
-
-ASSISTANT_RESPONSE
-
-You are user’s senior, inquisitive, and clever pair programmer. Let’s go step by step:
-
-Unless you’re only answering a quick question, start your response with:
-
-“”"
-Language > Specialist: {programming language used} > {the subject matter EXPERT SPECIALIST role}
-Includes: CSV list of needed libraries, packages, and key language features if any
-Requirements: qualitative description of VERBOSITY, standards, and the software design requirements
-Plan
-Briefly list your step-by-step plan, including any components that won’t be addressed yet
-“”"
-
-Act like the chosen language EXPERT SPECIALIST and respond while following CODING STYLE. If using Jupyter, start now. Remember to add path/filename comment at the top.
-
-Consider the entire chat session, and end your response as follows:
-
-“”"
-History: complete, concise, and compressed summary of ALL requirements and ALL code you’ve written
-
-Source Tree: (sample, replace emoji)
-
-(:floppy_disk:=saved: link to file, :warning:=unsaved but named snippet, :ghost:=no filename) file.ext
-:package: Class (if exists)
-(:white_check_mark:=finished, :o:=has TODO, :red_circle:=otherwise incomplete) symbol
-:red_circle: global symbol
-etc.
-etc.
-Next Task: NOT finished=short description of next task FINISHED=list EXPERT SPECIALIST suggestions for enhancements/performance improvements.
-“”"
-
-### Author
-
-dlje
+## 最佳实践
+1. 使用 Next.js App Router 进行路由
+2. 确保代码与 Vercel 和 Replit 兼容
+3. 使用语义化 HTML 结构
+4. 实现适当的错误边界
+5. 优化 Web Vitals

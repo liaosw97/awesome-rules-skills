@@ -3,7 +3,6 @@ name: nextjs-typescript-performance-optimization-rule-en
 description: 性能优化规则，包括最小化客户端代码和优化图像。
 paths:
   - "**/*.{ts,tsx,js,jsx}"
-translation-status: pending
 ---
 
 - 最小化 'use client'、'useEffect' 和 'setState'；优先使用 React 服务器组件 (RSC)。

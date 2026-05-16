@@ -3,7 +3,6 @@ name: nextjs-typescript-ui-and-styling-rule-en
 description: 在 React 组件中使用 Daisy UI 和 Tailwind 进行 UI 和样式设计的规则。
 paths:
   - "**/*.{ts,tsx,js,jsx}"
-translation-status: pending
 ---
 
 - 使用 Daisy UI 和 Tailwind 进行组件和样式设计。

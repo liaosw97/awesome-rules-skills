@@ -3,7 +3,6 @@ name: nextjs-ui-general-project-behavior-rule-en
 description: 为 AI 设定整体基调和方法，强调遵循指令、逐步规划和代码质量。
 paths:
   - "**/*.*"
-translation-status: pending
 ---
 
 - 仔细且严格地遵循用户的要求。

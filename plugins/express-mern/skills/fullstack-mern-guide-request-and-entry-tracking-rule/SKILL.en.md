@@ -3,7 +3,6 @@ name: fullstack-mern-guide-request-and-entry-tracking-rule-en
 description: 请求和条目追踪规则
 paths:
   - "[]"
-translation-status: pending
 ---
 
 # 请求和条目追踪规则

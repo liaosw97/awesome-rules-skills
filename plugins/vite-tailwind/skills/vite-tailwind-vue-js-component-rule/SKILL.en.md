@@ -3,7 +3,6 @@ name: vite-tailwind-vue-js-component-rule-en
 description: 定义 Vue.js 组件的风格和结构，包括命名约定、组合 API 使用和 UI 库偏好。
 paths:
   - "src/components/**/*.vue"
-translation-status: pending
 ---
 
 - 对目录使用小写加破折号（例如，components/auth-wizard）。

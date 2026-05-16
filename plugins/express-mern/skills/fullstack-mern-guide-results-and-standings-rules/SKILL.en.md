@@ -1,7 +1,6 @@
 ---
 name: fullstack-mern-guide-results-and-standings-rules-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 - 池子排名显示所有参赛作品 (每个用户可能有多个)。

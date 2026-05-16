@@ -3,7 +3,6 @@ name: nextjs-supabase-build-notes-guidelines-en
 description: 定义创建和维护构建笔记的流程，强调清晰度、可追溯性和任务进度跟踪的增量更新。
 paths:
   - "**/*.*"
-translation-status: pending
 ---
 
 - 你必须为每个任务组创建一个"构建笔记"文件来跟踪我们工作的任务组的进度。

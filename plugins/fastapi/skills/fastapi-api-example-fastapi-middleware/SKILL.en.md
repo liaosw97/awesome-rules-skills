@@ -1,7 +1,6 @@
 ---
 name: fastapi-api-example-fastapi-middleware-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 - 对预期错误使用 HTTPException，并将其建模为特定的 HTTP 响应。

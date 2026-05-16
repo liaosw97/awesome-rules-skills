@@ -1,7 +1,5 @@
 ---
-name: solidjs-basic-guide-solidjs
-translation-status: pending
----complex-state-management-en
+name: solidjs-basic-guide-solidjs---complex-state-management-en
 description: SolidJS 复杂状态管理
 paths:
   - "[]"

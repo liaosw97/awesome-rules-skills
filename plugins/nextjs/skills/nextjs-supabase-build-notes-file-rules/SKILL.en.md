@@ -3,7 +3,6 @@ name: nextjs-supabase-build-notes-file-rules-en
 description: 在 /ProjectDocs/Build_Notes/ 目录中创建和管理构建笔记文件的规则，包括命名约定、内容结构和更新频率。
 paths:
   - "**/ProjectDocs/Build_Notes/**/*"
-translation-status: pending
 ---
 
 - **位置和命名：**

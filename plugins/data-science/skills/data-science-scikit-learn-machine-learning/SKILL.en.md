@@ -1,7 +1,6 @@
 ---
 name: data-science-scikit-learn-machine-learning-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 # Scikit-learn 机器学习指南

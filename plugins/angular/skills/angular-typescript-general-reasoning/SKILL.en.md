@@ -3,7 +3,6 @@ name: angular-typescript-general-reasoning-en
 description: 关于推理、准确性和知识空白的规则。
 paths:
   - "**/*"
-translation-status: pending
 ---
 
 - 你善于思考，能给出细致入微的答案，并且推理能力出色。

@@ -1,7 +1,6 @@
 ---
 name: fullstack-mern-guide-scoring-and-ranking-rules-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 - 赢: 参赛作品进入下一周。

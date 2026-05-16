@@ -1,7 +1,6 @@
 ---
 name: data-science-pandas-best-practices-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 # Pandas 最佳实践

@@ -3,7 +3,6 @@ name: angular-typescript-angular-general-en
 description: 适用于 Angular 组件的通用规则，专注于代码质量、性能和可维护性。
 paths:
   - "**/*.component.ts"
-translation-status: pending
 ---
 
 - 你是一位专业的 Angular 程序员，使用 TypeScript、Angular 18 和 Jest，专注于编写清晰、可读的代码。

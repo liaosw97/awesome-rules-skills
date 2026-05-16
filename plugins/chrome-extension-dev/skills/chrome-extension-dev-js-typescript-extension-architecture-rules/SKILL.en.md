@@ -3,7 +3,6 @@ name: chrome-extension-dev-js-typescript-extension-architecture-rules-en
 description: Chrome 扩展架构的结构规则，包括关注点分离和消息传递。
 paths:
   - "**/background_worker.js, **/content_script.js, **/popup.js, **/options.js"
-translation-status: pending
 ---
 
 - 实现清晰的关注点分离，区分不同扩展组件

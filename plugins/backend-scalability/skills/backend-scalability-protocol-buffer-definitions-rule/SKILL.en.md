@@ -3,7 +3,6 @@ name: backend-scalability-protocol-buffer-definitions-rule-en
 description: 在项目中处理 Protocol Buffer 定义文件的规则。
 paths:
   - "**/*.proto"
-translation-status: pending
 ---
 
 在处理 `.proto` 文件时：

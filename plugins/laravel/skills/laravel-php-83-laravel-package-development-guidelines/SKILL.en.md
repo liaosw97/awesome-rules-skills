@@ -3,7 +3,6 @@ name: laravel-php-83-laravel-package-development-guidelines-en
 description: 开发 Laravel 包的通用指南，包括 PHP 版本、约定和工具。
 paths:
   - "*/src/**/*.*"
-translation-status: pending
 ---
 
 - 适当使用 PHP 8.3+ 特性

@@ -3,7 +3,6 @@ name: dragonruby-naming-conventions-en
 description: 在 DragonRuby 项目中强制执行文件、方法、变量、类和模块的特定命名约定。
 paths:
   - "**/*.rb"
-translation-status: pending
 ---
 
 - 文件名、方法名和变量名使用 snake_case。

@@ -3,7 +3,6 @@ name: nextjs-supabase-monorepo-and-tooling-en
 description: 概述 monorepo 结构和工具约定，强调使用 Taskfile.yml 和正确处理环境变量。
 paths:
   - "**/packages/**/*, **/app/**/*"
-translation-status: pending
 ---
 
 - 如果使用 monorepo 结构，将共享代码放在 `packages/` 目录中，将应用特定代码放在 `app/` 中。

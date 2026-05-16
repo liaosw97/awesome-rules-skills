@@ -3,7 +3,6 @@ name: fastapi-best-practices-fastapi-database-interaction-en
 description: FastAPI 数据库交互规范
 paths:
   - "**/db/**/*.py"
-translation-status: pending
 ---
 
 - 推荐使用异步数据库库如 asyncpg 或 aiomysql

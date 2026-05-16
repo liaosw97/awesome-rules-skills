@@ -3,7 +3,6 @@ name: guidelines-commit-message-format-en
 description: 将提交消息标准应用于项目中的所有文件。
 paths:
   - "**/*"
-translation-status: pending
 ---
 
 - 使用以下提交消息格式：

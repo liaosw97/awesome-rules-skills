@@ -3,7 +3,6 @@ name: flutter-app-expert-flutter-testing-rules-en
 description: 指定 Flutter 项目的测试指南，涵盖单元测试、组件测试和集成测试。
 paths:
   - "test/**/*.*"
-translation-status: pending
 ---
 
 - 为业务逻辑编写单元测试。

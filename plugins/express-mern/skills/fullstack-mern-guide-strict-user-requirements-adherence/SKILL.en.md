@@ -3,7 +3,6 @@ name: fullstack-mern-guide-strict-user-requirements-adherence-en
 description: 严格遵守用户需求
 paths:
   - "[]"
-translation-status: pending
 ---
 
 # 严格遵守用户需求

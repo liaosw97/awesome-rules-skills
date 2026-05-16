@@ -3,7 +3,6 @@ name: nextjs-supabase-next-js-15-conventions-en
 description: 为 Next.js 15+ 项目设置约定，包括利用 App Router、React 服务器组件 (RSC)、SSR 功能和 Zustand 进行状态管理。
 paths:
   - "**/*.js, **/*.jsx, **/*.ts, **/*.tsx"
-translation-status: pending
 ---
 
 - 针对 **Next.js 15+** 并利用 App Router、React 服务器组件 (RSC) 和 SSR 功能。

@@ -3,7 +3,6 @@ name: django-best-practices-security-en
 description: 在 Django 项目的所有文件中应用安全最佳实践。
 paths:
   - "**/*.*"
-translation-status: pending
 ---
 
 - 应用 Django 的安全最佳实践（例如，CSRF 保护、SQL 注入保护、XSS 预防）。

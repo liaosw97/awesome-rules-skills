@@ -1,7 +1,6 @@
 ---
 name: fullstack-mern-guide-user-flow-rules-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 - 用户每个池子最多提交 3 个请求。

@@ -3,7 +3,6 @@ name: django-best-practices-django-views-en
 description: Django 视图的特定指南，专注于基于类的视图与基于函数的视图、错误处理和请求处理。
 paths:
   - "**/views.py"
-translation-status: pending
 ---
 
 - 对于更复杂的视图，使用 Django 的基于类的视图（CBVs）；对于较简单的逻辑，优先使用基于函数的视图（FBVs）。

@@ -1,7 +1,6 @@
 ---
 name: phoenix-docker-setup-elixir-general-engineering-rule-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 技术栈: Elixir, Phoenix, Docker, PostgreSQL, Tailwind CSS, LeftHook, Sobelow, Credo, Ecto, ExUnit, Plug, Phoenix LiveView, Phoenix LiveDashboard, Gettext, Jason, Swoosh, Finch, DNS Cluster, File System Watcher, Release Please, ExCoveralls

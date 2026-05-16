@@ -1,7 +1,6 @@
 ---
 name: sveltekit-tailwind-typescript-guide-testing-practices-en
 description: Use when working with code rules
-translation-status: pending
 ---
 
 - 为工具函数和复杂逻辑编写单元测试

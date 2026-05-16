@@ -1,7 +1,6 @@
 ---
 name: cloud-gaming-en
 description: Use when working with coding — development rules
-translation-status: pending
 ---
 
 ## 核心原则

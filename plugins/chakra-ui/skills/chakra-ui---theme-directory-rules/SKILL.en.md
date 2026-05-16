@@ -1,7 +1,5 @@
 ---
-name: chakra-ui
-translation-status: pending
----theme-directory-rules-en
+name: chakra-ui---theme-directory-rules-en
 description: 主题目录的特定规则，用于管理和自定义 Chakra UI 主题
 paths:
   - "src/theme/**/*.*"

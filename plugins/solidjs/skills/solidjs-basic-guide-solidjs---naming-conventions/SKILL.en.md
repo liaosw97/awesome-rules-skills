@@ -1,7 +1,5 @@
 ---
-name: solidjs-basic-guide-solidjs
-translation-status: pending
----naming-conventions-en
+name: solidjs-basic-guide-solidjs---naming-conventions-en
 description: SolidJS 命名约定
 paths:
   - "[]"

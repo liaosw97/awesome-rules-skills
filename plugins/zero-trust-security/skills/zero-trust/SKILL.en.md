@@ -1,51 +1,32 @@
 ---
 name: zero-trust-en
-description: General Rust rules for safe, idiomatic application and library development
-translation-status: translated
+description: Use when working with coding — development rules
 ---
-# Rust General Rules
 
-## Project Structure
+## 核心原则
+- 零信任架构：永不信任，始终验证
+- 最小权限原则：仅授予完成任务所需的最小权限
+- 纵深防御：多层级安全控制叠加
+- 持续验证：动态评估和调整安全策略
 
-- Keep crates focused and name modules by domain responsibility.
-- Put reusable library code in `src/lib.rs` and binary entry points in `src/main.rs` or `src/bin/`.
-- Keep public APIs small and documented.
-- Use feature flags deliberately and document non-default features.
-- Commit `Cargo.lock` for applications; follow the project convention for libraries.
+## 技术栈
+- 身份认证：SPIFFE/SPIRE、OIDC、mTLS
+- 策略引擎：Open Policy Agent(OPA)、Kyverno
+- 容器安全：Trivy、Falco、gVisor、Kata Containers
+- 密钥管理：HashiCorp Vault、Sealed Secrets、External Secrets
+- 网络安全：Network Policies、Service Mesh、Cilium
+- 运行时安全：Falco、Sysdig、Aqua Runtime
 
-## Ownership and Types
+## 最佳实践
+1. **镜像安全**：使用最小化基础镜像，定期扫描漏洞，签名验证镜像
+2. **Pod安全**：实施Pod Security Standards，限制特权容器
+3. **网络隔离**：配置网络策略，实现微分段隔离
+4. **密钥管理**：避免硬编码密钥，使用外部密钥管理系统
+5. **审计日志**：启用API Server审计，集中收集和分析日志
 
-- Prefer borrowing over cloning when ownership is not needed.
-- Use owned values at API boundaries when the callee must store data.
-- Model domain states with enums and structs instead of strings or booleans.
-- Use `Option<T>` for absence and `Result<T, E>` for fallible operations.
-- Avoid `unwrap()` and `expect()` outside tests, examples, and process-startup invariants.
-
-## Error Handling
-
-- Use `thiserror` or project-standard custom errors for libraries.
-- Use `anyhow` or project-standard context-rich errors for applications.
-- Add context when crossing IO, network, database, or parsing boundaries.
-- Do not discard errors with `_` unless explicitly documented.
-
-## Concurrency and Async
-
-- Use `Send` and `Sync` boundaries intentionally.
-- Prefer message passing or owned task inputs for async work.
-- Do not hold blocking locks across `.await`.
-- Use `tokio::task::spawn_blocking` or equivalent for blocking CPU or IO in async applications.
-- Propagate cancellation through futures rather than hiding it in detached tasks.
-
-## Testing and Quality
-
-- Run `cargo fmt` and `cargo clippy` before delivery.
-- Add unit tests for pure logic and integration tests for public behavior.
-- Use property tests for parsers, serializers, and state machines when useful.
-- Use benchmarks only after identifying a real performance question.
-
-## Common Mistakes
-
-- Do not fight the borrow checker by adding unnecessary `Arc<Mutex<_>>`.
-- Do not expose internal module structure through public APIs by accident.
-- Do not allocate in hot loops without measuring.
-- Do not use unsafe code unless the invariant is documented and tested.
+## 关键约定
+1. **身份认证**：实现mTLS双向认证，确保服务身份可信
+2. **最小权限**：规范RBAC策略，定期审查权限分配
+3. **持续验证**：建立动态访问控制，支持实时策略更新
+4. **数据加密**：统一传输和存储加密，保护敏感数据
+5. **审计追踪**：完善安全日志收集，支持合规审计

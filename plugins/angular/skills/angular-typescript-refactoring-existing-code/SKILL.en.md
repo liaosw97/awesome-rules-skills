@@ -3,7 +3,6 @@ name: angular-typescript-refactoring-existing-code-en
 description: 关于重构代码的说明，专注于可读性、性能和可维护性。
 paths:
   - "**/*"
-translation-status: pending
 ---
 
 - 重构现有代码时，请专注于性能、可读性和可维护性。

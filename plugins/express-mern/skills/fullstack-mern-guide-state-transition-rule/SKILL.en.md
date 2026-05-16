@@ -3,7 +3,6 @@ name: fullstack-mern-guide-state-transition-rule-en
 description: 状态转换规则
 paths:
   - "[]"
-translation-status: pending
 ---
 
 # 状态转换规则
