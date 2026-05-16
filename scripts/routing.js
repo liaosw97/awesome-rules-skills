@@ -47,6 +47,13 @@ const SUBCAT_RULE_TO_PLUGIN = {
 
 // Per-rule mapping for large categories and null-mapped small categories
 export const RULE_TO_PLUGIN = {
+  'java-design-standards': 'alibaba-java-dev',
+  'java-project-structure': 'alibaba-java-dev',
+  'java-mysql-database': 'alibaba-java-dev',
+  'java-security-standards': 'alibaba-java-dev',
+  'java-unit-testing': 'alibaba-java-dev',
+  'java-exception-logging': 'alibaba-java-dev',
+  'java-coding-standards': 'alibaba-java-dev',
   // Frontend (26 rules → 14 plugins)
   'angular-ts-guide': 'angular',
   'angular-typescript': 'angular',

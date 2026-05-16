@@ -1,0 +1,6 @@
+{
+  "name": "alibaba-java-dev",
+  "version": "1.0.0",
+  "description": "Alibaba Java development manual: coding standards, exceptions, testing, security, MySQL, project structure, and design rules",
+  "skills": "./skills/"
+}
