@@ -3,6 +3,7 @@ name: nextjs-typescript-syntax-and-formatting-rule-en
 description: TypeScript、Node.js 和 Next.js 项目中语法和格式的规则。
 paths:
   - "**/*.{ts,tsx,js,jsx}"
+translation-status: pending
 ---
 
 - 对纯函数使用 "function" 关键字。

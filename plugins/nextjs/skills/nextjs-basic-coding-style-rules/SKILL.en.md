@@ -3,6 +3,7 @@ name: nextjs-basic-coding-style-rules-en
 description: Next.js项目编码风格规范，涵盖注释规范、模块化设计、DRY原则、性能与安全最佳实践
 paths:
   - "*"
+translation-status: pending
 ---
 
 - **文件头注释**: 必须包含文件路径和主要功能说明

@@ -1,6 +1,7 @@
 ---
 name: laravel-package-guide-laravel-package-coding-standards-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 - 类和枚举名: 使用 PascalCase (例如, MyClass)

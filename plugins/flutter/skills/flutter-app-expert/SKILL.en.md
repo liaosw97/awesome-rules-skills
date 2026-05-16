@@ -1,96 +1,110 @@
 ---
 name: flutter-app-expert-en
-description: Use when working with Flutter — development rules
+description: Cursor rules for Flutter development with expert integration.
+translation-status: translated
 ---
+// Flutter App Expert .cursorrules
 
-## 核心原则
-- **跨平台一致性**：一套代码，多平台原生体验
-- **声明式 UI**：拥抱 Flutter 声明式编程范式
-- **状态管理清晰**：使用 BLoC/Cubit 实现可预测状态
-- **类型安全**：充分利用 Dart 强类型和空安全
-- **性能优化**：关注帧率、内存和启动时间
+// Flexibility Notice
 
-## 技术栈
-- **框架**：Flutter 3.x, Dart 3.x
-- **设计系统**：Material 3, Cupertino
-- **状态管理**：BLoC, Riverpod, Provider
-- **路由**：GoRouter, AutoRoute
-- **依赖注入**：GetIt, Injectable
-- **网络请求**：Dio, Retrofit
-- **本地存储**：Hive, Drift, SharedPreferences
+// Note: This is a recommended project structure, but be flexible and adapt to existing project structures.
+// Do not enforce these structural patterns if the project follows a different organization.
+// Focus on maintaining consistency with the existing project architecture while applying Flutter best practices.
 
-## 最佳实践
-1. **架构设计**
-   - 采用 Clean Architecture 分层
-   - 数据层、领域层、表现层分离
-   - 单向数据流模式
-   - 依赖倒置原则
+// Flutter Best Practices
 
-2. **状态管理**
-   - BLoC 模式实现业务逻辑
-   - 使用 Equatable 优化状态比较
-   - 正确处理 BlocBuilder/BlocListener
-   - 避免全局状态污染
+const flutterBestPractices = [
+    "Adapt to existing project architecture while maintaining clean code principles",
+    "Use Flutter 3.x features and Material 3 design",
+    "Implement clean architecture with BLoC pattern",
+    "Follow proper state management principles",
+    "Use proper dependency injection",
+    "Implement proper error handling",
+    "Follow platform-specific design guidelines",
+    "Use proper localization techniques",
+];
 
-3. **组件设计**
-   - 保持 Widget 小而专注
-   - 尽可能使用 const 构造函数
-   - 实现正确的组件组合
-   - 提取可复用组件到共享目录
+// Project Structure
 
-4. **错误处理**
-   - 使用 Either 类型处理错误
-   - 实现全局错误捕获
-   - 用户友好的错误提示
-   - 错误日志和监控
+// Note: This is a reference structure. Adapt to the project's existing organization
 
-5. **国际化**
-   - 使用 ARB 文件管理翻译
-   -flutter_localizations 集成
-   - 支持 RTL 布局
-   - 动态语言切换
+const projectStructure = `
+lib/
+  core/
+    constants/
+    theme/
+    utils/
+    widgets/
+  features/
+    feature_name/
+      data/
+        datasources/
+        models/
+        repositories/
+      domain/
+        entities/
+        repositories/
+        usecases/
+      presentation/
+        bloc/
+        pages/
+        widgets/
+  l10n/
+  main.dart
+test/
+  unit/
+  widget/
+  integration/
+`;
 
-## 关键约定
-1. **项目结构**
-   ```
-   lib/
-   ├── core/                   # 核心层
-   │   ├── constants/         # 常量定义
-   │   ├── theme/             # 主题配置
-   │   ├── utils/             # 工具函数
-   │   └── widgets/           # 基础组件
-   ├── features/              # 功能模块
-   │   └── feature_name/
-   │       ├── data/          # 数据层
-   │       │   ├── datasources/
-   │       │   ├── models/
-   │       │   └── repositories/
-   │       ├── domain/        # 领域层
-   │       │   ├── entities/
-   │       │   ├── repositories/
-   │       │   └── usecases/
-   │       └── presentation/  # 表现层
-   │           ├── bloc/
-   │           ├── pages/
-   │           └── widgets/
-   ├── l10n/                  # 国际化
-   └── main.dart              # 入口
-   ```
+// Coding Guidelines
 
-2. **命名约定**
-   - 文件：snake_case (如 `user_profile_page.dart`)
-   - 类：PascalCase (如 `UserProfilePage`)
-   - 变量/方法：camelCase (如 `getUserProfile`)
-   - 常量：camelCase 或 lowerCase
+const codingGuidelines = `
+1. Use proper null safety practices
+2. Implement proper error handling with Either type
+3. Follow proper naming conventions
+4. Use proper widget composition
+5. Implement proper routing using GoRouter
+6. Use proper form validation
+7. Follow proper state management with BLoC
+8. Implement proper dependency injection using GetIt
+9. Use proper asset management
+10. Follow proper testing practices
+`;
 
-3. **编码规范**
-   - 使用 effective_dart linter 规则
-   - 正确使用空安全语法
-   - 避免嵌套过深，提取方法
-   - 使用 cascade 操作符优化代码
+// Widget Guidelines
 
-4. **测试要求**
-   - 单元测试：业务逻辑和 UseCase
-   - Widget 测试：UI 组件
-   - 集成测试：完整用户流程
-   - 测试覆盖率 > 80%
+const widgetGuidelines = `
+1. Keep widgets small and focused
+2. Use const constructors when possible
+3. Implement proper widget keys
+4. Follow proper layout principles
+5. Use proper widget lifecycle methods
+6. Implement proper error boundaries
+7. Use proper performance optimization techniques
+8. Follow proper accessibility guidelines
+`;
+
+// Performance Guidelines
+
+const performanceGuidelines = `
+1. Use proper image caching
+2. Implement proper list view optimization
+3. Use proper build methods optimization
+4. Follow proper state management patterns
+5. Implement proper memory management
+6. Use proper platform channels when needed
+7. Follow proper compilation optimization techniques
+`;
+
+// Testing Guidelines
+
+const testingTestingGuidelines = `
+1. Write unit tests for business logic
+2. Implement widget tests for UI components
+3. Use integration tests for feature testing
+4. Implement proper mocking strategies
+5. Use proper test coverage tools
+6. Follow proper test naming conventions
+7. Implement proper CI/CD testing
+`;

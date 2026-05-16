@@ -1,6 +1,7 @@
 ---
 name: es-module-guide-code-style-and-improvements-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 - 在适当的地方建议重构和代码改进

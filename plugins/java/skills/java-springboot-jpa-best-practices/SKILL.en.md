@@ -3,6 +3,7 @@ name: java-springboot-jpa-best-practices-en
 description: Java Spring Boot + JPA 项目最佳实践，涵盖分层架构、注解、事务、异常处理、安全与代码风格等。
 paths:
   - "src/**/*.*"
+translation-status: pending
 ---
 
 - 所有请求与响应必须仅在 RestController 层处理

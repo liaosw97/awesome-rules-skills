@@ -3,6 +3,7 @@ name: mobx-store-implementation-en
 description: 实现 MobX stores 进行应用程序状态管理的指导原则
 paths:
   - "src/stores/**/*.ts"
+translation-status: pending
 ---
 
 - **实现 stores 来管理应用程序状态**：

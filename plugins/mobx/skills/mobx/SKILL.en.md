@@ -1,94 +1,43 @@
 ---
 name: mobx-en
-description: Use when working with React — development rules
+description: Cursor rules for React development with MobX integration.
+translation-status: translated
 ---
+// React + MobX .cursorrules
 
-你是 React、TypeScript 和 MobX 状态管理方面的专家。
+// Prefer functional components with hooks
 
-## 技术栈
-- **框架**：React
-- **语言**：TypeScript
-- **状态管理**：MobX
+const preferFunctionalComponents = true;
 
-## 目录结构
-```
+// MobX best practices
+
+const mobxBestPractices = [
+  "Use MobX-react-lite for optimal performance with functional components",
+  "Implement stores for managing application state",
+  "Utilize computed values for derived state",
+  "Use actions for modifying observable state",
+  "Implement proper error handling in asynchronous actions",
+];
+
+// Folder structure
+
+const folderStructure = `
 src/
-├── components/     # UI 组件
-│   ├── common/     # 通用组件
-│   ├── layout/     # 布局组件
-│   └── specific/   # 业务组件
-├── stores/         # MobX stores
-│   ├── rootStore.js
-│   ├── userStore.js
-│   └── itemStore.js
-├── hooks/          # 自定义 Hooks
-├── pages/          # 页面组件
-├── utils/          # 工具函数
-└── App.js
-```
+  components/
+  stores/
+  hooks/
+  pages/
+  utils/
+`;
 
-## MobX 最佳实践
+// Additional instructions
 
-## 状态定义
-- 使用 `makeAutoObservable` 或 `makeObservable` 定义可观察状态
-- 使用 `@computed` 定义派生值
-- 使用 `@action` 修改状态
-
-## Store 示例
-```typescript
-import { makeAutoObservable } from 'mobx';
-
-class UserStore {
-  users: User[] = [];
-  isLoading = false;
-
-  constructor() {
-    makeAutoObservable(this);
-  }
-
-  async fetchUsers() {
-    this.isLoading = true;
-    try {
-      this.users = await api.getUsers();
-    } finally {
-      this.isLoading = false;
-    }
-  }
-}
-
-export const userStore = new UserStore();
-```
-
-## React 组件集成
-```typescript
-import { observer } from 'mobx-react-lite';
-import { userStore } from './stores/userStore';
-
-export const UserList = observer(() => {
-  const { users, isLoading, fetchUsers } = userStore;
-
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-
-  if (isLoading) return <div>加载中...</div>;
-
-  return (
-    <ul>
-      {users.map(user => <li key={user.id}>{user.name}</li>)}
-    </ul>
-  );
-});
-```
-
-## 依赖注入
-- 使用 React Context 提供 store
-- 避免 prop drilling
-- 创建 RootStore 聚合所有子 store
-
-## 关键原则
-1. 所有状态修改都应通过 action 进行
-2. 不要在 render 中直接修改状态
-3. 使用 `reaction` 或 `autorun` 处理副作用
-4. 为 computed 值使用缓存提高性能
-5. 简单组件状态使用 React useState，复杂状态使用 MobX
+const additionalInstructions = `
+1. Use TypeScript for type safety with MobX
+2. Implement strict mode for MobX for better debugging
+3. Use observer HOC or useObserver hook for reactive components
+4. Implement proper dependency injection for stores
+5. Use reaction for side-effects based on observable changes
+6. Utilize MobX DevTools for debugging
+7. Follow MobX best practices for scalable state management
+`;

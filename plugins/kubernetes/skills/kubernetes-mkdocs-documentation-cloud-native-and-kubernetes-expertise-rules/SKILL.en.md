@@ -3,6 +3,7 @@ name: kubernetes-mkdocs-documentation-cloud-native-and-kubernetes-expertise-rule
 description: 云原生和Kubernetes专业知识文档规范，确保技术文档的准确性和实用性
 paths:
   - "**/docs/kubernetes/*.md"
+translation-status: pending
 ---
 
 - **概念准确性**：精确描述Kubernetes核心概念(Pod/Service/Ingress等)

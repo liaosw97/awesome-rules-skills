@@ -1,5 +1,7 @@
 ---
-name: styled-components---theming-en
+name: styled-components
+translation-status: pending
+---theming-en
 description: 指定使用 Styled Components 的一致主题系统。
 paths:
   - "src/styles/theme.js"

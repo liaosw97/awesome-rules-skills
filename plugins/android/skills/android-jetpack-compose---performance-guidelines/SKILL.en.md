@@ -1,5 +1,7 @@
 ---
-name: android-jetpack-compose---performance-guidelines-en
+name: android-jetpack-compose
+translation-status: pending
+---performance-guidelines-en
 description: Use when working with code rules
 ---
 

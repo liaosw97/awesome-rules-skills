@@ -3,6 +3,7 @@ name: django-best-practices-django-settings-en
 description: Django 设置文件的配置，包含依赖项列表和约定。
 paths:
   - "**/settings.py"
+translation-status: pending
 ---
 
 - Django

@@ -1,6 +1,7 @@
 ---
 name: sveltekit-tailwind-typescript-guide-svelte-component-syntax-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 - 对 Svelte 组件使用 .svelte 扩展名

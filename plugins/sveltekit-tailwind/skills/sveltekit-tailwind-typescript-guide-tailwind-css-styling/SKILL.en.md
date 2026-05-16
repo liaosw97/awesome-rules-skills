@@ -1,6 +1,7 @@
 ---
 name: sveltekit-tailwind-typescript-guide-tailwind-css-styling-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 - 使用 Tailwind CSS 进行样式设计

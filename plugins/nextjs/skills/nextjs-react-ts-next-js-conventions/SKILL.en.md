@@ -3,6 +3,7 @@ name: nextjs-react-ts-next-js-conventions-en
 description: 状态变化、Web Vitals 和客户端代码使用的关键 Next.js 约定。
 paths:
   - "**/*.{ts,js,jsx,tsx}"
+translation-status: pending
 ---
 
 - 依赖 Next.js App Router 进行状态变化。

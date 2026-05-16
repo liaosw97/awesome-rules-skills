@@ -3,6 +3,7 @@ name: fastapi-python-general-coding-standards-en
 description: 应用一般 Python 编码标准，包括类型提示、使用 Pydantic 进行输入验证、后台任务、CORS 处理、安全工具、PEP 8 合规性和全面测试。
 paths:
   - "**/*.py"
+translation-status: pending
 ---
 
 - 对所有函数参数和返回值使用类型提示

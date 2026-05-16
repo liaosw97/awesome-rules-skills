@@ -1,5 +1,7 @@
 ---
-name: react-components-react-component-adaptation---post-generation-spa-en
+name: react-components-react-component-adaptation
+translation-status: pending
+---post-generation-spa-en
 description: 指定在初始创建后将生成的 React 组件适配到 SPA 项目结构的步骤。
 paths:
   - "apps/spa/src/components/**/*.tsx"

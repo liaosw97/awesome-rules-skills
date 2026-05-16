@@ -3,6 +3,7 @@ name: chrome-extension-dev-js-typescript-typescript-usage-rules-en
 description: TypeScript 使用特定规则，包括接口、联合类型和类型守卫以增强类型安全。
 paths:
   - "**/*.ts"
+translation-status: pending
 ---
 
 - 推荐使用 TypeScript 以获得类型安全和更好的开发体验

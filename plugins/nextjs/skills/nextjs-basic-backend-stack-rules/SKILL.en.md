@@ -3,6 +3,7 @@ name: nextjs-basic-backend-stack-rules-en
 description: 指定后端技术栈，包括 Next.js API Routes 和 TypeScript，适用于所有后端文件
 paths:
   - "backend/**/*.*"
+translation-status: pending
 ---
 
 - **框架**：Next.js API Routes（用于无服务器函数）

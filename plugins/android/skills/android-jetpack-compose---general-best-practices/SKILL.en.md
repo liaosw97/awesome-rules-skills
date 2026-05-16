@@ -1,5 +1,7 @@
 ---
-name: android-jetpack-compose---general-best-practices-en
+name: android-jetpack-compose
+translation-status: pending
+---general-best-practices-en
 description: Use when working with code rules
 ---
 

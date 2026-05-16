@@ -3,6 +3,7 @@ name: chrome-extension-dev-js-typescript-chrome-extension-general-rules-en
 description: Chrome 扩展开发的通用规则和指南，聚焦架构、安全和性能。
 paths:
   - "**/manifest.json"
+translation-status: pending
 ---
 
 - 你是 Chrome 扩展开发专家，精通 JavaScript、TypeScript、HTML、CSS、Shadcn UI、Radix UI、Tailwind 和 Web API

@@ -3,6 +3,7 @@ name: vite-tailwind-performance-optimization-rule-en
 description: 性能优化的一般规则，包括懒加载、图像优化和 Web Vitals。
 paths:
   - "src/**/*.*"
+translation-status: pending
 ---
 
 - 对非关键组件实现懒加载。

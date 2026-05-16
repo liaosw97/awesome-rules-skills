@@ -3,6 +3,7 @@ name: go-backend-scalability-en
 description: Go 后端可扩展性最佳实践，涵盖数据库管理、API 设计、性能优化、微服务、容器化等关键领域。
 paths:
   - "src/**/*.*"
+translation-status: pending
 ---
 
 - 数据库管理优先选用 SQL/NoSQL 方案，结合业务需求选择合适类型

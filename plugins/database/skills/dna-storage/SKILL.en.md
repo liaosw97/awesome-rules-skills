@@ -1,6 +1,7 @@
 ---
 name: dna-storage-en
 description: Use when working with DNA — development rules
+translation-status: pending
 ---
 
 ## 核心原则

@@ -3,6 +3,7 @@ name: fullstack-mern-guide-submission-process-outline-en
 description: 提交流程大纲
 paths:
   - "[]"
+translation-status: pending
 ---
 
 # 提交流程大纲

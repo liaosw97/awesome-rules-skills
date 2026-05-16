@@ -1,32 +1,43 @@
 ---
 name: ros-en
-description: Use when working with coding — development rules
+description: ROS and ROS2 rules for packages, nodes, launch files, messages, services, actions, simulation, and testing
+translation-status: translated
 ---
+# ROS and ROS2 Rules
 
-## 核心原则
-- 模块化设计：功能独立的节点，松耦合架构
-- 实时性能：保证关键任务的实时响应
-- 可靠通信：健壮的消息传递和服务调用机制
-- 安全优先：完善的安全监控和紧急停止机制
+## Package Structure
 
-## 技术栈
-- ROS框架：ROS Noetic、ROS2 Humble/Iron
-- 运动规划：MoveIt2、OMPL、Pilz工业规划器
-- 仿真平台：Gazebo、Isaac Sim、Webots
-- 导航栈：Nav2、SLAM、Cartographer
-- 感知处理：PCL、OpenCV、YOLO
-- 开发工具：rqt、RViz2、ros2cli、Colcon
+- Keep packages focused on one robot capability or integration boundary.
+- Use `package.xml` and `CMakeLists.txt` or `setup.py` consistently with the package type.
+- Keep launch files under `launch/`, configs under `config/`, messages under `msg/`, services under `srv/`, and actions under `action/`.
+- Use namespaces and remapping instead of hardcoded topic names when nodes may be reused.
 
-## 最佳实践
-1. **节点设计**：单一职责原则，规范Topic/Service/Action定义
-2. **通信优化**：合理选择QoS策略，避免消息丢失或延迟
-3. **仿真测试**：完善Gazebo测试流程，实现CI/CD验证
-4. **配置管理**：使用YAML参数文件，支持运行时参数调整
-5. **日志规范**：统一日志级别和格式，支持远程调试
+## Nodes and Interfaces
 
-## 关键约定
-1. **节点设计**：规范Topic/Service定义，统一命名规范
-2. **仿真测试**：完善Gazebo测试流程，覆盖主要场景
-3. **运动规划**：优化MoveIt配置，确保轨迹平滑和安全
-4. **硬件抽象**：统一驱动接口，支持多种硬件平台
-5. **安全策略**：实现紧急停止机制，定义安全边界
+- Keep nodes small and composable.
+- Use parameters for tunable behavior; declare ROS2 parameters explicitly.
+- Prefer messages for state streams, services for quick request/response operations, and actions for long-running goals with feedback.
+- Use standard message types before creating custom interfaces.
+- Document topic, service, action, frame, and parameter contracts.
+
+## Timing and Frames
+
+- Use ROS time when simulation or bag replay matters.
+- Use `tf2` for frame transforms and document frame names.
+- Avoid blocking callbacks; move long work to timers, worker threads, or actions.
+- Set QoS profiles intentionally for sensor data, latched-like config, and reliable command paths.
+
+## Build and Test
+
+- Use `colcon build` and keep package dependencies explicit.
+- Run linters and formatters used by the workspace.
+- Add launch tests or integration tests for multi-node behavior.
+- Use simulation, bags, or recorded fixtures for repeatable sensor scenarios.
+- Test failure cases such as missing transforms, stale sensor data, and unavailable services.
+
+## Common Mistakes
+
+- Do not hardcode absolute paths; use package share directories.
+- Do not publish commands without validating frame, units, and timestamp assumptions.
+- Do not create custom messages when a standard message fits.
+- Do not ignore QoS mismatches between publishers and subscribers.

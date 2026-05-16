@@ -3,6 +3,7 @@ name: express-mongodb-entry-management-rules-en
 description: 概述条目管理规则，包括每个用户的条目数量、条目编号和选择管理。
 paths:
   - "*/entry-management/**/*.*"
+translation-status: pending
 ---
 
 - 每个用户每个池最多可以有 3 个条目。

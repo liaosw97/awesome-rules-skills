@@ -3,6 +3,7 @@ name: springboot-jpa-entity-class-conventions-en
 description: 为实体类设计设定标准，包括用于数据库交互的注解、ID 生成策略和关系配置。
 paths:
   - "**/src/main/java/com/example/entities/*.java"
+translation-status: pending
 ---
 
 - 必须使用 @Entity 注解实体类。

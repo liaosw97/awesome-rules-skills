@@ -3,6 +3,7 @@ name: mobx-best-practices-en
 description: 遵循 MobX 最佳实践以实现可扩展的状态管理
 paths:
   - "src/**/*.ts"
+translation-status: pending
 ---
 
 - **遵循 MobX 可扩展状态管理的最佳实践**：

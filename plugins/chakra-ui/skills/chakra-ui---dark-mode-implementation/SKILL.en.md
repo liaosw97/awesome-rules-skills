@@ -1,5 +1,7 @@
 ---
-name: chakra-ui---dark-mode-implementation-en
+name: chakra-ui
+translation-status: pending
+---dark-mode-implementation-en
 description: 在构建 React 组件时使用 Chakra UI 的颜色模式实现暗模式
 paths:
   - "src/**/*.*"

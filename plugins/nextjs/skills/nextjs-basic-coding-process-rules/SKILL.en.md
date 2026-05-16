@@ -3,6 +3,7 @@ name: nextjs-basic-coding-process-rules-en
 description: 指定编码过程，包括逐步推理、优先级排序、在继续下一个文件之前完成一个文件，以及使用 TODO 注释，适用于所有文件
 paths:
   - "*"
+translation-status: pending
 ---
 
 - **逐步推理**：显示简洁的逐步推理，解释决策过程。

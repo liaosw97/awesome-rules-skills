@@ -3,6 +3,7 @@ name: sveltekit-tailwind-typescript-guide-async-operations-en
 description:  
 paths:
   - " "
+translation-status: pending
 ---
 
 - 倾向于使用 async/await 语法，而不是 .then() 链

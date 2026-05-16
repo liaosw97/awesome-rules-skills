@@ -1,6 +1,7 @@
 ---
 name: sveltekit-tailwind-typescript-guide-documentation-standards-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 - 为项目和主要组件维护最新的 README 文件

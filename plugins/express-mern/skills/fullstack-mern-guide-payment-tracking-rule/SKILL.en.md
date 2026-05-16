@@ -3,6 +3,7 @@ name: fullstack-mern-guide-payment-tracking-rule-en
 description: 支付追踪规则
 paths:
   - "[]"
+translation-status: pending
 ---
 
 # 支付追踪规则

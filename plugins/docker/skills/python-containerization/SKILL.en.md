@@ -1,47 +1,51 @@
 ---
 name: python-containerization-en
-description: Use when working with Python — development rules
+description: Blender Python add-on rules for operators, panels, properties, registration, testing, and API-safe scripting
+translation-status: translated
 ---
+# Blender Python Add-on Rules
 
-你是 Python、数据库算法和容器化技术方面的专家。
+## Add-on Structure
 
-## 核心原则
-- 遵循 Python 官方文档和 PEPs，以实现 Python 开发的最佳实践。
-- 编写简洁、模块化的代码，遵循 PEP 8 指南。
-- 使用函数式编程模式，提高代码可读性和可维护性。
+- Keep add-on entry points in `__init__.py` with clear `register()` and `unregister()` functions.
+- Group operators, panels, properties, preferences, and utilities into separate modules for non-trivial add-ons.
+- Use `bl_info` or `blender_manifest.toml` according to the Blender version and packaging target.
+- Keep UI labels concise and user-facing text translatable where appropriate.
 
-## 代码规范
+## API Usage
 
-## 命名约定
-- 变量和函数使用 snake_case
-- 类名使用 PascalCase
-- 常量使用全大写 SNAKE_CASE
-- 使用描述性名称，避免单字母变量（循环变量除外）
+- Use `bpy.types.Operator` for actions, `bpy.types.Panel` for UI, and `bpy.types.PropertyGroup` for grouped settings.
+- Define `bl_idname`, `bl_label`, and `bl_options` explicitly.
+- Validate context in `poll()` before enabling operators.
+- Use `invoke()` for interactive setup and `execute()` for the actual operation.
+- Return `{'FINISHED'}` or `{'CANCELLED'}` consistently.
+- Use dependency graph updates and evaluated objects when reading final scene state.
 
-## 数据结构
-- 优先使用 Python 内置数据结构
-- 选择合适的数据结构以提高效率
-- 使用列表推导和生成器表达式
+## Data and Properties
 
-## 数据库算法
-- B-树实现和优化
-- WAL（预写日志）技术
-- MVCC（多版本并发控制）
-- 查询优化策略
+- Register custom properties through `PropertyGroup` classes instead of loose global state.
+- Store add-on preferences in `AddonPreferences`.
+- Use `PointerProperty`, `CollectionProperty`, and typed properties with names and descriptions.
+- Clean up custom properties and handlers during `unregister()`.
 
-## 并发与并行
-- 使用 `asyncio` 处理 I/O 密集型任务
-- 使用 `multiprocessing` 处理 CPU 密集型任务
-- 实现适当的锁机制和同步
+## Safety and Performance
 
-## 容器化
-- 使用 Docker 进行应用容器化
-- 使用 Docker Compose 管理多容器应用
-- 优化镜像大小和构建效率
-- 配置健康检查和资源限制
+- Do not run destructive scene operations without explicit user action.
+- Avoid blocking UI work in modal operators; use timers or modal state machines for long operations.
+- Batch mesh changes and use `bmesh` when editing mesh data programmatically.
+- Avoid repeatedly scanning large scenes in draw methods.
+- Keep file paths configurable and use Blender path utilities.
 
-## 测试与部署
-- 编写全面的单元测试和集成测试
-- 使用 CI/CD 管道自动化构建和部署
-- 配置 GitHub Actions 或类似工具
-- 确保代码质量和可靠性
+## Testing and Debugging
+
+- Test scripts in a clean Blender profile and a representative production scene.
+- Add smoke tests that import the add-on, register it, run core operators, and unregister cleanly.
+- Log actionable messages with `self.report()` for user-facing operator feedback.
+- Keep version-specific API differences isolated behind helper functions.
+
+## Common Mistakes
+
+- Do not forget to unregister classes, handlers, timers, and keymaps.
+- Do not mutate Blender data from panel `draw()` methods.
+- Do not assume an active object, selected object, or mode without checking context.
+- Do not hardcode absolute asset paths.

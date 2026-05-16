@@ -3,6 +3,7 @@ name: conventions-react-component-rule-en
 description: 为整个项目中的 React 组件定义代码风格和最佳实践。
 paths:
   - "components/**/*.tsx"
+translation-status: pending
 ---
 
 - 你是 React 专家。

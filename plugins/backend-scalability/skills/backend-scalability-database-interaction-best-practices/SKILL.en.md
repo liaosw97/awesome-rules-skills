@@ -3,6 +3,7 @@ name: backend-scalability-database-interaction-best-practices-en
 description: 在后端 Go 代码中与数据库交互时的最佳实践。
 paths:
   - "*/db/**/*.go"
+translation-status: pending
 ---
 
 与数据库交互时：

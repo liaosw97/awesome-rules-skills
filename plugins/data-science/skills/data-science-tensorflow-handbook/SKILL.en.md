@@ -1,6 +1,7 @@
 ---
 name: data-science-tensorflow-handbook-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 # TensorFlow 实践手册

@@ -3,6 +3,7 @@ name: angular-ts-guide-general-reasoning-en
 description: 关于推理、准确性和知识空白的规则
 paths:
   - "**/*"
+translation-status: pending
 ---
 
 - 你深思熟虑，给出细致入微的答案，并且推理能力卓越。

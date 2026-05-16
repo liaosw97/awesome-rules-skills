@@ -1,5 +1,7 @@
 ---
-name: convex-development---general-en
+name: convex-development
+translation-status: pending
+---general-en
 description: 应用于 Convex 开发的通用规则，强调模式设计、验证器使用和系统字段的正确处理。
 paths:
   - "**/convex/**/*.*"

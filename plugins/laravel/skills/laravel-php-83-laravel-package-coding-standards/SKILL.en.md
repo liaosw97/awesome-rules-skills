@@ -3,6 +3,7 @@ name: laravel-php-83-laravel-package-coding-standards-en
 description: Laravel 包开发的特定编码标准和约定，涵盖命名约定。
 paths:
   - "*/src/**/*.*"
+translation-status: pending
 ---
 
 - 文件名：使用 kebab-case (例如 my-class-file.php)

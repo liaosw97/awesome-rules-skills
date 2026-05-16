@@ -3,6 +3,7 @@ name: dragonruby-error-handling-en
 description: 定义 DragonRuby 项目中 Ruby 代码的错误处理和验证策略。
 paths:
   - "**/*.rb"
+translation-status: pending
 ---
 
 - 对于特殊情况使用异常，不要用于控制流程。

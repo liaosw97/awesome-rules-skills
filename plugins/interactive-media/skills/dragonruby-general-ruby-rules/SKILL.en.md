@@ -3,6 +3,7 @@ name: dragonruby-general-ruby-rules-en
 description: 在 DragonRuby 项目中应用通用的 Ruby 编码风格、结构和最佳实践。
 paths:
   - "**/*.rb"
+translation-status: pending
 ---
 
 - 编写简洁、符合惯用法的 Ruby 代码，并提供准确的示例。

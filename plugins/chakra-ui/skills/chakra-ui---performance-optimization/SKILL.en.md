@@ -1,5 +1,7 @@
 ---
-name: chakra-ui---performance-optimization-en
+name: chakra-ui
+translation-status: pending
+---performance-optimization-en
 description: 遵循 Chakra UI 最佳实践来优化 React 组件的性能
 paths:
   - "src/**/*.*"

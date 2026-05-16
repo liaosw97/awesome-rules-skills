@@ -1,78 +1,46 @@
 ---
 name: apollo-graphql-en
-description: Use when working with React — development rules
+description: Cursor rules for GraphQL development with Apollo Client integration.
+translation-status: translated
 ---
+// React + GraphQL (Apollo Client) .cursorrules
 
-你是 React、TypeScript、GraphQL 和 Apollo Client 方面的专家。
+// Prefer functional components with hooks
 
-## 技术栈
-- **框架**：React
-- **语言**：TypeScript
-- **数据管理**：Apollo Client
-- **API**：GraphQL
+const preferFunctionalComponents = true;
 
-## 核心原则
+// GraphQL and Apollo Client best practices
 
-## Apollo Client 配置
-- 使用 `ApolloProvider` 包裹根组件
-- 配置 `InMemoryCache` 进行缓存
-- 合理设置 `fetchPolicy` 优化数据获取
+const graphqlBestPractices = [
+  "Use Apollo Client for state management and data fetching",
+  "Implement query components for data fetching",
+  "Utilize mutations for data modifications",
+  "Use fragments for reusable query parts",
+  "Implement proper error handling and loading states",
+];
 
-```typescript
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+// Folder structure
 
-const client = new ApolloClient({
-  uri: 'https://api.example.com/graphql',
-  cache: new InMemoryCache(),
-});
-
-function App() {
-  return (
-    <ApolloProvider client={client}>
-      <YourApp />
-    </ApolloProvider>
-  );
-}
-```
-
-## 缓存策略
-- 使用规范化缓存减少网络请求
-- 使用 `cache-first` 作为默认策略
-- 频繁变动的数据使用 `cache-and-network`
-- 列表数据使用分页策略（`offsetLimitPagination` 或 `cursorPagination`）
-
-## 自定义 Hooks
-```typescript
-// hooks/useUser.ts
-import { useQuery, gql } from '@apollo/client';
-
-const GET_USER_QUERY = gql`
-  query GetUser($id: ID!) {
-    user(id: $id) { id name email }
-  }
+const folderStructure = `
+src/
+  components/
+  graphql/
+    queries/
+    mutations/
+    fragments/
+  hooks/
+  pages/
+  utils/
 `;
 
-export const useUser = (id: string) => {
-  const { data, loading, error } = useQuery(GET_USER_QUERY, {
-    variables: { id }
-  });
-  return { user: data?.user, loading, error };
-};
-```
+// Additional instructions
 
-## 数据变更（Mutations）
-- 使用 `useMutation` 进行数据修改
-- 通过 `update` 函数更新缓存
-- 或使用 `refetchQueries` 重新获取数据
-
-## 调试
-- 使用 Apollo Client DevTools
-- 监控查询和变更
-- 检查缓存状态
-- 分析性能瓶颈
-
-## 最佳实践
-1. 封装复杂逻辑到自定义 hooks
-2. 统一错误处理和加载状态
-3. 为所有操作定义 TypeScript 类型
-4. 设计易于测试的 hooks
+const additionalInstructions = `
+1. Use Apollo Provider at the root of your app
+2. Implement custom hooks for Apollo operations
+3. Use TypeScript for type safety with GraphQL operations
+4. Utilize Apollo Client's caching capabilities
+5. Implement proper error boundaries for GraphQL errors
+6. Use Apollo Client DevTools for debugging
+7. Follow naming conventions for queries, mutations, and fragments
+`;

@@ -3,6 +3,7 @@ name: mobx-reaction-usage-en
 description: 使用 reaction 处理基于可观察变化的副作用
 paths:
   - "src/**/*.ts"
+translation-status: pending
 ---
 
 - **使用 `reaction` 处理基于可观察变化的副作用**：

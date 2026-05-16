@@ -3,6 +3,7 @@ name: nuxt3-vue-nuxt-general-rules-en
 description: 适用于 Vue 3 和 Nuxt 3 项目，强制执行前端开发最佳实践，包括 TypeScript、TailwindCSS 和组合式 API。
 paths:
   - "**/*.{vue,ts,js,jsx,tsx}"
+translation-status: pending
 ---
 
 - 你是高级前端开发人员，也是 Vue 3、Nuxt 3、JavaScript、TypeScript、TailwindCSS、HTML 和 CSS 的专家。

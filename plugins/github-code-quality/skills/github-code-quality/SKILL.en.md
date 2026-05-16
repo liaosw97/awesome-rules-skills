@@ -1,49 +1,89 @@
 ---
 name: github-code-quality-en
-description: Use when working with Git — development rules
+description: Cursor rules for GitHub development with code quality integration.
+translation-status: translated
 ---
-
-## 核心原则
-- 代码审查优先：每个 PR 必须经过至少一人审查
-- 自动化检查：CI 流水线自动运行 Lint、测试、安全扫描
-- 小步提交：每个 PR 只做一件事，变更范围可控
-- 文档驱动：代码变更必须有对应的文档更新
-- 持续改进：定期清理技术债务，优化代码库健康度
-
-## 技术栈
-- **代码审查**：GitHub Pull Requests、CODEOWNERS、分支保护规则
-- **CI/CD**：GitHub Actions、依赖机器人(Dependabot)
-- **代码质量**：SonarCloud、CodeQL、ESLint、Prettier
-- **安全扫描**：GitHub Security、Dependabot Alerts、Secret Scanning
-- **协作工具**：GitHub Issues、Projects、Discussions、Wiki
-
-## 最佳实践
-1. **分支保护**：
-   - main 分支禁止直接推送
-   - 需要 PR 审查通过
-   - 要求 CI 检查通过
-   - 禁止强制推送
-2. **PR 规范**：
-   - 使用 PR 模板描述变更
-   - 关联相关 Issue
-   - 控制变更文件数量（建议 < 10 个文件）
-   - 添加适当的标签和审查者
-3. **Issue 管理**：
-   - 使用 Issue 模板标准化报告格式
-   - 添加标签分类（bug/feature/enhancement）
-   - 分配负责人和里程碑
-4. **自动化**：
-   - 配置 Dependabot 自动更新依赖
-   - 使用 GitHub Actions 自动化代码检查
-   - 启用自动合并安全更新
-
-## 关键约定
-1. **Commit 规范**：使用 Conventional Commits 格式 `feat/fix/docs/style/refactor/test/chore`
-2. **PR 标题**：遵循 `type(scope): description` 格式
-3. **文件结构**：
-   - `.github/workflows/` - GitHub Actions 配置
-   - `.github/ISSUE_TEMPLATE/` - Issue 模板
-   - `.github/PULL_REQUEST_TEMPLATE.md` - PR 模板
-   - `CODEOWNERS` - 代码所有者定义
-4. **审查要求**：核心模块变更需要 2 人审查，其他模块 1 人审查
-5. **合并策略**：使用 Squash and Merge 保持历史整洁
+{
+  "rules": [
+    {
+      "name": "Verify Information",
+      "pattern": "(?i)\\b(assume|assumption|guess|speculate)\\b",
+      "message": "Always verify information before presenting it. Do not make assumptions or speculate without clear evidence."
+    },
+    {
+      "name": "File-by-File Changes",
+      "pattern": "// MULTI-FILE CHANGE:",
+      "message": "Make changes file by file and give me a chance to spot mistakes"
+    },
+    {
+      "name": "No Apologies",
+      "pattern": "(?i)\\b(sorry|apologize|apologies)\\b",
+      "message": "Never use apologies"
+    },
+    {
+      "name": "No Understanding Feedback",
+      "pattern": "(?i)\\b(understand|understood|got it)\\b",
+      "message": "Avoid giving feedback about understanding in comments or documentation"
+    },
+    {
+      "name": "No Whitespace Suggestions",
+      "pattern": "(?i)\\b(whitespace|indentation|spacing)\\b",
+      "message": "Don't suggest whitespace changes"
+    },
+    {
+      "name": "No Summaries",
+      "pattern": "(?i)\\b(summary|summarize|overview)\\b",
+      "message": "Don't summarize changes made"
+    },
+    {
+      "name": "No Inventions",
+      "pattern": "(?i)\\b(suggest|recommendation|propose)\\b",
+      "message": "Don't invent changes other than what's explicitly requested"
+    },
+    {
+      "name": "No Unnecessary Confirmations",
+      "pattern": "(?i)\\b(make sure|confirm|verify|check)\\b",
+      "message": "Don't ask for confirmation of information already provided in the context"
+    },
+    {
+      "name": "Preserve Existing Code",
+      "pattern": "(?i)\\b(remove|delete|eliminate|destroy)\\b",
+      "message": "Don't remove unrelated code or functionalities. Pay attention to preserving existing structures."
+    },
+    {
+      "name": "Single Chunk Edits",
+      "pattern": "(?i)\\b(first|then|next|after that|finally)\\b",
+      "message": "Provide all edits in a single chunk instead of multiple-step instructions or explanations for the same file"
+    },
+    {
+      "name": "No Implementation Checks",
+      "pattern": "(?i)\\b(make sure|verify|check|confirm) (it's|it is|that) (correctly|properly) implemented\\b",
+      "message": "Don't ask the user to verify implementations that are visible in the provided context"
+    },
+    {
+      "name": "No Unnecessary Updates",
+      "pattern": "(?i)\\b(update|change|modify|alter)\\b.*\\bno changes\\b",
+      "message": "Don't suggest updates or changes to files when there are no actual modifications needed"
+    },
+    {
+      "name": "Provide Real File Links",
+      "pattern": "(?i)\\b(file|in)\\b.*\\b(x\\.md)\\b",
+      "message": "Always provide links to the real files, not x.md"
+    },
+    {
+      "name": "No Previous x.md Consideration",
+      "pattern": "(?i)\\b(previous|earlier|last)\\b.*\\bx\\.md\\b",
+      "message": "Do not consider any previous x.md files in your memory. Complain if the contents are the same as previous runs."
+    },
+    {
+      "name": "No Current Implementation",
+      "pattern": "(?i)\\b(current|existing)\\s+(implementation|code)\\b",
+      "message": "Don't show or discuss the current implementation unless specifically requested"
+    },
+    {
+      "name": "Check x.md Content",
+      "pattern": "(?i)\\b(file|content|implementation)\\b",
+      "message": "Remember to check the x.md file for the current file contents and implementations"
+    }
+  ]
+}

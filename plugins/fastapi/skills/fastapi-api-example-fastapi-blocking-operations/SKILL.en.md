@@ -1,6 +1,7 @@
 ---
 name: fastapi-api-example-fastapi-blocking-operations-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 - 倾向于异步和非阻塞流程。

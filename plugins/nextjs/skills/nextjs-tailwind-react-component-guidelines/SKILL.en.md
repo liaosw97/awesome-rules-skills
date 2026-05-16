@@ -3,6 +3,7 @@ name: nextjs-tailwind-react-component-guidelines-en
 description: 专注于 components 目录中可重用、响应式和可访问的 React 组件。
 paths:
   - "src/components/**/*.tsx"
+translation-status: pending
 ---
 
 - 确保所有组件都是可重用的并遵循现有的设计模式。

@@ -3,6 +3,7 @@ name: dragonruby-syntax-and-formatting-en
 description: 规定 DragonRuby 项目中 Ruby 代码的语法和格式指南，遵循 Ruby 风格指南。
 paths:
   - "**/*.rb"
+translation-status: pending
 ---
 
 - 遵循 Ruby 风格指南 (https://rubystyle.guide/)

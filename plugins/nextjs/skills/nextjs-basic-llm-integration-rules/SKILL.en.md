@@ -3,6 +3,7 @@ name: nextjs-basic-llm-integration-rules-en
 description: 指定 LLM 集成规则，包括使用 Python 包装器和 API 端点，适用于所有 LLM 相关文件
 paths:
   - "llm/**/*.*"
+translation-status: pending
 ---
 
 - **Python 包装器**：使用专门的 Python 包装器进行 LLM 交互，确保接口统一和易于管理。

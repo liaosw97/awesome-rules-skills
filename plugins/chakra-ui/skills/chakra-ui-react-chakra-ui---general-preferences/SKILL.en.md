@@ -1,5 +1,7 @@
 ---
-name: chakra-ui-react-chakra-ui---general-preferences-en
+name: chakra-ui-react-chakra-ui
+translation-status: pending
+---general-preferences-en
 description: 使用 Chakra UI 的 React 组件的一般偏好，包括使用带有 hooks 的函数式组件
 paths:
   - "src/**/*.*"

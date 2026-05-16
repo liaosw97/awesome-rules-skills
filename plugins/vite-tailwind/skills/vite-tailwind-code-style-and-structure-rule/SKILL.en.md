@@ -3,6 +3,7 @@ name: vite-tailwind-code-style-and-structure-rule-en
 description: 在整个项目中强制执行一致的代码风格和结构，包括简洁代码、函数式编程和描述性变量名。
 paths:
   - "**/*.{ts,vue}"
+translation-status: pending
 ---
 
 - 编写简洁、可维护且技术准确的 TypeScript 代码，提供相关示例。

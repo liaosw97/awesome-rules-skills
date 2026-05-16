@@ -3,6 +3,7 @@ name: angular-typescript-typescript-coding-style-en
 description: 为 TypeScript 文件强制执行代码风格和最佳实践。
 paths:
   - "**/*.ts"
+translation-status: pending
 ---
 
 - 代码应遵守 `.eslintrc.json`、`.prettierrc` 和 `.editorconfig` 文件中定义的规则。

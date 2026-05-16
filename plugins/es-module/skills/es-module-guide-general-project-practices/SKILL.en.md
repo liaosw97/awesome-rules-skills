@@ -1,6 +1,7 @@
 ---
 name: es-module-guide-general-project-practices-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 - 优先考虑模块化、DRY、性能和安全性

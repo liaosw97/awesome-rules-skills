@@ -3,6 +3,7 @@ name: nextjs-react-ts-javascript-typescript-coding-style-en
 description: 特定的 JavaScript/TypeScript 编码风格指导原则。专注于语法、TypeScript 功能的使用和文件结构。
 paths:
   - "**/*.{ts,js,jsx,tsx}"
+translation-status: pending
 ---
 
 - 对纯函数使用 "function" 关键字。省略分号。

@@ -1,6 +1,7 @@
 ---
 name: cpp-guidelines-en
 description: Use when working with C++ — development rules
+translation-status: pending
 ---
 
 ## 文件模式匹配

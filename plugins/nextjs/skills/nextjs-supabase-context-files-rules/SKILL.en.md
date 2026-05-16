@@ -3,6 +3,7 @@ name: nextjs-supabase-context-files-rules-en
 description: 指定管理上下文文件的规则，包括主项目上下文和补充文件，强调稳定性和变更管理。
 paths:
   - "**/ProjectDocs/contexts/**/*"
+translation-status: pending
 ---
 
 - **主项目上下文 (`projectContext.md`)：**

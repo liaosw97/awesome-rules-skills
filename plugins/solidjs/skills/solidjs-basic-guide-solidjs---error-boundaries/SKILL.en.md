@@ -1,5 +1,7 @@
 ---
-name: solidjs-basic-guide-solidjs---error-boundaries-en
+name: solidjs-basic-guide-solidjs
+translation-status: pending
+---error-boundaries-en
 description: SolidJS 错误边界
 paths:
   - "[]"

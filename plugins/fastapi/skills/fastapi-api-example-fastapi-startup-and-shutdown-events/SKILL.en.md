@@ -3,6 +3,7 @@ name: fastapi-api-example-fastapi-startup-and-shutdown-events-en
 description: FastAPI 启动和关闭事件
 paths:
   - "[]"
+translation-status: pending
 ---
 
 # FastAPI 启动和关闭事件

@@ -3,6 +3,7 @@ name: kubernetes-mkdocs-documentation-documentation-best-practices-rules-en
 description: Kubernetes文档编写规范，确保技术文档的可读性和可维护性
 paths:
   - "**/docs/*.md"
+translation-status: pending
 ---
 
 - **文档结构**：

@@ -1,140 +1,96 @@
 ---
 name: express-mongodb-en
-description: Use when working with Express — development rules
+description: Cursor rules for Node.js development with MongoDB integration.
+translation-status: translated
 ---
+Tech Stack:
 
-## 核心原则
-- 遵循 RESTful API 最佳实践
-- 实现清晰的代码组织和模块化
-- 使用适当的 HTTP 方法和状态码
-- 提供一致的 API 响应格式
-- 实现全面的错误处理和日志记录
+Backend: Node.js with Express.js
 
-## 技术栈
-- **运行时**：Node.js
-- **框架**：Express.js
-- **数据库**：MongoDB
-- **ODM**：Mongoose
-- **语言**：JavaScript / TypeScript
-- **认证**：JWT / Passport.js
+Database: MongoDB with Mongoose ODM
 
-## 最佳实践
-### 项目结构
+Frontend: React.js (for admin panel, if required)
 
-```
-src/
-├── controllers/    # 请求处理逻辑
-├── models/         # Mongoose 数据模型
-├── routes/         # 路由定义
-├── middleware/     # 自定义中间件
-├── services/       # 业务逻辑层
-├── utils/          # 工具函数
-├── config/         # 配置文件
-└── app.js          # 应用入口
-```
+Authentication: JSON Web Tokens (JWT)
 
-### API 设计规范
+Version Control: Git
 
-```javascript
-// RESTful 端点设计
-// GET    /api/v1/users          获取用户列表
-// GET    /api/v1/users/:id      获取单个用户
-// POST   /api/v1/users          创建用户
-// PUT    /api/v1/users/:id      更新用户
-// DELETE /api/v1/users/:id      删除用户
-```
+Deployment: Docker (optional)
 
-### 错误处理
+Precision in User Requirements:
 
-```javascript
-// 全局错误处理中间件
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(err.status || 500).json({
-    success: false,
-    error: err.message || '服务器内部错误'
-  });
-});
+Strictly adhere to specified user flow and game rules.
 
-// 自定义错误类
-class AppError extends Error {
-  constructor(message, status) {
-    super(message);
-    this.status = status;
-  }
-}
-```
+Strategy: 
 
-### 响应格式
+Summarize the pick submission process and outline the API endpoint and business logic in pseudocode before coding.
 
-```javascript
-// 成功响应
-res.status(200).json({
-  success: true,
-  data: { ... },
-  message: '操作成功'
-});
+Strategic Planning with Pseudocode:
 
-// 错误响应
-res.status(400).json({
-  success: false,
-  error: '错误描述',
-  details: { ... }
-});
-```
+Begin each feature with detailed pseudocode.
 
-### 异步处理
+Example: Provide pseudocode for the weekly scoring process, detailing steps from game result input to entry status updates.
 
-```javascript
-// 使用 async/await 处理异步操作
-async function getUser(req, res, next) {
-  try {
-    const user = await User.findById(req.params.id);
-    if (!user) {
-      return res.status(404).json({ error: '用户不存在' });
-    }
-    res.json(user);
-  } catch (error) {
-    next(error);
-  }
-}
-```
+Code Quality:
 
-## 关键约定
-1. **输入验证**
-   - 使用 express-validator 或 Joi
-   - 验证所有用户输入
-   - 清理输入数据防止注入
+Ensure secure, efficient code following RESTful API best practices.
 
-2. **数据库操作**
-   - 使用 Mongoose 模式验证
-   - 实现适当的索引
-   - 使用事务处理复杂操作
-   - 优化查询性能
+Implement proper error handling and input validation.
 
-3. **安全措施**
-   - 使用 helmet 中间件
-   - 实现 CORS 策略
-   - 使用 rate limiting
-   - 输入清理防止注入
-   - 敏感数据加密存储
+User Flow:
 
-4. **命名规范**
-   - 类名：PascalCase
-   - 变量/函数：camelCase
-   - 文件名：kebab-case
-   - 常量：UPPER_SNAKE_CASE
+Users browse available Pools
 
-## 性能优化
-- 实现请求缓存策略
-- 使用数据库连接池
-- 压缩响应数据
-- 实现分页和延迟加载
-- 使用 Redis 缓存热点数据
+Submit up to 3 Requests per Pool
 
-## 测试规范
-- 使用 Jest 或 Mocha 编写测试
-- 为每个控制器和服务编写单元测试
-- 为每个 API 模块编写集成测试
-- 模拟外部依赖
-- 测试错误场景和边界条件
+Complete payment for Requests
+
+Admin approves/rejects Requests
+
+Approved Requests become Entries
+
+Entry Management:
+
+Each user can have up to 3 Entries per Pool
+
+Entries are numbered 1, 2, 3
+
+Picks are made and tracked separately for each Entry
+
+Pick Management:
+
+Users make Picks for each Entry separately
+
+Picks can be updated until deadline (game start or 1PM Sunday of the current week of the pick)
+
+Scoring and Ranking:
+
+Picks scored after games complete
+
+Win: Entry moves to next week
+
+Loss: Entry eliminated from Pool
+
+Each Entry ranked separately in Pool standings
+
+Results and Standings:
+
+Users view Picks/scores for each Entry separately
+
+Pool standings show all Entries (multiple per User possible)
+
+Pool members can view all Picks after scoring
+
+Key Implementation Points:
+
+Limit Requests to 3 per User per Pool
+
+Track Requests and Entries separately (numbered 1, 2, 3)
+
+Implement payment status tracking in Request model
+
+Create Entry only after admin approval and payment completion
+
+Admin interface for managing and approving Requests
+
+Implement state transitions (Request: pending -> approved -> Entry created)

@@ -1,112 +1,137 @@
 ---
 name: nextjs-supabase-en
-description: Use when working with React — development rules
+description: 27 architecture rules preventing AI hallucinations: insecure auth (getSession vs getUser), synchronous params, deprecated imports, missing RLS, and Stripe key exposure. Built for Cursor Agent and Claude Code.
+translation-status: translated
+---
+# Next.js 15 + Supabase Architecture Rules
+
+You are an expert Next.js 15 developer working with Supabase, TypeScript (strict), and shadcn/ui.
+Follow ALL rules below unconditionally. If you are tempted to deviate, re-read the rule.
+
+## Tech Stack
+- Framework: Next.js 15 (App Router) with React 19
+- Language: TypeScript (strict mode)
+- Styling: Tailwind CSS + shadcn/ui
+- Database: Supabase (PostgreSQL + RLS)
+- Auth: Supabase SSR (cookie-based, @supabase/ssr)
+- Validation: Zod
+- Payments: Stripe (server-side only)
+
+## RULE 1: NEVER use getSession() on the server
+
+SECURITY CRITICAL. getSession() reads the JWT from cookies WITHOUT verifying it.
+A forged cookie passes silently. ALWAYS use getUser() for server-side auth.
+
+```typescript
+// ✅ CORRECT — verified with Supabase auth server
+const supabase = await createClient()
+const { data: { user } } = await supabase.auth.getUser()
+if (!user) redirect('/login')
+
+// ❌ WRONG — reads JWT without verification, session can be forged
+const { data: { session } } = await supabase.auth.getSession()
+```
+
+## RULE 2: NEVER access params synchronously in Next.js 15
+
+In Next.js 15, params and searchParams are Promises. Synchronous access compiles
+but crashes at runtime.
+
+```typescript
+// ✅ CORRECT
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+}
+
+// ❌ WRONG — runtime crash
+export default function Page({ params }: { params: { id: string } }) {
+  const { id } = params // TypeError at runtime
+}
+```
+
+## RULE 3: NEVER import from @supabase/auth-helpers-nextjs
+
+This package is deprecated. It does NOT work with Next.js 15 App Router cookies.
+ALWAYS use @supabase/ssr with manual cookie handling.
+
+```typescript
+// ✅ CORRECT
+import { createServerClient } from '@supabase/ssr'
+
+// ❌ WRONG — deprecated, broken with App Router
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+```
+
+## RULE 4: All database tables MUST have RLS enabled
+
+Every Supabase table must have Row Level Security enabled. Without RLS, any
+user with the anon key can read ALL data from the table.
+
+```sql
+-- ✅ Always add after CREATE TABLE:
+ALTER TABLE public.my_table ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Users can only read their own data"
+  ON public.my_table FOR SELECT
+  USING (auth.uid() = user_id);
+```
+
+## RULE 5: Default to Server Components
+
+Only add 'use client' when the component needs interactivity (event handlers,
+useState, useEffect). Push 'use client' to the smallest leaf component possible.
+
+## RULE 6: All mutations via Server Actions
+
+All data mutations happen through Server Actions, never client-side fetch().
+Always validate with Zod, authenticate with getUser(), and return ActionResponse<T>.
+
+```typescript
+'use server'
+import { z } from 'zod'
+
+type ActionResponse<T = void> =
+  | { success: true; data: T }
+  | { success: false; error: string }
+
+const Schema = z.object({ title: z.string().min(1).max(200) })
+
+export async function createItem(input: unknown): Promise<ActionResponse> {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) return { success: false, error: 'Unauthorized' }
+
+  const result = Schema.safeParse(input)
+  if (!result.success) return { success: false, error: 'Invalid input' }
+
+  const { error } = await supabase.from('items').insert({ ...result.data, user_id: user.id })
+  if (error) return { success: false, error: 'Failed to create item' }
+
+  revalidatePath('/items')
+  return { success: true, data: undefined }
+}
+```
+
+## RULE 7: Error boundaries for every data-fetching page
+
+Every page that fetches data MUST have sibling loading.tsx and error.tsx files.
+
+## RULE 8: NEVER expose Stripe secret keys
+
+Stripe keys starting with `sk_` must NEVER be in NEXT_PUBLIC_ variables.
+Use process.env.STRIPE_SECRET_KEY (server-only).
+
+## RULE 9: TypeScript strict mode, no `any`
+
+NEVER use `any`. Use `unknown` with Zod validation or type narrowing.
+tsconfig.json MUST have `strict: true`.
+
+## RULE 10: Middleware is for session REFRESH only
+
+NEVER put auth enforcement in Next.js middleware. Middleware runs on Edge Runtime
+and cannot verify Supabase JWTs. Auth enforcement belongs in layouts/pages with getUser().
+
 ---
 
-你是 Next.js、React、TypeScript 和 Supabase 后端服务方面的专家。
-
-## 技术栈
-- **框架**：Next.js (App Router)
-- **语言**：TypeScript
-- **后端**：Supabase (PostgreSQL, Auth, Storage, Realtime)
-- **样式**：Tailwind CSS
-
-## 核心原则
-
-## Supabase 客户端配置
-```typescript
-// lib/supabase/client.ts
-import { createBrowserClient } from '@supabase/ssr';
-
-export function createClient() {
-  return createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
-}
-
-// lib/supabase/server.ts
-import { createServerClient } from '@supabase/ssr';
-import { cookies } from 'next/headers';
-
-export async function createClient() {
-  const cookieStore = await cookies();
-  return createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    { cookies: cookieStore }
-  );
-}
-```
-
-## 数据库操作
-```typescript
-// 获取数据
-const { data, error } = await supabase
-  .from('users')
-  .select('id, name, email')
-  .eq('id', userId);
-
-// 插入数据
-const { data, error } = await supabase
-  .from('users')
-  .insert({ name: 'John', email: 'john@example.com' })
-  .select();
-```
-
-## 认证
-```typescript
-// 登录
-const { data, error } = await supabase.auth.signInWithPassword({
-  email: 'user@example.com',
-  password: 'password',
-});
-
-// 登出
-await supabase.auth.signOut();
-
-// 获取当前用户
-const { data: { user } } = await supabase.auth.getUser();
-```
-
-## 实时订阅
-```typescript
-useEffect(() => {
-  const channel = supabase
-    .channel('realtime-posts')
-    .on('postgres_changes', {
-      event: 'INSERT',
-      schema: 'public',
-      table: 'posts'
-    }, (payload) => {
-      setPosts(prev => [...prev, payload.new]);
-    })
-    .subscribe();
-
-  return () => { supabase.removeChannel(channel); };
-}, []);
-```
-
-## 最佳实践
-
-## 项目结构
-```
-src/
-├── app/           # Next.js App Router
-├── components/    # React 组件
-├── lib/           # 工具函数
-│   └── supabase/  # Supabase 客户端
-├── types/         # TypeScript 类型
-└── hooks/         # 自定义 Hooks
-```
-
-## 构建笔记
-- 为每个任务组创建构建笔记文件
-- 使用清晰的命名约定
-- 增量更新，追加而非覆盖
-- 完成后移动到 `completed/` 目录
-
-## 安全
-- 使用 Row Level Security (RLS)
-- 不要在客户端暴露敏感密钥
-- 验证用户权限
+Full rule set (27 rules) available at: https://github.com/vibestackdev/vibe-stack
+Quick install: npx vibe-stack-rules init

@@ -3,6 +3,7 @@ name: chrome-extension-dev-js-typescript-browser-api-usage-rules-en
 description: 有效使用 Chrome 浏览器 API 的规则，包括错误处理和任务调度。
 paths:
   - "**/*.{js,ts}"
+translation-status: pending
 ---
 
 - 有效利用 chrome.* API（如 chrome.tabs、chrome.storage、chrome.runtime）

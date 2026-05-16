@@ -3,6 +3,7 @@ name: laravel-package-guide-readme-md-guidelines-en
 description: README.md 指南
 paths:
   - "[]"
+translation-status: pending
 ---
 
 # README.md 指南

@@ -1,72 +1,40 @@
 ---
 name: react-components-en
-description: Use when working with React — development rules
+description: Cursor rules for React component creation and development.
+translation-status: translated
 ---
+# Cursor Rules
 
-你是 React、TypeScript 和组件设计方面的专家。
+## Whenever you need a React component
 
-## 技术栈
-- **框架**：React
-- **语言**：TypeScript
-- **UI 组件库**：shadcn/ui
-- **样式**：Tailwind CSS
+1. Carefully consider the component's purpose, functionality, and design
 
-## 核心原则
+2. Think slowly, step by step, and outline your reasoning
 
-## 组件创建流程
-1. 仔细考虑组件的目的、功能和设计
+3. Check if a similar component already exists in any of the following locations
+   1. packages/ui/src/components
+   2. apps/spa/src/components
 
-## 2. 检查是否已存在类似组件：
-- `packages/ui/src/components`
-   - `apps/spa/src/components`
-3. 如果不存在，生成详细组件规范
-4. 实现组件
+4. If it doesn't exist, generate a detailed prompt for the component, including:
+   - Component name and purpose
+   - Desired props and their types
+   - Any specific styling or behavior requirements
+   - Mention of using Tailwind CSS for styling
+   - Request for TypeScript usage
 
-## 组件结构
-```typescript
-// 导入组织
-import { Button } from '@repo/ui/components/ui/button';
-import { Card } from '@/components/card';
-import type { ComponentProps } from './types';
+5. URL encode the prompt.
 
-// 类型定义
-interface UserCardProps {
-  user: User;
-  onEdit?: (id: string) => void;
-}
+6. Create a clickable link in this format:
+   [ComponentName](https://v0.dev/chat?q={encoded_prompt})
 
-// 组件定义
-export function UserCard({ user, onEdit }: UserCardProps) {
-  // 状态和 hooks
-  const [isExpanded, setIsExpanded] = useState(false);
+7. After generating, adapt the component to fit our project structure:
+   - Import
+     - common shadcn/ui components from <ui_package_alias>@repo/ui/components/ui/</ui_package_alias>
+     - app specific components from <app_package_alias>@/components</app_package_alias>
+   - Ensure it follows our existing component patterns
+   - Add any necessary custom logic or state management
 
-  // 事件处理
-  const handleEdit = () => onEdit?.(user.id);
+Example prompt template:
+"Create a React component named {ComponentName} using TypeScript and Tailwind CSS. It should {description of functionality}. Props should include {list of props with types}. The component should {any specific styling or behavior notes}. Please provide the full component code."
 
-  // 渲染
-  return (
-    <Card>
-      <h3>{user.name}</h3>
-      <Button onClick={handleEdit}>编辑</Button>
-    </Card>
-  );
-}
-```
-
-## 项目结构
-```
-packages/ui/src/components/  # 通用 UI 组件
-apps/spa/src/components/     # 应用特定组件
-```
-
-## 导入约定
-- 从 `@repo/ui/components/ui/` 导入通用 shadcn/ui 组件
-- 从 `@/components` 导入应用特定组件
-
-## 最佳实践
-1. 遵循现有的组件模式
-2. 使用 TypeScript 定义 props 类型
-3. 使用 Tailwind CSS 进行样式设计
-4. 保持组件单一职责
-5. 提供清晰的组件文档
-6. 考虑可复用性和扩展性
+Remember to replace placeholders like <ui_package_path> and <app_package_alias> with the actual values used in your project.

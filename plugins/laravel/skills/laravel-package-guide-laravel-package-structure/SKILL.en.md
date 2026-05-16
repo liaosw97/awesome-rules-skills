@@ -1,6 +1,7 @@
 ---
 name: laravel-package-guide-laravel-package-structure-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 - 描述每个主目录和关键文件的用途

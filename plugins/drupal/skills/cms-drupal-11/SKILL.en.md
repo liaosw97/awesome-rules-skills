@@ -1,6 +1,7 @@
 ---
 name: cms-drupal-11-en
 description: Use when working with R — development rules
+translation-status: pending
 ---
 
 ## Code Guidelines

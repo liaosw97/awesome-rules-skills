@@ -1,6 +1,7 @@
 ---
 name: styled-components-en
 description: Use when working with React — development rules
+translation-status: pending
 ---
 
 你是 React、TypeScript 和 Styled Components 方面的专家。

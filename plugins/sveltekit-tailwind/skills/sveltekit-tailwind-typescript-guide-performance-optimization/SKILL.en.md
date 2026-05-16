@@ -1,6 +1,7 @@
 ---
 name: sveltekit-tailwind-typescript-guide-performance-optimization-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 - 在可能的情况下懒加载组件和模块

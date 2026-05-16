@@ -1,6 +1,7 @@
 ---
 name: flask-json-guide-general-python-rules-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 - 始终使用 Python 3.12。

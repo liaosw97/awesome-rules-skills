@@ -1,5 +1,7 @@
 ---
-name: solidjs-basic-guide-solidjs---data-fetching-en
+name: solidjs-basic-guide-solidjs
+translation-status: pending
+---data-fetching-en
 description: SolidJS 数据获取
 paths:
   - "[]"

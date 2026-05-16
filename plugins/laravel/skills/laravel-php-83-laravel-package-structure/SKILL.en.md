@@ -3,6 +3,7 @@ name: laravel-php-83-laravel-package-structure-en
 description: Laravel 包内包结构和文件组织的指导。
 paths:
   - "*/src/**/*.*"
+translation-status: pending
 ---
 
 - 概述包的目录结构

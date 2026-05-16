@@ -1,6 +1,7 @@
 ---
 name: sveltekit-tailwind-typescript-guide-svelte-component-design-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 - 遵循单一职责原则

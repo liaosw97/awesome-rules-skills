@@ -3,6 +3,7 @@ name: express-mongodb-results-and-standings-rules-en
 description: 定义如何向用户显示结果和排名，包括选择可见性和池排名。
 paths:
   - "*/results-standings/**/*.*"
+translation-status: pending
 ---
 
 - 用户分别查看每个条目的选择/分数。

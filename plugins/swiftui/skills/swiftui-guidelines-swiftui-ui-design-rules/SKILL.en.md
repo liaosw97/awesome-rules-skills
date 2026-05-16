@@ -1,6 +1,7 @@
 ---
 name: swiftui-guidelines-swiftui-ui-design-rules-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 - 掌握布局工具：使用 VStack、HStack、ZStack、Spacer 和 Padding 进行响应式设计；使用 LazyVGrid 和 LazyHGrid 创建网格；使用 GeometryReader 实现动态布局。

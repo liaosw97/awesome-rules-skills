@@ -3,6 +3,7 @@ name: django-best-practices-django-templates-en
 description: Django 模板规则，专注于渲染 HTML 和遵循最佳实践。
 paths:
   - "**/templates/**/*.html"
+translation-status: pending
 ---
 
 - 使用 Django 模板渲染 HTML，使用 DRF 序列化器生成 JSON 响应。

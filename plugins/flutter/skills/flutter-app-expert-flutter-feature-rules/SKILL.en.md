@@ -3,6 +3,7 @@ name: flutter-app-expert-flutter-feature-rules-en
 description: 在 Flutter 功能模块中实施清晰架构、BLoC 模式和状态管理原则。
 paths:
   - "lib/features/**/*.*"
+translation-status: pending
 ---
 
 - 在保持代码整洁原则的同时适应现有项目架构。

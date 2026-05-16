@@ -3,6 +3,7 @@ name: chrome-extension-dev-js-typescript-code-output-rules-en
 description: 提供完整可用代码输出的规则，包括必要导入和注释。
 paths:
   - "**/*.{js,ts,html,css}"
+translation-status: pending
 ---
 
 - 提供代码时，始终输出完整文件内容，而不仅是新增或修改部分

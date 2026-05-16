@@ -1,5 +1,7 @@
 ---
-name: chakra-ui-react-chakra-ui---typescript-usage-en
+name: chakra-ui-react-chakra-ui
+translation-status: pending
+---typescript-usage-en
 description: 在使用 Chakra UI 的 React 组件时利用 TypeScript 确保类型安全
 paths:
   - "src/**/*.tsx"

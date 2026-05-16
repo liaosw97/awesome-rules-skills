@@ -3,6 +3,7 @@ name: fastapi-api-example-fastapi-dependency-injection-en
 description: FastAPI 依赖注入
 paths:
   - "[]"
+translation-status: pending
 ---
 
 # FastAPI 依赖注入

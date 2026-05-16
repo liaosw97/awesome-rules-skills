@@ -3,6 +3,7 @@ name: nestjs-typescript-nestjs-general-guidelines-en
 description: 在 'src' 目录中指定 NestJS 特定的架构原则、模块化设计和测试实践。
 paths:
   - "src/**/*.*"
+translation-status: pending
 ---
 
 - 使用模块化架构

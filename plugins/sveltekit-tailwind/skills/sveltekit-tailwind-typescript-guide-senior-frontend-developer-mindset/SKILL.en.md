@@ -1,6 +1,7 @@
 ---
 name: sveltekit-tailwind-typescript-guide-senior-frontend-developer-mindset-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 - 简洁性

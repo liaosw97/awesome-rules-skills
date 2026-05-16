@@ -3,6 +3,7 @@ name: fullstack-mern-guide-entry-creation-rule-en
 description: 条目创建规则
 paths:
   - "[]"
+translation-status: pending
 ---
 
 # 条目创建规则

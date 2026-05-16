@@ -1,6 +1,7 @@
 ---
 name: laravel-package-guide-laravel-package-development-guidelines-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 - 遵循 Laravel 的约定和最佳实践

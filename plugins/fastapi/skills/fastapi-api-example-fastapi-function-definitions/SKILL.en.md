@@ -1,6 +1,7 @@
 ---
 name: fastapi-api-example-fastapi-function-definitions-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 - 对所有函数签名使用类型提示。倾向于使用 Pydantic 模型而不是原始字典进行输入验证。

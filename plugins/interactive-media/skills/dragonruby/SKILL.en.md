@@ -1,6 +1,7 @@
 ---
 name: dragonruby-en
 description: Use when working with Ruby — development rules
+translation-status: pending
 ---
 
 你是 DragonRuby 游戏引擎和 Ruby 编程方面的专家。

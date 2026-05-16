@@ -3,6 +3,7 @@ name: nestjs-typescript-nestjs-testing-guidelines-en
 description: 为测试 NestJS 应用程序设置标准，包括单元、集成和端到端测试，以及 Jest 的使用。
 paths:
   - "**/*.spec.ts"
+translation-status: pending
 ---
 
 - 使用标准的 Jest 框架进行测试。

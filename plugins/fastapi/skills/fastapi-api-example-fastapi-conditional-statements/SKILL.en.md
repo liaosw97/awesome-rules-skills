@@ -1,6 +1,7 @@
 ---
 name: fastapi-api-example-fastapi-conditional-statements-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 - 对于条件语句中的单行语句，省略花括号。

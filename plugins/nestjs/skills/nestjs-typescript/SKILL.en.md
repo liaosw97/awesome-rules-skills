@@ -1,148 +1,75 @@
 ---
 name: nestjs-typescript-en
-description: Use when working with TypeScript — development rules
+description: Cursor rules for Next.js development with React and TypeScript integration.
+translation-status: translated
 ---
+You are an expert in Solidity, TypeScript, Node.js, Next.js 14 App Router, React, Vite, Viem v2, Wagmi v2, Shadcn UI, Radix UI, and Tailwind Aria.  
 
-## 核心原则
-- 遵循 SOLID 原则和模块化设计
-- 使用依赖注入管理服务依赖
-- 为每个主要域/路由创建独立模块
-- 使用 DTO 和 class-validator 验证输入
-- 实现清晰的关注点分离
+Key Principles
 
-## 技术栈
-- **框架**：NestJS
-- **语言**：TypeScript
-- **ORM**：MikroORM / TypeORM
-- **验证**：class-validator
-- **测试**：Jest
+- Write concise, technical responses with accurate TypeScript examples.
+- Use functional, declarative programming. Avoid classes.
+- Prefer iteration and modularization over duplication.
+- Use descriptive variable names with auxiliary verbs (e.g., isLoading).
+- Use lowercase with dashes for directories (e.g., components/auth-wizard).
+- Favor named exports for components.
+- Use the Receive an Object, Return an Object (RORO) pattern.  
 
-## 最佳实践
-### 模块化设计
+JavaScript/TypeScript
 
-```typescript
-// 推荐的项目结构
-src/
-├── core/           # 核心模块
-│   ├── filters/    # 全局异常过滤器
-│   ├── middleware/ # 全局中间件
-│   ├── guards/     # 权限守卫
-│   └── interceptors/ # 拦截器
-├── modules/        # 业务模块
-│   └── feature/
-│       ├── controllers/
-│       ├── models/
-│       │   ├── dto/
-│       │   └── entities/
-│       └── services/
-├── shared/         # 共享模块
-│   ├── utils/
-│   └── services/
-└── main.ts
-```
+- Use "function" keyword for pure functions. Omit semicolons.
+- Use TypeScript for all code. Prefer interfaces over types. Avoid enums, use maps.
+- File structure: Exported component, subcomponents, helpers, static content, types.
+- Avoid unnecessary curly braces in conditional statements.
+- For single-line statements in conditionals, omit curly braces.
+- Use concise, one-line syntax for simple conditional statements (e.g., if (condition) doSomething()).  
 
-### 控制器示例
+Error Handling and Validation
 
-```typescript
-@Controller('users')
-export class UserController {
-  constructor(private readonly userService: UserService) {}
+- Prioritize error handling and edge cases:
+  - Handle errors and edge cases at the beginning of functions.
+  - Use early returns for error conditions to avoid deeply nested if statements.
+  - Place the happy path last in the function for improved readability.
+  - Avoid unnecessary else statements; use if-return pattern instead.
+  - Use guard clauses to handle preconditions and invalid states early.
+  - Implement proper error logging and user-friendly error messages.
+  - Consider using custom error types or error factories for consistent error handling.  
 
-  @Get(':id')
-  async getUser(@Param('id') id: string): Promise<User> {
-    return this.userService.getUserById(id);
-  }
+React/Next.js
 
-  @Post()
-  async createUser(@Body() dto: CreateUserDto): Promise<User> {
-    return this.userService.create(dto);
-  }
-}
-```
+- Use functional components and TypeScript interfaces.
+- Use declarative JSX.
+- Use function, not const, for components.
+- Use Shadcn UI, Radix, and Tailwind Aria for components and styling.
+- Implement responsive design with Tailwind CSS.
+- Use mobile-first approach for responsive design.
+- Place static content and interfaces at file end.
+- Use content variables for static content outside render functions.
+- Minimize 'use client', 'useEffect', and 'setState'. Favor RSC.
+- Use Zod for form validation.
+- Wrap client components in Suspense with fallback.
+- Use dynamic loading for non-critical components.
+- Optimize images: WebP format, size data, lazy loading.
+- Model expected errors as return values: Avoid using try/catch for expected errors in Server Actions. Use useActionState to manage these errors and return them to the client.
+- Use error boundaries for unexpected errors: Implement error boundaries using error.tsx and global-error.tsx files to handle unexpected errors and provide a fallback UI.
+- Use useActionState with react-hook-form for form validation.
+- Code in services/ dir always throw user-friendly errors that tanStackQuery can catch and show to the user.
+- Use next-safe-action for all server actions:
+  - Implement type-safe server actions with proper validation.
+  - Utilize the action function from next-safe-action for creating actions.
+  - Define input schemas using Zod for robust type checking and validation.
+  - Handle errors gracefully and return appropriate responses.
+  - Use import type { ActionResponse } from '@/types/actions'
+  - Ensure all server actions return the ActionResponse type
+  - Implement consistent error handling and success responses using ActionResponse  
 
-### 服务示例
+Key Conventions
 
-```typescript
-@Injectable()
-export class UserService {
-  constructor(
-    @InjectRepository(User)
-    private readonly userRepository: Repository<User>,
-  ) {}
-
-  async getUserById(id: string): Promise<User> {
-    const user = await this.userRepository.findOne({ where: { id } });
-    if (!user) {
-      throw new NotFoundException('用户不存在');
-    }
-    return user;
-  }
-}
-```
-
-### DTO 验证
-
-```typescript
-import { IsString, IsEmail, MinLength } from 'class-validator';
-
-export class CreateUserDto {
-  @IsString()
-  @MinLength(2)
-  name: string;
-
-  @IsEmail()
-  email: string;
-
-  @IsString()
-  @MinLength(8)
-  password: string;
-}
-```
-
-## 关键约定
-1. **命名规范**
-   - 类名：PascalCase
-   - 变量、函数、方法：camelCase
-   - 文件和目录：kebab-case
-   - 环境变量：UPPERCASE
-   - 布尔变量使用动词：isLoading, hasError, canDelete
-
-2. **TypeScript 规范**
-   - 始终声明类型（参数和返回值）
-   - 避免使用 any
-   - 为公共类和方法使用 JSDoc
-   - 每个文件一个导出
-   - 避免魔法数字，定义常量
-
-3. **模块组织**
-   - 每个主要域一个模块
-   - 一个控制器对应其路由
-   - 使用 DTO 验证输入
-   - 为输出声明简单类型
-   - 每个实体一个服务
-
-## 测试规范
-```typescript
-describe('UserService', () => {
-  let service: UserService;
-
-  beforeEach(async () => {
-    const module = await Test.createTestingModule({
-      providers: [UserService, UserRepository],
-    }).compile();
-
-    service = module.get(UserService);
-  });
-
-  it('should return user by id', async () => {
-    const user = await service.getUserById('1');
-    expect(user).toBeDefined();
-  });
-});
-```
-
-## 性能优化
-- 使用缓存拦截器
-- 实现数据库连接池
-- 使用批量操作减少数据库往返
-- 压缩响应数据
+1. Rely on Next.js App Router for state changes.
+2. Prioritize Web Vitals (LCP, CLS, FID).
+3. Minimize 'use client' usage:
+  - Prefer server components and Next.js SSR features.
+  - Use 'use client' only for Web API access in small components.
+  - Avoid using 'use client' for data fetching or state management.
+  Refer to Next.js documentation for Data Fetching, Rendering, and Routing best practices.
+  - https://nextjs.org/docs

@@ -1,5 +1,7 @@
 ---
-name: chakra-ui---accessibility-features-en
+name: chakra-ui
+translation-status: pending
+---accessibility-features-en
 description: 使用 Chakra UI 构建的 React 组件的可访问性功能
 paths:
   - "src/**/*.*"

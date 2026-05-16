@@ -3,6 +3,7 @@ name: apollo-graphql-graphql-apollo-client-usage-en
 description: 应用 GraphQL 和 Apollo Client 使用的最佳实践，包括状态管理、数据获取和错误处理
 paths:
   - "src/graphql/**/*.js"
+translation-status: pending
 ---
 
 - **使用 Apollo Client 进行状态管理和数据获取**：

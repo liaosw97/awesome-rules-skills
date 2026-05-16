@@ -3,6 +3,7 @@ name: nextjs-basic-general-assistant-rules-en
 description: 为所有文件定义一般助手行为，包括如何处理错误、提问和理解项目技术栈
 paths:
   - "*"
+translation-status: pending
 ---
 
 - **全面理解**：对用户需求和项目技术栈有全面深入的理解。

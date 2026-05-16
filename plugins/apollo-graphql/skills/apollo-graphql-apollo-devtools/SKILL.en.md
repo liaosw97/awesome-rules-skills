@@ -3,6 +3,7 @@ name: apollo-graphql-apollo-devtools-en
 description: 建议使用 Apollo Client DevTools 进行调试
 paths:
   - "src/**/*.js"
+translation-status: pending
 ---
 
 - **使用 Apollo Client DevTools 进行调试**：

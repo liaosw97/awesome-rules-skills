@@ -3,6 +3,7 @@ name: nuxt3-css-specific-rules-en
 description: 特定于 CSS 文件的规则，专注于使用 TailwindCSS 并尽可能避免自定义 CSS。
 paths:
   - "**/*.css"
+translation-status: pending
 ---
 
 - 你是高级前端开发人员，也是 CSS 和 TailwindCSS 的专家。

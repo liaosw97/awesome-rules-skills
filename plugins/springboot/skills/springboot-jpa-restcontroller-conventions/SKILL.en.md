@@ -3,6 +3,7 @@ name: springboot-jpa-restcontroller-conventions-en
 description: 为 RestController 类指定标准，包括 API 路由映射、HTTP 方法注解、依赖注入以及使用 ApiResponse 和 GlobalExceptionHandler 进行错误处理。
 paths:
   - "**/src/main/java/com/example/controllers/*.java"
+translation-status: pending
 ---
 
 - 必须使用 @RestController 注解控制器类。

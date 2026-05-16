@@ -1,68 +1,74 @@
 ---
 name: springboot-best-practices-en
-description: Use when working with Kotlin — development rules
+description: Cursor rules for Kotlin Springboot Best Practices.
+translation-status: translated
 ---
+# Kotlin Coding Best Practices for Spring Boot Development
 
-## 项目结构与组织
-1. 将你的源代码分组到明确定义的包中，如 controller、service、repository 和 model，以分离关注点并提高可维护性。
-2. 组织你的文件系统，使每个目录都镜像 Kotlin 的包名（例如，将 com.myapp.users 放在 src/main/kotlin/com/myapp/users 下）。
-3. 每个 Kotlin 文件都以其包含的主要类或概念命名，以使代码库更易于导航和理解。
-4. 避免使用像 Utils.kt 这样模糊的文件名；相反，使用简洁且有意义的名称，以反映文件内容的目的。
-5. 将你的 Spring Boot 应用程序入口点放在根包中，并按层或功能组织子包，以帮助 Spring 高效地扫描和组织组件。
+## Project Structure and Organization
 
-## 编码风格与约定
-1. 类和对象名使用 PascalCase，函数和变量名使用 camelCase，常量名使用 UPPER_SNAKE_CASE，以遵循 Kotlin 的命名约定并提高可读性。
-2. 默认使用 `val` 声明变量，仅在需要可变性时才使用 `var`，以促进更安全、更可预测的代码。
+1.	Group your source code into clearly defined packages like controller, service, repository, and model to separate concerns and improve maintainability.
+2.	Organize your file system so that each directory mirrors the Kotlin package name (e.g. put com.myapp.users under src/main/kotlin/com/myapp/users).
+3.	Name each Kotlin file after the primary class or concept it contains to make the codebase easier to navigate and understand.
+4.	Avoid vague file names like Utils.kt; instead, use concise and meaningful names that reflect the purpose of the file’s contents.
+5.	Place your Spring Boot application entry point in the root package and structure sub-packages by layer or feature to help Spring scan and organize components efficiently.
+
+## Coding Style and Conventions
+
+1.	Use PascalCase for class and object names, camelCase for functions and variables, and UPPER_SNAKE_CASE for constants to follow Kotlin naming conventions and improve readability.
+2.	Declare variables using `val` by default, and only use `var` when mutation is necessary to promote safer, more predictable code.
     ```kotlin
-    val maxConnections = 10    // 不可变引用
-    var currentUsers = 0       // 可变的，如果可能，尽量避免
+    val maxConnections = 10    // immutable reference
+    var currentUsers = 0       // mutable, try to avoid if possible
     ``` 
-3. 将变量的作用域限制在其实际使用的地方——函数内部或更小的代码块中——以避免意外误用，并使代码更易于遵循。
-4. 使用 4 空格缩进、在运算符和逗号周围使用适当的间距，以及编写简短、专注的函数来统一格式化你的代码，以提高清晰度和可维护性。
-5. 编写清晰且富有表现力的代码，而不是巧妙的单行代码；将复杂的逻辑分解为中间变量或命名良好的函数，以提高可读性。
-6. 为类、函数和变量使用描述性的名称以传达意图，并避免使用像 '-Manager' 或 '-Helper' 这样没有实际意义的模糊后缀。
-7. 保持属性的 getter 和 setter 简单且不含复杂逻辑；如果需要复杂的行为，请将其移至单独的方法中，以保持属性访问的可预测性。
+3.	Limit the scope of variables to where they are actually used—inside functions or smaller blocks—to avoid accidental misuse and make code easier to follow.
+4.	Format your code consistently using 4-space indentation, proper spacing around operators and commas, and short, focused functions to improve clarity and maintainability.
+5.	Write clear and expressive code instead of clever one-liners; break complex logic into intermediate variables or well-named functions to improve readability.
+6.	Name classes, functions, and variables descriptively to convey intent, and avoid vague suffixes like '-Manager' or '-Helper' that don’t add meaning.
+7.	Keep property getters and setters simple and free of heavy logic; if complex behavior is needed, move it into a separate method to keep property access predictable.
 
-## 地道的 Kotlin 用法
-1. 使用数据类（data class）定义 DTO 和实体，这样你就可以获得像 `equals()` 和 `copy()` 这样的有用方法，而无需编写样板代码。
-2. 使用默认参数和命名参数替换重载的构造函数，以简化函数调用并使其更具表现力。
+## Idiomatic Kotlin Usage
+
+1.	Use data class to define DTOs and entities so you get useful methods like `equals()` and `copy()` without writing boilerplate code.
+2.	Replace overloaded constructors with default and named parameters to simplify function calls and make them more expressive.
     ```kotlin
-    // Kotlin – 使用默认参数
+    // Kotlin – use default parameters
     fun createConnection(host: String, secure: Boolean = true) { … }
 
-    createConnection("example.com")                      // 使用默认的 secure=true
-    createConnection(host = "test.com", secure = false)  // 使用命名参数以提高清晰度
+    createConnection("example.com")                      // uses default secure=true
+    createConnection(host = "test.com", secure = false)  // named arg for clarity
     ``` 
-3. 使用 `when` 表达式代替冗长的 `if-else` 链，以编写更清晰、更易读的条件逻辑，从而清楚地处理每种情况。
-4. 创建扩展函数而不是工具类，以更自然、更易读的方式为现有类型添加可重用行为。
+3.	Use `when` expressions instead of long `if-else` chains to write cleaner, more readable conditional logic that clearly handles each case.
+4.	Create extension functions instead of utility classes to add reusable behavior to existing types in a more natural and readable way.
     ```kotlin
     fun String.capitalizeFirst(): String = replaceFirstChar { it.uppercaseChar() }
 
-    println("kotlin".capitalizeFirst())  // 打印 "Kotlin"
+    println("kotlin".capitalizeFirst())  // prints "Kotlin"
     ```
-5. 使用作用域函数如 `apply`、`let`、`also`、`run` 和 `with` 来减少重复，并清晰地表达对象配置或空安全操作。
-6. 仅在必要时将变量声明为可空，并使用安全调用运算符（`?.`）和 Elvis 运算符（`?:`）来处理它们，以避免运行时崩溃。
-7. 避免使用非空断言（`!!`），而是提供回退值或显式的空检查，以编写更安全、更可预测的代码。
-8. 立即处理来自 Java API 的平台类型，通过将它们显式转换为 `String` 或 `String?`，以避免在你的 Kotlin 代码中传播可空性的不确定性。
-9. 使用 Kotlin 的函数式集合操作如 `filter`、`map` 和 `forEach` 代替手动循环，以编写简洁且富有表现力的数据转换逻辑。
+5.	Use scope functions like `apply`, `let`, `also`, `run`, and `with` to reduce repetition and clearly express object configuration or null-safe operations.
+6.	Declare variables as nullable only when necessary, and handle them using safe-call operators (`?.`) and the Elvis operator (`?:`) to avoid runtime crashes.
+7.	Avoid using the not-null assertion (`!!`) and instead provide fallback values or explicit null checks to write safer and more predictable code.
+8.	Handle platform types from Java APIs immediately by explicitly casting them to `String` or `String?` to avoid spreading nullability uncertainty in your Kotlin code.
+9.	Use Kotlin’s functional collection operations like `filter`, `map`, and `forEach` instead of manual loops to write concise and expressive data transformation logic.
     ```kotlin
-    // 命令式方法
+    // Imperative approach
     val activeUsers = mutableListOf<User>()
     for (user in users) {
         if (user.isActive) activeUsers.add(user)
     }
 
-    // 地道的函数式方法
+    // Idiomatic functional approach
     val activeUsers = users.filter { it.isActive }
     ``` 
-10. 当逻辑清晰时，将简单函数转换为单表达式函数，以消除不必要的语法并提高代码的简洁性。
+10.	Convert simple functions into single-expression functions when the logic is clear, to eliminate unnecessary syntax and improve code brevity.
     ```kotlin
     fun toDto(entity: User) = UserDto(name = entity.name, email = entity.email)
     ``` 
-11. 使用字符串模板（`$var` 或 `${expression}`）构建字符串，而不是使用拼接，并使用三引号字符串处理干净的多行文本。
+11.	Build strings using string templates (`$var` or `${expression}`) instead of concatenation, and use triple-quoted strings for clean multi-line text.
 
-## 实现模式与设计
-1. 通过构造函数参数使用 `val` 注入依赖，以保持其不可变性，并与 Spring 和 Kotlin 的习惯用法保持一致。
+## Implementation Patterns and Design
+
+1.	Inject dependencies via constructor parameters using `val` to keep them immutable and to align with Spring and Kotlin idioms.
     ```kotlin
     @Service
     class OrderService(
@@ -72,25 +78,25 @@ description: Use when working with Kotlin — development rules
         // ...
     }
     ``` 
-2. 默认保持类为 `final`，并让 Spring 的 'all-open' 插件处理代理生成，这样你就不需要手动添加 open 修饰符。
-3. 使用 Kotlin 的 `object` 声明来实现真正的单例或无状态的工具持有者，而不是使用静态方法或 Java 风格的单例。
-4. 通过组合小的、专注的类或使用高阶函数来支持组合，而不是依赖于深层的继承层次结构。
-5. 当一个类型有一个有限的、封闭的变体集时，定义密封类（sealed class），以在 `when` 表达式中强制进行详尽的处理并提高类型安全性。
+2.	Keep classes `final` by default, and let Spring’s 'all-open' plugin handle proxy generation so you don’t need to manually add the open modifier.
+3.	Use Kotlin’s `object` declaration for true singletons or stateless utility holders instead of static methods or Java-style singletons.
+4.	Favor composition by combining small, focused classes or using higher-order functions instead of relying on deep inheritance hierarchies.
+5.	Define sealed classes when a type has a limited, closed set of variants to enforce exhaustive handling and improve type safety in `when` expressions.
     ```kotlin
     sealed class Result<out T>
     data class Success<T>(val data: T): Result<T>()
     data class Error(val exception: Throwable): Result<Nothing>()
     ``` 
-6. 使用枚举类（enum class）来建模可能包含逻辑的固定常量集，避免在业务逻辑中使用魔术字符串或原始值。
-7. 对于"未找到"或"无效输入"等预期场景，返回可空类型、密封类或结果包装器，而不是抛出异常。
-8. 始终使用 `use` 函数来安全地管理和关闭像流和文件句柄这样的资源，确保即使发生异常也能关闭它们。
+6.	Use enum class to model fixed sets of constants that may contain logic, avoiding magic strings or raw values in business logic.
+7.	Return nullable types, sealed classes, or result wrappers instead of throwing exceptions for expected scenarios like “not found” or “invalid input”.
+8.	Always `use` the use function to safely manage and close resources like streams and file handles, ensuring they are closed even if an exception occurs.
     ```kotlin
     FileInputStream("data.txt").use { stream ->
-        // 从流中读取
-    } // 流在这里自动关闭
+        // read from stream 
+    } // stream is automatically closed here
     ``` 
-9. 尽可能使用 `private` 或 `internal` 来最小化组件的可见性，只将真正必要的内容公开为 public。
-10. 使用 Kotlin 协程和挂起函数（suspend functions）以及像 `launch` 或 `async` 这样的协程构建器来编写干净的、无回调地狱的异步后端代码。
-11. 利用 Kotlin 的标准库特性，如 `lazy`、`observable`、`infix` 和运算符重载，来编写简洁、富有表现力且地道的代码。
-12. 使用带有 `val` 字段的不可变数据类实体和 Kotlin 的 JPA 插件，以满足 JPA 的要求，同时保持模型的安全性和线程友好性。
-13. 使用依赖注入和纯函数为你的业务逻辑编写单元测试，以使测试简单且独立于 Spring 的上下文。
+9.	Minimize visibility of your components by using `private` or `internal` where possible, and only expose what’s truly necessary as public.
+10.	Use Kotlin coroutines with suspend functions and coroutine builders like `launch` or `async` to write clean, asynchronous backend code without callback hell.
+11.	Leverage Kotlin’s standard library features like `lazy`, `observable`, `infix`, and operator overloading to write concise, expressive, and idiomatic code.
+12.	Use immutable data class entities with `val` fields and Kotlin’s JPA plugin to satisfy JPA requirements while keeping your models safe and thread-friendly.
+13.	Write unit tests for your business logic using dependency injection and pure functions to make testing straightforward and independent from Spring’s context.

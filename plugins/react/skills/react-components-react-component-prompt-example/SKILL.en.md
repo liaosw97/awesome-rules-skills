@@ -3,6 +3,7 @@ name: react-components-react-component-prompt-example-en
 description: 为生成具有特定说明的 React 组件提供示例提示模板。
 paths:
   - "packages/ui/src/components/**/*.tsx"
+translation-status: pending
 ---
 
 - 示例提示模板：

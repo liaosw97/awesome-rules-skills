@@ -1,5 +1,7 @@
 ---
-name: solidjs-basic-guide-solidjs---lazy-loading-en
+name: solidjs-basic-guide-solidjs
+translation-status: pending
+---lazy-loading-en
 description: SolidJS 懒加载
 paths:
   - "[]"

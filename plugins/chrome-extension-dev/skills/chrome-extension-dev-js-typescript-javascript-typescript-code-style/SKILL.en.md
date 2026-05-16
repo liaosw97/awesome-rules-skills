@@ -3,6 +3,7 @@ name: chrome-extension-dev-js-typescript-javascript-typescript-code-style-en
 description: JavaScript 和 TypeScript 代码风格规则，包括现代特性、函数式模式和描述性命名约定。
 paths:
   - "**/*.{js,ts}"
+translation-status: pending
 ---
 
 - 编写简洁、技术性的 JavaScript/TypeScript 代码，附带准确示例

@@ -1,5 +1,7 @@
 ---
-name: chakra-ui-react-chakra-ui---folder-structure-en
+name: chakra-ui-react-chakra-ui
+translation-status: pending
+---folder-structure-en
 description: 维护 React 和 Chakra UI 项目的定义文件夹结构以确保代码组织有序
 paths:
   - "src/**/*.*"

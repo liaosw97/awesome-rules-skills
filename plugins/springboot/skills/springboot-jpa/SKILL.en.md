@@ -1,6 +1,7 @@
 ---
 name: springboot-jpa-en
 description: Use when working with Java — development rules
+translation-status: pending
 ---
 
 ## 核心原则

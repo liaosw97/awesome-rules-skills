@@ -1,6 +1,7 @@
 ---
 name: fastapi-api-example-fastapi-dependencies-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 - Pydantic v2

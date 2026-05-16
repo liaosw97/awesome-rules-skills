@@ -3,6 +3,7 @@ name: code-guidelines-general-coding-rules-en
 description: 在所有文件类型中应用一般编码规则，以维护代码质量、一致性并防止常见错误。
 paths:
   - "**/*.*"
+translation-status: pending
 ---
 
 - 在呈现信息之前始终验证信息。不要在没有明确证据的情况下做出假设或推测。

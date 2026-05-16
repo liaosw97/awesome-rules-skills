@@ -1,6 +1,7 @@
 ---
 name: data-science-matplotlib-visualization-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 # Matplotlib 可视化指南

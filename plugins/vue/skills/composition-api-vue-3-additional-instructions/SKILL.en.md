@@ -3,6 +3,7 @@ name: composition-api-vue-3-additional-instructions-en
 description: Vue 3 开发的额外说明，涵盖错误处理、样式设计和最佳实践等领域。
 paths:
   - "src/**/*"
+translation-status: pending
 ---
 
 - 在需要时利用 Vue 3 的 Teleport 组件

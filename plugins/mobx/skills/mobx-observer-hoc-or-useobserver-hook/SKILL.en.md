@@ -3,6 +3,7 @@ name: mobx-observer-hoc-or-useobserver-hook-en
 description: 对响应式组件使用 Observer HOC 或 useObserver hook
 paths:
   - "src/components/**/*.tsx"
+translation-status: pending
 ---
 
 - **对响应式组件使用 `observer` HOC 或 `useObserver` hook**：

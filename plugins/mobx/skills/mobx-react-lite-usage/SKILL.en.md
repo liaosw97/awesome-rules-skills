@@ -3,6 +3,7 @@ name: mobx-react-lite-usage-en
 description: 在使用 MobX 与 React Lite 时强制执行最佳实践
 paths:
   - "src/components/**/*.tsx"
+translation-status: pending
 ---
 
 - **使用 MobX-react-lite 以在函数式组件中获得最佳性能**：

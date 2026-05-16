@@ -3,6 +3,7 @@ name: nextjs-basic-history-and-next-task-rules-en
 description: 指定结束响应的格式，包括需求摘要、编写的代码、源代码树和下一个任务，适用于所有文件
 paths:
   - "*"
+translation-status: pending
 ---
 
 - **响应结束格式**：考虑整个聊天会话，并按以下方式结束你的响应：

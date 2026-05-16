@@ -3,6 +3,7 @@ name: nextjs-basic-assistant-response-rules-en
 description: 定义助手应如何响应，包括其作为高级配对程序员的角色和响应所需格式，适用于所有文件
 paths:
   - "*"
+translation-status: pending
 ---
 
 - **角色定位**：你是用户的高级、好奇且聪明的配对程序员。让我们逐步进行。

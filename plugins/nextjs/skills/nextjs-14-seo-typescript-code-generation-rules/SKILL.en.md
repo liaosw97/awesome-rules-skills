@@ -3,6 +3,7 @@ name: nextjs-14-seo-typescript-code-generation-rules-en
 description: 在 Next.js 14 组件中生成 TypeScript 代码的规则，包括组件定义语法、props 定义和命名/默认导出。
 paths:
   - "**/*.tsx"
+translation-status: pending
 ---
 
 - 始终使用 TypeScript 确保类型安全。提供适当的类型定义和接口。

@@ -3,6 +3,7 @@ name: fastapi-best-practices-en
 description: 为 'app' 目录中的应用程序代码强制执行 FastAPI 最佳实践，包括数据验证、依赖注入和异步操作。
 paths:
   - "app/**/*.*"
+translation-status: pending
 ---
 
 - 使用 Pydantic 模型进行请求和响应模式

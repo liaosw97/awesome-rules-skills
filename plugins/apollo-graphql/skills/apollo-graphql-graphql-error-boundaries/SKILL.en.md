@@ -1,6 +1,7 @@
 ---
 name: apollo-graphql-graphql-error-boundaries-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 ---

@@ -1,5 +1,7 @@
 ---
-name: styled-components---typescript-support-en
+name: styled-components
+translation-status: pending
+---typescript-support-en
 description: 确保为 styled-components 提供适当的 TypeScript 支持。
 paths:
   - "src/components/styled/**/*.tsx"

@@ -1,5 +1,7 @@
 ---
-name: chakra-ui---component-composition-en
+name: chakra-ui
+translation-status: pending
+---component-composition-en
 description: 确保使用 Chakra UI 组件以可组合的方式构建 React 组件
 paths:
   - "src/components/**/*.*"

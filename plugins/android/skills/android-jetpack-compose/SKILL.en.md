@@ -1,96 +1,94 @@
 ---
 name: android-jetpack-compose-en
-description: Use when working with Android — development rules
+description: Cursor rules for Android development with Jetpack Compose integration.
+translation-status: translated
 ---
+// Android Jetpack Compose .cursorrules
 
-## 核心原则
-- **声明式 UI**：拥抱 Compose 声明式编程范式
-- **单向数据流**：State hoisting + Unidirectional flow
-- **组合优于继承**：构建小型可组合函数
-- **性能意识**：最小化重组，优化渲染
-- **Material Design**：遵循 Material 3 设计规范
+// Flexibility Notice
 
-## 技术栈
-- **UI 框架**：Jetpack Compose 1.5+, Material 3
-- **语言**：Kotlin 1.9+, Coroutines, Flow
-- **架构**：Clean Architecture, MVVM
-- **依赖注入**：Hilt, Koin
-- **导航**：Compose Navigation, Hilt Navigation
-- **网络**：Retrofit, OkHttp
-- **本地存储**：Room, DataStore
+// Note: This is a recommended project structure, but be flexible and adapt to existing project structures.
+// Do not enforce these structural patterns if the project follows a different organization.
+// Focus on maintaining consistency with the existing project architecture while applying Jetpack Compose best practices.
 
-## 最佳实践
-1. **状态管理**
-   - 使用 remember 和 derivedStateOf 正确管理状态
-   - State hoisting 提升状态到调用者
-   - MutableState 避免不必要的重组
-   - ViewModel 持有屏幕级状态
+// Project Architecture and Best Practices
 
-2. **Compose 优化**
-   - 使用 stable 注解标记不可变类
-   - 正确使用 key() 减少重组范围
-   - LazyColumn/LazyRow 使用 key 参数
-   - 避免在 Composable 中执行耗时操作
+const androidJetpackComposeBestPractices = [
+    "Adapt to existing project architecture while maintaining clean code principles",
+    "Follow Material Design 3 guidelines and components",
+    "Implement clean architecture with domain, data, and presentation layers",
+    "Use Kotlin coroutines and Flow for asynchronous operations",
+    "Implement dependency injection using Hilt",
+    "Follow unidirectional data flow with ViewModel and UI State",
+    "Use Compose navigation for screen management",
+    "Implement proper state hoisting and composition",
+];
 
-3. **Modifier 规范**
-   - 遵循正确的 Modifier 顺序
-   - 使用 Modifier 链式调用
-   - 传递 Modifier 参数到自定义组件
-   - 分离装饰性和功能性 Modifier
+// Folder Structure
 
-4. **副作用处理**
-   - LaunchedEffect 处理一次性副作用
-   - DisposableEffect 处理生命周期相关
-   - SideEffect 处理 Compose 外的更新
-   - rememberCoroutineScope 用于事件处理
+// Note: This is a reference structure. Adapt to the project's existing organization
 
-5. **架构设计**
-   - UiState + UiEvent 单向数据流
-   - ViewModel 暴露 StateFlow
-   - Repository 抽象数据源
-   - UseCase 封装业务逻辑
+const projectStructure = `
+app/
+  src/
+    main/
+      java/com/package/
+        data/
+          repository/
+          datasource/
+          models/
+        domain/
+          usecases/
+          models/
+          repository/
+        presentation/
+          screens/
+          components/
+          theme/
+          viewmodels/
+        di/
+        utils/
+      res/
+        values/
+        drawable/
+        mipmap/
+    test/
+    androidTest/
+`;
 
-## 关键约定
-1. **项目结构**
-   ```
-   app/
-   ├── data/                   # 数据层
-   │   ├── repository/
-   │   ├── datasource/
-   │   └── models/
-   ├── domain/                 # 领域层
-   │   ├── usecases/
-   │   ├── models/
-   │   └── repository/
-   ├── presentation/           # 表现层
-   │   ├── screens/
-   │   ├── components/
-   │   ├── theme/
-   │   └── viewmodels/
-   ├── di/                     # 依赖注入
-   └── utils/                  # 工具类
-   ```
+// Compose UI Guidelines
 
-2. **命名约定**
-   - Composable 函数：PascalCase (如 `UserProfileScreen`)
-   - State 类：PascalCase + State (如 `UserProfileState`)
-   - Event 类：PascalCase + Event (如 `UserProfileEvent`)
-   - 文件：PascalCase (如 `UserProfileScreen.kt`)
+const composeGuidelines = `
+1. Use remember and derivedStateOf appropriately
+2. Implement proper recomposition optimization
+3. Use proper Compose modifiers ordering
+4. Follow composable function naming conventions
+5. Implement proper preview annotations
+6. Use proper state management with MutableState
+7. Implement proper error handling and loading states
+8. Use proper theming with MaterialTheme
+9. Follow accessibility guidelines
+10. Implement proper animation patterns
+`;
 
-3. **代码组织**
-   ```kotlin
-   @Composable
-   fun UserProfileScreen(
-       state: UserProfileState,
-       onEvent: (UserProfileEvent) -> Unit,
-       modifier: Modifier = Modifier
-   ) {
-       // Composable 实现
-   }
-   ```
+// Testing Guidelines
 
-4. **测试要求**
-   - 单元测试：ViewModel, UseCase
-   - UI 测试：Compose Testing
-   - 使用 Hilt 测试模块
-   - 端到端测试覆盖关键流程
+const testingGuidelines = `
+1. Write unit tests for ViewModels and UseCases
+2. Implement UI tests using Compose testing framework
+3. Use fake repositories for testing
+4. Implement proper test coverage
+5. Use proper testing coroutine dispatchers
+`;
+
+// Performance Guidelines
+
+const performanceGuidelines = `
+1. Minimize recomposition using proper keys
+2. Use proper lazy loading with LazyColumn and LazyRow
+3. Implement efficient image loading
+4. Use proper state management to prevent unnecessary updates
+5. Follow proper lifecycle awareness
+6. Implement proper memory management
+7. Use proper background processing
+`;

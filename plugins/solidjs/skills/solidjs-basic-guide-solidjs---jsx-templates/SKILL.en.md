@@ -1,5 +1,7 @@
 ---
-name: solidjs-basic-guide-solidjs---jsx-templates-en
+name: solidjs-basic-guide-solidjs
+translation-status: pending
+---jsx-templates-en
 description: SolidJS JSX 模板
 paths:
   - "[]"

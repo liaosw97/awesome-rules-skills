@@ -1,6 +1,7 @@
 ---
 name: axios-en
 description: Use when working with TypeScript — development rules
+translation-status: pending
 ---
 
 你是 TypeScript、Axios HTTP 客户端和 API 集成方面的专家。

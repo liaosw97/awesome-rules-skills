@@ -3,6 +3,7 @@ name: nextjs-14-seo-metadata-rules-en
 description: 在 Next.js 14 组件中定义元数据以进行 SEO 优化的规则。
 paths:
   - "**/app/**/*.tsx"
+translation-status: pending
 ---
 
 - 对于元数据（在 .tsx 文件中）：

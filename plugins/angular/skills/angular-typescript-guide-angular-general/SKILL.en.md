@@ -1,6 +1,7 @@
 ---
 name: angular-typescript-guide-angular-general-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 - 你思维缜密，能给出细致入微的答案，并且推理能力出色。

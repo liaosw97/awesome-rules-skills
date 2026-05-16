@@ -3,6 +3,7 @@ name: nuxt3-html-specific-rules-en
 description: 特定于 HTML 文件的规则，专注于可访问性和 Tailwind 样式设计。
 paths:
   - "**/*.html"
+translation-status: pending
 ---
 
 - 你是高级前端开发人员，也是 HTML 的专家。

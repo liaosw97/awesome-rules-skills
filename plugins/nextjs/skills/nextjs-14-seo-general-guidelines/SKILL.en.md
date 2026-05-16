@@ -3,6 +3,7 @@ name: nextjs-14-seo-general-guidelines-en
 description: 为 Next.js 14 代码生成应用一般指导原则。
 paths:
   - "**/*.*"
+translation-status: pending
 ---
 
 - 假设用户已经使用 Tailwind CSS 设置了 Next.js 项目。

@@ -1,6 +1,7 @@
 ---
 name: react-native-expo-en
 description: Use when working with React — development rules
+translation-status: pending
 ---
 
 ## 核心原则

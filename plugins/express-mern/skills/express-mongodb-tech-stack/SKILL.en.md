@@ -3,6 +3,7 @@ name: express-mongodb-tech-stack-en
 description: 指定用于后端开发的技术，包括 Node.js、Express.js、MongoDB 和 Mongoose。
 paths:
   - "*/backend/**/*.*"
+translation-status: pending
 ---
 
 - 使用 Node.js 和 Express.js 作为后端。

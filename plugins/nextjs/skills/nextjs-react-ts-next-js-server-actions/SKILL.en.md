@@ -3,6 +3,7 @@ name: nextjs-react-ts-next-js-server-actions-en
 description: Next.js 服务器操作的特定指导原则，包括错误建模、验证和 next-safe-action 的使用。
 paths:
   - "app/**/*.{ts,js,jsx,tsx}"
+translation-status: pending
 ---
 
 - 将预期错误建模为返回值：避免在服务器操作中对预期错误使用 try/catch。使用 useActionState 管理这些错误并将其返回给客户端。

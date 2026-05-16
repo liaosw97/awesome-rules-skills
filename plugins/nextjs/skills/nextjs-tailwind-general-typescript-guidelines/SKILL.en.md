@@ -3,6 +3,7 @@ name: nextjs-tailwind-general-typescript-guidelines-en
 description: 为项目中所有 TypeScript 文件强制执行 TypeScript 最佳实践和编码标准。
 paths:
   - "**/*.ts"
+translation-status: pending
 ---
 
 - 生成代码时，优先考虑 TypeScript 和 React 最佳实践。

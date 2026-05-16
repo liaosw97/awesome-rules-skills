@@ -3,6 +3,7 @@ name: fullstack-mern-guide-admin-interface-rule-en
 description: 管理员界面规则
 paths:
   - "[]"
+translation-status: pending
 ---
 
 # 管理员界面规则

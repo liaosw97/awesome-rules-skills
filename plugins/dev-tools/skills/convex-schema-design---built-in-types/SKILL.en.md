@@ -1,5 +1,7 @@
 ---
-name: convex-schema-design---built-in-types-en
+name: convex-schema-design
+translation-status: pending
+---built-in-types-en
 description: 提供在使用内置系统字段和数据类型定义 Convex 模式时的指导，以确保正确处理数据。
 paths:
   - "**/convex/schema.ts"

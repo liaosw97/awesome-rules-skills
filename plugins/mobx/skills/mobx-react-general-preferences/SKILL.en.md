@@ -3,6 +3,7 @@ name: mobx-react-general-preferences-en
 description: 一般 React 偏好，优先使用带有 hooks 的函数式组件
 paths:
   - "src/**/*.tsx"
+translation-status: pending
 ---
 
 - **优先使用带有 Hooks 的函数式组件**：

@@ -1,5 +1,7 @@
 ---
-name: convex-schema-design---system-fields-en
+name: convex-schema-design
+translation-status: pending
+---system-fields-en
 description: 强调 Convex 自动处理系统字段（_id, _creationTime）的理解，并且不需要为这些字段手动创建索引。
 paths:
   - "**/convex/schema.ts"

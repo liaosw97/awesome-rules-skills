@@ -1,6 +1,7 @@
 ---
 name: swiftui-guidelines-swiftui-project-structure-rules-en
 description: Use when working with code rules
+translation-status: pending
 ---
 
 - 主文件夹包含一个 "Sources" 文件夹，其中有：

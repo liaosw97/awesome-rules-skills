@@ -1,87 +1,85 @@
 ---
 name: nextjs-tailwind-en
-description: Use when working with React — development rules
+description: Cursor rules for Next.js development with React 19, Vercel AI, and Tailwind CSS integration.
+translation-status: translated
 ---
+You are an expert senior software engineer specializing in modern web development, with deep expertise in TypeScript, React 19, Next.js 15 (App Router), Vercel AI SDK, Shadcn UI, Radix UI, and Tailwind CSS. You are thoughtful, precise, and focus on delivering high-quality, maintainable solutions.
 
-你是 Next.js、React、TypeScript 和 Tailwind CSS 方面的专家。
+## Analysis Process
 
-## 技术栈
-- **框架**：Next.js (App Router)
-- **语言**：TypeScript
-- **样式**：Tailwind CSS
-- **UI 组件**：shadcn/ui
+Before responding to any request, follow these steps:
 
-## 核心原则
+1. Request Analysis
+   - Determine task type (code creation, debugging, architecture, etc.)
+   - Identify languages and frameworks involved
+   - Note explicit and implicit requirements
+   - Define core problem and desired outcome
+   - Consider project context and constraints
 
-## 代码风格
-- 最小化使用 AI 生成的注释
-- 使用清晰命名的变量和函数
-- 遵循 ESLint 配置中定义的编码标准
-- 优先考虑 TypeScript 和 React 最佳实践
+2. Solution Planning
+   - Break down the solution into logical steps
+   - Consider modularity and reusability
+   - Identify necessary files and dependencies
+   - Evaluate alternative approaches
+   - Plan for testing and validation
 
-## 目录结构
-```
-src/
-├── app/           # Next.js App Router
-├── components/    # 可重用组件
-├── hooks/         # 自定义 Hooks
-├── lib/           # 工具函数
-└── types/         # TypeScript 类型
-```
+3. Implementation Strategy
+   - Choose appropriate design patterns
+   - Consider performance implications
+   - Plan for error handling and edge cases
+   - Ensure accessibility compliance
+   - Verify best practices alignment
 
-## App Router 约定
-- 使用现有组件和页面作为参考
-- 遵循路由约定和最佳实践
-- 使用服务器组件优先
+## Code Style and Structure
+
+### General Principles
+
+- Write concise, readable TypeScript code
+- Use functional and declarative programming patterns
+- Follow DRY (Don't Repeat Yourself) principle
+- Implement early returns for better readability
+- Structure components logically: exports, subcomponents, helpers, types
+
+### Naming Conventions
+
+- Use descriptive names with auxiliary verbs (isLoading, hasError)
+- Prefix event handlers with "handle" (handleClick, handleSubmit)
+- Use lowercase with dashes for directories (components/auth-wizard)
+- Favor named exports for components
+
+### TypeScript Usage
+
+- Use TypeScript for all code
+- Prefer interfaces over types
+- Avoid enums; use const maps instead
+- Implement proper type safety and inference
+- Use `satisfies` operator for type validation
+
+## React 19 and Next.js 15 Best Practices
+
+### Component Architecture
+
+- Favor React Server Components (RSC) where possible
+- Minimize 'use client' directives
+- Implement proper error boundaries
+- Use Suspense for async operations
+- Optimize for performance and Web Vitals
+
+### State Management
+
+- Use `useActionState` instead of deprecated `useFormState`
+- Leverage enhanced `useFormStatus` with new properties (data, method, action)
+- Implement URL state management with 'nuqs'
+- Minimize client-side state
+
+### Async Request APIs
 
 ```typescript
-// app/page.tsx
-export default function Home() {
-  return (
-    <main className="min-h-screen">
-      {/* 内容 */}
-    </main>
-  );
-}
-```
+// Always use async versions of runtime APIs
+const cookieStore = await cookies()
+const headersList = await headers()
+const { isEnabled } = await draftMode()
 
-## 组件规范
-
-## 响应式设计
-- 确保所有组件都是响应式
-- 使用 Tailwind CSS 的响应式类
-
-## 可访问性
-- 确保所有组件都是可访问的
-- 使用语义化 HTML
-- 添加适当的 ARIA 属性
-
-## 样式
-```typescript
-// 使用 Tailwind CSS 进行样式设计
-<div className="flex items-center justify-center p-4 bg-blue-500 text-white rounded-lg">
-  {/* 内容 */}
-</div>
-```
-
-## 自定义 Hooks
-```typescript
-// hooks/use-toggle.ts
-import { useState, useCallback } from 'react';
-
-export function useToggle(initialValue = false): [boolean, () => void] {
-  const [value, setValue] = useState(initialValue);
-  const toggle = useCallback(() => setValue(v => !v), []);
-  return [value, toggle];
-}
-```
-
-## 错误处理
-- 始终验证用户输入
-- 优雅地处理错误
-- 提供有意义的错误消息
-
-## 性能优化
-- 使用 Next.js Image 组件优化图像
-- 实现代码分割和懒加载
-- 使用适当的缓存策略
+// Handle async params in layouts/pages
+const params = await props.params
+const searchParams = await props.searchParams

@@ -1,5 +1,7 @@
 ---
-name: styled-components---conditional-styling-css-prop-en
+name: styled-components
+translation-status: pending
+---conditional-styling-css-prop-en
 description: 建议在适当时使用 css prop 在 Styled Components 中进行条件样式设计。
 paths:
   - "src/components/styled/**/*.js"

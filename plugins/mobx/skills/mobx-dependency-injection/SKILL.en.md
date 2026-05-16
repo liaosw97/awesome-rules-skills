@@ -3,6 +3,7 @@ name: mobx-dependency-injection-en
 description: 为 stores 实现适当的依赖注入
 paths:
   - "src/**/*.ts"
+translation-status: pending
 ---
 
 - **为 stores 实现适当的依赖注入**：

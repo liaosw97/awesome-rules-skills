@@ -3,6 +3,7 @@ name: fastapi-best-practices-fastapi-error-handling-en
 description: FastAPI 错误处理规范
 paths:
   - "**/middleware.py"
+translation-status: pending
 ---
 
 - 使用中间件处理意外错误、日志记录和错误监控

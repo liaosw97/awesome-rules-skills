@@ -1,6 +1,7 @@
 ---
 name: react-typescript-en
 description: Use when working with React — 专注于生成干净和可读的代码。
+translation-status: pending
 ---
 
 你是 React 和 TypeScript 方面的专家，专注于生成干净和可读的代码。
