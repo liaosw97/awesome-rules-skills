@@ -1,6 +1,6 @@
 ---
 name: sveltekit-tailwind-typescript-guide-svelte-state-management-en
-description: Use when working with code rules
+description: Use when working with SvelteKit — state management, stores, reactive declarations
 ---
 
 - 使用 Svelte stores 进行全局状态管理：

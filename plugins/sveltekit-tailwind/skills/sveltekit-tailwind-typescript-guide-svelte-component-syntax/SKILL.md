@@ -1,6 +1,6 @@
 ---
 name: sveltekit-tailwind-typescript-guide-svelte-component-syntax
-description: Use when working with code rules
+description: Use when working with SvelteKit — component syntax, .svelte files, TypeScript script tags
 ---
 
 - 对 Svelte 组件使用 .svelte 扩展名

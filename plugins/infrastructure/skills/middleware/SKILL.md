@@ -1,6 +1,6 @@
 ---
 name: middleware
-description: Use when working with coding — development rules
+description: Use when working with middleware — message brokers, API gateways, service mesh, integration
 ---
 
 ## 核心原则

@@ -1,6 +1,6 @@
 ---
 name: simulation-digital-twin-en
-description: Use when working with coding — development rules
+description: Use when working with digital twin — 3D modeling, real-time sync, simulation, IoT integration, predictive analysis
 ---
 
 ## 核心原则

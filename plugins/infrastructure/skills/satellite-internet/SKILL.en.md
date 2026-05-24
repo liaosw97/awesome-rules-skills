@@ -1,6 +1,6 @@
 ---
 name: satellite-internet-en
-description: Use when working with coding — development rules
+description: Use when working with satellite internet — LEO constellation, inter-satellite links, beam management, global coverage
 ---
 
 ## 核心原则

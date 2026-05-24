@@ -1,6 +1,6 @@
 ---
 name: privacy-computing
-description: Use when working with coding — development rules
+description: Use when working with privacy computing — MPC, TEE, differential privacy, federated learning
 ---
 
 ## 核心原则

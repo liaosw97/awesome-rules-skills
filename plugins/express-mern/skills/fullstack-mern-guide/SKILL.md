@@ -1,6 +1,6 @@
 ---
 name: fullstack-mern-guide
-description: Use when working with R — development rules
+description: Use when working with MERN stack (MongoDB, Express, React, Node.js) — fullstack development
 ---
 
 ## 核心原则

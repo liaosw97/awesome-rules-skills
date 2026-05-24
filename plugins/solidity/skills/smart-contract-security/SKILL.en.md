@@ -1,6 +1,6 @@
 ---
 name: smart-contract-security-en
-description: Use when working with coding — development rules
+description: Use when working with smart contract security — Slither, Mythril, formal verification, reentrancy protection, audit workflow
 ---
 
 ## 核心原则

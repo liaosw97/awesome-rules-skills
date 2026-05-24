@@ -1,6 +1,6 @@
 ---
 name: metaverse-en
-description: Use when working with coding — development rules
+description: Use when working with metaverse — 3D virtual world, WebXR, NFT assets, real-time sync, digital avatar
 ---
 
 ## 核心原则

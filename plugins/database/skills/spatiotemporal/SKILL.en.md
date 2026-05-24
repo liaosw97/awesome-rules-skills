@@ -1,6 +1,6 @@
 ---
 name: spatiotemporal-en
-description: Use when working with coding — development rules
+description: Use when working with spatiotemporal database — PostGIS, TimescaleDB, geo queries, trajectory analysis, spatial indexing
 ---
 
 ## 核心原则

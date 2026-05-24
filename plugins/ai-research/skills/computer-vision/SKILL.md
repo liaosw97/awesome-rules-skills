@@ -1,6 +1,6 @@
 ---
 name: computer-vision
-description: Use when working with coding — development rules
+description: Use when working with computer vision — image processing, object detection, OpenCV, YOLO
 ---
 
 ## 核心原则

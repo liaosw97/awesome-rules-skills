@@ -1,6 +1,6 @@
 ---
 name: code-guidelines-en
-description: Use when working with coding — development rules
+description: Use when working with code guidelines — naming conventions, error handling, code quality
 ---
 
 ## 核心原则

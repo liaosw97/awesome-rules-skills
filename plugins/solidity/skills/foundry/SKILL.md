@@ -1,6 +1,6 @@
 ---
 name: foundry
-description: Use when working with Solidity — development rules
+description: Use when working with Foundry — Solidity testing, forge, cast, smart contract development
 ---
 
 ## 技术栈

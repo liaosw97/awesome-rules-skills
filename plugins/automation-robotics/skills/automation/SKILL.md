@@ -1,6 +1,6 @@
 ---
 name: automation
-description: Use when working with coding — development rules
+description: Use when working with industrial automation — PLC, SCADA, OPC UA, functional safety
 ---
 
 ## 核心原则

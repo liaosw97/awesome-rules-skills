@@ -1,6 +1,6 @@
 ---
 name: middleware-en
-description: Use when working with coding — development rules
+description: Use when working with middleware — message queues, distributed cache, API gateway, service proxy, service discovery
 ---
 
 ## 核心原则

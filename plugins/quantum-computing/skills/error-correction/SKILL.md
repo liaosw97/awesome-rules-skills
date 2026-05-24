@@ -1,6 +1,6 @@
 ---
 name: error-correction
-description: Use when working with coding — development rules
+description: Use when working with quantum error correction — surface code, fault tolerance, QEC
 ---
 
 ## 核心原则

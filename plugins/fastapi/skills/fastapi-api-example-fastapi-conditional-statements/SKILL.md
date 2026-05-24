@@ -1,6 +1,6 @@
 ---
 name: fastapi-api-example-fastapi-conditional-statements
-description: Use when working with code rules
+description: Use when working with FastAPI — conditional statements, single-line syntax
 ---
 
 - 对于条件语句中的单行语句，省略花括号。

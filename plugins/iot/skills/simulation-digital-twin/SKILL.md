@@ -1,6 +1,6 @@
 ---
 name: simulation-digital-twin
-description: Use when working with coding — development rules
+description: Use when working with digital twins — real-time sync, simulation, physics engines, 3D modeling
 ---
 
 ## 核心原则

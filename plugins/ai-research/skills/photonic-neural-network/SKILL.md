@@ -1,6 +1,6 @@
 ---
 name: photonic-neural-network
-description: Use when working with coding — development rules
+description: Use when working with photonic neural networks — optical computing, MZI, silicon photonics
 ---
 
 ## 核心原则

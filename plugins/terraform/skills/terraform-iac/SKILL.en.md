@@ -1,6 +1,6 @@
 ---
 name: terraform-iac-en
-description: Use when working with coding — development rules
+description: Use when working with Terraform IaC — infrastructure as code, modules, state management, Terragrunt, resource provisioning
 ---
 
 ## 核心原则

@@ -1,6 +1,6 @@
 ---
 name: knowledge-graph
-description: Use when working with coding — development rules
+description: Use when working with knowledge graphs — Neo4j, RDF, entity extraction, graph databases
 ---
 
 ## 核心原则

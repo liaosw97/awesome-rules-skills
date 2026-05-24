@@ -1,6 +1,6 @@
 ---
 name: federated-learning
-description: Use when working with coding — development rules
+description: Use when working with federated learning — privacy-preserving ML, FATE, PySyft, FedAvg
 ---
 
 ## 核心原则

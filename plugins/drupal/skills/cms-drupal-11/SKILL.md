@@ -1,6 +1,6 @@
 ---
 name: cms-drupal-11
-description: Use when working with R — development rules
+description: Use when working with Drupal CMS — content management development
 ---
 
 ## Code Guidelines

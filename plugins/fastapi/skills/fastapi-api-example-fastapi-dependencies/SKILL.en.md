@@ -1,6 +1,6 @@
 ---
 name: fastapi-api-example-fastapi-dependencies-en
-description: Use when working with code rules
+description: Use when working with FastAPI — dependencies, Pydantic v2, SQLAlchemy 2.0, async database
 ---
 
 - Pydantic v2

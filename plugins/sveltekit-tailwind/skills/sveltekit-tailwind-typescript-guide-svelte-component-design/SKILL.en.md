@@ -1,6 +1,6 @@
 ---
 name: sveltekit-tailwind-typescript-guide-svelte-component-design-en
-description: Use when working with code rules
+description: Use when working with SvelteKit — component design, single responsibility, props, slots
 ---
 
 - 遵循单一职责原则

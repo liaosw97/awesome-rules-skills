@@ -1,6 +1,6 @@
 ---
 name: phoenix-docker-setup-commit-message-generation-rule
-description: Use when working with code rules
+description: Use when working with Elixir/Phoenix — conventional commits, commit message format
 ---
 
 - 始终建议使用一个带有可选小写范围的约定式提交信息。遵循以下结构：

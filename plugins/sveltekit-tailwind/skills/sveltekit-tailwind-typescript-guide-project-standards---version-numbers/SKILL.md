@@ -1,6 +1,6 @@
 ---
 name: sveltekit-tailwind-typescript-guide-project-standards---version-numbers
-description: Use when working with code rules
+description: Use when working with SvelteKit — version numbers, SvelteKit 2.x, TypeScript 5.x
 ---
 
 - SvelteKit: 2.x (Svelte 4.x)

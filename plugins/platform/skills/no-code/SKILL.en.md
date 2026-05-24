@@ -1,6 +1,6 @@
 ---
 name: no-code-en
-description: Use when working with coding — development rules
+description: Use when working with no-code platform — drag-and-drop builder, visual logic, component library, template market
 ---
 
 ## 核心原则

@@ -1,6 +1,6 @@
 ---
 name: fullstack-mern-guide-scoring-and-ranking-rules
-description: Use when working with code rules
+description: Use when working with MERN stack — scoring system, win/lose logic, pool rankings
 ---
 
 - 赢: 参赛作品进入下一周。

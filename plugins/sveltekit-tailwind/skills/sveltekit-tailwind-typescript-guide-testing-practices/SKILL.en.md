@@ -1,6 +1,6 @@
 ---
 name: sveltekit-tailwind-typescript-guide-testing-practices-en
-description: Use when working with code rules
+description: Use when working with SvelteKit — testing practices, unit tests, E2E tests
 ---
 
 - 为工具函数和复杂逻辑编写单元测试

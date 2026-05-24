@@ -1,6 +1,6 @@
 ---
 name: superconducting-computing
-description: Use when working with coding — development rules
+description: Use when working with superconducting quantum computing — transmon, Josephson junctions
 ---
 
 ## 核心原则

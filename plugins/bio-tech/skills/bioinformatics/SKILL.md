@@ -1,6 +1,6 @@
 ---
 name: bioinformatics
-description: Use when working with coding — development rules
+description: Use when working with bioinformatics — sequence analysis, genomics, variant detection, molecular biology
 ---
 
 ## 核心原则

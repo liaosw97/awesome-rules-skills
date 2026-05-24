@@ -1,6 +1,6 @@
 ---
 name: micro-frontend-en
-description: Use when working with coding — development rules
+description: Use when working with micro-frontend — Module Federation, Single-SPA, Qiankun, style isolation, state sharing
 ---
 
 ## 技术栈

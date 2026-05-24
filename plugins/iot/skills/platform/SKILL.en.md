@@ -1,6 +1,6 @@
 ---
 name: platform-en
-description: Use when working with coding — development rules
+description: Use when working with IoT platform — device management, MQTT, edge computing, OTA updates, time-series database
 ---
 
 ## 核心原则

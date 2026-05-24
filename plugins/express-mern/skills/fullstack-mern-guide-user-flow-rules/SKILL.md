@@ -1,6 +1,6 @@
 ---
 name: fullstack-mern-guide-user-flow-rules
-description: Use when working with code rules
+description: Use when working with MERN stack — user flow, request submission, payment, approval
 ---
 
 - 用户每个池子最多提交 3 个请求。

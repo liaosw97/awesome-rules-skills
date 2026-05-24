@@ -1,6 +1,6 @@
 ---
 name: platform
-description: Use when working with coding — development rules
+description: Use when working with IoT platforms — device management, edge computing, IoT connectivity
 ---
 
 ## 核心原则

@@ -1,6 +1,6 @@
 ---
 name: zero-trust-en
-description: Use when working with coding — development rules
+description: Use when working with zero trust architecture — SPIFFE, OPA, mTLS, container security, RBAC, continuous verification
 ---
 
 ## 核心原则

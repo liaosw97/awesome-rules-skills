@@ -1,6 +1,6 @@
 ---
 name: photon-computing
-description: Use when working with coding — development rules
+description: Use when working with photonic computing — optical neural networks, silicon photonics
 ---
 
 ## 核心原则

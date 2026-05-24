@@ -1,6 +1,6 @@
 ---
 name: spatiotemporal
-description: Use when working with coding — development rules
+description: Use when working with spatiotemporal data — GIS, time-series, location-based queries, geospatial
 ---
 
 ## 核心原则

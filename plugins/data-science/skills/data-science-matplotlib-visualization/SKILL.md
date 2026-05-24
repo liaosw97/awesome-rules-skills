@@ -1,6 +1,6 @@
 ---
 name: data-science-matplotlib-visualization
-description: Use when working with code rules
+description: Use when working with Matplotlib — data visualization, charts, plots, scientific graphics
 ---
 
 # Matplotlib 可视化指南

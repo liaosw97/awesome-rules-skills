@@ -1,6 +1,6 @@
 ---
 name: data-science-pandas-best-practices
-description: Use when working with code rules
+description: Use when working with Pandas — DataFrame operations, data manipulation, best practices
 ---
 
 # Pandas 最佳实践

@@ -1,6 +1,6 @@
 ---
 name: superconducting-memory-en
-description: Use when working with coding — development rules
+description: Use when working with superconducting memory — SFQ, Josephson junctions, cryogenic storage
 ---
 
 ## 核心原则

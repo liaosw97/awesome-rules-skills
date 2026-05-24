@@ -1,6 +1,6 @@
 ---
-name: nextjs-supabase-en
-description: Use when working with React — development rules
+name: nextjs-supabase
+description: Use when working with Next.js + Supabase — backend services, auth, and PostgreSQL
 ---
 
 你是 Next.js、React、TypeScript 和 Supabase 后端服务方面的专家。

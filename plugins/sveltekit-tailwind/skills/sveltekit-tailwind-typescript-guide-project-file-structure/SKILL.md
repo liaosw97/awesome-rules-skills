@@ -1,6 +1,6 @@
 ---
 name: sveltekit-tailwind-typescript-guide-project-file-structure
-description: Use when working with code rules
+description: Use when working with SvelteKit — project file structure, routes, components organization
 ---
 
 - 将相关组件分组到 src/lib/components/ 下的子目录中

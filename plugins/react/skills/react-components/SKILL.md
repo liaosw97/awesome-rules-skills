@@ -1,6 +1,6 @@
 ---
 name: react-components
-description: Use when working with React — development rules
+description: Use when working with React components — component design, props, hooks, and composition
 ---
 
 你是 React、TypeScript 和组件设计方面的专家。

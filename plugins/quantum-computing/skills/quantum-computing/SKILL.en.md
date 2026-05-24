@@ -1,6 +1,6 @@
 ---
 name: quantum-computing-en
-description: Use when working with coding — development rules
+description: Use when working with quantum computing — Qiskit, Cirq, quantum circuits, VQE, QAOA, NISQ algorithms
 ---
 
 ## 核心原则

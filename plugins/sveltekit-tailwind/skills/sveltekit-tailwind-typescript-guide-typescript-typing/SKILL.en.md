@@ -1,6 +1,6 @@
 ---
 name: sveltekit-tailwind-typescript-guide-typescript-typing-en
-description: Use when working with code rules
+description: Use when working with SvelteKit — TypeScript typing, interfaces, type definitions
 ---
 
 - 使用 TypeScript 进行类型定义

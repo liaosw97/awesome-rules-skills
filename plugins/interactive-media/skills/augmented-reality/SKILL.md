@@ -1,6 +1,6 @@
 ---
 name: augmented-reality
-description: Use when working with coding — development rules
+description: Use when working with augmented reality — ARKit, ARCore, WebXR, spatial computing
 ---
 
 ## 核心原则

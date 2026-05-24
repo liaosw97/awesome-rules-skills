@@ -1,6 +1,6 @@
 ---
 name: superconducting-computing-en
-description: Use when working with coding — development rules
+description: Use when working with superconducting quantum computing — Transmon qubits, Josephson junction, dilution refrigerator, microwave control
 ---
 
 ## 核心原则

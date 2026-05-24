@@ -1,6 +1,6 @@
 ---
 name: smart-contract-security
-description: Use when working with coding — development rules
+description: Use when working with smart contract security — auditing, vulnerability detection, secure coding
 ---
 
 ## 核心原则

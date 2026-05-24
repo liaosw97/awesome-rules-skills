@@ -1,6 +1,6 @@
 ---
 name: web3
-description: Use when working with Web3 — development rules
+description: Use when working with Web3 — blockchain, DeFi, dApps, decentralized protocols
 ---
 
 ## 核心原则

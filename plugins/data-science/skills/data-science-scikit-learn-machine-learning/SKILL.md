@@ -1,6 +1,6 @@
 ---
 name: data-science-scikit-learn-machine-learning
-description: Use when working with code rules
+description: Use when working with scikit-learn — machine learning, classification, regression, clustering
 ---
 
 # Scikit-learn 机器学习指南

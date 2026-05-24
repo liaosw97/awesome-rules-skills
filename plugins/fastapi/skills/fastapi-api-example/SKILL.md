@@ -1,6 +1,6 @@
 ---
 name: fastapi-api-example
-description: Use when working with Python — development rules
+description: Use when working with FastAPI examples — API patterns, dependency injection, middleware
 ---
 
 ## 核心原则

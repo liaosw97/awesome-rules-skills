@@ -1,6 +1,6 @@
 ---
 name: data-science
-description: Use when working with Python — development rules
+description: Use when working with Python data science — Pandas, NumPy, machine learning, statistical analysis
 ---
 
 你是 Python 数据科学、Pandas、NumPy 和机器学习方面的专家。

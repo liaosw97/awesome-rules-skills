@@ -1,6 +1,6 @@
 ---
 name: android-jetpack-compose---general-best-practices
-description: Use when working with code rules
+description: Use when working with Android Jetpack Compose — general best practices, Material Design 3, clean architecture
 ---
 
 - 遵循 Material Design 3 指南和组件。

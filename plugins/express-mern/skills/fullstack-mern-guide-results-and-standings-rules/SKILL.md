@@ -1,6 +1,6 @@
 ---
 name: fullstack-mern-guide-results-and-standings-rules
-description: Use when working with code rules
+description: Use when working with MERN stack — pool rankings, standings display, scoring results
 ---
 
 - 池子排名显示所有参赛作品 (每个用户可能有多个)。

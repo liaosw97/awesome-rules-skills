@@ -1,6 +1,6 @@
 ---
 name: sveltekit-tailwind-typescript-guide-documentation-standards
-description: Use when working with code rules
+description: Use when working with SvelteKit — documentation standards, README, JSDoc comments
 ---
 
 - 为项目和主要组件维护最新的 README 文件

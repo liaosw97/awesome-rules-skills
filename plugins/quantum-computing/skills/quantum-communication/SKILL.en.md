@@ -1,6 +1,6 @@
 ---
 name: quantum-communication-en
-description: Use when working with coding — development rules
+description: Use when working with quantum communication — QKD protocols, BB84, quantum key distribution, post-quantum cryptography
 ---
 
 ## 核心原则

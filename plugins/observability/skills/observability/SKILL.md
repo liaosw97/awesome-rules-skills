@@ -1,6 +1,6 @@
 ---
 name: observability
-description: Use when working with coding — development rules
+description: Use when working with observability — logs, metrics, traces, OpenTelemetry, monitoring
 ---
 
 ## 核心原则

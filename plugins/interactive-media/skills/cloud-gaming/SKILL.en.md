@@ -1,6 +1,6 @@
 ---
 name: cloud-gaming-en
-description: Use when working with coding — development rules
+description: Use when working with cloud gaming — low latency streaming, WebRTC, video encoding, GPU virtualization, input prediction
 ---
 
 ## 核心原则

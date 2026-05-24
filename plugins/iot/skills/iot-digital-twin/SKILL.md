@@ -1,6 +1,6 @@
 ---
 name: iot-digital-twin
-description: Use when working with coding — development rules
+description: Use when working with IoT digital twins — simulation, device modeling, virtual replicas
 ---
 
 ## 核心原则

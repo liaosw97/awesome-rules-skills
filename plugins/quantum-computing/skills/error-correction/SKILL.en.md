@@ -1,6 +1,6 @@
 ---
 name: error-correction-en
-description: Use when working with coding — development rules
+description: Use when working with quantum error correction — surface code, fault tolerance, decoding algorithms, threshold theorem
 ---
 
 ## 核心原则

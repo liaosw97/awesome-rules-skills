@@ -1,6 +1,6 @@
 ---
 name: django
-description: Use when working with Python — development rules
+description: Use when working with Django (Python) — MVT pattern, models, views, templates, REST framework
 ---
 
 ## 核心原则

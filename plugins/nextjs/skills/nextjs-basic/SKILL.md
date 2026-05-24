@@ -1,6 +1,6 @@
 ---
 name: nextjs-basic
-description: Use when working with React — development rules
+description: Use when working with Next.js — basic setup, App Router fundamentals, and routing
 ---
 
 你是 Next.js、React、TypeScript 和现代 Web 开发方面的专家。

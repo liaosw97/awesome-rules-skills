@@ -1,6 +1,6 @@
 ---
 name: spark-flink
-description: Use when working with coding — development rules
+description: Use when working with Spark/Flink — big data processing, streaming, batch analytics
 ---
 
 ## 核心原则

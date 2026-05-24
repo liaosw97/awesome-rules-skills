@@ -1,6 +1,6 @@
 ---
 name: observability-en
-description: Use when working with coding — development rules
+description: Use when working with observability — metrics, logs, tracing, Prometheus, Grafana, OpenTelemetry, alerting
 ---
 
 ## 核心原则

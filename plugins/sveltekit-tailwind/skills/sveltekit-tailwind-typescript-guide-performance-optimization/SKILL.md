@@ -1,6 +1,6 @@
 ---
 name: sveltekit-tailwind-typescript-guide-performance-optimization
-description: Use when working with code rules
+description: Use when working with SvelteKit — performance optimization, lazy loading, caching
 ---
 
 - 在可能的情况下懒加载组件和模块

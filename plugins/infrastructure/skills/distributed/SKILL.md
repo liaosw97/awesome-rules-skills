@@ -1,6 +1,6 @@
 ---
 name: distributed
-description: Use when working with coding — development rules
+description: Use when working with distributed systems — consensus, replication, fault tolerance, data locality
 ---
 
 ## 核心原则

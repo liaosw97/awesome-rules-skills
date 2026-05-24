@@ -1,6 +1,6 @@
 ---
 name: react-native-expo---additional-instructions-en
-description: Use when working with code rules
+description: Use when working with React Native Expo — styling, icons, secure storage, OTA updates
 ---
 
 - 使用 StyleSheet 实现适当的样式

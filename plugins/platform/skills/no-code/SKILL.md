@@ -1,6 +1,6 @@
 ---
 name: no-code
-description: Use when working with coding — development rules
+description: Use when working with no-code platforms — drag-and-drop, visual builders, citizen developers
 ---
 
 ## 核心原则

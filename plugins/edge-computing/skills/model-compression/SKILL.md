@@ -1,6 +1,6 @@
 ---
 name: model-compression
-description: Use when working with coding — development rules
+description: Use when working with model compression — quantization, pruning, knowledge distillation
 ---
 
 ## 核心原则

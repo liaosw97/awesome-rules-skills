@@ -1,6 +1,6 @@
 ---
 name: biosensor-fusion-en
-description: Use when working with coding — development rules
+description: Use when working with biosensor fusion — multi-modal signal processing, EEG/ECG/EMG, real-time analysis, sensor calibration
 ---
 
 ## 核心原则

@@ -1,6 +1,6 @@
 ---
 name: secure-multiparty-en
-description: Use when working with coding — development rules
+description: Use when working with secure multiparty computation — secret sharing, garbled circuit, oblivious transfer, GMW, SPDZ
 ---
 
 ## 核心原则

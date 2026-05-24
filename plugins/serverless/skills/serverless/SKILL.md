@@ -1,6 +1,6 @@
 ---
 name: serverless
-description: Use when working with coding — development rules
+description: Use when working with serverless — AWS Lambda, Azure Functions, FaaS, event-driven architecture
 ---
 
 ## 核心原则

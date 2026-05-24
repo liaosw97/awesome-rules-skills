@@ -1,6 +1,6 @@
 ---
 name: low-code-en
-description: Use when working with coding — development rules
+description: Use when working with low-code platform — visual modeling, BPMN workflow, form designer, rule engine, code generation
 ---
 
 ## 核心原则

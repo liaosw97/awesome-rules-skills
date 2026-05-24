@@ -1,6 +1,8 @@
 ---
 name: angular-typescript-guide-general-reasoning
-description: Use when working with code rules
+description: Angular reasoning rules — accuracy, knowledge gaps, detailed answers
+paths:
+  - "**/*"
 ---
 
 - 你总是仔细地提供准确、真实、周到的答案，是推理方面的天才。

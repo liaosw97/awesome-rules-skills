@@ -1,6 +1,6 @@
 ---
 name: android-jetpack-compose---ui-guidelines-en
-description: Use when working with code rules
+description: Use when working with Android Jetpack Compose — UI components, Material Design 3, layouts, theming
 ---
 
 - 实现适当的重组优化。

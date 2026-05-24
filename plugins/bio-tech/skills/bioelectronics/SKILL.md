@@ -1,6 +1,6 @@
 ---
 name: bioelectronics
-description: Use when working with coding — development rules
+description: Use when working with bioelectronics — neural electrodes, biosensors, implantable medical devices
 ---
 
 ## 核心原则

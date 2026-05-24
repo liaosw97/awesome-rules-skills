@@ -1,6 +1,6 @@
 ---
 name: data-warehouse
-description: Use when working with coding — development rules
+description: Use when working with data warehouses — ETL, dimensional modeling, analytics, data pipelines
 ---
 
 ## 核心原则

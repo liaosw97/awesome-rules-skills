@@ -1,6 +1,6 @@
 ---
 name: fullstack-mern-guide-tech-stack
-description: Use when working with code rules
+description: Use when working with MERN stack — tech stack, MongoDB, Mongoose, JWT, Docker
 ---
 
 - 使用 MongoDB 与 Mongoose ODM作为数据库。

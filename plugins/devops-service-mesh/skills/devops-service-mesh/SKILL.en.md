@@ -1,6 +1,6 @@
 ---
 name: devops-service-mesh-en
-description: Use when working with coding — development rules
+description: Use when working with service mesh — Istio, Linkerd, Envoy, mTLS, traffic management, canary deployment
 ---
 
 ## 核心原则

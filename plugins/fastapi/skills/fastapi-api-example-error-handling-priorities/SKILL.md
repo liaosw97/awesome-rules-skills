@@ -1,6 +1,6 @@
 ---
 name: fastapi-api-example-error-handling-priorities
-description: Use when working with code rules
+description: Use when working with FastAPI — error handling, guard clauses, early return patterns
 ---
 
 - 在函数开头处理错误和边缘情况。

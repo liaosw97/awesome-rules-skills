@@ -1,6 +1,6 @@
 ---
 name: flask-json-guide-general-python-rules
-description: Use when working with code rules
+description: Use when working with Flask — Python 3.12, class-based design
 ---
 
 - 始终使用 Python 3.12。

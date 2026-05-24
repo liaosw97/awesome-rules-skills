@@ -1,6 +1,6 @@
 ---
 name: sveltekit-tailwind-typescript-guide-tailwind-css-styling-en
-description: Use when working with code rules
+description: Use when working with SvelteKit — Tailwind CSS styling, utility classes, @apply directive
 ---
 
 - 使用 Tailwind CSS 进行样式设计

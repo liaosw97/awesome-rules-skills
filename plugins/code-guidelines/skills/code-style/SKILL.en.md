@@ -1,6 +1,6 @@
 ---
 name: code-style-en
-description: Use when working with coding — development rules
+description: Use when working with code style — formatting, linting, naming conventions, code organization
 ---
 
 ## 核心原则

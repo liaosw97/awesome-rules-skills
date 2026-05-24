@@ -1,6 +1,6 @@
 ---
 name: swiftui-guidelines-swiftui-general-rules
-description: Use when working with code rules
+description: Use when working with SwiftUI — general coding rules, maintainable code, documentation
 ---
 
 - 始终编写可维护和整洁的代码。

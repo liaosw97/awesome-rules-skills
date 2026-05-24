@@ -1,6 +1,6 @@
 ---
 name: data-science-pytorch-deep-learning
-description: Use when working with code rules
+description: Use when working with PyTorch — deep learning, neural networks, tensors, autograd
 ---
 
 # PyTorch 深度学习指南

@@ -1,6 +1,6 @@
 ---
 name: es-module-guide-general-project-practices-en
-description: Use when working with code rules
+description: Use when working with ES Modules — project practices, DRY, modularity, verbosity levels
 ---
 
 - 优先考虑模块化、DRY、性能和安全性

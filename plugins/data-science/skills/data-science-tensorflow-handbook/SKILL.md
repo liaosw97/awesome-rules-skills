@@ -1,6 +1,6 @@
 ---
 name: data-science-tensorflow-handbook
-description: Use when working with code rules
+description: Use when working with TensorFlow — deep learning, Keras, neural networks, ML models
 ---
 
 # TensorFlow 实践手册

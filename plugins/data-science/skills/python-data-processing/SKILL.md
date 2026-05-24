@@ -1,6 +1,6 @@
 ---
 name: python-data-processing
-description: Use when working with Python — development rules
+description: Use when working with Python data processing — ETL, data pipelines, type-safe data handling
 ---
 
 ## 核心原则

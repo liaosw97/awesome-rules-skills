@@ -1,6 +1,6 @@
 ---
 name: laravel-package-guide-laravel-package-structure
-description: Use when working with code rules
+description: Use when working with Laravel — package structure, directory organization, integration
 ---
 
 - 描述每个主目录和关键文件的用途

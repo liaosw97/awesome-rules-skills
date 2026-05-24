@@ -1,6 +1,6 @@
 ---
 name: chaos-engineering
-description: Use when working with coding — development rules
+description: Use when working with chaos engineering — fault injection, resilience testing, system reliability
 ---
 
 ## 核心原则

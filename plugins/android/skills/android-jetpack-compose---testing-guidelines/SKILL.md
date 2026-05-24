@@ -1,6 +1,6 @@
 ---
 name: android-jetpack-compose---testing-guidelines
-description: Use when working with code rules
+description: Use when working with Android Jetpack Compose — testing, JUnit, UI testing, Compose testing APIs
 ---
 
 - 使用 Compose 测试框架实现 UI 测试。

@@ -1,6 +1,6 @@
 ---
 name: sveltekit-tailwind-typescript-guide-general-code-guidelines-en
-description: Use when working with code rules
+description: Use when working with SvelteKit — code guidelines, Tailwind styling, accessibility, naming
 ---
 
 - 利用提早返回（early returns）来提高代码可读性。

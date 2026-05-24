@@ -1,6 +1,6 @@
 ---
 name: bioinformatics-en
-description: Use when working with coding — development rules
+description: Use when working with bioinformatics — sequence analysis, genome alignment, variant detection
 ---
 
 ## 核心原则

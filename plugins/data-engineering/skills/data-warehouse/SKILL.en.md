@@ -1,6 +1,6 @@
 ---
 name: data-warehouse-en
-description: Use when working with coding — development rules
+description: Use when working with data warehouse — Delta Lake, Iceberg, Hudi, data modeling, partitioning, time travel
 ---
 
 ## 核心原则

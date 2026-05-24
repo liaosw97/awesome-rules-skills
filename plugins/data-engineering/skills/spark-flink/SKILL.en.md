@@ -1,6 +1,6 @@
 ---
 name: spark-flink-en
-description: Use when working with coding — development rules
+description: Use when working with Spark/Flink — batch processing, stream processing, data partitioning, checkpoint, DataFrame API
 ---
 
 ## 核心原则

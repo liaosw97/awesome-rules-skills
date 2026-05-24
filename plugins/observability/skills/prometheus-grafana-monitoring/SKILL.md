@@ -1,6 +1,6 @@
 ---
 name: prometheus-grafana-monitoring
-description: Use when working with coding — development rules
+description: Use when working with Prometheus/Grafana — monitoring, alerting, dashboards, metrics collection
 ---
 
 ## 核心原则

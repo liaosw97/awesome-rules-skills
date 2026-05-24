@@ -1,6 +1,6 @@
 ---
 name: kafka-pulsar
-description: Use when working with coding — development rules
+description: Use when working with Kafka/Pulsar — message streaming, event-driven architecture, pub/sub
 ---
 
 ## 核心原则

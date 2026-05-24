@@ -1,6 +1,6 @@
 ---
 name: pair-interviews
-description: Use when working with coding — development rules
+description: Use when working with code review — pair programming, peer review, feedback best practices
 ---
 
 ## 核心原则

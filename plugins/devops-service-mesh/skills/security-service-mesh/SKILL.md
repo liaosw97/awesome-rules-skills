@@ -1,6 +1,6 @@
 ---
 name: security-service-mesh
-description: Use when working with coding — development rules
+description: Use when working with service mesh security — mTLS, SPIFFE, authorization policies
 ---
 
 ## 核心原则

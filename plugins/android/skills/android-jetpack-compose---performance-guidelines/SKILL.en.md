@@ -1,6 +1,6 @@
 ---
 name: android-jetpack-compose---performance-guidelines-en
-description: Use when working with code rules
+description: Use when working with Android Jetpack Compose — performance optimization, profiling, memory management
 ---
 
 - 使用 LazyColumn 和 LazyRow 进行适当的懒加载。

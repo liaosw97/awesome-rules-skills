@@ -1,6 +1,6 @@
 ---
 name: es-module-guide-code-style-and-improvements
-description: Use when working with code rules
+description: Use when working with ES Modules — code style, refactoring, ES features, TODO comments
 ---
 
 - 在适当的地方建议重构和代码改进

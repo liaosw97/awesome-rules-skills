@@ -1,6 +1,6 @@
 ---
 name: advanced-protocols-en
-description: Use when working with coding — development rules
+description: Use when working with Web3 advanced protocols — Layer 2, ZK Rollup, cross-chain, state channels, data availability
 ---
 
 ## 核心原则

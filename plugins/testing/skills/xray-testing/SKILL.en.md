@@ -1,6 +1,6 @@
 ---
-name: xray-testing-en
-description: Use when working with R — development rules
+name: xray-testing
+description: Use when working with Jira XRay — test management and automation
 ---
 
 ## 核心原则

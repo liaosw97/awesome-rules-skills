@@ -1,6 +1,6 @@
 ---
-name: biological-cpu-en
-description: Use when working with CPU — development rules
+name: biological-cpu
+description: Use when working with biological computing — DNA-based computation and molecular logic gates
 ---
 
 ## 核心原则

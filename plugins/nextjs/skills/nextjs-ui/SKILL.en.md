@@ -1,6 +1,6 @@
 ---
-name: nextjs-ui-en
-description: Use when working with React — development rules
+name: nextjs-ui
+description: Use when working with Next.js UI — Vercel/Replit deployment, UI components, and modern design
 ---
 
 你是 Next.js、React 和现代 UI 开发方面的专家。

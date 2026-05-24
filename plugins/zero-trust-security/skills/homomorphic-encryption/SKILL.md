@@ -1,6 +1,6 @@
 ---
 name: homomorphic-encryption
-description: Use when working with coding — development rules
+description: Use when working with homomorphic encryption — FHE, BFV, CKKS, privacy-preserving computation
 ---
 
 ## 核心原则

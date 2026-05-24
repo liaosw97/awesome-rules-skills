@@ -1,6 +1,6 @@
 ---
 name: security-service-mesh-en
-description: Use when working with coding — development rules
+description: Use when working with service mesh security — mTLS, SPIFFE, RBAC, OPA, certificate management, zero trust
 ---
 
 ## 核心原则

@@ -1,6 +1,6 @@
 ---
-name: nextjs-tailwind-en
-description: Use when working with React — development rules
+name: nextjs-tailwind
+description: Use when working with Next.js + Tailwind CSS — styling, shadcn/ui, and responsive design
 ---
 
 你是 Next.js、React、TypeScript 和 Tailwind CSS 方面的专家。

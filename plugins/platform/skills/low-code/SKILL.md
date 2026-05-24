@@ -1,6 +1,6 @@
 ---
 name: low-code
-description: Use when working with coding — development rules
+description: Use when working with low-code platforms — model-driven, BPMN, visual development
 ---
 
 ## 核心原则

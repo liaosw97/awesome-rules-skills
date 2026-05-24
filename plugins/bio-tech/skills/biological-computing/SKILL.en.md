@@ -1,6 +1,6 @@
 ---
 name: biological-computing-en
-description: Use when working with coding — development rules
+description: Use when working with biological computing — DNA storage, molecular programming, gene circuits
 ---
 
 ## 核心原则

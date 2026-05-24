@@ -1,6 +1,6 @@
 ---
 name: embedded-en
-description: Use when working with coding — development rules
+description: Use when working with embedded systems — RTOS, microcontrollers, low power design, real-time constraints, hardware interfaces
 ---
 
 ## 核心原则

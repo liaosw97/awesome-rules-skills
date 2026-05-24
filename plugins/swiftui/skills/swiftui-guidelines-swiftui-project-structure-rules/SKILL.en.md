@@ -1,6 +1,6 @@
 ---
 name: swiftui-guidelines-swiftui-project-structure-rules-en
-description: Use when working with code rules
+description: Use when working with SwiftUI — project structure, MVVM architecture, folder organization
 ---
 
 - 主文件夹包含一个 "Sources" 文件夹，其中有：

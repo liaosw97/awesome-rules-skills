@@ -1,6 +1,6 @@
 ---
 name: kafka-pulsar-en
-description: Use when working with coding — development rules
+description: Use when working with Kafka/Pulsar — message streaming, consumer groups, partitioning, exactly-once, Schema Registry
 ---
 
 ## 核心原则

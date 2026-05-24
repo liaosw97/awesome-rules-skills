@@ -1,6 +1,6 @@
 ---
-name: nextjs-14-seo-en
-description: Use when working with React — development rules
+name: nextjs-14-seo
+description: Use when working with Next.js 14 — SEO optimization, metadata, and App Router
 ---
 
 你是 Next.js 14、React、TypeScript 和 SEO 优化方面的专家。

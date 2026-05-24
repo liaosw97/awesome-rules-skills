@@ -1,6 +1,6 @@
 ---
 name: laravel-package-guide-laravel-package-coding-standards
-description: Use when working with code rules
+description: Use when working with Laravel — package coding standards, naming conventions, Pint config
 ---
 
 - 类和枚举名: 使用 PascalCase (例如, MyClass)

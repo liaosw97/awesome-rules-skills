@@ -1,6 +1,6 @@
 ---
 name: ticket-template-en
-description: Use when working with coding — development rules
+description: Use when working with project management — ticket templates, bug reports, feature requests
 ---
 
 ## 核心原则

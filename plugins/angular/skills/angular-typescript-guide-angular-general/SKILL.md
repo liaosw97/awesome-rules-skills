@@ -1,6 +1,8 @@
 ---
 name: angular-typescript-guide-angular-general
-description: Use when working with code rules
+description: Angular component general rules — code quality, performance, and maintainability
+paths:
+  - "**/*.component.ts"
 ---
 
 - 你思维缜密，能给出细致入微的答案，并且推理能力出色。

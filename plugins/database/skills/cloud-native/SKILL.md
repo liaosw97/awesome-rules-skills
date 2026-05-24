@@ -1,6 +1,6 @@
 ---
 name: cloud-native
-description: Use when working with coding — development rules
+description: Use when working with cloud-native databases — distributed storage, scalability, multi-region
 ---
 
 ## 核心原则

@@ -1,6 +1,6 @@
 ---
 name: android-jetpack-compose-android---project-structure-en
-description: Use when working with code rules
+description: Use when working with Android Jetpack Compose — project architecture, module structure, clean architecture
 ---
 
 - 项目结构:

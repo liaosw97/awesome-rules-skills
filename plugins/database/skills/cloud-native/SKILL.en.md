@@ -1,6 +1,6 @@
 ---
 name: cloud-native-en
-description: Use when working with coding — development rules
+description: Use when working with cloud-native database — TiDB, CockroachDB, distributed transactions, horizontal scaling, Raft
 ---
 
 ## 核心原则

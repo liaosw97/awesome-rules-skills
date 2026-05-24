@@ -1,6 +1,6 @@
 ---
 name: laravel-package-guide-laravel-package-development-guidelines-en
-description: Use when working with code rules
+description: Use when working with Laravel — package development, spatie/laravel-package-tools, DX
 ---
 
 - 遵循 Laravel 的约定和最佳实践

@@ -1,6 +1,6 @@
 ---
 name: carbon-chip
-description: Use when working with coding — development rules
+description: Use when working with carbon-based chips — graphene, CNT FET, flexible electronics
 ---
 
 ## 核心原则

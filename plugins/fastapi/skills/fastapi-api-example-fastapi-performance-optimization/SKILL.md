@@ -1,6 +1,6 @@
 ---
 name: fastapi-api-example-fastapi-performance-optimization
-description: Use when working with code rules
+description: Use when working with FastAPI — performance optimization, caching, lazy loading
 ---
 
 - 使用 Redis 或内存存储等工具为静态和频繁访问的数据实现缓存。

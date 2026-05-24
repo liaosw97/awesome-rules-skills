@@ -1,6 +1,6 @@
 ---
 name: secure-multiparty
-description: Use when working with coding — development rules
+description: Use when working with secure multi-party computation — MPC, secret sharing, oblivious transfer
 ---
 
 ## 核心原则

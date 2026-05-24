@@ -1,6 +1,6 @@
 ---
 name: augmented-reality-en
-description: Use when working with coding — development rules
+description: Use when working with augmented reality — ARKit, ARCore, SLAM tracking, environment sensing, gesture interaction
 ---
 
 ## 核心原则

@@ -1,6 +1,8 @@
 ---
 name: angular-typescript-guide-typescript-coding-style
-description: Use when working with code rules
+description: Angular TypeScript coding style — ESLint, Prettier, line limits, function parameters
+paths:
+  - "**/*.ts"
 ---
 
 - 每行代码不应超过 80 个字符。

@@ -1,6 +1,6 @@
 ---
 name: fastapi-api-example-fastapi-blocking-operations
-description: Use when working with code rules
+description: Use when working with FastAPI — async operations, non-blocking flow, database async
 ---
 
 - 倾向于异步和非阻塞流程。

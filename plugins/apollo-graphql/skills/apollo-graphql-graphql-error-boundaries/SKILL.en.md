@@ -1,13 +1,10 @@
 ---
-name: apollo-graphql-graphql-error-boundaries-en
-description: Use when working with code rules
+name: apollo-graphql-graphql-error-boundaries
+description: Use when working with Apollo GraphQL — error boundary implementation
+globs: src/**/*.jsx
 ---
 
----
-description: "要求为 GraphQL 错误实现适当的错误边界"
-globs: src/**/*.jsx
---- 
-- **为 GraphQL 错误实现适当的错误边界**：
+- **Implement proper error boundaries for GraphQL errors**:
   - **使用 React 错误边界**：利用 React 的错误边界（Error Boundaries）来捕获组件树中由 GraphQL 操作（查询、变更、订阅）引起的 JavaScript 错误，防止整个应用崩溃。
   - **集中错误处理**：在错误边界组件中集中处理和展示友好的错误信息，而不是让每个组件单独处理错误状态。
   - **错误日志记录**：在错误边界中实现错误日志记录机制（例如，发送到 Sentry、Bugsnag 等错误监控服务），以便于跟踪和诊断生产环境中的问题。

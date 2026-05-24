@@ -1,6 +1,6 @@
 ---
 name: sveltekit-tailwind-typescript-guide-code-quality-tools
-description:  
+description: Use when working with SvelteKit code quality — ESLint, Prettier, code review
 paths:
   - " "
 ---

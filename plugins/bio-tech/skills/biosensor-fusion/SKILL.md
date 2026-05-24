@@ -1,6 +1,6 @@
 ---
 name: biosensor-fusion
-description: Use when working with coding — development rules
+description: Use when working with biosensor fusion — signal processing, multi-modal sensing, data integration
 ---
 
 ## 核心原则

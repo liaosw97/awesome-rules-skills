@@ -1,6 +1,6 @@
 ---
 name: sveltekit-tailwind-typescript-guide-accessibility-guidelines
-description:  
+description: Use when working with SvelteKit accessibility — ARIA, semantic HTML, keyboard navigation
 paths:
   - " "
 ---

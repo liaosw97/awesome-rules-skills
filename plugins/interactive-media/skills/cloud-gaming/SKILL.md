@@ -1,6 +1,6 @@
 ---
 name: cloud-gaming
-description: Use when working with coding — development rules
+description: Use when working with cloud gaming — game streaming, WebRTC, low latency rendering
 ---
 
 ## 核心原则

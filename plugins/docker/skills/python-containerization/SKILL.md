@@ -1,6 +1,6 @@
 ---
 name: python-containerization
-description: Use when working with Python — development rules
+description: Use when working with Python containerization — Docker, Dockerfile, container deployment
 ---
 
 你是 Python、数据库算法和容器化技术方面的专家。

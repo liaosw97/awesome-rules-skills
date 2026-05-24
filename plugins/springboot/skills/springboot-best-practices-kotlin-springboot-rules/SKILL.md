@@ -1,6 +1,6 @@
 ---
 name: springboot-best-practices-kotlin-springboot-rules
-description: Use when working with code rules
+description: Use when working with Spring Boot Kotlin — project structure, coding style, idiomatic Kotlin
 ---
 
 ## 项目结构与组织

@@ -1,6 +1,6 @@
 ---
 name: code-guidelines-comprehensive
-description: Use when working with coding — development rules
+description: Use when working with code guidelines — comprehensive rules, quality checklist, best practices
 ---
 
 ## 核心原则

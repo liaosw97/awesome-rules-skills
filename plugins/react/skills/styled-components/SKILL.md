@@ -1,6 +1,6 @@
 ---
 name: styled-components
-description: Use when working with React — development rules
+description: Use when working with styled-components — CSS-in-JS, theming, and styling patterns
 ---
 
 你是 React、TypeScript 和 Styled Components 方面的专家。

@@ -1,6 +1,6 @@
 ---
 name: ros-en
-description: Use when working with coding — development rules
+description: Use when working with ROS/ROS2 — robot operating system, navigation, MoveIt
 ---
 
 ## 核心原则

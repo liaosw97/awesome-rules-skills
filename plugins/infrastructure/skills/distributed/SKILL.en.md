@@ -1,6 +1,6 @@
 ---
 name: distributed-en
-description: Use when working with coding — development rules
+description: Use when working with distributed computing — Ray, Dask, Spark, task scheduling, fault tolerance, resource management
 ---
 
 ## 核心原则

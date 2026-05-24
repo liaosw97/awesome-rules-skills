@@ -1,6 +1,6 @@
 ---
 name: advanced-protocols
-description: Use when working with coding — development rules
+description: Use when working with advanced blockchain protocols — Layer 2, cross-chain, scaling solutions
 ---
 
 ## 核心原则

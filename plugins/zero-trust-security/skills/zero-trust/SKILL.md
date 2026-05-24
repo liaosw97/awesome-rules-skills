@@ -1,6 +1,6 @@
 ---
 name: zero-trust
-description: Use when working with coding — development rules
+description: Use when working with zero trust security — mTLS, OPA, identity verification, least privilege
 ---
 
 ## 核心原则

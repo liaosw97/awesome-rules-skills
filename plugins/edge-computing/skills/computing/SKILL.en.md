@@ -1,6 +1,6 @@
 ---
 name: computing-en
-description: Use when working with coding — development rules
+description: Use when working with edge computing — KubeEdge, edge AI, low latency processing, offline autonomy, cloud-edge sync
 ---
 
 ## 核心原则

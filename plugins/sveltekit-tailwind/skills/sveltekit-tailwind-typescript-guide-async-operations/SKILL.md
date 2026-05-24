@@ -1,6 +1,6 @@
 ---
 name: sveltekit-tailwind-typescript-guide-async-operations
-description:  
+description: Use when working with SvelteKit async operations — async/await, onMount, promises
 paths:
   - " "
 ---

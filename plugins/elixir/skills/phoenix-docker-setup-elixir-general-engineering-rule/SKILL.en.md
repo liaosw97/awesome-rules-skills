@@ -1,6 +1,6 @@
 ---
 name: phoenix-docker-setup-elixir-general-engineering-rule-en
-description: Use when working with code rules
+description: Use when working with Elixir/Phoenix — engineering practices, Phoenix LiveView, Ecto
 ---
 
 技术栈: Elixir, Phoenix, Docker, PostgreSQL, Tailwind CSS, LeftHook, Sobelow, Credo, Ecto, ExUnit, Plug, Phoenix LiveView, Phoenix LiveDashboard, Gettext, Jason, Swoosh, Finch, DNS Cluster, File System Watcher, Release Please, ExCoveralls

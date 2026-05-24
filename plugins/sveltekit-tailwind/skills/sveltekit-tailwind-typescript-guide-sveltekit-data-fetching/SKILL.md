@@ -1,6 +1,6 @@
 ---
 name: sveltekit-tailwind-typescript-guide-sveltekit-data-fetching
-description: Use when working with code rules
+description: Use when working with SvelteKit — data fetching, load functions, form actions
 ---
 
 - 使用 SvelteKit 的 load 函数进行服务器端数据获取

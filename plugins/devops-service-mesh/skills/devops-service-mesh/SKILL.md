@@ -1,6 +1,6 @@
 ---
 name: devops-service-mesh
-description: Use when working with coding — development rules
+description: Use when working with service mesh — Istio, Linkerd, traffic management, mTLS
 ---
 
 ## 核心原则
