@@ -1,193 +1,34 @@
 ---
 name: go
-description: Use when working with Go — development rules
+description: Use when working with Go — development rules, concurrency, error handling
 ---
 
+# Go 开发规约概述
+
+本文档为 Go 开发规约的父 skill，详细内容拆分为以下子 skill：
+
+## 子规约索引
+
+| 子 skill | 主题 | 触发路径 |
+|----------|------|----------|
+| go-conventions | 代码规范（项目结构、命名） | 无 paths（通用型） |
+| go-error-handling | 错误处理（错误类型、包装） | `**/*error*.go` |
+| go-concurrency | 并发编程（goroutine、channel） | `**/*goroutine*.go`, `**/*channel*.go` |
+
 ## 核心原则
+
 - 编写简洁、高效、可维护的代码
 - 利用 Go 的并发特性提高性能
 - 使用接口实现松耦合设计
 - 优先组合而非继承
-- 关注错误处理和资源管理
 
 ## 技术栈
+
 - **语言**：Go 1.21+
 - **API**：REST / gRPC
-- **数据库**：PostgreSQL / MySQL / MongoDB
-- **缓存**：Redis / Memcached
-- **消息队列**：Kafka / RabbitMQ
+- **数据库**：PostgreSQL / MySQL
 - **容器化**：Docker / Kubernetes
 
-## 最佳实践
-### 项目结构
+---
 
-```
-project/
-├── cmd/                # 应用入口
-│   └── server/
-│       └── main.go
-├── internal/           # 内部包
-│   ├── handlers/       # HTTP 处理器
-│   ├── services/       # 业务逻辑
-│   ├── models/         # 数据模型
-│   └── repository/     # 数据访问
-├── pkg/                # 公共包
-├── configs/            # 配置文件
-├── api/                # API 定义
-│   └── proto/
-└── go.mod
-```
-
-### 并发模式
-
-```go
-// 使用 goroutine 和 channel
-func processItems(items []Item) []Result {
-    results := make(chan Result, len(items))
-    var wg sync.WaitGroup
-
-    for _, item := range items {
-        wg.Add(1)
-        go func(i Item) {
-            defer wg.Done()
-            results <- processItem(i)
-        }(item)
-    }
-
-    go func() {
-        wg.Wait()
-        close(results)
-    }()
-
-    var allResults []Result
-    for r := range results {
-        allResults = append(allResults, r)
-    }
-    return allResults
-}
-```
-
-### API 设计
-
-```go
-// RESTful 处理器
-func (h *Handler) GetUser(w http.ResponseWriter, r *http.Request) {
-    id := chi.URLParam(r, "id")
-    user, err := h.service.GetUser(r.Context(), id)
-    if err != nil {
-        respondError(w, http.StatusNotFound, err.Error())
-        return
-    }
-    respondJSON(w, http.StatusOK, user)
-}
-
-// 统一响应格式
-func respondJSON(w http.ResponseWriter, status int, data any) {
-    w.Header().Set("Content-Type", "application/json")
-    w.WriteHeader(status)
-    json.NewEncoder(w).Encode(data)
-}
-```
-
-### 错误处理
-
-```go
-// 自定义错误类型
-type AppError struct {
-    Code    int
-    Message string
-    Err     error
-}
-
-func (e *AppError) Error() string {
-    return fmt.Sprintf("%s: %v", e.Message, e.Err)
-}
-
-func (e *AppError) Unwrap() error {
-    return e.Err
-}
-
-// 使用
-if err != nil {
-    return &AppError{
-        Code:    http.StatusNotFound,
-        Message: "用户不存在",
-        Err:     err,
-    }
-}
-```
-
-## 关键约定
-1. **命名规范**
-   - 包名：小写单词，不使用下划线
-   - 导出函数：PascalCase
-   - 私有函数：camelCase
-   - 接口：动词 + er（如 Reader, Writer）
-
-2. **错误处理**
-   - 不忽略错误
-   - 使用自定义错误类型
-   - 添加错误上下文
-
-3. **代码组织**
-   - 按功能组织包
-   - 使用 internal 保护内部实现
-   - 保持接口最小化
-
-## 性能优化
-### 内存管理
-
-- 关注内存分配和 GC
-- 使用 sync.Pool 复用对象
-- 预分配切片和 map
-
-### 并发优化
-
-- 使用连接池
-- 合理设置 goroutine 数量
-- 避免竞争条件
-
-### 数据库优化
-
-- 使用预处理语句
-- 批量操作减少网络往返
-- 实现查询缓存
-
-## 可观测性
-- 使用 Prometheus 和 Grafana 监控
-- 统一日志（ELK 或 Loki）
-- 分布式追踪（Jaeger / Zipkin）
-
-## 测试规范
-```go
-func TestUserService(t *testing.T) {
-    tests := []struct {
-        name    string
-        input   string
-        want    *User
-        wantErr bool
-    }{
-        {
-            name:  "valid user",
-            input: "user-123",
-            want:  &User{ID: "user-123"},
-        },
-        {
-            name:    "not found",
-            input:   "invalid",
-            wantErr: true,
-        },
-    }
-    for _, tt := range tests {
-        t.Run(tt.name, func(t *testing.T) {
-            got, err := service.GetUser(context.Background(), tt.input)
-            if (err != nil) != tt.wantErr {
-                t.Errorf("GetUser() error = %v, wantErr %v", err, tt.wantErr)
-            }
-            if !reflect.DeepEqual(got, tt.want) {
-                t.Errorf("GetUser() = %v, want %v", got, tt.want)
-            }
-        })
-    }
-}
-```
+> 详细规约请参考对应的子 skill 文件。

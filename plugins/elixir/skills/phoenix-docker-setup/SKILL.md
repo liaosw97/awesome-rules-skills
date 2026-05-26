@@ -1,6 +1,6 @@
 ---
 name: phoenix-docker-setup
-description: Use when working with Phoenix — development rules
+description: Phoenix Docker 配置 — 容器化、函数式编程、模式匹配。Use when setting up Phoenix with Docker, containerization, functional programming.
 ---
 
 ## 核心原则

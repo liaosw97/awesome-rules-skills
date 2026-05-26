@@ -1,6 +1,6 @@
 ---
 name: backend-scalability
-description: Use when working with Go — development rules
+description: 后端可扩展性设计 — 并发模式、连接池、缓存策略、可观测性。Use when designing scalable backend systems, worker pools, connection pooling, caching strategies.
 ---
 
 ## 核心原则

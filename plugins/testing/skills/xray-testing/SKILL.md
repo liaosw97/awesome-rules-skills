@@ -1,6 +1,6 @@
 ---
 name: xray-testing
-description: Use when working with Jira XRay — test management and automation
+description: Jira XRay 测试管理 — 测试用例、覆盖率、CI/CD 集成。Use when managing tests with Jira XRay, test case management, coverage tracking.
 ---
 
 ## 核心原则

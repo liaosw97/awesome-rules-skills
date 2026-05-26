@@ -1,6 +1,6 @@
 ---
 name: laravel-package-guide
-description: Use when working with Laravel — development rules
+description: Laravel Package 开发指南 — 包结构、编码规范、测试文档。Use when developing Laravel packages, package structure, coding standards.
 ---
 
 ## 核心原则

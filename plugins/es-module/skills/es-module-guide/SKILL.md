@@ -1,6 +1,6 @@
 ---
 name: es-module-guide
-description: Use when working with Node.js — development rules
+description: Node.js ES Module 指南 — import/export 语法、模块化设计。Use when developing Node.js with ES Modules, import/export syntax.
 ---
 
 ## 核心原则

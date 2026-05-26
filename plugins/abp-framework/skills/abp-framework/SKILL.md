@@ -1,185 +1,31 @@
 ---
 name: abp-framework
-description: Use when working with ABP — development rules
+description: Use when working with ABP Framework — development rules overview
 ---
 
+# ABP Framework 规约概述
+
+本文档为 ABP Framework 规约的父 skill，详细内容拆分为以下子 skill：
+
+## 子规约索引
+
+| 子 skill | 主题 | 触发路径 |
+|----------|------|----------|
+| abp-modules | 模块化开发 | 无 paths（通用型） |
+| abp-domain | 领域层 | `**/Domain/**/*.cs` |
+| abp-application | 应用层 | `**/Application/**/*.cs` |
+
 ## 核心原则
+
 - 遵循领域驱动设计（DDD）原则
 - 使用 SOLID 原则构建可维护代码
 - 实现清晰的分层架构
-- 使用现代 C# 特性
-- 关注模块化和代码复用
 
 ## 技术栈
+
 - **运行时**：.NET 8.0+
 - **框架**：ABP Framework
 - **ORM**：Entity Framework Core
-- **Web**：ASP.NET Core
-- **前端**：Blazor / Angular / React
-- **微服务**：Dapr（可选）
 
-## 最佳实践
-### 命名约定
-
-| 类型 | 规范 | 示例 |
-|------|------|------|
-| 项目名 | PascalCase | `MyProject` |
-| 类名 | PascalCase | `UserManager` |
-| 接口名 | I + PascalCase | `IUserAppService` |
-| 方法名 | PascalCase | `GetUserAsync` |
-| 变量名 | camelCase | `userRepository` |
-| 常量 | PascalCase / UPPER_SNAKE_CASE | `MaxRetryCount` |
-
-### 项目结构
-
-```
-src/
-├── MyProject.Domain/           # 领域层
-│   ├── Entities/               # 实体和聚合根
-│   ├── Repositories/           # 仓储接口
-│   ├── ValueObjects/           # 值对象
-│   └── DomainServices/         # 领域服务
-├── MyProject.Domain.Shared/    # 共享领域
-│   └── Enums/                  # 枚举定义
-├── MyProject.Application/      # 应用层
-│   ├── Services/               # 应用服务
-│   ├── DTOs/                   # 数据传输对象
-│   └── AutoMapper/             # 对象映射配置
-├── MyProject.Application.Contracts/
-│   ├── Services/               # 服务接口
-│   └── DTOs/                   # DTO 定义
-├── MyProject.EntityFrameworkCore/
-│   ├── EntityConfigurations/   # EF Core 配置
-│   └── Migrations/             # 数据库迁移
-├── MyProject.HttpApi/          # HTTP API
-│   └── Controllers/            # API 控制器
-└── MyProject.Web/              # Web 层
-    ├── Pages/                  # Razor Pages
-    └── Components/             # 视图组件
-```
-
-### 领域层示例
-
-```csharp
-// 聚合根
-public class User : AggregateRoot<Guid>
-{
-    public string UserName { get; private set; }
-    public string Email { get; private set; }
-
-    private User() { } // ORM 需要
-
-    public User(Guid id, string userName, string email) : base(id)
-    {
-        UserName = userName;
-        Email = email;
-    }
-
-    public void UpdateEmail(string email)
-    {
-        Email = email;
-        AddLocalEvent(new UserEmailChangedEvent(Id, email));
-    }
-}
-
-// 值对象
-public class EmailAddress : ValueObject
-{
-    public string Address { get; private set; }
-
-    private EmailAddress() { }
-
-    public EmailAddress(string address)
-    {
-        Address = address; // 验证逻辑
-    }
-
-    protected override IEnumerable<object> GetAtomicValues()
-    {
-        yield return Address;
-    }
-}
-```
-
-### 应用层示例
-
-```csharp
-// DTO (使用 record 类型)
-public record CreateUpdateUserDto(
-    string UserName,
-    string Email,
-    string? PhoneNumber
-);
-
-// 应用服务
-[Authorize(MyProjectPermissions.Users.Create)]
-public class UserAppService(
-    IUserRepository userRepository,
-    UserManager<User> userManager) : ApplicationService, IUserAppService
-{
-    public async Task<UserDto> CreateAsync(CreateUpdateUserDto input)
-    {
-        var user = new User(GuidGenerator.Create(), input.UserName, input.Email);
-        await userRepository.InsertAsync(user);
-        return ObjectMapper.Map<User, UserDto>(user);
-    }
-
-    public async Task<UserDto> GetAsync(Guid id)
-    {
-        var user = await userRepository.FindAsync(id)
-            ?? throw new EntityNotFoundException(typeof(User), id);
-        return ObjectMapper.Map<User, UserDto>(user);
-    }
-}
-```
-
-### 实体配置
-
-```csharp
-public class UserConfiguration : IEntityTypeConfiguration<User>
-{
-    public void Configure(EntityTypeBuilder<User> builder)
-    {
-        builder.ToTable("Users");
-        builder.HasKey(x => x.Id);
-        builder.Property(x => x.UserName).IsRequired().HasMaxLength(256);
-        builder.Property(x => x.Email).IsRequired().HasMaxLength(256);
-        builder.HasIndex(x => x.Email).IsUnique();
-    }
-}
-```
-
-## 关键约定
-1. **领域层**
-   - 实体继承 `Entity` 或 `AggregateRoot`
-   - 使用值对象封装复杂类型
-   - 定义领域服务和仓储接口
-   - 使用领域事件解耦业务逻辑
-
-2. **应用层**
-   - 应用服务实现 `IApplicationService`
-   - 使用 DTO 进行数据传输
-   - 使用 AutoMapper 进行对象映射
-   - 实现权限授权
-
-3. **基础设施层**
-   - 实现 `IRepository<TEntity>` 接口
-   - 使用 EF Core 配置映射
-   - 实现数据库迁移
-
-4. **表现层**
-   - 使用 Auto API Controllers
-   - 实现动态 C# API 客户端
-   - 使用 ABP 的 Bundling 系统
-
-## 测试规范
-- 使用 xUnit 进行单元测试
-- 使用 ABP 测试基础设施
-- 模拟依赖项进行隔离测试
-- 测试应用服务和领域逻辑
-
-## 模块化
-- 定义模块依赖关系
-- 使用 Volo.Abp.Modularity
-- 实现模块初始化逻辑
-- 支持模块热插拔
+---
+> 详细规约请参考对应的子 skill 文件。

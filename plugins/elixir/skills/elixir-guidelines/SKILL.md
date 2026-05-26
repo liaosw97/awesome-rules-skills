@@ -1,6 +1,6 @@
 ---
 name: elixir-guidelines
-description: Use when working with Elixir — development rules
+description: Elixir 开发指南 — 函数式编程、管道操作、模式匹配。Use when developing Elixir applications, functional programming, pipe operator.
 ---
 
 ## 核心原则

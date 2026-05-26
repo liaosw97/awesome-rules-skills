@@ -1,6 +1,6 @@
 ---
 name: git-conventional-commit-messages
-description: Use when working with Git — development rules
+description: Git 约定式提交规范 — commit message 格式、类型、规则。Use when writing Git commit messages, conventional commits format.
 ---
 
 ## 核心原则
